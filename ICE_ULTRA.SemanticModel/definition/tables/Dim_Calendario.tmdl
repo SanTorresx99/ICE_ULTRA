@@ -1,0 +1,278 @@
+table Dim_Calendario
+	lineageTag: 7a536123-4045-4681-8fb3-4a477ad43684
+	sourceLineageTag: 1e48468a-a764-41dd-a472-32bba716f2f4
+
+	measure QTD_ICE_HIST = CALCULATE([Vol_Liq_WTH_Hist], Dim_Produtos[prd_Produto_int_PK] IN { 201670, 200168, 201681, 201910 }, Fato_Vendas_Hist_Winthor[VLRUNITARIO] >= 53.0)
+		lineageTag: 7ad9f458-3446-447d-939b-e71413b2d12c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure QTD_ICE_ATUAL = CALCULATE([Real_Vol_Hoje], Dim_Produtos[prd_Produto_int_PK] IN { 201670, 200168, 201681, 201910 }, Fato_Vendas_Atual_Winthor[VLRUNITARIO] >= 53.0)
+		lineageTag: e54a5fb6-5017-403c-869b-ffce7d64276a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure QTD_ICE_PRECO = [QTD_ICE_HIST] + [QTD_ICE_ATUAL]
+		lineageTag: bef06962-f319-4f26-ac00-e344f52c8fe1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure QTD_P_ULTRA_HIST = CALCULATE([Vol_Liq_WTH_Hist], Dim_Produtos[prd_Produto_int_PK] = 16395, Fato_Vendas_Hist_Winthor[VLRUNITARIO] >= 73.00)
+		lineageTag: 9d8a555c-9c61-40ae-8b39-6d7d24bada55
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure QTD_P_ULTRA_ATUAL = CALCULATE([Real_Vol_Hoje], Dim_Produtos[prd_Produto_int_PK] = 16395, Fato_Vendas_Atual_Winthor[VLRUNITARIO] >= 73.0)
+		lineageTag: 2f8420de-f25a-41bb-b61e-d9139a38cfce
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure QTD_P_ULTRA_PRECO = [QTD_P_ULTRA_HIST] + [QTD_P_ULTRA_ATUAL]
+		lineageTag: 91476b8f-4f56-48fa-aa78-8889dd8e4b55
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Date
+		dataType: dateTime
+		isNullable: false
+		formatString: General Number
+		lineageTag: 7bd28f36-119a-4882-b207-bb26248c09e3
+		sourceLineageTag: 2313eb0f-5c26-4804-b463-1da17a0efad5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: 7eaf0285-44d7-4c14-950e-115b0865ce14
+			defaultHierarchy: LocalDateTable_49b400ac-8edd-44d9-b65a-2b03dec21758.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column Dia
+		dataType: int64
+		formatString: 0
+		lineageTag: 3c276a54-2d85-498b-95a8-b3b3c5dfb66c
+		sourceLineageTag: 20827a9a-ca90-4e76-a2b8-ac4ffb205dc1
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Dia
+
+		annotation SummarizationSetBy = User
+
+	column Mes
+		dataType: int64
+		formatString: 0
+		lineageTag: 0f37ea25-0014-433d-a06a-249edc0709c0
+		sourceLineageTag: 21cafc13-8983-41fc-8a17-d26fe2de8a5e
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Mes
+
+		annotation SummarizationSetBy = User
+
+	column Ano
+		dataType: int64
+		formatString: 0
+		lineageTag: 593faed4-2bf7-44dd-aa9d-2fe74b52e4cb
+		sourceLineageTag: 3ce8fed1-ca99-400e-b4b9-2906ca206a8e
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Ano
+
+		annotation SummarizationSetBy = User
+
+	column 'Nome Mes'
+		dataType: string
+		lineageTag: 3c2ba068-75c8-40b7-9a48-a6e8f00ee1fe
+		sourceLineageTag: 29c97514-7b43-49c8-934a-e2beb7c5fd74
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Nome Mes
+
+		annotation SummarizationSetBy = User
+
+	column 'Dia Semana'
+		dataType: int64
+		formatString: 0
+		lineageTag: e07edacd-a427-4fdb-bfae-efe7c16d7ed4
+		sourceLineageTag: 7bd3044d-803a-491d-b6e6-44e24bc64773
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Dia Semana
+
+		annotation SummarizationSetBy = User
+
+	column 'Semana Ano'
+		dataType: int64
+		formatString: 0
+		lineageTag: ed726a94-a2ff-4ebd-bcac-0960793e3099
+		sourceLineageTag: 5555adeb-c6b4-4f8c-a3d1-b57ec7dd747c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Semana Ano
+
+		annotation SummarizationSetBy = User
+
+	column 'Nome Dia'
+		dataType: string
+		lineageTag: f2a8a612-4c20-4b48-88a4-a0da11e714d6
+		sourceLineageTag: b6854600-c4cf-40cc-8d33-c1b7cd1824e1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Nome Dia
+
+		annotation SummarizationSetBy = User
+
+	column 'Mes Resumo'
+		dataType: string
+		lineageTag: 9aa3f2c4-c5b3-4be5-b20f-cf3db9d17f80
+		sourceLineageTag: b32ace77-9729-4543-b0d1-c905df82f2cb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Mes Resumo
+		sortByColumn: Mes
+
+		annotation SummarizationSetBy = User
+
+	column Trimestre
+		dataType: int64
+		formatString: 0
+		lineageTag: 2b411954-e1af-4243-8dca-9eafb9cba451
+		sourceLineageTag: 90a8e038-48fd-4670-b4ae-c3e497f5133d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Trimestre
+
+		annotation SummarizationSetBy = User
+
+	column 'Dias Uteis'
+		dataType: int64
+		formatString: 0
+		lineageTag: c998ff11-dcee-4aef-a98a-0fa468f20a8a
+		sourceLineageTag: 253197ba-13ee-458b-afd2-91fc97eb29db
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Dias Uteis
+
+		annotation SummarizationSetBy = User
+
+	column Feriado
+		dataType: int64
+		formatString: 0
+		lineageTag: 1ed9d88a-4972-4d5c-ae3d-d70eef573296
+		sourceLineageTag: f2e75bef-261f-41e1-89be-778e63116b15
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Feriado
+
+		annotation SummarizationSetBy = User
+
+	column 'Dias Corridos'
+		dataType: int64
+		formatString: 0
+		lineageTag: 76544660-9722-43de-b395-526cf5885aff
+		sourceLineageTag: 94faf3d3-3df4-4410-bf2b-934338baaef7
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Dias Corridos
+
+		annotation SummarizationSetBy = User
+
+	column Mes/Ano
+		dataType: string
+		lineageTag: 262dee61-221f-4eb1-aef9-e73189ce9d5a
+		sourceLineageTag: b61aff30-81d7-4db8-85b3-c476b8635370
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Mes/Ano
+
+		annotation SummarizationSetBy = User
+
+	column Ano/Mes
+		dataType: string
+		lineageTag: d89aeee6-6a8b-4b10-8a7d-4ae7db76754e
+		sourceLineageTag: a44e0eba-2b62-47fd-ac85-9ffd72c96d6c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Ano/Mes
+		sortByColumn: Mes
+
+		annotation SummarizationSetBy = User
+
+	column 'Semana Mes'
+		dataType: int64
+		formatString: 0
+		lineageTag: 83204486-9a2c-4237-a01d-008d90ac33ac
+		sourceLineageTag: 0db725c2-67cd-4889-858e-47943b9fd440
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Semana Mes
+
+		annotation SummarizationSetBy = User
+
+	column Ano_Anterior
+		dataType: int64
+		formatString: 0
+		lineageTag: db34086e-ae92-4057-a5e8-2c171771da6a
+		sourceLineageTag: 8ceb84bc-6ce1-4291-9678-06039af8523c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Ano_Anterior
+
+		annotation SummarizationSetBy = User
+
+	column Mes_Anterior
+		dataType: int64
+		formatString: 0
+		lineageTag: 2c9e23f7-b363-4d71-8376-870bc0baddc6
+		sourceLineageTag: 88ac2118-220f-4653-8738-13256647c395
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Mes_Anterior
+
+		annotation SummarizationSetBy = User
+
+	column Dia_Anterior
+		dataType: int64
+		formatString: 0
+		lineageTag: f117753f-f4db-4add-a296-38e2af2263e7
+		sourceLineageTag: 239b2910-da21-44a5-877f-6cf382fd77d2
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Dia_Anterior
+
+		annotation SummarizationSetBy = User
+
+	column Hoje
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 99bda9f8-5454-414e-b01c-c8fc0ea0848d
+		sourceLineageTag: 40e7f2df-733b-411c-9591-59e0fab3c602
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Hoje
+
+		variation Variation
+			isDefault
+			relationship: b82518a9-205d-40dd-8a41-c2ac249787e5
+			defaultHierarchy: LocalDateTable_2a9fc4bc-8a24-43bc-b839-f8a8816d6df0.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column 'Nome dia ordem'
+		dataType: string
+		lineageTag: f525bc9e-2129-4791-8141-14bdbe1bb036
+		sourceLineageTag: d8e01e28-f4b8-46dd-8681-664a80850887
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Nome dia ordem
+
+		annotation SummarizationSetBy = User
+
+	partition Dim_Calendario = entity
+		mode: directQuery
+		source
+			entityName: Dim_Calendario
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

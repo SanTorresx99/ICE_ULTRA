@@ -1,0 +1,63 @@
+table Dim_Feriado
+	lineageTag: 515b232a-15b3-4f64-baca-b8f5c4167216
+	sourceLineageTag: da977a27-cb62-4a22-a3d0-03f343d31934
+
+	column Filial
+		dataType: int64
+		formatString: 0
+		lineageTag: cb894055-848a-4462-b88a-8f65e4f23acc
+		sourceLineageTag: 09f4797a-d62d-4f1f-96f6-e2d44bc6d420
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Filial
+
+		annotation SummarizationSetBy = User
+
+	column Data
+		dataType: dateTime
+		isNullable: false
+		formatString: Long Date
+		lineageTag: 39afb18f-dee0-48ed-971b-b9fa26d2b712
+		sourceLineageTag: 31400e0b-0de1-473b-9469-33da13deedef
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Data
+
+		annotation SummarizationSetBy = User
+
+	column 'Dia da Semana'
+		dataType: string
+		lineageTag: 5f0ddd60-7bde-4a67-84d3-970c67616bf1
+		sourceLineageTag: bc3543c0-7e3f-4386-9103-02f6da42b203
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Dia da Semana
+
+		annotation SummarizationSetBy = User
+
+	column Feriado
+		dataType: string
+		lineageTag: f814e9e7-3269-42fb-9077-e4be70a149e8
+		sourceLineageTag: 30ae460f-e5db-4536-8676-1c6cb04b0b36
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Feriado
+
+		annotation SummarizationSetBy = User
+
+	column 'Dia util'
+		dataType: string
+		lineageTag: 6549438b-3bdb-41f7-9803-28a843a2533b
+		sourceLineageTag: 28079c0b-56ad-4200-9662-45ab53c1eac1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Dia util
+
+		annotation SummarizationSetBy = User
+
+	partition Dim_Feriado = entity
+		mode: directQuery
+		source
+			entityName: Dim_Feriado
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

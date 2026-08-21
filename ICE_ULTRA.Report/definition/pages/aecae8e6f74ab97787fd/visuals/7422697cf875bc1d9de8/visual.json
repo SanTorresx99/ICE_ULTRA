@@ -1,0 +1,233 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "7422697cf875bc1d9de8",
+  "position": {
+    "x": 638.861157101521,
+    "y": 359.99319170006345,
+    "z": 0,
+    "height": 361.26077336097916,
+    "width": 641.39632042335245,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Vendedor"
+                    }
+                  },
+                  "Property": "ven_Vendedor_chr"
+                }
+              },
+              "queryRef": "Dim_Vendedor.ven_Vendedor_chr",
+              "nativeQueryRef": "Vendedor",
+              "displayName": "Vendedor"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Calendario"
+                    }
+                  },
+                  "Property": "QTD_ICE_PRECO"
+                }
+              },
+              "queryRef": "Dim_Calendario.QTD_ICE_PRECO",
+              "nativeQueryRef": "ICE",
+              "displayName": "ICE"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas_Winthor"
+                    }
+                  },
+                  "Property": "TOTAL CLI ICE"
+                }
+              },
+              "queryRef": "_Medidas_Winthor.TOTAL CLI ICE",
+              "nativeQueryRef": "CLI ICE",
+              "displayName": "CLI ICE"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Calendario"
+                    }
+                  },
+                  "Property": "QTD_P_ULTRA_PRECO"
+                }
+              },
+              "queryRef": "Dim_Calendario.QTD_P_ULTRA_PRECO",
+              "nativeQueryRef": "ULTRA",
+              "displayName": "ULTRA"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas_Winthor"
+                    }
+                  },
+                  "Property": "TOTAL PETRA ULTRA"
+                }
+              },
+              "queryRef": "_Medidas_Winthor.TOTAL PETRA ULTRA",
+              "nativeQueryRef": "CLI ULTRA",
+              "displayName": "CLI ULTRA"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas_Winthor"
+                    }
+                  },
+                  "Property": "QTD_ACAO_ULTRACRYSTAL"
+                }
+              },
+              "queryRef": "_Medidas_Winthor.QTD_ACAO_ULTRACRYSTAL",
+              "nativeQueryRef": "ACAO",
+              "displayName": "ACAO"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas_Winthor"
+                    }
+                  },
+                  "Property": "QTD CLI TOTAL ACAO"
+                }
+              },
+              "queryRef": "_Medidas_Winthor.QTD CLI TOTAL ACAO",
+              "nativeQueryRef": "CLI ACAO",
+              "displayName": "CLI ACAO"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dim_Calendario"
+                  }
+                },
+                "Property": "QTD_P_ULTRA_PRECO"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "77D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Medidas_Winthor.QTD CLI TOTAL ACAO"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "8e59ca5ec4dd04543df7",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Calendario"
+              }
+            },
+            "Property": "Date"
+          }
+        },
+        "type": "RelativeDate",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "Dim_Calendario",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 0,
+                  "Left": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "d"
+                        }
+                      },
+                      "Property": "Date"
+                    }
+                  },
+                  "Right": {
+                    "DateSpan": {
+                      "Expression": {
+                        "Now": {}
+                      },
+                      "TimeUnit": 2
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      }
+    ]
+  }
+}

@@ -1,0 +1,157 @@
+table Dim_FIFO
+	lineageTag: 241547a2-358e-443b-9eff-089a7389a079
+	sourceLineageTag: 2ae02cd3-f651-46ce-8017-d456afe888a7
+
+	column 'FIFO RORAINOPOLIS.xlsx'
+		dataType: string
+		lineageTag: 0c46d36e-c85f-461b-b129-e74c948f611e
+		sourceLineageTag: 7584a3ef-4ff5-4ec5-8156-dafab11ff4f8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: FIFO RORAINOPOLIS.xlsx
+
+		annotation SummarizationSetBy = User
+
+	column 'FIFO RORAINOPOLIS'
+		dataType: string
+		lineageTag: 896162d3-9563-4a66-8a74-d57b9edc5b79
+		sourceLineageTag: 10002fef-0374-4ae8-8d80-a452463b691d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: FIFO RORAINOPOLIS
+
+		annotation SummarizationSetBy = User
+
+	column CODIGO
+		dataType: int64
+		formatString: 0
+		lineageTag: 86d9a64c-c2b9-4f8c-b5c8-c17c160f0db0
+		sourceLineageTag: 5eecc224-abf5-48c2-9ee7-66591abf2447
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CODIGO
+
+		annotation SummarizationSetBy = User
+
+	column SKU
+		dataType: int64
+		formatString: 0
+		lineageTag: 27b33d40-efc5-45a0-a59d-cd6156b020de
+		sourceLineageTag: 9412ec76-d666-4850-a8c2-3cda12afed35
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: SKU
+
+		annotation SummarizationSetBy = User
+
+	column 'DESCRIÇÃO DE PRODUTOS'
+		dataType: string
+		lineageTag: 4506fc17-a593-4477-bec8-bb6c23b3801a
+		sourceLineageTag: 305fc8ac-4924-46ec-82d1-39f6768726f2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DESCRIÇÃO DE PRODUTOS
+
+		annotation SummarizationSetBy = User
+
+	column 'QTDE DE CAIXAS NO ESTOQUE '
+		dataType: int64
+		formatString: 0
+		lineageTag: bbc47194-b240-4dd1-bc76-6c0b2b3e6af0
+		sourceLineageTag: ceb4f54b-4ec4-4696-9005-7d5f0f42738b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: "QTDE DE CAIXAS NO ESTOQUE "
+
+		annotation SummarizationSetBy = User
+
+	column 'ENTRADA DE PROD.ESTOQUE'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 025f8778-5fdc-444a-81dd-ce2d101ee8b3
+		sourceLineageTag: 2831dd37-991e-48c4-9ced-e593c16b11d0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ENTRADA DE PROD.ESTOQUE
+
+		variation Variation
+			isDefault
+			relationship: 0f0d4957-c127-49d4-be30-d01981c60a18
+			defaultHierarchy: LocalDateTable_0a888a6f-d95b-4f97-aee7-ec822038fa34.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column 'VALIDADE DO PRODUTO'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: d4f52209-e1a1-4303-b4ba-6c66a4c9269e
+		sourceLineageTag: c61ffa0f-342a-47e4-9fe7-ea4e955010fb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: VALIDADE DO PRODUTO
+
+		variation Variation
+			isDefault
+			relationship: 181af31e-66d3-4797-afc1-f80193556def
+			defaultHierarchy: LocalDateTable_6c8e3d52-25a9-49e9-a203-9566e3654b06.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column 'DIAS A VENCER DO PRODUTO'
+		dataType: int64
+		formatString: 0
+		lineageTag: e3abfbaf-77e4-4a73-b67c-31f871254c99
+		sourceLineageTag: edb3cb09-9f77-4a32-9815-ac3a27ebf6d8
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: DIAS A VENCER DO PRODUTO
+
+		annotation SummarizationSetBy = User
+
+	column Column10
+		dataType: string
+		lineageTag: 1f869b00-ecba-4a69-b063-118bca17f952
+		sourceLineageTag: f6303987-5b3d-4f38-845c-6c076d88cab7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Column10
+
+		annotation SummarizationSetBy = User
+
+	column 'FIFO RORAINOPOLIS_1'
+		dataType: string
+		lineageTag: 07c81683-f2b6-490a-9f75-04bb01dde382
+		sourceLineageTag: c14ceb29-0442-4685-8139-d4c506ef724e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: FIFO RORAINOPOLIS_1
+
+		annotation SummarizationSetBy = User
+
+	column Sheet
+		dataType: string
+		lineageTag: 382d65a1-f4f7-4fac-a8b2-ea41e123bd58
+		sourceLineageTag: f06c835d-446e-4d78-9363-9be4bd7dfde3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sheet
+
+		annotation SummarizationSetBy = User
+
+	column false
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: bf77ecf7-7bac-49d7-88a2-0c0edade4dfe
+		sourceLineageTag: 503876c2-dd99-4bb7-9b77-f1ac1929d2e7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: false
+
+		annotation SummarizationSetBy = User
+
+	partition Dim_FIFO = entity
+		mode: directQuery
+		source
+			entityName: Dim_FIFO
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

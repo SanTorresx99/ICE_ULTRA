@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ranking da Ação - Crystal Ice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #050b14;
+      font-family: 'Roboto Condensed', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .ranking-card {
+      width: 100%;
+      max-width: 580px;
+      background: radial-gradient(circle at 85% 30%, #1a1608 0%, #03070d 70%);
+      border: 1px solid #332710;
+      border-radius: 8px;
+      padding: 30px 24px 20px 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .header h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.8rem;
+      letter-spacing: 1.5px;
+      color: #ffffff;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .header h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.7rem;
+      color: #d89e34;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 6px;
+    }
+
+    .header p {
+      color: #ffffff;
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-top: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .table-container {
+      border: 1.5px solid #c98e28;
+      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.45);
+      overflow: hidden;
+    }
+
+    .ranking-list {
+      list-style: none;
+    }
+
+    .ranking-item {
+      display: flex;
+      align-items: center;
+      padding: 7px 14px;
+      border-bottom: 1px solid rgba(201, 142, 40, 0.35);
+    }
+
+    .ranking-item:last-child {
+      border-bottom: none;
+    }
+
+    .pos-badge {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-right: 12px;
+      flex-shrink: 0;
+    }
+
+    /* Posições */
+    .badge-gold {
+      background: radial-gradient(circle, #f9df7b 0%, #b87c14 100%);
+      color: #000;
+    }
+
+    .badge-silver {
+      background: radial-gradient(circle, #f0f0f0 0%, #8c9398 100%);
+      color: #000;
+    }
+
+    .badge-bronze {
+      background: radial-gradient(circle, #e29c68 0%, #944b19 100%);
+      color: #000;
+    }
+
+    .badge-regular {
+      background: radial-gradient(circle, #d89c37 0%, #7d4e0b 100%);
+      color: #000;
+    }
+
+    .medal-icon {
+      margin-right: 10px;
+      font-size: 1.1rem;
+      display: inline-flex;
+    }
+
+    .name {
+      flex: 1;
+      color: #ffffff;
+      font-size: 1.05rem;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .score {
+      color: #ffffff;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding-left: 10px;
+      white-space: nowrap;
+    }
+
+    .score span {
+      font-size: 0.9rem;
+      font-weight: normal;
+    }
+
+    .footer-bar {
+      margin-top: 24px;
+      background: linear-gradient(90deg, #b88126 0%, #edd37d 50%, #b88126 100%);
+      padding: 10px 16px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: #000000;
+      font-weight: 700;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .trophy {
+      font-size: 1.4rem;
+    }
+  </style>
+</head>
+<body>
+
+  <main class="ranking-card">
+    <header class="header">
+      <h1>Ranking da Ação</h1>
+      <h2>Long Neck 275 – Crystal Ice</h2>
+      <p>Realizado de 14/08 a 20/08</p>
+    </header>
+
+    <div class="table-container">
+      <ul class="ranking-list">
+        <li class="ranking-item">
+          <span class="pos-badge badge-gold">1º</span>
+          <span class="medal-icon">🥇</span>
+          <span class="name">Donizete Pereira Silva</span>
+          <span class="score">43 <span>caixas</span></span>
+        </li>
+        <li class="ranking-item">
+          <span class="pos-badge badge-silver">2º</span>
+          <span class="medal-icon">🥈</span>
+          <span class="name">Elivilson Demetrio Caetano</span>
+          <span class="score">38 <span>caixas</span></span>
+        </li>
+        <li class="ranking-item">
+          <span class="pos-badge badge-bronze">3º</span>
+          <span class="medal-icon">🥉</span>
+          <span class="name">Rui Nascimento da Silva</span>
+          <span class="score">20 <span>caixas</span></span>
+        </li>
+        <li class="ranking-item">
+          <span class="pos-badge badge-regular">4º</span>
+          <span class="name">Carlos Augusto dos Santos Miranda</span>
+          <span class="score">20 <span>caixas</span></span>
+        </li>
+        <li class="ranking-item">
+          <span class="pos-badge badge-regular">5º</span>
+          <span class="name">Hans Muller Lisboa da Silva</span>
+          <span class="score">18 <span>caixas</span></span>
+        </li>
+        <li class="ranking-item">
+          <span class="pos-badge badge-regular">6º</span>
+          <span class="name">Ananias Leandro da Silva</span>
+          <span class="score">14 <span>caixas</span></span>
+        </li>
+        <li class="ranking-item">
+          <span class="pos-badge badge-regular">7º</span>
+          <span class="name">Thiago da Silva Macedo</span>
+          <span class="score">14 <span>caixas</span></span>
+        </li>
+        <li class="ranking-item">
+          <span class="pos-badge badge-regular">8º</span>
+          <span class="name">Rogerio Jose Simoes</span>
+          <span class="score">14 <span>caixas</span></span>
+        </li>
+        <li class="ranking-item">
+          <span class="pos-badge badge-regular">9º</span>
+          <span class="name">Sergio Pereira de Souza</span>
+          <span class="score">10 <span>caixas</span></span>
+        </li>
+        <li class="ranking-item">
+          <span class="pos-badge badge-regular">10º</span>
+          <span class="name">Kendy Osaki Gois</span>
+          <span class="score">8 <span>caixas</span></span>
+        </li>
+        <li class="ranking-item">
+          <span class="pos-badge badge-regular">11º</span>
+          <span class="name">Renato Abreu de Oliveira</span>
+          <span class="score">8 <span>caixas</span></span>
+        </li>
+        <li class="ranking-item">
+          <span class="pos-badge badge-regular">12º</span>
+          <span class="name">Fernanda Leal de Melo</span>
+          <span class="score">5 <span>caixas</span></span>
+        </li>
+        <li class="ranking-item">
+          <span class="pos-badge badge-regular">13º</span>
+          <span class="name">Gauvia dos Santos de Lima</span>
+          <span class="score">5 <span>caixas</span></span>
+        </li>
+      </ul>
+    </div>
+
+    <footer class="footer-bar">
+      <span class="trophy">🏆</span>
+      <span>Total da ação: 334 caixas — Parabéns a todos os vendedores!</span>
+    </footer>
+  </main>
+
+</body>
+</html>

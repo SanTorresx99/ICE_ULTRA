@@ -1,0 +1,58 @@
+table Dim_Pedidos_Hist
+	lineageTag: c233681e-6f87-4fcb-8f65-379835488227
+	sourceLineageTag: 6665a070-9289-479e-a7dc-3b5f154f24cb
+
+	column emp_Empresa_int_FK
+		dataType: int64
+		formatString: 0
+		lineageTag: 50140d57-69b9-43ef-9289-c16c067fcb09
+		sourceLineageTag: fe46b37f-9646-4385-8c76-d831c3c1c7b1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: emp_Empresa_int_FK
+
+		annotation SummarizationSetBy = User
+
+	column ped_NumeroPedido_int
+		dataType: int64
+		formatString: 0
+		lineageTag: 98b0b2b7-57a5-45d5-811d-8a27146fad03
+		sourceLineageTag: 44c11796-a993-4372-98b1-1da84625ee97
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ped_NumeroPedido_int
+
+		annotation SummarizationSetBy = User
+
+	column his_Historico_chr
+		dataType: string
+		lineageTag: 2c9b759a-8edf-4326-a45d-e47aabcd1e23
+		sourceLineageTag: 4a8422c1-c4a2-40ea-90d1-3a6b487850b4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: his_Historico_chr
+
+		annotation SummarizationSetBy = User
+
+	column his_DataSync_dtm
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: bff548f8-632a-40d6-85e7-8e83b31ba151
+		sourceLineageTag: f7c59a22-d13e-45ac-9b6f-7dfd3026c772
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: his_DataSync_dtm
+
+		variation Variation
+			isDefault
+			relationship: 3848fbc4-9b73-4bec-93ef-ae2b7892a19a
+			defaultHierarchy: LocalDateTable_b521252c-952c-495d-b1a0-c193e9f4d29a.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	partition Dim_Pedidos_Hist = entity
+		mode: directQuery
+		source
+			entityName: Dim_Pedidos_Hist
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

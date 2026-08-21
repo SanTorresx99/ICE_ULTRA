@@ -1,0 +1,20 @@
+table Dim_Tipo_Filtro
+	lineageTag: b4adc015-d841-48be-aadb-fcf0b5b1b7a7
+	sourceLineageTag: 2a05f2b0-6a5a-4868-9868-e961618e37d7
+
+	column Tipo_Filtro
+		dataType: string
+		lineageTag: bcc76d36-b266-4bc9-ae2c-0c743d48720b
+		sourceLineageTag: b4da8e9c-e469-4117-a32a-9c2b5248491a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Tipo_Filtro
+
+		annotation SummarizationSetBy = User
+
+	partition Dim_Tipo_Filtro = entity
+		mode: directQuery
+		source
+			entityName: Dim_Tipo_Filtro
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

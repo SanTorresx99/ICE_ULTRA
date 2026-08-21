@@ -1,0 +1,76 @@
+table Dim_Comissao
+	lineageTag: 926976ba-f649-4d49-af57-e50bbdbc5490
+	sourceLineageTag: 152942bd-13d0-459e-a77c-fb20d767c0b4
+
+	column 'Nome da Origem'
+		dataType: string
+		lineageTag: 3fcbc3f0-4d72-4851-818f-a71ee106ace3
+		sourceLineageTag: 71f8b433-5afa-4374-ac71-984b41d04be5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Nome da Origem
+
+		annotation SummarizationSetBy = User
+
+	column lin_Linha_chr
+		dataType: string
+		lineageTag: 5fdf1192-ae08-4bf8-b13e-3d1f8bb27676
+		sourceLineageTag: 7bbd96ab-f4e3-47b0-98a4-a0ec0359691c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: lin_Linha_chr
+
+		annotation SummarizationSetBy = User
+
+	column prd_Produto_int_PK
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		lineageTag: b70d7b98-ba10-460e-8393-82b68dac887c
+		sourceLineageTag: ed458955-5a45-4d51-b6d1-ebc3faf94966
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: prd_Produto_int_PK
+
+		annotation SummarizationSetBy = User
+
+	column prd_Descricao_chr
+		dataType: string
+		lineageTag: 5eb811ef-32e9-438e-870a-31dd0de172af
+		sourceLineageTag: f42956a5-85d7-4699-b103-e2d60ee4712b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: prd_Descricao_chr
+
+		annotation SummarizationSetBy = User
+
+	column 'A VISTA'
+		dataType: double
+		lineageTag: 639b7d41-d4f2-46ba-933b-d706d105882a
+		sourceLineageTag: 6ffa2cef-3622-4cde-88ae-a4630afd6ab3
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: A VISTA
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'A PRAZO'
+		dataType: double
+		lineageTag: b82b0cd7-2203-437e-b29d-4e99189533dc
+		sourceLineageTag: 841ec5a3-76ea-42dc-bb8d-f1889107ae1c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: A PRAZO
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Dim_Comissao = entity
+		mode: directQuery
+		source
+			entityName: Dim_Comissao
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

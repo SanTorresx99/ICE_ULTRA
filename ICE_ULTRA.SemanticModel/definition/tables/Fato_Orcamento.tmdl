@@ -1,0 +1,139 @@
+table Fato_Orcamento
+	lineageTag: a42c333e-1db9-41b8-b14e-c1febe320151
+	sourceLineageTag: dd96bcff-4974-40c8-a82d-3375a873a75e
+
+	column GRUPO
+		dataType: string
+		lineageTag: 04041a8f-c97f-44df-af3d-11fca1a84f62
+		sourceLineageTag: c40ea682-1982-4f22-ac2a-5456a64a5996
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: GRUPO
+
+		annotation SummarizationSetBy = User
+
+	column CONTA
+		dataType: string
+		lineageTag: 1409eb10-dc96-497a-b158-08f7065a864a
+		sourceLineageTag: 79cfd1d7-4ba4-4d7d-bf89-a3b13ec98efe
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CONTA
+
+		annotation SummarizationSetBy = User
+
+	column ANO
+		dataType: int64
+		formatString: 0
+		lineageTag: 21506536-fe05-433f-b010-e435df6493ac
+		sourceLineageTag: f19683d2-eb47-4b8a-9f0b-6655d5803bd7
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ANO
+
+		annotation SummarizationSetBy = User
+
+	column CODFILIAL
+		dataType: int64
+		formatString: 0
+		lineageTag: 21a815a0-a8af-4e51-b39a-6a15e656a45f
+		sourceLineageTag: 0ab34184-a6e5-446b-bf44-a8616aefb7e4
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CODFILIAL
+
+		annotation SummarizationSetBy = User
+
+	column CODCONTA
+		dataType: int64
+		formatString: 0
+		lineageTag: 5f00abdf-ecd9-45f1-8bb5-fde15b752813
+		sourceLineageTag: 37e510c8-45ae-4dd7-bdf6-ca50164fbb99
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CODCONTA
+
+		annotation SummarizationSetBy = User
+
+	column MES
+		dataType: int64
+		formatString: 0
+		lineageTag: a5597a8f-662d-4b58-9d97-fa55770012a0
+		sourceLineageTag: 9751f7da-ca08-4d0c-bc0a-d31eb1ee0e35
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: MES
+
+		annotation SummarizationSetBy = User
+
+	column FILIAL
+		dataType: string
+		lineageTag: 5f3dd2cb-a7a9-47a6-8d9d-2f74103fe392
+		sourceLineageTag: c9a109b8-c939-4b22-8ab4-56cb75dba9da
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: FILIAL
+
+		annotation SummarizationSetBy = User
+
+	column CONC_ORC
+		dataType: string
+		lineageTag: 1c65caf0-3934-46c9-abe5-adf2a70f0853
+		sourceLineageTag: 3358423d-d491-43f6-b19f-e8dd8768cb9a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CONC_ORC
+
+		annotation SummarizationSetBy = User
+
+	column GRUPOCONTA
+		dataType: int64
+		formatString: 0
+		lineageTag: d02f2664-ab82-4c58-b1db-0bb214e724ec
+		sourceLineageTag: 48663913-f19c-4e96-8e1a-ac97de2cc866
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: GRUPOCONTA
+
+		annotation SummarizationSetBy = User
+
+	column VLORCMES
+		dataType: double
+		lineageTag: 58a18402-283d-43b8-ae84-4d4e6a0ef0ed
+		sourceLineageTag: 19a12c17-0287-4c72-9e3b-ed38270c1807
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: VLORCMES
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Data
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 68168020-b8c4-4c98-9fe7-9a4cd419f9b0
+		sourceLineageTag: b8729d9b-5ec4-40ca-8a83-17a293cccd1e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Data
+
+		annotation SummarizationSetBy = User
+
+	column GRUPO_ATIVO
+		dataType: int64
+		formatString: 0
+		lineageTag: 1cc87a39-671f-4d67-959c-573e204c0dd4
+		sourceLineageTag: 3f92a82c-4ee2-4e6e-8f7e-807d4175d435
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: GRUPO_ATIVO
+
+		annotation SummarizationSetBy = User
+
+	partition Fato_Orcamento = entity
+		mode: directQuery
+		source
+			entityName: Fato_Orcamento
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

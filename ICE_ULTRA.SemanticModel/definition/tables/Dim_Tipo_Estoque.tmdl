@@ -1,0 +1,20 @@
+table Dim_Tipo_Estoque
+	lineageTag: 76129fee-7b5f-4399-aefa-80e9a82dd38c
+	sourceLineageTag: 13638fbd-dd1a-423a-b0f7-6229e756d30b
+
+	column Tipo_Estoque
+		dataType: string
+		lineageTag: 95147f96-6f98-44d8-afbf-bc27e4c4cb05
+		sourceLineageTag: 9e931f70-6a67-488a-a90b-fc956ef339b2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Tipo_Estoque
+
+		annotation SummarizationSetBy = User
+
+	partition Dim_Tipo_Estoque = entity
+		mode: directQuery
+		source
+			entityName: Dim_Tipo_Estoque
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

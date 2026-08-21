@@ -1,0 +1,121 @@
+table Fato_NF_Perda_Hist
+	lineageTag: 558d0ccb-a30d-476e-827f-9a2f8e82045e
+	sourceLineageTag: 6ca36c6e-8e97-4fe3-b166-50edc6c9b8f5
+
+	column CODFILIAL
+		dataType: string
+		lineageTag: d12a6819-4a0d-4abe-84ad-19b5be94d912
+		sourceLineageTag: 573fd6e6-6a7b-4fc3-a88c-7ed594822e31
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CODFILIAL
+
+		annotation SummarizationSetBy = User
+
+	column DTMOV
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 3f21fa4c-36ac-4968-932c-db89098d7aa9
+		sourceLineageTag: 6bdf942a-8ba3-42bc-bbb6-7e0012eb231f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DTMOV
+
+		annotation SummarizationSetBy = User
+
+	column CODCLI
+		dataType: int64
+		formatString: 0
+		lineageTag: c3096cc5-1206-4ec9-a0f2-74f8055accf1
+		sourceLineageTag: 1365fa55-814f-4ad6-a50b-eda09998a0f2
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CODCLI
+
+		annotation SummarizationSetBy = User
+
+	column NUMNOTA
+		dataType: int64
+		formatString: 0
+		lineageTag: 897fbd21-0ebe-4e73-955b-6897c6ad6f43
+		sourceLineageTag: 1edcb59d-15b4-4f7a-a9aa-2ac270649353
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: NUMNOTA
+
+		annotation SummarizationSetBy = User
+
+	column NUMTRANSVENDA
+		dataType: int64
+		formatString: 0
+		lineageTag: a839171e-689c-4304-bbf7-8871ea9f2aa2
+		sourceLineageTag: d567cb51-3727-4d6c-8922-65e53aa20af2
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: NUMTRANSVENDA
+
+		annotation SummarizationSetBy = User
+
+	column CODPROD
+		dataType: int64
+		formatString: 0
+		lineageTag: e4843e90-1652-4890-bfb9-015146e74ccc
+		sourceLineageTag: 5cd14478-8a45-42bf-ad74-13c445b84739
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CODPROD
+
+		annotation SummarizationSetBy = User
+
+	column QT
+		dataType: int64
+		formatString: 0
+		lineageTag: c21afac5-992c-485e-8292-c2e19cfaebb9
+		sourceLineageTag: 45f851bb-8485-4eb0-b98f-998ddd9ee45c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: QT
+
+		annotation SummarizationSetBy = User
+
+	column PUNIT
+		dataType: double
+		lineageTag: 57cfb6db-7f1f-47ed-826f-eb5cc405189d
+		sourceLineageTag: c06f1c14-7396-47c6-a2bd-50685011829d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PUNIT
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CODFISCAL
+		dataType: int64
+		formatString: 0
+		lineageTag: 4d7316b1-5c30-461b-8ce0-af1bae93c7f2
+		sourceLineageTag: 72b83ab3-bea1-4822-8198-305c35d4a75e
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CODFISCAL
+
+		annotation SummarizationSetBy = User
+
+	column VLR
+		dataType: double
+		lineageTag: b34a1be7-ab34-4cb8-807d-6b20fb8bbb82
+		sourceLineageTag: c0b870e3-7123-4158-820c-cff84ad334f9
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: VLR
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Fato_NF_Perda_Hist = entity
+		mode: directQuery
+		source
+			entityName: Fato_NF_Perda_Hist
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

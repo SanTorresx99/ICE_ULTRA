@@ -1,0 +1,106 @@
+table Tipo_Pagamento
+	lineageTag: d82a4440-997a-4747-9e59-fe73ff638f70
+	sourceLineageTag: f3e920f8-a2e5-4562-ae57-a3771b63b226
+
+	column tpg_TipoPagamento_int_PK
+		dataType: int64
+		formatString: 0
+		lineageTag: b8ffe248-754b-40ba-a630-c47f5371eb22
+		sourceLineageTag: 28179354-ccc1-435f-859a-06242d774076
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: tpg_TipoPagamento_int_PK
+
+		annotation SummarizationSetBy = User
+
+	column emp_Empresa_int_FK
+		dataType: int64
+		formatString: 0
+		lineageTag: fbb29513-e35a-4ae0-b82f-0443f5f9a875
+		sourceLineageTag: cc2fc77d-c4a6-46c2-8dc0-b5234b3f9b85
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: emp_Empresa_int_FK
+
+		annotation SummarizationSetBy = User
+
+	column tpg_Codigo_chr
+		dataType: string
+		lineageTag: 8651c2ca-8a9e-4a13-ae7b-2bc4ec361a7d
+		sourceLineageTag: f05c1ff0-7004-48e4-a5b5-7753eb948c99
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: tpg_Codigo_chr
+
+		annotation SummarizationSetBy = User
+
+	column tpg_TipoPagamento_chr
+		dataType: string
+		lineageTag: 1fbeee68-45f7-43f2-a847-f193e2b6e686
+		sourceLineageTag: d00510cf-27f7-44d8-8cd2-5ad8554e69ac
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: tpg_TipoPagamento_chr
+
+		annotation SummarizationSetBy = User
+
+	column tpg_TipoRecebimento_ind
+		dataType: int64
+		formatString: 0
+		lineageTag: df8cf751-58fc-4cfb-afe6-976825b350f2
+		sourceLineageTag: 8fbba6df-7d14-4e7e-a643-477b241c21dc
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: tpg_TipoRecebimento_ind
+
+		annotation SummarizationSetBy = User
+
+	column tpg_DataSync_dtm
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: c2771424-ec5d-4fe0-b92f-168e854d1ff9
+		sourceLineageTag: 831b2a3a-fb3d-4d65-995a-192b5bbef589
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: tpg_DataSync_dtm
+
+		variation Variation
+			isDefault
+			relationship: 052c1039-910d-4e9c-880f-97dc2a797791
+			defaultHierarchy: LocalDateTable_162e4dda-b969-4129-87ff-1efe3adfc88c.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column tpg_Criado_dtm
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 5ef36114-00d4-447e-a59a-21622ed6c5ed
+		sourceLineageTag: 1d8ad454-df42-4d75-9e9a-be9a230f82c7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: tpg_Criado_dtm
+
+		variation Variation
+			isDefault
+			relationship: 9a7c8896-b2ba-4208-b030-539ef5e55bfc
+			defaultHierarchy: LocalDateTable_23fe2bd2-6446-4dd6-841a-74dc069b9120.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column tpg_Ativo_ind
+		dataType: int64
+		formatString: 0
+		lineageTag: 7a6f263d-5dfa-4b8f-b85a-c5f2a26962ed
+		sourceLineageTag: 53d41b0e-8cd9-4147-b1f7-0dfd3aab8044
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: tpg_Ativo_ind
+
+		annotation SummarizationSetBy = User
+
+	partition Tipo_Pagamento = entity
+		mode: directQuery
+		source
+			entityName: Tipo_Pagamento
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

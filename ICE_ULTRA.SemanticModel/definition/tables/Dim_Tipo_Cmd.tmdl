@@ -1,0 +1,93 @@
+table Dim_Tipo_Cmd
+	lineageTag: 4767c4bf-1a0e-4059-b949-a72598a62293
+	sourceLineageTag: 04b4bb7d-0eb2-47b4-ac55-1162227deaff
+
+	column cit_CodigoItem_int
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		lineageTag: 5a9dead5-67f1-4654-8e2b-bb38c6cbffcb
+		sourceLineageTag: d45ded62-ee97-46e8-83fd-87be0c3ac705
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: cit_CodigoItem_int
+
+		annotation SummarizationSetBy = User
+
+	column cit_Descricao_chr
+		dataType: string
+		lineageTag: 616600ea-643b-4faf-b1ed-b61399d540a4
+		sourceLineageTag: 03f2740e-ef50-45a5-b1d6-20a67c390147
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: cit_Descricao_chr
+
+		annotation SummarizationSetBy = User
+
+	column Marca
+		dataType: string
+		lineageTag: 98204544-19e5-40a3-add5-f642a0a5cbbb
+		sourceLineageTag: bbd94e39-a88c-4549-a193-422bdce113f8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Marca
+
+		annotation SummarizationSetBy = User
+
+	column TipoComodato
+		dataType: string
+		lineageTag: 810fec01-34a5-48be-b0bc-f264235eb042
+		sourceLineageTag: 7a870a80-e14b-4f01-a9ef-afd0389bd6ad
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TipoComodato
+
+		annotation SummarizationSetBy = User
+
+	column Grp_Cmd
+		dataType: string
+		lineageTag: 0055c897-9653-4163-821f-b1f344ccc348
+		sourceLineageTag: cb1d887e-b720-476a-93bf-bf12b207bff5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Grp_Cmd
+
+		annotation SummarizationSetBy = User
+
+	column Capacidade
+		dataType: int64
+		formatString: 0
+		lineageTag: 39831345-317e-4472-b27f-c6fa3b864ffc
+		sourceLineageTag: 4f6907fc-dada-49dc-a009-18df3eee4bf5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Capacidade
+
+		annotation SummarizationSetBy = User
+
+	column Tipo
+		dataType: string
+		lineageTag: 819b1776-f013-4502-8c4e-2d2fcae29e7b
+		sourceLineageTag: 60c4a4e0-fc3c-4ed8-81ae-84e736c414a6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Tipo
+
+		annotation SummarizationSetBy = User
+
+	column Filtro
+		dataType: string
+		lineageTag: 0e57b885-2ae7-4678-8cd6-9ce3852d9bf5
+		sourceLineageTag: e7dabc1f-9578-47ec-9288-1f807ae974aa
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Filtro
+
+		annotation SummarizationSetBy = User
+
+	partition Dim_Tipo_Cmd = entity
+		mode: directQuery
+		source
+			entityName: Dim_Tipo_Cmd
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

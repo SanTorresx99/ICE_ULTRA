@@ -1,0 +1,366 @@
+table Dim_Produtos
+	lineageTag: 7f270f74-d52f-4a4c-a693-43ffe361975f
+	sourceLineageTag: 9cf2ecec-12c1-46ed-8ded-4adc26c5edfc
+
+	column prd_Produto_int_PK
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		lineageTag: c1e4839d-8721-4ce1-955f-6d9597e47c1f
+		sourceLineageTag: 58548bc5-d40c-4ad3-aa92-551ccb1ee08a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: prd_Produto_int_PK
+
+		annotation SummarizationSetBy = User
+
+	column emp_Empresa_int_FK
+		dataType: int64
+		formatString: 0
+		lineageTag: 37c1ea6d-db09-4e69-b7fe-49d84de2aef0
+		sourceLineageTag: 07ece7ee-37fc-4b11-8b1b-791dc6b24944
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: emp_Empresa_int_FK
+
+		annotation SummarizationSetBy = User
+
+	column emb_Embalagem_chr
+		dataType: string
+		lineageTag: 851a594e-54de-4a75-89ab-8925c69e0c29
+		sourceLineageTag: 52938538-8dd6-4ed3-a358-93d84dfaa46d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: emb_Embalagem_chr
+
+		annotation SummarizationSetBy = User
+
+	column prd_Descricao_chr
+		dataType: string
+		lineageTag: 68942968-5e46-4f36-8c09-d62c43477968
+		sourceLineageTag: 3a6c83c8-92da-4453-8d3e-7f427bfde14a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: prd_Descricao_chr
+
+		annotation SummarizationSetBy = User
+
+	column cat_Categoria_chr
+		dataType: string
+		lineageTag: 65be0f91-87ba-42cd-9c63-1492ba6e0878
+		sourceLineageTag: bbcc779d-c272-49c7-9233-6108992106cf
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: cat_Categoria_chr
+
+		annotation SummarizationSetBy = User
+
+	column sec_Secao_chr
+		dataType: string
+		lineageTag: 6fb7a710-621d-42d4-bef4-280de8e5b5de
+		sourceLineageTag: 0f50d2bf-c6da-4928-bb06-f2b9b2c23b62
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: sec_Secao_chr
+
+		annotation SummarizationSetBy = User
+
+	column suc_Subcategoria_chr
+		dataType: string
+		lineageTag: cdde048a-9592-4c1c-888a-d78f93235a1d
+		sourceLineageTag: 512e8235-8639-4c94-8cd8-73e15e6f479b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: suc_Subcategoria_chr
+
+		annotation SummarizationSetBy = User
+
+	column for_Fornecedor_chr
+		dataType: string
+		lineageTag: a1012e25-07bc-40ff-8fc0-9539e89f3c3b
+		sourceLineageTag: 176a3eb7-6ded-4e39-9ac8-20a0107c194a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: for_Fornecedor_chr
+
+		annotation SummarizationSetBy = User
+
+	column dpt_Departamento_chr
+		dataType: string
+		lineageTag: b0a0481e-9606-4f10-9886-6d67a59d846f
+		sourceLineageTag: a38277a3-30f8-4453-bace-53c42bbbba3d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: dpt_Departamento_chr
+
+		annotation SummarizationSetBy = User
+
+	column lin_Linha_chr
+		dataType: string
+		lineageTag: 9b613ba6-4a00-4f46-9a48-767952e25bd6
+		sourceLineageTag: 1db9d6de-1088-44c5-9b9e-fef083bb7418
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: lin_Linha_chr
+		sortByColumn: posição
+
+		annotation SummarizationSetBy = User
+
+	column prd_QtdEmbalagem_num
+		dataType: double
+		lineageTag: 9557fced-e106-404e-a3d7-1134bfe1a9e5
+		sourceLineageTag: 7aaab939-9d62-48eb-b4c8-9cbee832aa9e
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: prd_QtdEmbalagem_num
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column prd_Litragem_num
+		dataType: double
+		lineageTag: 6a80c74a-a97c-4faa-8b8c-83ff6401c73d
+		sourceLineageTag: 7550a059-7228-4586-8952-09fe83993c22
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: prd_Litragem_num
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column prd_Fatorhecto_num
+		dataType: double
+		lineageTag: 3d86ff36-dabf-422d-9db9-5c009c60ba46
+		sourceLineageTag: 9a06a33b-03bb-48d0-b490-ed12ec4877e8
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: prd_Fatorhecto_num
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column mrp_MarcaProduto_chr
+		dataType: string
+		lineageTag: 61da5fc6-32ee-4017-8213-d3a9adb54fce
+		sourceLineageTag: 853329bb-1baf-4be7-81ad-55047b2bcd60
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: mrp_MarcaProduto_chr
+
+		annotation SummarizationSetBy = User
+
+	column smp_SubMarcaProduto_chr
+		dataType: string
+		lineageTag: bfa0f9c5-a2a2-48d3-8ffe-855161e68b26
+		sourceLineageTag: d82ba0e8-0d6a-4c05-a8c1-babf8a9a8eca
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: smp_SubMarcaProduto_chr
+
+		annotation SummarizationSetBy = User
+
+	column prd_Unidade_chr
+		dataType: string
+		lineageTag: c4de6432-e8ec-4bc1-aaf9-752183551f69
+		sourceLineageTag: 47358156-51f0-4561-bb6b-80766dacff1a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: prd_Unidade_chr
+
+		annotation SummarizationSetBy = User
+
+	column prd_Ativo_ind
+		dataType: int64
+		formatString: 0
+		lineageTag: cd245f5e-8b2f-48de-b5eb-bce549dc9694
+		sourceLineageTag: 515b911b-84cb-4199-b24e-a23e59ad1971
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: prd_Ativo_ind
+
+		annotation SummarizationSetBy = User
+
+	column prd_CodFabrica_int
+		dataType: string
+		lineageTag: d325e340-729d-475f-9a77-20987eee360a
+		sourceLineageTag: 4658acc3-d5d4-46e5-965c-f45d84a302b5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: prd_CodFabrica_int
+
+		annotation SummarizationSetBy = User
+
+	column prd_CodAuxiliar_num
+		dataType: string
+		lineageTag: 80c92116-3f50-4500-9719-f8e2a3e85f09
+		sourceLineageTag: bf04e005-07e4-4113-9ae9-5b345bf2bf62
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: prd_CodAuxiliar_num
+
+		annotation SummarizationSetBy = User
+
+	column Prd_Status_Ativo
+		dataType: string
+		lineageTag: a4e18e84-2f8c-42b5-acde-e3d088870f94
+		sourceLineageTag: 85af58c8-2199-401f-9cf7-1d58dd99bfc5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Prd_Status_Ativo
+
+		annotation SummarizationSetBy = User
+
+	column Ind_Cmd
+		dataType: string
+		lineageTag: 2d0668a1-262f-4304-841d-7094b99d9024
+		sourceLineageTag: 97e89215-d412-4b2b-979b-0d7eb1e45835
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Ind_Cmd
+
+		annotation SummarizationSetBy = User
+
+	column Meta_Margem
+		dataType: double
+		lineageTag: c88cb177-eb5f-45d7-a104-5b2957839d04
+		sourceLineageTag: 9a1cae1e-c0e9-445c-85e1-a92549e4664e
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Meta_Margem
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column prod_Criado_dtm
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 23800d54-6339-46cb-a42f-c2bed50115b6
+		sourceLineageTag: ba5c8da2-a621-40b8-940d-ce79965f2070
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: prod_Criado_dtm
+
+		variation Variation
+			isDefault
+			relationship: 07299c5c-2034-4583-9ced-17038e49f314
+			defaultHierarchy: LocalDateTable_0d768403-2c77-4fa1-b93a-05ceb223373d.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column posição
+		dataType: string
+		lineageTag: 04169531-f0f5-46c3-90f1-62a82b920e5c
+		sourceLineageTag: 5fe6ce97-6f4d-4efd-80cf-8f6a0f34b47e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: posição
+
+		annotation SummarizationSetBy = User
+
+	column Campanha
+		dataType: string
+		lineageTag: c6776c6a-d5c8-4236-bbc6-7ff376de4a11
+		sourceLineageTag: 6efba944-326e-4d6e-903f-35151caa3c70
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Campanha
+
+		annotation SummarizationSetBy = User
+
+	column Cupom_Campanha
+		dataType: int64
+		formatString: 0
+		lineageTag: 5d9ed3e2-0dfb-498f-a438-34e5f6a4bba4
+		sourceLineageTag: e6bbc764-6419-4431-bd28-9ece0de07a0f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Cupom_Campanha
+
+		annotation SummarizationSetBy = User
+
+	column Ativo_FAB
+		dataType: string
+		lineageTag: 22592da0-bc7f-4715-a538-659580925516
+		sourceLineageTag: f1873ab7-cdb3-49e6-a495-d7776fbe9c19
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Ativo_FAB
+
+		annotation SummarizationSetBy = User
+
+	column PF
+		dataType: string
+		lineageTag: aaa9601c-751b-4b7d-8065-12fd9065cb92
+		sourceLineageTag: 2ea152a4-f918-4ee1-be7b-70fea5430a14
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PF
+
+		annotation SummarizationSetBy = User
+
+	column PAUTA
+		dataType: string
+		lineageTag: fea415ac-a728-46b7-b04b-6d702e6ef37a
+		sourceLineageTag: 46cf7a86-cf89-4308-8a8b-cefc48059a45
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PAUTA
+
+		annotation SummarizationSetBy = User
+
+	column ACAO?
+		dataType: string
+		lineageTag: be2ecb4a-1131-43b9-a74d-df9702390553
+		sourceLineageTag: 6e25dfa8-1132-446e-b1c4-08ebf64c57fc
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ACAO?
+
+		annotation SummarizationSetBy = User
+
+	column PRD_CODAUXILIARUNID_NUM
+		dataType: double
+		lineageTag: 206665f1-3400-40fa-be68-339c9835ee74
+		sourceLineageTag: 0a5322bb-0a03-4d87-a687-dc7c88b68649
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PRD_CODAUXILIARUNID_NUM
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PRD_PESOLIQUIDO_NUM
+		dataType: double
+		lineageTag: 0e4e956f-109d-4769-b262-e13f890f315f
+		sourceLineageTag: 5f6154cb-aec5-41f5-8dc0-9b3636008438
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PRD_PESOLIQUIDO_NUM
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PRD_PESOBRUTO_NUM
+		dataType: double
+		lineageTag: 3961acf1-dfa9-4fe9-813e-21f9f67d25e7
+		sourceLineageTag: 053c6817-8afa-47de-b71d-d9e66c852629
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PRD_PESOBRUTO_NUM
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Dim_Produtos = entity
+		mode: directQuery
+		source
+			entityName: Dim_Produtos
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

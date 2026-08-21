@@ -1,0 +1,20 @@
+table Dim_Tipo_Trib
+	lineageTag: c8301922-9423-4cae-a40e-5c0ed71df98a
+	sourceLineageTag: f34e1d57-ef6c-4b56-a3cb-8790a31df446
+
+	column PIS_COFINS
+		dataType: string
+		lineageTag: 0964cc2b-9896-4da7-be74-5d11c270e91b
+		sourceLineageTag: a7a8fe5c-ee0e-4ce4-86ee-0b111250a7ef
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PIS_COFINS
+
+		annotation SummarizationSetBy = User
+
+	partition Dim_Tipo_Trib = entity
+		mode: directQuery
+		source
+			entityName: Dim_Tipo_Trib
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

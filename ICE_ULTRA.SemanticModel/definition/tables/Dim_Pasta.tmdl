@@ -1,0 +1,130 @@
+table Dim_Pasta
+	lineageTag: 64083ad5-9c1a-4157-8119-65b3087be9c3
+	sourceLineageTag: f4578131-20c6-4cd6-952b-d2fb7bfcc651
+
+	column Dia_Semana
+		dataType: int64
+		formatString: 0
+		lineageTag: 47386c1b-b3aa-43cc-9fa0-cf17b7f5d91e
+		sourceLineageTag: c16d0e3e-2bc9-49c0-9cd6-48764fbec5ff
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Dia_Semana
+
+		annotation SummarizationSetBy = User
+
+	column cli_Cliente_int_FK
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		lineageTag: 99ba5a77-5497-4916-b754-cec5669f0628
+		sourceLineageTag: 99489fdf-bcaf-408a-a6b4-0eba55714c68
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: cli_Cliente_int_FK
+
+		annotation SummarizationSetBy = User
+
+	column pas_Pasta_int_FK
+		dataType: int64
+		formatString: 0
+		lineageTag: 00dc826e-3f8b-4606-a0ab-561cdc9bb271
+		sourceLineageTag: 9b905a42-f439-45fb-9f4b-2564029172a1
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: pas_Pasta_int_FK
+
+		annotation SummarizationSetBy = User
+
+	column emp_Empresa_int_FK
+		dataType: int64
+		formatString: 0
+		lineageTag: 7658fd97-7340-4400-b0b2-9b5ce9a6a7b3
+		sourceLineageTag: 993816a2-2006-46a4-9449-a2f4ab7f37c6
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: emp_Empresa_int_FK
+
+		annotation SummarizationSetBy = User
+
+	column pas_Ativo_ind
+		dataType: int64
+		formatString: 0
+		lineageTag: a133ca02-daff-4323-ab8c-ac52c09ab1e2
+		sourceLineageTag: cd19faab-18ba-4556-b728-94a3447be5eb
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: pas_Ativo_ind
+
+		annotation SummarizationSetBy = User
+
+	column prod_Criado_dtm
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: dfb43014-ac5b-4e3c-9ecd-2ae70180baf7
+		sourceLineageTag: e656de27-c1b5-416e-82cd-ec900eb8de0f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: prod_Criado_dtm
+
+		variation Variation
+			isDefault
+			relationship: feb2939c-d4f9-483f-915a-ae3945e4e7e4
+			defaultHierarchy: LocalDateTable_98faa958-9862-4d96-89a7-320de423ca25.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column prod_Sync_dtm
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 4ee4cbc2-d0e1-4883-bb18-6a4e55e2ee5d
+		sourceLineageTag: b48f421e-d4c9-4ceb-addb-f3e1d25201c4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: prod_Sync_dtm
+
+		variation Variation
+			isDefault
+			relationship: 3404df92-28fc-4913-bd2c-e812d1bcff80
+			defaultHierarchy: LocalDateTable_f04c6509-6b02-4436-9314-a6ef06b3e556.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column ven_Vendedor_int_FK
+		dataType: int64
+		formatString: 0
+		lineageTag: 4cab8dea-5879-4bcc-9ce1-99af8a852d09
+		sourceLineageTag: 4c185626-7975-40ec-8f9d-2b91ba6a6cd6
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ven_Vendedor_int_FK
+
+		annotation SummarizationSetBy = User
+
+	column pas_Dias_int
+		dataType: int64
+		formatString: 0
+		lineageTag: bed47e4f-b98f-4880-acd0-a34f404d25f7
+		sourceLineageTag: 61cf549b-2a54-496a-a106-0d538cd75c0c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: pas_Dias_int
+
+		annotation SummarizationSetBy = User
+
+	column pas_Descricao_chr
+		dataType: string
+		lineageTag: 428a9e3f-d5c5-477f-afa3-7e9104373838
+		sourceLineageTag: bbee7134-8a0f-4811-9585-9993adf7a27e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: pas_Descricao_chr
+
+		annotation SummarizationSetBy = User
+
+	partition Dim_Pasta = entity
+		mode: directQuery
+		source
+			entityName: Dim_Pasta
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

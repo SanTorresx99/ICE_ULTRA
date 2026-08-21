@@ -1,0 +1,137 @@
+table Fato_Winthor_Dev
+	lineageTag: e1c22479-8f0a-4e22-98fa-020f18b4f41e
+	sourceLineageTag: fbc21c0e-d956-4230-b4ad-0085e3a89385
+
+	column IDPEDIDOVENDA
+		dataType: int64
+		formatString: 0
+		lineageTag: da44f65f-9c26-479a-85b3-b2cf595b6183
+		sourceLineageTag: e1678c42-9c49-44d5-9be0-12b6ecb045b5
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: IDPEDIDOVENDA
+
+		annotation SummarizationSetBy = User
+
+	column IDEMPRESAVENDA
+		dataType: int64
+		formatString: 0
+		lineageTag: f0eeba0a-5102-4380-a2fe-ddaf6fc4b437
+		sourceLineageTag: adfc6a69-744e-4381-b5df-0117babe1cff
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: IDEMPRESAVENDA
+
+		annotation SummarizationSetBy = User
+
+	column TRANSACAOVENDA
+		dataType: string
+		lineageTag: 5ad4f491-b902-4a49-ae45-54ff8e2f9a9b
+		sourceLineageTag: b765fb9e-2420-4359-a992-fb23e5912287
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TRANSACAOVENDA
+
+		annotation SummarizationSetBy = User
+
+	column IDPRODUTOVENDA
+		dataType: int64
+		formatString: 0
+		lineageTag: a8f276e6-29d8-41bf-8c49-820e0e301fe1
+		sourceLineageTag: ba40ab15-5d05-46bc-848b-b97983116a97
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: IDPRODUTOVENDA
+
+		annotation SummarizationSetBy = User
+
+	column DTPEDIDOVENDA
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: a438563e-30f3-48ef-82b5-bef42d6a07c8
+		sourceLineageTag: bd19654e-e399-4456-8aa8-c012bc685612
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DTPEDIDOVENDA
+
+		variation Variation
+			isDefault
+			relationship: a90b6ec3-e5b0-4516-83db-067281a8b61d
+			defaultHierarchy: LocalDateTable_1e14060d-8000-4a93-8c28-ad25e1127211.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column CONC_DEV
+		dataType: string
+		lineageTag: 1e1fbdfb-c7d6-4e45-b571-5712719484b7
+		sourceLineageTag: becda1e3-98e2-43b8-bf39-cf7a677dd981
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CONC_DEV
+
+		annotation SummarizationSetBy = User
+
+	column DTPED_V_ORIGEM
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: e35cf755-9436-4a07-9912-7c321a426ccf
+		sourceLineageTag: 19946589-3386-409f-92d0-8c656df09f5e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DTPED_V_ORIGEM
+
+		variation Variation
+			isDefault
+			relationship: d4f857c2-7264-4d10-aacc-ccc7558261ef
+			defaultHierarchy: LocalDateTable_7e9a10ea-ebca-4bb0-a280-3cb7c7e9d10c.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column CONC_DEV_B
+		dataType: string
+		lineageTag: 668e19a0-9831-45b9-b061-94031d2d3305
+		sourceLineageTag: 3321f43c-be2a-483b-a4a1-0eef09665add
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CONC_DEV_B
+
+		annotation SummarizationSetBy = User
+
+	column DTPED_B_ORIGEM
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 174d9b9b-5ce8-4d4f-8827-fa47f8b7d049
+		sourceLineageTag: 370ad8c2-a2a6-4f9d-be54-598fe98edfc6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DTPED_B_ORIGEM
+
+		variation Variation
+			isDefault
+			relationship: e1f59e3e-de4d-4276-accd-e9494e03d9cc
+			defaultHierarchy: LocalDateTable_1884e912-70bf-4f53-ab28-d3c17ce5d774.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column DTPED_ORIGEM
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: f36d3aa0-90ca-48d8-9c09-15bdf6f8fb55
+		sourceLineageTag: dde68a9c-81d9-4f38-bd03-afa303453fec
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DTPED_ORIGEM
+
+		variation Variation
+			isDefault
+			relationship: b4149884-494c-42f9-8c6e-5eaad10beb9a
+			defaultHierarchy: LocalDateTable_84c461b7-5bf9-4458-8d65-a19bbca58792.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	partition Fato_Winthor_Dev = entity
+		mode: directQuery
+		source
+			entityName: Fato_Winthor_Dev
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

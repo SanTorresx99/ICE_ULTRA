@@ -1,0 +1,558 @@
+table Dim_Clientes
+	lineageTag: 73fc1bfa-321b-426a-b771-b923612686b1
+	sourceLineageTag: d830a511-94dc-4b1c-942a-a7bcced6d8df
+
+	column cli_Cliente_int_PK
+		dataType: int64
+		formatString: 0
+		lineageTag: bcc0f004-88cb-4e30-aa85-60e4c9302059
+		sourceLineageTag: f242f154-e7aa-4475-bede-67b78f66482c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: cli_Cliente_int_PK
+
+		annotation SummarizationSetBy = User
+
+	column emp_Empresa_int_FK
+		dataType: int64
+		formatString: 0
+		lineageTag: c4caad6a-195a-43a7-b8dc-3be2282b2375
+		sourceLineageTag: 46d76675-4a61-4884-a4a2-3937a27181ee
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: emp_Empresa_int_FK
+
+		annotation SummarizationSetBy = User
+
+	column cli_Cliente_chr
+		dataType: string
+		lineageTag: d698ac64-708c-4374-b55b-7cf8a4cdac38
+		sourceLineageTag: 12d44a55-9071-4e14-b943-e76dd026880c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: cli_Cliente_chr
+
+		annotation SummarizationSetBy = User
+
+	column cli_CNPJ_chr
+		dataType: string
+		lineageTag: c79e2d92-72bf-430b-8f39-46f41eae5906
+		sourceLineageTag: 46bb01fa-e5ef-4e8c-bc00-37298adc8e7b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: cli_CNPJ_chr
+
+		annotation SummarizationSetBy = User
+
+	column cli_Endereco_chr
+		dataType: string
+		lineageTag: 9112c329-4295-4085-8e10-952eb4658eae
+		sourceLineageTag: a51c2b8c-b5ba-44fc-9c93-5fbc893073a8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: cli_Endereco_chr
+
+		annotation SummarizationSetBy = User
+
+	column cli_Bairro_chr
+		dataType: string
+		lineageTag: 0e4e43b3-be91-4125-942d-3e1eede8830b
+		sourceLineageTag: 3853dfed-35db-4bcf-a6c0-7795f28e175b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: cli_Bairro_chr
+
+		annotation SummarizationSetBy = User
+
+	column cli_Cidade_chr
+		dataType: string
+		lineageTag: 05f1a0ea-e280-45f1-97d2-a99138db08e3
+		sourceLineageTag: 841a8fd4-f99c-49f6-8cea-34e568db7974
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: cli_Cidade_chr
+
+		annotation SummarizationSetBy = User
+
+	column cli_CEP_chr
+		dataType: string
+		lineageTag: f71006e4-0df9-4a2e-8a99-0b135ee171f5
+		sourceLineageTag: 22171863-8499-4641-97de-688158cbdc31
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: cli_CEP_chr
+
+		annotation SummarizationSetBy = User
+
+	column cli_UF_chr
+		dataType: string
+		lineageTag: cd319bbb-a4f9-4940-bdc6-8846d204c51c
+		sourceLineageTag: e5be76d1-6649-4436-aa63-72bb1c0bba67
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: cli_UF_chr
+
+		annotation SummarizationSetBy = User
+
+	column cli_Telefone_chr
+		dataType: string
+		lineageTag: 326eb525-cb26-4318-8062-903071ce5120
+		sourceLineageTag: 6ea08f03-2089-4b58-a387-1709b690efef
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: cli_Telefone_chr
+
+		annotation SummarizationSetBy = User
+
+	column cli_Observacao_chr
+		dataType: string
+		lineageTag: 0cfbdd32-eebb-429f-a6c5-46cc82b89832
+		sourceLineageTag: 0c838271-3999-4b91-aafa-387a0930e088
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: cli_Observacao_chr
+
+		annotation SummarizationSetBy = User
+
+	column cli_Latitude_num
+		dataType: double
+		lineageTag: 657d08cf-f8af-4e45-a341-9654aa8eaeb3
+		sourceLineageTag: 402f8303-dd95-4ab9-b362-34f0d39c3aca
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: cli_Latitude_num
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cli_Longitude_num
+		dataType: double
+		lineageTag: 95da972d-6e19-4c98-bac0-a7265f43fcf2
+		sourceLineageTag: 1e2a0e43-39e5-4ac6-bcd1-a4a8fad8b882
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: cli_Longitude_num
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column blq_Bloqueio_int_FK
+		dataType: int64
+		formatString: 0
+		lineageTag: 3181b011-6f4e-4d2b-9fe5-2cf53784dd82
+		sourceLineageTag: f36d9fab-3b3b-4840-b2d1-1fce86a6d9de
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: blq_Bloqueio_int_FK
+
+		annotation SummarizationSetBy = User
+
+	column lim_Limite_cur
+		dataType: double
+		lineageTag: 85913a77-d013-42ce-9152-630964e7717a
+		sourceLineageTag: d68dd835-5a8a-4137-b1e6-7612c90664e5
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: lim_Limite_cur
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cli_Criado_dtm
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 821fe6ee-3b57-4262-89bd-3b8412bdd600
+		sourceLineageTag: 80c3a085-e303-4fa3-9a38-8d3ab3b55c3f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: cli_Criado_dtm
+
+		variation Variation
+			isDefault
+			relationship: 869d0def-5aa1-4200-a833-4282ff0cac9a
+			defaultHierarchy: LocalDateTable_e8bcfa2e-0d26-44e7-b0de-d9ef234fd373.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column cli_Ativo_ind
+		dataType: int64
+		formatString: 0
+		lineageTag: fd163236-4754-450d-963b-c294005f460c
+		sourceLineageTag: 025ec26a-6396-497b-81d5-ce7a949c83fd
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: cli_Ativo_ind
+
+		annotation SummarizationSetBy = User
+
+	column can_Canal_int_fk
+		dataType: int64
+		formatString: 0
+		lineageTag: 01093f5b-2f1c-4a69-ae06-e94500cbb8a8
+		sourceLineageTag: 88ccef83-7c39-40c4-a827-ce1479d5f821
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: can_Canal_int_fk
+
+		annotation SummarizationSetBy = User
+
+	column cli_Numero_chr
+		dataType: string
+		lineageTag: c05890a9-5646-45fc-98a3-b918c8969a6a
+		sourceLineageTag: ed2efbce-614b-4524-85a1-66b21eb0dc71
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: cli_Numero_chr
+
+		annotation SummarizationSetBy = User
+
+	column cli_Aniversario_dtm
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 533529f0-9bd5-419a-8a3f-89033b047096
+		sourceLineageTag: 884a881e-0a45-4e9e-95d3-308c15be0a84
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: cli_Aniversario_dtm
+
+		variation Variation
+			isDefault
+			relationship: 2d0998b2-ac4c-4a4b-be85-ed7f8d4085ad
+			defaultHierarchy: LocalDateTable_2c7a48d9-a26c-4470-9c3d-94e83ba78fdf.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column cli_RGIE_chr
+		dataType: string
+		lineageTag: dfc5aa15-881c-4315-80c0-6d0efb3be6fb
+		sourceLineageTag: 1ed6ce31-e990-42ed-bbcf-3709b36bd5cd
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: cli_RGIE_chr
+
+		annotation SummarizationSetBy = User
+
+	column cli_Email_chr
+		dataType: string
+		lineageTag: c9011267-6588-4fb7-96d0-50e9498a36cf
+		sourceLineageTag: 5c5997c5-0aac-4694-92bb-eaf6b27fd02f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: cli_Email_chr
+
+		annotation SummarizationSetBy = User
+
+	column cli_Celular_chr
+		dataType: string
+		lineageTag: d9db1339-0442-4aaf-903a-a41ccd1f1430
+		sourceLineageTag: 6b1b316c-1a02-4b99-a0e1-8179c2c6f262
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: cli_Celular_chr
+
+		annotation SummarizationSetBy = User
+
+	column cli_Contribuinte_ind
+		dataType: string
+		lineageTag: 452c9e43-ea70-4bf8-8f40-0477d309a1d6
+		sourceLineageTag: dbbb60a4-812b-4193-be15-97eb84d98e78
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: cli_Contribuinte_ind
+
+		annotation SummarizationSetBy = User
+
+	column cli_CodigoIBGE_int
+		dataType: int64
+		formatString: 0
+		lineageTag: 9c2cd7e8-1666-4d84-a3b2-f3df157d8e16
+		sourceLineageTag: 1a35c248-9a0c-477c-972b-011cb5ab77c1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: cli_CodigoIBGE_int
+
+		annotation SummarizationSetBy = User
+
+	column cli_Fantasia_chr
+		dataType: string
+		lineageTag: 6d7a6efa-6cc7-41d9-b535-d16b0c69273e
+		sourceLineageTag: 7cb1f81c-08d4-4b34-8aa3-845e6405f110
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: cli_Fantasia_chr
+
+		annotation SummarizationSetBy = User
+
+	column cli_Vendedor_int
+		dataType: int64
+		formatString: 0
+		lineageTag: 92873444-d63a-41cd-87b5-99853697825e
+		sourceLineageTag: d7705423-e8ef-4fa8-8010-29f0a34a9724
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: cli_Vendedor_int
+
+		annotation SummarizationSetBy = User
+
+	column cli_Supervisor_int
+		dataType: int64
+		formatString: 0
+		lineageTag: 915daccb-2daa-48ff-84c3-7dee0f959bdb
+		sourceLineageTag: 809a764c-b3a7-439d-936b-226a1b9b6cd9
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: cli_Supervisor_int
+
+		annotation SummarizationSetBy = User
+
+	column Cli_Cod_Razao
+		dataType: string
+		lineageTag: 1c83647a-e13a-4f7a-9fe1-408ebd81aa12
+		sourceLineageTag: 61520f25-80b8-4db9-a627-407e8924a987
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Cli_Cod_Razao
+
+		annotation SummarizationSetBy = User
+
+	column Cli_Ativo
+		dataType: int64
+		formatString: 0
+		lineageTag: 8185caf3-3d32-4d04-a2ba-04c1a1dc6592
+		sourceLineageTag: 50ee03c9-e004-41a2-a92b-7b1f5a9243e9
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Cli_Ativo
+
+		annotation SummarizationSetBy = User
+
+	column Visita
+		dataType: int64
+		formatString: 0
+		lineageTag: 082fe4ef-a3a6-4b9e-bfee-18d266480d4b
+		sourceLineageTag: 2c064ab4-25c1-4b16-8464-e1132ad33f37
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Visita
+
+		annotation SummarizationSetBy = User
+
+	column cli_DataExclusao_dtm
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 91c64d7b-9219-4a66-ad74-924d3af900fe
+		sourceLineageTag: 5f924f8f-974a-4739-80aa-299c8a27a6ee
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: cli_DataExclusao_dtm
+
+		variation Variation
+			isDefault
+			relationship: 94db34b2-1c1d-4824-8941-9ae8978f978f
+			defaultHierarchy: LocalDateTable_ee9b85cd-c22a-46b3-97f5-f12e62734137.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column cli_LimiteOriginal_cur
+		dataType: double
+		lineageTag: 920c1fc7-d637-4861-a3fb-a7f38d06d1d0
+		sourceLineageTag: 2905df83-6161-4b48-8671-fe855b9e9094
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: cli_LimiteOriginal_cur
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Saldo_Devedor
+		dataType: double
+		lineageTag: 0f19d381-3526-4506-8ace-14ffae0df762
+		sourceLineageTag: 1ddfbfe4-59b0-4e36-a8e9-35eaba778430
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Saldo_Devedor
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Saldo_Disponivel
+		dataType: double
+		lineageTag: d7f9b480-2e4f-4dcf-b5f4-826bcfe9ab3e
+		sourceLineageTag: 9209bb22-285b-43b0-a7a7-711df33831b4
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Saldo_Disponivel
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cli_Cobranca
+		dataType: string
+		lineageTag: 891b8f3b-c0c8-4d1e-a890-93d1ca722566
+		sourceLineageTag: f4e990eb-c870-4c6b-845f-9aaa7d13ddfd
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: cli_Cobranca
+
+		annotation SummarizationSetBy = User
+
+	column cli_PrazoDias
+		dataType: string
+		lineageTag: c8a34a10-d753-4d27-b176-fe3508b37106
+		sourceLineageTag: 402cd66b-0e20-4ff3-a41b-7c545d0dafe2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: cli_PrazoDias
+
+		annotation SummarizationSetBy = User
+
+	column CliSC_Status
+		dataType: string
+		lineageTag: 2993a123-8109-4ea2-9348-0462d7305a5d
+		sourceLineageTag: be27d8a3-6b11-4633-ba8d-640ae07e81d6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CliSC_Status
+
+		annotation SummarizationSetBy = User
+
+	column Status_Mat
+		dataType: string
+		lineageTag: c53570fe-0ada-4a66-9c6f-54a770986252
+		sourceLineageTag: fd799f43-ce73-477b-8d7c-ee41e0557dc0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Status_Mat
+
+		annotation SummarizationSetBy = User
+
+	column cli_RG_EXP
+		dataType: string
+		lineageTag: 9f0d4ab2-8cb5-4f90-aa50-74d1a6e43ca8
+		sourceLineageTag: a19d863c-ddd9-44c6-91a7-0d0c4cd9f30d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: cli_RG_EXP
+
+		annotation SummarizationSetBy = User
+
+	column IEENT
+		dataType: string
+		lineageTag: dfa3267d-f3b9-4b9e-8e15-de9ef408da1c
+		sourceLineageTag: a94e95ac-bc25-4602-afea-5d15c7247bc1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: IEENT
+
+		annotation SummarizationSetBy = User
+
+	column cli_data_hoje
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 9aec20f5-2543-45e7-97f7-b37f5b081752
+		sourceLineageTag: 3e7a36d8-cfc1-4e55-988d-e2fa20a15c51
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: cli_data_hoje
+
+		variation Variation
+			isDefault
+			relationship: 1fe462d1-2878-4599-98c6-5321c6e9e5d8
+			defaultHierarchy: LocalDateTable_a4a92a17-614c-489f-9fba-2ef8b5f0cc67.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column Status_Vas
+		dataType: string
+		lineageTag: b9d2c20e-a964-4d60-9dd9-7d2b324fe5a5
+		sourceLineageTag: 9e0029d2-4250-4eff-9fba-d4090cbb55db
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Status_Vas
+
+		annotation SummarizationSetBy = User
+
+	column >60_DD_SC
+		dataType: string
+		lineageTag: 5dcb2180-4a82-40cb-941b-8b4211dffd37
+		sourceLineageTag: aec1e6e9-0ab6-418f-bf02-216906517f04
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: >60_DD_SC
+
+		annotation SummarizationSetBy = User
+
+	column Status_Vas_Ant
+		dataType: string
+		lineageTag: 1a6dac1d-b7be-4d9d-aef1-5eebf9a300a9
+		sourceLineageTag: 3a2e9894-81f5-46fc-89b7-fdf8bf686137
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Status_Vas_Ant
+
+		annotation SummarizationSetBy = User
+
+	column Status_Mat_Ant
+		dataType: string
+		lineageTag: c2fcf33c-cfac-4b0e-bc31-508248144d17
+		sourceLineageTag: b7022302-4973-4f2b-8036-283284b60d15
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Status_Mat_Ant
+
+		annotation SummarizationSetBy = User
+
+	column ACAO?
+		dataType: string
+		lineageTag: fb52c9d6-d316-4cd5-946a-92a49413dd9d
+		sourceLineageTag: c2a7c69e-4656-46fd-882c-d8dee4db742e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ACAO?
+
+		annotation SummarizationSetBy = User
+
+	column S/C_ATUAL
+		dataType: int64
+		formatString: 0
+		lineageTag: 2733e1cf-8bdd-4b24-b71d-4cb704eecad3
+		sourceLineageTag: 1b9cbc06-8594-4cb2-99e9-47c8545ff8c9
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: S/C_ATUAL
+
+		annotation SummarizationSetBy = User
+
+	column S/C_HOJE
+		dataType: int64
+		formatString: 0
+		lineageTag: 84da499b-171c-4615-b721-2c22bd81b534
+		sourceLineageTag: 7272c481-5a8b-4c76-8022-f1c474958fbf
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: S/C_HOJE
+
+		annotation SummarizationSetBy = User
+
+	column CLI_ACAO
+		dataType: string
+		lineageTag: 5331cc25-5d36-41e5-934a-0cf5ee0303df
+		sourceLineageTag: 7a6b13d2-2ce2-488f-a34b-dabdb642a38d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CLI_ACAO
+
+		annotation SummarizationSetBy = User
+
+	partition Dim_Clientes = entity
+		mode: directQuery
+		source
+			entityName: Dim_Clientes
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

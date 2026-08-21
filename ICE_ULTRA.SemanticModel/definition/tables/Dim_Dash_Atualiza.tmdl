@@ -1,0 +1,47 @@
+table Dim_Dash_Atualiza
+	lineageTag: ddf4cabe-657c-4c10-9b86-570550beb553
+	sourceLineageTag: 1ac631db-8389-434d-b28d-a6b9f89c3dd0
+
+	column 'Data e Hora'
+		dataType: string
+		lineageTag: 6e8ad788-bf1a-4ffb-bea3-d995b1c61359
+		sourceLineageTag: ed8b9c65-7080-4f50-a0d3-efa515ad91ed
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Data e Hora
+
+		annotation SummarizationSetBy = User
+
+	column Data
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 866c8c66-0b05-4eec-85ba-e153947d15c9
+		sourceLineageTag: 47c4de58-e81b-4774-8b88-e4fa5672fc44
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Data
+
+		variation Variation
+			isDefault
+			relationship: 12df92b8-9b56-43a2-a5e7-5607c801e8c4
+			defaultHierarchy: LocalDateTable_0c267b41-3a87-44be-8291-fe8f73df7588.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column Hora
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: cadbfd7b-281d-4da3-971e-b47eabfd6ff2
+		sourceLineageTag: 2fa65899-e5d2-4899-a4a1-0942890d866e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Hora
+
+		annotation SummarizationSetBy = User
+
+	partition Dim_Dash_Atualiza = entity
+		mode: directQuery
+		source
+			entityName: Dim_Dash_Atualiza
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

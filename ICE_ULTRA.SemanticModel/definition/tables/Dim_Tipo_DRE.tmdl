@@ -1,0 +1,20 @@
+table Dim_Tipo_DRE
+	lineageTag: 5a95430b-5a12-4d11-8c15-027a5231af60
+	sourceLineageTag: 0f12ddf3-ef17-40d4-9a83-3f3fa71db6bd
+
+	column Tipo_DRE
+		dataType: string
+		lineageTag: 91e87b81-dab2-49cd-91c2-a613a2acd9f6
+		sourceLineageTag: 414e032d-c7b3-4165-9116-81831e2c9734
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Tipo_DRE
+
+		annotation SummarizationSetBy = User
+
+	partition Dim_Tipo_DRE = entity
+		mode: directQuery
+		source
+			entityName: Dim_Tipo_DRE
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

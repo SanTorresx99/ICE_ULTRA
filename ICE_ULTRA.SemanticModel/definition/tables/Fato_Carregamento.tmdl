@@ -1,0 +1,347 @@
+table Fato_Carregamento
+	lineageTag: e6fef0ea-fc5a-48bb-bd4c-60d82c75a5e3
+	sourceLineageTag: d9ab1384-637f-4766-8eeb-1b34502caed5
+
+	column MAPA
+		dataType: int64
+		formatString: 0
+		lineageTag: c0521136-d28c-444e-a8a9-797dd5572da6
+		sourceLineageTag: ec5f596f-f9db-49fc-9de7-655eb621fd71
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: MAPA
+
+		annotation SummarizationSetBy = User
+
+	column DTSAIDA
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 81931d0e-a115-4627-a348-dfa72ecd484d
+		sourceLineageTag: b74c0aeb-1337-49ca-939f-f20190a3e8c4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DTSAIDA
+
+		annotation SummarizationSetBy = User
+
+	column DTFECHA
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 4b9f9008-def0-44cb-a757-8ab728ed1d12
+		sourceLineageTag: a01a1a57-b116-4fc2-a41e-b97001714dbb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DTFECHA
+
+		annotation SummarizationSetBy = User
+
+	column DTCANCEL
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: a0e4e1b0-1580-444e-87a1-f91b1a51da72
+		sourceLineageTag: 0998332a-adf2-413c-a09a-b997a51a05d5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DTCANCEL
+
+		annotation SummarizationSetBy = User
+
+	column DTMONT
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: e6a1631d-414f-4490-8fab-c63fece5e7f3
+		sourceLineageTag: 01c0c1b2-c262-49fc-ba68-877d2bc7414e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DTMONT
+
+		annotation SummarizationSetBy = User
+
+	column DTFAT
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 753660ba-7220-4aab-9ce8-e9bc97de35ec
+		sourceLineageTag: 101c4b81-acc5-48a4-b567-270bf72fec6a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DTFAT
+
+		annotation SummarizationSetBy = User
+
+	column CODMOTORISTA
+		dataType: int64
+		formatString: 0
+		lineageTag: 4f57a624-60b7-4af9-8743-eaa7de6fe593
+		sourceLineageTag: 0afa3ad6-1fff-4c1b-b994-fb12de71f61d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CODMOTORISTA
+
+		annotation SummarizationSetBy = User
+
+	column NOMEMOTORISTA
+		dataType: string
+		lineageTag: 328388c2-3d02-4a62-a553-db5fdf1a9d0f
+		sourceLineageTag: a3990cbf-ff41-48e3-9cdd-3943514682c5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: NOMEMOTORISTA
+
+		annotation SummarizationSetBy = User
+
+	column CODVEICULO
+		dataType: int64
+		formatString: 0
+		lineageTag: 6edfead5-a585-40b9-adf0-04a3a7ea367d
+		sourceLineageTag: df70b67b-dfb7-462f-9de2-efee084c2cc7
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CODVEICULO
+
+		annotation SummarizationSetBy = User
+
+	column PLACAVEICULO
+		dataType: string
+		lineageTag: b01369c1-4cb2-428e-a8f8-8140ad1076eb
+		sourceLineageTag: eb5313dc-6059-46a7-9918-784a37f80cba
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PLACAVEICULO
+
+		annotation SummarizationSetBy = User
+
+	column DESCRVEICULO
+		dataType: string
+		lineageTag: bb49e05c-401d-4676-be22-ecda7a4f20d5
+		sourceLineageTag: 0338c991-e8ea-49fb-b1cb-844333c7b1a1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DESCRVEICULO
+
+		annotation SummarizationSetBy = User
+
+	column PESOCARREG
+		dataType: double
+		lineageTag: 1efda6f8-9afe-433f-9b36-07b2b3e84564
+		sourceLineageTag: c8f4ecf7-506b-45cc-b6ab-345b1f478118
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PESOCARREG
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MAPA_ABERTO
+		dataType: int64
+		formatString: 0
+		lineageTag: 1c9272a8-ffc7-4feb-9184-f469d42963dd
+		sourceLineageTag: 2cfe3cfa-d1b1-45cc-91a3-ed3276b13ad4
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: MAPA_ABERTO
+
+		annotation SummarizationSetBy = User
+
+	column ID_EMPRESA
+		dataType: int64
+		formatString: 0
+		lineageTag: 26f5cef7-0c75-40de-8e03-1f549db18571
+		sourceLineageTag: fa6d5281-8638-4856-b7dc-4d8362e4a6ba
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ID_EMPRESA
+
+		annotation SummarizationSetBy = User
+
+	column ATRASO_MEDIO
+		dataType: int64
+		formatString: 0
+		lineageTag: df0135f4-2fe1-494f-a51c-9e43b69e3225
+		sourceLineageTag: 70a9792f-20a2-4cdc-8f74-7a47a5a568b5
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ATRASO_MEDIO
+
+		annotation SummarizationSetBy = User
+
+	column DTSAIDAVEICULO
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 4664540e-5eae-4907-bf1e-6d1a21124505
+		sourceLineageTag: 9bfd5a7a-a56d-400f-98b4-5c6825726e9d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DTSAIDAVEICULO
+
+		variation Variation
+			isDefault
+			relationship: 1249f289-d8bf-40d3-b390-cbb2fd83aeae
+			defaultHierarchy: LocalDateTable_9d382913-65ca-49e1-b9a2-7bc6ed32e176.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column DTRETORNO
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 26b2a10f-f004-4610-b443-4be4323c5e6c
+		sourceLineageTag: e68bb24e-e945-4d6f-a0c7-5495bf4827c7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DTRETORNO
+
+		variation Variation
+			isDefault
+			relationship: ff31703e-8546-48d9-982b-1f90c2eeb322
+			defaultHierarchy: LocalDateTable_a7b8fe6c-135d-46e9-bb05-576e922d2305.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column KMINICIAL
+		dataType: double
+		lineageTag: a6763fc9-87dc-4f5c-b5bb-14b765bedebb
+		sourceLineageTag: 184ded04-e3d5-413a-b47c-08256d5dd185
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: KMINICIAL
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column KMFINAL
+		dataType: double
+		lineageTag: f6ea9632-6167-4e3a-83e0-52fb105b3e30
+		sourceLineageTag: 13c6c294-e0c0-479b-983b-c04bcd3f6274
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: KMFINAL
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DESTINO
+		dataType: string
+		lineageTag: 885c09bc-37d3-407b-bdcc-afb4f238cd6b
+		sourceLineageTag: 81110433-6051-4169-8f2d-3bca94f85822
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DESTINO
+
+		annotation SummarizationSetBy = User
+
+	column HORAMONTAGEM
+		dataType: string
+		lineageTag: 95f4cb93-ac1f-4a47-9686-48af62a6c44b
+		sourceLineageTag: a7a068aa-03bb-42f9-8a05-b6c393816e16
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: HORAMONTAGEM
+
+		annotation SummarizationSetBy = User
+
+	column VLTOTALCARGA
+		dataType: double
+		lineageTag: d7c998fa-9838-486b-994c-0651370b807d
+		sourceLineageTag: 9d98b860-d25f-4d34-9f65-6db39fe0d90a
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: VLTOTALCARGA
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CODCONFERENTE
+		dataType: double
+		lineageTag: e9891043-5b3e-488f-b652-a950cceabb54
+		sourceLineageTag: 787bdff3-58c9-4df2-8dd5-47021a259615
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CODCONFERENTE
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CODFATURISTA
+		dataType: double
+		lineageTag: 915defa8-c1e3-44c9-827e-3611944f83bf
+		sourceLineageTag: be8512a2-4355-4f89-868b-d758f171c4cf
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CODFATURISTA
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CODROTEIRIZADOR
+		dataType: double
+		lineageTag: 19a54157-260b-4f3b-ac87-8c85b67eb755
+		sourceLineageTag: 1fd4e995-e3d2-4bb5-bee9-8fd0b43c6c12
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CODROTEIRIZADOR
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CODMONTADORMAPA
+		dataType: double
+		lineageTag: ccd5f2ff-6871-45b2-a9a2-29d8c4fa960d
+		sourceLineageTag: 0e598281-5e87-4e9a-8b4c-30e4b6b2fd29
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CODMONTADORMAPA
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CODUSUARIOCANCEL
+		dataType: double
+		lineageTag: 9893eadb-44fd-4fed-aa1d-2b1a85ae3582
+		sourceLineageTag: 32d3dd2a-2b8e-41f2-9296-b99aff6b1abd
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CODUSUARIOCANCEL
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DATACONFERENCIA
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 51100aea-6afd-4aa7-88fc-cfa5015bf3e5
+		sourceLineageTag: 737acc86-eee4-4308-8cfe-67f2e2b3453b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DATACONFERENCIA
+
+		variation Variation
+			isDefault
+			relationship: 0c07bf23-de6a-4069-ad6f-3ed5026b5b5b
+			defaultHierarchy: LocalDateTable_8f56cc30-9fe5-4184-8e90-2f7841d64be9.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column HORAFECHAMENTO
+		dataType: string
+		lineageTag: a46403b6-0690-4b61-b16a-1f24c1a03640
+		sourceLineageTag: 91231e80-be3d-4bb1-a631-e741a460d203
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: HORAFECHAMENTO
+
+		annotation SummarizationSetBy = User
+
+	partition Fato_Carregamento = entity
+		mode: directQuery
+		source
+			entityName: Fato_Carregamento
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "ICE_ULTRA"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "ea8c87c9-9040-49c6-8b2a-9777cb0c3a50"
+  }
+}

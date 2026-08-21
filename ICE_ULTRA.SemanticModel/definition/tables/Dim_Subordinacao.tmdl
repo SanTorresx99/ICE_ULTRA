@@ -1,0 +1,42 @@
+table Dim_Subordinacao
+	lineageTag: 57c5dae1-bbfe-4450-9a82-e395895da5bd
+	sourceLineageTag: ccb81992-b0e2-4daf-9775-6ac058656474
+
+	column emp_Empresa_int_FK
+		dataType: int64
+		formatString: 0
+		lineageTag: 13e8dddd-3251-49b6-badd-a582c459ae28
+		sourceLineageTag: aca31ed9-9cba-4998-8222-b0f297d89525
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: emp_Empresa_int_FK
+
+		annotation SummarizationSetBy = User
+
+	column ven_Superior_int_FK
+		dataType: int64
+		formatString: 0
+		lineageTag: a0ad6c61-36a6-45bb-b23a-2e0e4f424a7d
+		sourceLineageTag: 8d32e9e7-07bc-40e1-b930-53943c70c9b8
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ven_Superior_int_FK
+
+		annotation SummarizationSetBy = User
+
+	column ven_Vendedor_chr
+		dataType: string
+		lineageTag: c86c2f13-ab9f-4161-a5ed-7d52c9a64eb6
+		sourceLineageTag: 4d902948-546d-4d15-b770-fc88020c4b80
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ven_Vendedor_chr
+
+		annotation SummarizationSetBy = User
+
+	partition Dim_Subordinacao = entity
+		mode: directQuery
+		source
+			entityName: Dim_Subordinacao
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

@@ -1,0 +1,113 @@
+table _AS
+	lineageTag: 09633ac0-75c8-4929-9413-118b4e97e566
+	sourceLineageTag: 27592f82-542d-4f58-9b83-6c40f9411ace
+
+	column FILIAL
+		dataType: int64
+		formatString: 0
+		lineageTag: bab27690-98ab-497e-85a0-ebefc30fe545
+		sourceLineageTag: dbc86f33-c6ed-4e95-881e-f7ff84a67c90
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: FILIAL
+
+		annotation SummarizationSetBy = User
+
+	column CODIGO
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		lineageTag: 2c5a2dc7-8f11-4399-b2a5-08daef19accb
+		sourceLineageTag: 05daaec4-9c01-4b01-a7f2-70fcfe0331bb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CODIGO
+
+		annotation SummarizationSetBy = User
+
+	column RAZÃO
+		dataType: string
+		lineageTag: 493d5671-71ee-4ad6-9f45-376b3ce7301d
+		sourceLineageTag: cd892bf8-00d4-4142-8485-17674fc9b4dd
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: RAZÃO
+
+		annotation SummarizationSetBy = User
+
+	column FANTASIA
+		dataType: string
+		lineageTag: 7f2e5e5a-1df6-4739-bbde-a6f2aecb828b
+		sourceLineageTag: a1d4e444-52ea-4524-af3b-6ded4bfa856d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: FANTASIA
+
+		annotation SummarizationSetBy = User
+
+	column REDE
+		dataType: string
+		lineageTag: e057c6d5-71a3-463f-9c62-715fffc2024f
+		sourceLineageTag: 287c92c3-6433-49ee-a11a-600304397c90
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: REDE
+
+		annotation SummarizationSetBy = User
+
+	column LOJA
+		dataType: string
+		lineageTag: 58903ffb-157c-44cf-9307-c0fe1bc756d5
+		sourceLineageTag: 6c111965-fb14-4dfe-86cf-460e031136a1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: LOJA
+
+		annotation SummarizationSetBy = User
+
+	column SEGMENTO
+		dataType: string
+		lineageTag: f79591a7-b757-4045-b10a-46826c93b74c
+		sourceLineageTag: 65a98385-dad5-4062-b925-cc3d1f0de48f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SEGMENTO
+
+		annotation SummarizationSetBy = User
+
+	column REG
+		dataType: string
+		lineageTag: a4fdc818-1cec-447b-afdb-1aba43a0c2e1
+		sourceLineageTag: 3aa59057-cb96-471c-9c84-11c0e4504542
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: REG
+
+		annotation SummarizationSetBy = User
+
+	column GRP
+		dataType: string
+		lineageTag: 128a3b45-5c66-4b9a-882f-a5df7a7108b4
+		sourceLineageTag: 6c9519f0-fbe1-414c-8181-46c805910fd9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: GRP
+
+		annotation SummarizationSetBy = User
+
+	column ABR
+		dataType: string
+		lineageTag: 5710fb93-e963-4ded-8fef-4cde30367c33
+		sourceLineageTag: 1420fb4c-cb97-4a08-9a59-fc83b31c1905
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ABR
+
+		annotation SummarizationSetBy = User
+
+	partition _AS = entity
+		mode: directQuery
+		source
+			entityName: _AS
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

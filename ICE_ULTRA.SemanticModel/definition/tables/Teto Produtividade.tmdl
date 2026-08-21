@@ -1,0 +1,32 @@
+table 'Teto Produtividade'
+	lineageTag: 8b0eb673-2cc1-4e92-885c-54c80d232c45
+	sourceLineageTag: 252c9c6d-326c-4c02-93e7-ea37ca830bd7
+
+	measure 'Valor Teto Produtividade' = EXTERNALMEASURE("Valor Teto Produtividade", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: e0bb4633-9846-4b97-959a-cd104587db5e
+		sourceLineageTag: e1b7f2f5-e8d3-4f81-aee3-3d83f1513c71
+		dataCategory: Uncategorized
+
+	column 'Teto Produtividade'
+		dataType: int64
+		formatString: 0
+		lineageTag: 8b6fe2e6-f24d-447b-b031-85cdffc2d78d
+		sourceLineageTag: 740b610e-393d-41db-bed0-e78aa40313c1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Teto Produtividade
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 0
+				}
+
+		annotation SummarizationSetBy = User
+
+	partition 'Teto Produtividade' = entity
+		mode: directQuery
+		source
+			entityName: Teto Produtividade
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

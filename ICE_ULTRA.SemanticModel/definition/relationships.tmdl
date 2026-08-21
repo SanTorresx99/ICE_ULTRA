@@ -1,0 +1,880 @@
+relationship 674775ec-d9e3-4535-86fe-531cbcdd6cb7
+	fromColumn: Dim_Pedidos_Atual.his_DataSync_dtm
+	toColumn: LocalDateTable_10fc42e2-c888-4c8e-b5b5-7dd1ca014ffc.Date
+
+relationship e708ea0f-cb0e-417f-822d-775401c0e8e8
+	fromColumn: Dim_Pedidos_Atual.emp_Empresa_int_FK
+	toColumn: Dim_Empresa.emp_Empresa_int_PK
+
+relationship dcdf526a-d0fd-4f1a-bc0d-7da0a9d8dcf1
+	fromColumn: Dim_Roteiro_Atual.prv_DataSync_dtm
+	toColumn: LocalDateTable_3f7c3c7c-624f-46af-9afe-9e398e3eb8aa.Date
+
+relationship af5e9277-a613-47df-8d82-394fc7325bc5
+	isActive: false
+	fromColumn: Dim_Roteiro_Atual.emp_Empresa_int_FK
+	toColumn: Dim_Empresa.emp_Empresa_int_PK
+
+relationship 2836e29a-d6b3-46fa-9d82-01ba03d5a185
+	crossFilteringBehavior: bothDirections
+	fromColumn: Dim_Roteiro_Atual.cli_Cliente_int_FK
+	toColumn: Dim_Pasta.cli_Cliente_int_FK
+
+relationship 3b00bd8e-8cb6-42cd-865a-b098550f0183
+	isActive: false
+	fromColumn: Dim_Roteiro_Atual.prv_Data_dtm
+	toColumn: Dim_Calendario.Date
+
+relationship 06e44cc1-774e-4a59-8114-88f0a817170e
+	fromColumn: Fato_Vendas_Hist_Winthor.DTENTREGA
+	toColumn: LocalDateTable_f3ba3ac5-f205-438c-908a-960e569bc41e.Date
+
+relationship 079696c1-2458-4b37-b69a-f8c6c6415337
+	toCardinality: many
+	fromColumn: Fato_Vendas_Hist_Winthor.IDCLIENTE
+	toColumn: Dim_Clientes.cli_Cliente_int_PK
+
+relationship e8d98232-e92a-45a2-aaa1-6bddd3853a5b
+	isActive: false
+	fromColumn: Fato_Vendas_Hist_Winthor.IDRCA_ATUAL
+	toColumn: Dim_Vendedor.ven_Vendedor_int_PK
+
+relationship 2e8280ea-3be7-4498-b08c-5dc02afd3eb4
+	isActive: false
+	fromColumn: Fato_Vendas_Hist_Winthor.IDEMPRESA
+	toColumn: Dim_Empresa.emp_Empresa_int_PK
+
+relationship 55a3d14a-16f8-48c3-a79c-d6918a610ece
+	isActive: false
+	fromColumn: Fato_Vendas_Hist_Winthor.DTPED_DEV
+	toColumn: Dim_Calendario.Date
+
+relationship 29c3a43d-e025-4690-87cf-ffddfa7d96ba
+	fromColumn: Fato_Vendas_Hist_Winthor.DTPEDIDOORIG
+	toColumn: Dim_Calendario.Date
+
+relationship 98b01040-20e9-4131-93c9-b2b526da54fd
+	isActive: false
+	fromColumn: Fato_Vendas_Hist_Winthor.DTPEDIDO
+	toColumn: Dim_Calendario.Date
+
+relationship a520d6c6-9ca5-4a5c-a22f-c6eb5690951e
+	isActive: false
+	fromColumn: Fato_Vendas_Hist_Winthor.IDRCA_PED
+	toColumn: Dim_Vendedor.ven_Vendedor_int_PK
+
+relationship 3848fbc4-9b73-4bec-93ef-ae2b7892a19a
+	fromColumn: Dim_Pedidos_Hist.his_DataSync_dtm
+	toColumn: LocalDateTable_b521252c-952c-495d-b1a0-c193e9f4d29a.Date
+
+relationship 890880b6-9b14-45cb-8d1e-38a607b4da2d
+	fromColumn: Dim_Pedidos_Hist.emp_Empresa_int_FK
+	toColumn: Dim_Empresa.emp_Empresa_int_PK
+
+relationship d17b2d5e-00c4-4d7a-98dc-257079f47e91
+	fromColumn: Dim_Roteiro_Hist.prv_DataSync_dtm
+	toColumn: LocalDateTable_14fc32fb-9786-41c4-b834-2aee0cdf2e3e.Date
+
+relationship f0381bae-96a1-43a7-b848-7be80d778925
+	toCardinality: many
+	fromColumn: Dim_Roteiro_Hist.cli_Cliente_int_FK
+	toColumn: Dim_Clientes.cli_Cliente_int_PK
+
+relationship d2e87b81-f765-4ebb-b454-aece3e443ef8
+	isActive: false
+	fromColumn: Dim_Roteiro_Hist.emp_Empresa_int_FK
+	toColumn: Dim_Empresa.emp_Empresa_int_PK
+
+relationship 7192c769-71ff-433c-b4bd-8002225fd08e
+	isActive: false
+	fromColumn: Dim_Roteiro_Hist.cli_Cliente_int_FK
+	toColumn: Dim_Pasta.cli_Cliente_int_FK
+
+relationship b24f237c-0fd8-45dc-8eae-95d9c3a43050
+	fromColumn: Dim_Roteiro_Hist.prv_Data_dtm
+	toColumn: Dim_Calendario.Date
+
+relationship 9bb36300-2112-4677-b431-e5031a9b6770
+	fromColumn: Dim_Subordinacao.emp_Empresa_int_FK
+	toColumn: Dim_Empresa.emp_Empresa_int_PK
+
+relationship e123eb6e-f366-4818-8120-4efdf6d33c4a
+	fromColumn: Dim_Vendedor.emp_Empresa_int_FK
+	toColumn: Dim_Empresa.emp_Empresa_int_PK
+
+relationship 4b226782-c9bd-41a3-a400-9713bb893d9a
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: Dim_Vendedor.Tipo_Rota
+	toColumn: Nova_Prod.Tipo
+
+relationship b82518a9-205d-40dd-8a41-c2ac249787e5
+	fromColumn: Dim_Calendario.Hoje
+	toColumn: LocalDateTable_2a9fc4bc-8a24-43bc-b839-f8a8816d6df0.Date
+
+relationship 7eaf0285-44d7-4c14-950e-115b0865ce14
+	fromColumn: Dim_Calendario.Date
+	toColumn: LocalDateTable_49b400ac-8edd-44d9-b65a-2b03dec21758.Date
+
+relationship 7077df95-ac5d-45f6-ac4e-0b3e315cfacd
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: Dim_Calendario.Date
+	toColumn: Dim_Feriado.Data
+
+relationship 07299c5c-2034-4583-9ced-17038e49f314
+	fromColumn: Dim_Produtos.prod_Criado_dtm
+	toColumn: LocalDateTable_0d768403-2c77-4fa1-b93a-05ceb223373d.Date
+
+relationship b9adcd8a-d075-4c09-9238-86642ebfa6c7
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: Dim_Produtos.prd_Produto_int_PK
+	toColumn: Fato_Vendas_Hist_Winthor.IDPRODUTO
+
+relationship a09256fe-7536-46af-888d-f2bd3a5fc217
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: Dim_Produtos.prd_Produto_int_PK
+	toColumn: Fato_Vendas_Atual_Winthor.IDPRODUTO
+
+relationship cd0637b8-7ea5-4fe1-8cef-8748d06835f7
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: Dim_Produtos.prd_Produto_int_PK
+	toColumn: Fato_Pedidos_Hist_XM.prd_Produto_int_FK
+
+relationship 40d2ad3f-2f0e-472f-b02f-2ea71fcc86af
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: Dim_Produtos.prd_Produto_int_PK
+	toColumn: Fato_Pedidos_Atual_XM.prd_Produto_int_FK
+
+relationship 8496fdb2-0c26-4127-8b54-52e901af3e66
+	crossFilteringBehavior: bothDirections
+	fromColumn: Dim_Produtos.prd_Produto_int_PK
+	toColumn: Tipo_Produto.COD
+
+relationship 419bbe52-8162-4156-bff9-839301ecc498
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: Dim_Produtos.prd_Produto_int_PK
+	toColumn: Dim_Comissao.prd_Produto_int_PK
+
+relationship 46de9cbb-0aa7-4a6f-a0c6-cc333df77d10
+	fromColumn: Fato_Pedidos_Hist_XM.vis_Termino_dtm
+	toColumn: LocalDateTable_9f6b4a34-629d-490e-9a6b-294a6138eca5.Date
+
+relationship 232f6334-988a-4f8b-9973-8312bc954a28
+	fromColumn: Fato_Pedidos_Hist_XM.ped_DataEntrega_dtm
+	toColumn: LocalDateTable_09b5a5ac-4580-4dc3-85e1-1a2d345fb715.Date
+
+relationship 4c6e7ba2-4b2a-41ec-ab96-cb365e9129fa
+	fromColumn: Fato_Pedidos_Hist_XM.vis_Inicio_dtm
+	toColumn: LocalDateTable_66b6c2d3-cd3c-412e-b97d-7226819a4d62.Date
+
+relationship c3b42fae-50fd-484c-8766-84ec833de9bb
+	toCardinality: many
+	fromColumn: Fato_Pedidos_Hist_XM.cli_Cliente_int_FK
+	toColumn: Dim_Clientes.cli_Cliente_int_PK
+
+relationship f0a9efbe-4bf4-4591-8178-5293f792e3a1
+	fromColumn: Fato_Pedidos_Hist_XM.com_Combo_int_FK
+	toColumn: Dim_Combo.com_Combo_int_PK
+
+relationship 92903c36-788a-4fba-a7ad-48cce3ebd326
+	fromColumn: Fato_Pedidos_Hist_XM.jus_Justificativa_int_FK
+	toColumn: Dim_Justificativa.jus_Justificativa_int_PK
+
+relationship b8ff3c21-8198-4994-a858-e2a4dbd7c764
+	isActive: false
+	fromColumn: Fato_Pedidos_Hist_XM.ven_Vendedor_int_FK
+	toColumn: Dim_Vendedor.ven_Vendedor_int_PK
+
+relationship 33ccf774-49c0-4684-860f-61d041c0f83e
+	isActive: false
+	fromColumn: Fato_Pedidos_Hist_XM.emp_Empresa_int_FK
+	toColumn: Dim_Empresa.emp_Empresa_int_PK
+
+relationship fc8c7ee1-ba84-4bc1-a3f2-272d20f623ed
+	isActive: false
+	fromColumn: Fato_Pedidos_Hist_XM.cli_Cliente_int_FK
+	toColumn: Dim_Pasta.cli_Cliente_int_FK
+
+relationship c4a413d3-b7aa-43fd-8945-f6fddc94e526
+	fromColumn: Fato_Pedidos_Hist_XM.ped_DataEmissao_dtm
+	toColumn: LocalDateTable_4a86599e-c88a-4a31-94df-01d8b0ad8e8c.Date
+
+relationship 08fe3507-4e21-4a9c-b228-7547616471e2
+	fromColumn: Fato_Pedidos_Hist_XM.Data
+	toColumn: Dim_Calendario.Date
+
+relationship 2d0998b2-ac4c-4a4b-be85-ed7f8d4085ad
+	fromColumn: Dim_Clientes.cli_Aniversario_dtm
+	toColumn: LocalDateTable_2c7a48d9-a26c-4470-9c3d-94e83ba78fdf.Date
+
+relationship 94db34b2-1c1d-4824-8941-9ae8978f978f
+	fromColumn: Dim_Clientes.cli_DataExclusao_dtm
+	toColumn: LocalDateTable_ee9b85cd-c22a-46b3-97f5-f12e62734137.Date
+
+relationship 1fe462d1-2878-4599-98c6-5321c6e9e5d8
+	fromColumn: Dim_Clientes.cli_data_hoje
+	toColumn: LocalDateTable_a4a92a17-614c-489f-9fba-2ef8b5f0cc67.Date
+
+relationship 4cce709f-c0d2-4787-8326-b6b7100432c8
+	toCardinality: many
+	fromColumn: Dim_Clientes.cli_Vendedor_int
+	toColumn: Dim_Vendedor.ven_Vendedor_int_PK
+
+relationship fd210a90-42f9-411f-a3d7-02907ea403be
+	isActive: false
+	fromColumn: Dim_Clientes.emp_Empresa_int_FK
+	toColumn: Dim_Empresa.emp_Empresa_int_PK
+
+relationship a8678d1b-1b76-4019-9e7c-2afdd7906d8c
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: Dim_Clientes.cli_Cliente_int_PK
+	toColumn: Dim_Roteiro_Atual.cli_Cliente_int_FK
+
+relationship 9e921de9-ea37-489f-b72e-59949d05bc86
+	crossFilteringBehavior: bothDirections
+	fromColumn: Dim_Clientes.cli_Cliente_int_PK
+	toColumn: Dim_Pasta.cli_Cliente_int_FK
+
+relationship 869d0def-5aa1-4200-a833-4282ff0cac9a
+	fromColumn: Dim_Clientes.cli_Criado_dtm
+	toColumn: LocalDateTable_e8bcfa2e-0d26-44e7-b0de-d9ef234fd373.Date
+
+relationship 5f590f32-28da-44eb-a80a-b45dfb811fd1
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: Dim_Clientes.cli_Cliente_int_PK
+	toColumn: Fato_Pedidos_Atual_XM.cli_Cliente_int_FK
+
+relationship 0cb87d34-688b-4748-adf6-ed4818eab8b0
+	fromColumn: Dim_Clientes.cli_Cliente_int_PK
+	toColumn: _AS.CODIGO
+
+relationship 12a70433-b604-465c-b558-101ef604d190
+	fromColumn: Dim_Clientes.cli_CodigoIBGE_int
+	toColumn: Dim_IBGE.COD_IBGE
+
+relationship bc3702e8-b380-461a-a3ae-528a5e8cccc7
+	fromColumn: Dim_Clientes.can_Canal_int_fk
+	toColumn: Dim_Canal.CODATIV
+
+relationship 9a079dab-a8b9-440e-add6-2041c15b2250
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: Dim_Clientes.cli_Cliente_int_PK
+	toColumn: Fato_acao.'COD CLI'
+
+relationship feb2939c-d4f9-483f-915a-ae3945e4e7e4
+	fromColumn: Dim_Pasta.prod_Criado_dtm
+	toColumn: LocalDateTable_98faa958-9862-4d96-89a7-320de423ca25.Date
+
+relationship 3404df92-28fc-4913-bd2c-e812d1bcff80
+	fromColumn: Dim_Pasta.prod_Sync_dtm
+	toColumn: LocalDateTable_f04c6509-6b02-4436-9314-a6ef06b3e556.Date
+
+relationship 95596c76-893e-4280-922e-485c218e2ca0
+	isActive: false
+	fromColumn: Dim_Pasta.emp_Empresa_int_FK
+	toColumn: Dim_Empresa.emp_Empresa_int_PK
+
+relationship d4f857c2-7264-4d10-aacc-ccc7558261ef
+	fromColumn: Fato_Winthor_Dev.DTPED_V_ORIGEM
+	toColumn: LocalDateTable_7e9a10ea-ebca-4bb0-a280-3cb7c7e9d10c.Date
+
+relationship e1f59e3e-de4d-4276-accd-e9494e03d9cc
+	fromColumn: Fato_Winthor_Dev.DTPED_B_ORIGEM
+	toColumn: LocalDateTable_1884e912-70bf-4f53-ab28-d3c17ce5d774.Date
+
+relationship b4149884-494c-42f9-8c6e-5eaad10beb9a
+	fromColumn: Fato_Winthor_Dev.DTPED_ORIGEM
+	toColumn: LocalDateTable_84c461b7-5bf9-4458-8d65-a19bbca58792.Date
+
+relationship a90b6ec3-e5b0-4516-83db-067281a8b61d
+	fromColumn: Fato_Winthor_Dev.DTPEDIDOVENDA
+	toColumn: LocalDateTable_1e14060d-8000-4a93-8c28-ad25e1127211.Date
+
+relationship b33ff141-1541-4e3e-a276-bcb80c6dee55
+	fromColumn: Dim_Comodato.cmd_VigenciaFim_dtm
+	toColumn: LocalDateTable_a805c736-0f81-40f4-b422-9cd65115fa87.Date
+
+relationship 4803d1db-d354-4e67-882c-ec3752541f55
+	isActive: false
+	fromColumn: Dim_Comodato.cli_Cliente_int_FK
+	toColumn: Dim_Pasta.cli_Cliente_int_FK
+
+relationship 7a8c208d-931c-4b59-b426-7f2cd9628695
+	toCardinality: many
+	fromColumn: Dim_Comodato.cli_Cliente_int_FK
+	toColumn: Dim_Clientes.cli_Cliente_int_PK
+
+relationship c4c76638-da33-47ac-8430-648ad59d69a9
+	isActive: false
+	fromColumn: Dim_Comodato.emp_Empresa_int_FK
+	toColumn: Dim_Empresa.emp_Empresa_int_PK
+
+relationship 3f19ec33-d9a1-4f12-b6a8-fae98cf5e9ab
+	isActive: false
+	toCardinality: many
+	fromColumn: Dim_Comodato.cit_CodigoItem_int
+	toColumn: Dim_Produtos.prd_Produto_int_PK
+
+relationship ae535006-1390-47b2-937c-1e1fef8708e4
+	fromColumn: Dim_Comodato.cmd_dataDevolucao_dtm
+	toColumn: LocalDateTable_33dfc675-7eca-4ebe-8617-97aa32ad7ec2.Date
+
+relationship 502c40c4-643f-426a-8a41-482bcdd896f0
+	fromColumn: Dim_Comodato.cmd_Inclusao_dtm
+	toColumn: LocalDateTable_1d7d1efb-d0fa-4fa4-a13a-3143864f0656.Date
+
+relationship f86f863b-4b8b-458e-b963-54c5e76dea11
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: Dim_Comodato.cli_Cliente_int_FK
+	toColumn: Fato_Vendas_Hist_Winthor.IDCLIENTE
+
+relationship 25a02921-3927-41c6-950f-9ba622f68825
+	fromColumn: Dim_Comodato.cmd_Saida_dtm
+	toColumn: LocalDateTable_e9ad67e8-834f-4b12-bf9e-267cfc40288d.Date
+
+relationship 6d56ae46-8e57-479b-8f88-3cd68b2014a7
+	fromColumn: Dim_Comodato.cit_CodigoItem_int
+	toColumn: Dim_Tipo_Cmd.cit_CodigoItem_int
+
+relationship 5ca99b7c-c9a5-4d96-888b-4c8f4e1734bc
+	fromColumn: Dim_Combo.com_DataInicio_dtm
+	toColumn: LocalDateTable_f6d43390-c3c1-4b39-b016-4d4339443f30.Date
+
+relationship 4d74afc3-1db1-45d7-95ea-4c3f2427636f
+	fromColumn: Dim_Combo.com_DataFim_dtm
+	toColumn: LocalDateTable_f85bb61d-53f0-4fb1-b603-4dcfdd9f3a48.Date
+
+relationship a47a989f-e55a-4268-b060-b54eb15279e5
+	isActive: false
+	fromColumn: Dim_Combo.emp_Empresa_int_FK
+	toColumn: Dim_Empresa.emp_Empresa_int_PK
+
+relationship 5941b71a-c97b-4187-9d7a-9c7649129468
+	fromColumn: Dim_Data_Atualiza.dt_datetime
+	toColumn: LocalDateTable_cdb6fabd-7c0d-41b6-866c-495d9b43b42d.Date
+
+relationship 4a6bedb8-1bea-41b6-a855-0f30967ceb50
+	fromColumn: Fato_Vendas_Atual_Winthor.DTENTREGA
+	toColumn: LocalDateTable_6d6d6f98-9fa5-48c2-ac45-1a620a02f4f2.Date
+
+relationship 4a61f0e3-70be-4dd4-a156-7595e812375e
+	toCardinality: many
+	fromColumn: Fato_Vendas_Atual_Winthor.IDCLIENTE
+	toColumn: Dim_Clientes.cli_Cliente_int_PK
+
+relationship fef56585-249a-43df-a64c-ae86a78d5ab1
+	isActive: false
+	fromColumn: Fato_Vendas_Atual_Winthor.IDRCA
+	toColumn: Dim_Vendedor.ven_Vendedor_int_PK
+
+relationship 35ebcd3d-fdaa-4a38-9a44-6e9eba02cd90
+	isActive: false
+	fromColumn: Fato_Vendas_Atual_Winthor.IDRCA_ATUAL
+	toColumn: Dim_Vendedor.ven_Vendedor_int_PK
+
+relationship e4b74a53-a89b-4082-bd21-869582f4455c
+	isActive: false
+	fromColumn: Fato_Vendas_Atual_Winthor.IDEMPRESA
+	toColumn: Dim_Empresa.emp_Empresa_int_PK
+
+relationship b28bab74-5076-486c-bda6-2f1a8f7e5a56
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: Fato_Vendas_Atual_Winthor.IDCLIENTE
+	toColumn: Dim_Comodato.cli_Cliente_int_FK
+
+relationship 22d9b608-880a-44d6-8b44-f738fd976404
+	isActive: false
+	fromColumn: Fato_Vendas_Atual_Winthor.DTPED_DEV
+	toColumn: Dim_Calendario.Date
+
+relationship 77e5affe-d5c7-4a75-ae4a-b4b826fe5306
+	fromColumn: Fato_Vendas_Atual_Winthor.DTPEDIDO
+	toColumn: LocalDateTable_9f9d9fe9-fc72-4e82-a773-91b806208914.Date
+
+relationship 9140791d-06dd-492e-b4cf-937a86e50588
+	isActive: false
+	fromColumn: Fato_Vendas_Atual_Winthor.DTPEDIDOORIG
+	toColumn: Dim_Calendario.Date
+
+relationship 8ce36969-b464-47d7-a01c-8ceacd105666
+	isActive: false
+	fromColumn: Fato_Carregamento.ID_EMPRESA
+	toColumn: Dim_Empresa.emp_Empresa_int_PK
+
+relationship 1249f289-d8bf-40d3-b390-cbb2fd83aeae
+	fromColumn: Fato_Carregamento.DTSAIDAVEICULO
+	toColumn: LocalDateTable_9d382913-65ca-49e1-b9a2-7bc6ed32e176.Date
+
+relationship ff31703e-8546-48d9-982b-1f90c2eeb322
+	fromColumn: Fato_Carregamento.DTRETORNO
+	toColumn: LocalDateTable_a7b8fe6c-135d-46e9-bb05-576e922d2305.Date
+
+relationship 0c07bf23-de6a-4069-ad6f-3ed5026b5b5b
+	fromColumn: Fato_Carregamento.DATACONFERENCIA
+	toColumn: LocalDateTable_8f56cc30-9fe5-4184-8e90-2f7841d64be9.Date
+
+relationship f43488e5-2da6-4b1b-9331-918862c3fefa
+	isActive: false
+	fromColumn: Fato_Carregamento.DTFAT
+	toColumn: Dim_Calendario.Date
+
+relationship c53b3b20-aabe-4ec2-82cb-40d451c6de8b
+	isActive: false
+	fromColumn: Fato_Carregamento.DTFECHA
+	toColumn: Dim_Calendario.Date
+
+relationship ad55af9e-bb8c-48a3-9518-ca7ccd134e24
+	isActive: false
+	fromColumn: Fato_Carregamento.DTCANCEL
+	toColumn: Dim_Calendario.Date
+
+relationship adeaec65-4bc9-446e-abbf-d1b1035c9048
+	isActive: false
+	fromColumn: Fato_Carregamento.DTMONT
+	toColumn: Dim_Calendario.Date
+
+relationship 508f1233-7742-4299-b288-d008df4964c4
+	isActive: false
+	fromColumn: Fato_Carregamento.MAPA_ABERTO
+	toColumn: Dim_Calendario.Date
+
+relationship 5e2541e3-497c-45ae-a6b0-211cc6ac1a04
+	fromColumn: Fato_Carregamento.DTSAIDA
+	toColumn: Dim_Calendario.Date
+
+relationship 12df92b8-9b56-43a2-a5e7-5607c801e8c4
+	fromColumn: Dim_Dash_Atualiza.Data
+	toColumn: LocalDateTable_0c267b41-3a87-44be-8291-fe8f73df7588.Date
+
+relationship 052c1039-910d-4e9c-880f-97dc2a797791
+	fromColumn: Tipo_Pagamento.tpg_DataSync_dtm
+	toColumn: LocalDateTable_162e4dda-b969-4129-87ff-1efe3adfc88c.Date
+
+relationship 9a7c8896-b2ba-4208-b030-539ef5e55bfc
+	fromColumn: Tipo_Pagamento.tpg_Criado_dtm
+	toColumn: LocalDateTable_23fe2bd2-6446-4dd6-841a-74dc069b9120.Date
+
+relationship 1fa33e75-681d-4ba2-887e-1e5a98f51237
+	fromColumn: Tipo_Pagamento.emp_Empresa_int_FK
+	toColumn: Dim_Empresa.emp_Empresa_int_PK
+
+relationship c6ae1f9c-e0ea-437f-823e-6b3b7cc2d17b
+	fromColumn: Tipo_Condicao.con_DataSync_dtm
+	toColumn: LocalDateTable_dfab1496-e481-4020-9779-90646611460d.Date
+
+relationship 4308fca9-e84a-4ac5-a12c-07026888850a
+	fromColumn: Tipo_Condicao.con_Criado_dtm
+	toColumn: LocalDateTable_ed21a697-053c-4fbe-8fe3-d59cc98955b8.Date
+
+relationship b36ec652-0ab5-466f-92e5-017f562c5c80
+	fromColumn: Tipo_Condicao.emp_Empresa_int_FK
+	toColumn: Dim_Empresa.emp_Empresa_int_PK
+
+relationship 7008b245-8106-4ddf-98c8-e6be76e8f59b
+	isActive: false
+	fromColumn: Fato_Pedidos_Atual_XM.emp_Empresa_int_FK
+	toColumn: Dim_Empresa.emp_Empresa_int_PK
+
+relationship 115a7441-7484-4947-bc23-2abd213c7344
+	fromColumn: Fato_Pedidos_Atual_XM.com_Combo_int_FK
+	toColumn: Dim_Combo.com_Combo_int_PK
+
+relationship 41def47b-2d3b-4c1b-af45-8c56dcba2358
+	fromColumn: Fato_Pedidos_Atual_XM.ven_Vendedor_int_FK
+	toColumn: Dim_Vendedor.ven_Vendedor_int_PK
+
+relationship c06fb4e6-f82c-434b-9c2f-cd7175313204
+	fromColumn: Fato_Pedidos_Atual_XM.jus_Justificativa_int_FK
+	toColumn: Dim_Justificativa.jus_Justificativa_int_PK
+
+relationship 09f8cfd4-60f0-43b4-902d-8da722dd99c4
+	fromColumn: Fato_Pedidos_Atual_XM.vis_Inicio_dtm
+	toColumn: LocalDateTable_ff9f3e84-5cc7-47f8-aa88-88dfef292606.Date
+
+relationship 3bfe732f-099c-415d-922e-b7f8e5d1a465
+	fromColumn: Fato_Pedidos_Atual_XM.vis_Termino_dtm
+	toColumn: LocalDateTable_65c6e64b-df5e-4420-9eb1-06fae3f0b30f.Date
+
+relationship a37da3b9-0e7f-4795-86ec-c5e94d7c3e4a
+	fromColumn: Fato_Pedidos_Atual_XM.ped_DataEmissao_dtm
+	toColumn: LocalDateTable_fd9df76f-fcc0-4eb8-a468-fd501a7d5744.Date
+
+relationship 9bb7eab2-e0e4-4546-9139-3fd03317fa21
+	fromColumn: Fato_Pedidos_Atual_XM.ped_DataEntrega_dtm
+	toColumn: LocalDateTable_4b9dda62-faee-42b1-99c5-c4f9eb5c3319.Date
+
+relationship fc4862f6-42e2-4981-962c-3513d2a740f3
+	fromColumn: Fato_Pedidos_Atual_XM.Tempo_atendimento
+	toColumn: LocalDateTable_136dc4bc-7039-4848-b80e-2d97c6a4e0f9.Date
+
+relationship 1fc81728-b319-4a88-a42d-08b34d77b9b7
+	fromColumn: Fato_Pedidos_Atual_XM.Data
+	toColumn: LocalDateTable_8dab2586-bc95-41f1-a556-35bdd8d987e0.Date
+
+relationship 2cb22743-cad3-4496-a1eb-d9a6cf662f09
+	fromColumn: Fato_Balancete.CODFILIAL
+	toColumn: Dim_Empresa.emp_Empresa_int_PK
+
+relationship bea5d317-395a-44c5-beea-3085e644d955
+	fromColumn: Fato_Balancete.CODCONTA
+	toColumn: Dim_Conta.CODCONTA
+
+relationship ecd9e14c-0d44-4b07-b987-d9e00a428e4c
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: Fato_Balancete.CODCONTA
+	toColumn: Fato_Orcamento.CODCONTA
+
+relationship 0b7f8314-5cec-49c4-b43b-654cd5aae35d
+	fromColumn: Fato_Balancete.DTVENC
+	toColumn: LocalDateTable_c698652e-0e46-46d6-8fb0-e631ad6ddc9a.Date
+
+relationship 4e811dd9-3aac-4dce-a944-476c5778b507
+	fromColumn: Fato_Balancete.DTPAGTO
+	toColumn: Dim_Calendario.Date
+
+relationship d657e67d-b7cf-47c9-9991-ba94d940a20f
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromColumn: Fato_Orcamento.CODFILIAL
+	toColumn: Dim_Empresa.emp_Empresa_int_PK
+
+relationship d5425e6e-635d-464d-b6ac-32e66a7b0e30
+	fromColumn: Fato_Orcamento.CODCONTA
+	toColumn: Dim_Conta.CODCONTA
+
+relationship 31c1eb2d-7794-4afb-b54b-bd7179c12ee9
+	crossFilteringBehavior: bothDirections
+	fromColumn: Fato_Orcamento.Data
+	toColumn: Dim_Calendario.Date
+
+relationship 191e01ea-e3a1-4f40-aa77-c5b23f387160
+	fromColumn: Fato_NF_Perda_Atual.DTMOV
+	toColumn: LocalDateTable_02aecfc7-7783-47c2-9d4f-6d9b0310bed4.Date
+
+relationship c0c958b4-347b-4a4d-8702-7469c54dd495
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: Fato_NF_Perda_Hist.CODPROD
+	toColumn: Dim_Produtos.prd_Produto_int_PK
+
+relationship bc0868e2-f53e-41b4-bcfb-26d21c39ff8e
+	isActive: false
+	fromColumn: Fato_NF_Perda_Hist.CODFILIAL
+	toColumn: Dim_Empresa.emp_Empresa_int_PK
+
+relationship 8aef7909-5aa6-4638-835d-b17b1fa52e9c
+	fromColumn: Fato_NF_Perda_Hist.DTMOV
+	toColumn: Dim_Calendario.Date
+
+relationship a440935d-3a77-4aa0-a394-f2629a23f05a
+	isActive: false
+	fromColumn: Dim_IBGE.EMP
+	toColumn: Dim_Empresa.emp_Empresa_int_PK
+
+relationship 1f625ac7-8e4b-4d58-9bb6-6a7621a3c534
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: Dim_Tipo_Cmd.Grp_Cmd
+	toColumn: Dim_Produtos.Ind_Cmd
+
+relationship cc83fb19-1cf8-4d40-9908-5e4784c29da1
+	fromColumn: Fato_Custo_FAB.DATA
+	toColumn: LocalDateTable_6798e528-0106-42ee-947b-45408d35463a.Date
+
+relationship 30db44f7-0d13-4d68-b91d-bbc5fc4bbac8
+	fromColumn: Fato_Vendas_Hist_Control.DTENTREGA
+	toColumn: LocalDateTable_31cdd75d-91f3-4397-8e64-e7e89c42557e.Date
+
+relationship 09aceb00-d34d-4f54-8d5d-db826968849a
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromColumn: Fato_Vendas_Hist_Control.EMP_ATUAL
+	toColumn: Dim_Empresa.emp_Empresa_int_PK
+
+relationship e09dfcfb-9fec-44f8-9b97-61edd64f13d7
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromColumn: Fato_Vendas_Hist_Control.IDEMPRESA
+	toColumn: Dim_Empresa.emp_Empresa_int_PK
+
+relationship 4ede89d8-3480-4429-8746-377e81bd459f
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: Fato_Vendas_Hist_Control.IDPRODUTO
+	toColumn: Dim_Produtos.prd_Produto_int_PK
+
+relationship 6f9de66f-ce34-460a-80e2-96e7643acba0
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: Fato_Vendas_Hist_Control.CLI_ATUAL
+	toColumn: Dim_Clientes.cli_Cliente_int_PK
+
+relationship 45f72499-51b6-4be1-80a8-65de89a90d7c
+	fromColumn: Fato_Vendas_Hist_Control.DTPEDIDO
+	toColumn: Dim_Calendario.Date
+
+relationship 1a7ee61d-5049-4396-ba2d-43bdc9bf189f
+	fromColumn: Fato_Vendas_Hist_Fabrica.DTENTREGA
+	toColumn: LocalDateTable_f426d9b5-0ffd-47fb-b97e-2363e6a674f7.Date
+
+relationship a9f03276-d866-4378-9adb-fc57b36a6514
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: Fato_Vendas_Hist_Fabrica.IDPRODUTO
+	toColumn: Dim_Produtos.prd_Produto_int_PK
+
+relationship 54a92635-93dd-4a90-a561-a3ed3d8cf9c7
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: Fato_Vendas_Hist_Fabrica.CLI_ATUAL
+	toColumn: Dim_Clientes.cli_Cliente_int_PK
+
+relationship 2160331b-9cea-4387-a0da-c01c2ba07dc7
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromColumn: Fato_Vendas_Hist_Fabrica.EMP_ATUAL
+	toColumn: Dim_Empresa.emp_Empresa_int_PK
+
+relationship 297c6603-0371-4cb9-8ce7-b435e0577845
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromColumn: Fato_Vendas_Hist_Fabrica.IDEMPRESA
+	toColumn: Dim_Empresa.emp_Empresa_int_PK
+
+relationship e8a646a9-e195-4eb7-a8cc-f82894f9e535
+	fromColumn: Fato_Vendas_Hist_Fabrica.DTPEDIDO
+	toColumn: Dim_Calendario.Date
+
+relationship 0f0d4957-c127-49d4-be30-d01981c60a18
+	fromColumn: Dim_FIFO.'ENTRADA DE PROD.ESTOQUE'
+	toColumn: LocalDateTable_0a888a6f-d95b-4f97-aee7-ec822038fa34.Date
+
+relationship 181af31e-66d3-4797-afc1-f80193556def
+	fromColumn: Dim_FIFO.'VALIDADE DO PRODUTO'
+	toColumn: LocalDateTable_6c8e3d52-25a9-49e9-a203-9566e3654b06.Date
+
+relationship 6cad2ba7-299e-4215-a501-b11a4e7d3c28
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: Dim_FIFO.CODIGO
+	toColumn: Dim_Produtos.prd_Produto_int_PK
+
+relationship 007b1fbe-f804-41bc-9572-832b62427753
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: Dim_Estoque.CÓDIGO
+	toColumn: Dim_Produtos.prd_Produto_int_PK
+
+relationship 27eda297-aa6f-499d-b978-871b1802e60e
+	crossFilteringBehavior: bothDirections
+	fromColumn: Dim_Estoque.EMP
+	toColumn: Dim_Empresa.emp_Empresa_int_PK
+
+relationship 1d8d1d35-8d2c-40f1-9809-4c1c7550d958
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: Dim_Estoque.EMP
+	toColumn: Dim_Vendedor.emp_Empresa_int_FK
+
+relationship 4a6aa5b6-3523-4406-998e-1243bee6f0d7
+	fromColumn: Dim_Estoque.ULT_ATUALIZACAO
+	toColumn: LocalDateTable_ec2671e4-7803-4664-bad9-a0767c949df8.Date
+
+relationship 915442be-8af0-498b-bdf1-158a8af17473
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: Fato_Metas_WTR.IDPRODUTO
+	toColumn: Dim_Produtos.prd_Produto_int_PK
+
+relationship f755302e-f52f-4001-975e-a131704a1f5e
+	fromColumn: Fato_Metas_WTR.IDRCAXM
+	toColumn: Dim_Vendedor.ven_Vendedor_int_PK
+
+relationship 4e248c16-b983-4737-a691-4dc51411e6aa
+	fromColumn: Fato_Metas_WTR.DATA
+	toColumn: Dim_Calendario.Date
+
+relationship 7557e112-6a3c-4c5e-9dae-688ca9d0a28d
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: Fato_Metas_FAB.IDPRODUTO
+	toColumn: Dim_Produtos.prd_Produto_int_PK
+
+relationship 69a4905b-7e37-4a62-b7d9-987b2e3657e5
+	fromColumn: Fato_Metas_FAB.IDEMPRESA
+	toColumn: Dim_Empresa.emp_Empresa_int_PK
+
+relationship f13a1266-301b-493e-965b-ec19ea878ebf
+	fromColumn: Fato_Metas_FAB.DATA
+	toColumn: Dim_Calendario.Date
+
+relationship cd6c4bde-e3e9-4a72-96bb-6d6238d3fb02
+	isActive: false
+	fromColumn: Fato_Custo_Atual.CODFILIAL
+	toColumn: Dim_Empresa.emp_Empresa_int_PK
+
+relationship 6dfd25eb-7efe-4885-9cad-0d7813dc37f1
+	toCardinality: many
+	fromColumn: Fato_Custo_Atual.CODPROD
+	toColumn: Dim_Produtos.prd_Produto_int_PK
+
+relationship e550e7e2-7e87-4512-8c4e-0555f0ee55e4
+	fromColumn: Fato_Custo_Atual.DTULTENT
+	toColumn: LocalDateTable_dce39179-00bf-48bd-aa83-805d5f21482b.Date
+
+relationship 09b40409-f1d5-4a4a-ac9a-f5a9e401e6dd
+	fromColumn: Fato_Direct_XM.vis_Inicio_dtm
+	toColumn: LocalDateTable_aa64ad85-f3b6-4da3-b636-2258fcc6c802.Date
+
+relationship d6e3e0a5-e22e-4f6c-bfc3-88b14d0e0d65
+	fromColumn: Fato_Direct_XM.vis_Termino_dtm
+	toColumn: LocalDateTable_12f391c5-642d-4bf2-aba1-6088bbd61525.Date
+
+relationship 21454c9b-43a0-4068-8f5c-09dbbec35986
+	fromColumn: Fato_Direct_XM.ped_DataEmissao_dtm
+	toColumn: LocalDateTable_10c8bf3f-d86b-41f3-b451-1e89ca72f435.Date
+
+relationship 0ef18518-55a8-4819-a01b-9e8c3f7d805b
+	fromColumn: Fato_Direct_XM.ped_DataEntrega_dtm
+	toColumn: LocalDateTable_069f5286-48ad-45b4-bae9-2452f8b7f734.Date
+
+relationship 20431d4f-1172-4e92-9d28-fa1d118960fb
+	fromColumn: Fato_Direct_XM.Data
+	toColumn: LocalDateTable_fa00b70c-00e2-4872-9a56-6fd6070e79f0.Date
+
+relationship 6ff6764f-830d-4a04-8258-413c7bfab80d
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: Fato_Direct_XM.cli_Cliente_int_FK
+	toColumn: Dim_Clientes.cli_Cliente_int_PK
+
+relationship 57382a15-a370-49ff-99c1-16db04029601
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: Fato_Direct_XM.prd_Produto_int_FK
+	toColumn: Dim_Produtos.prd_Produto_int_PK
+
+relationship 96b8d690-4e4a-4834-9f39-070411112bf8
+	fromColumn: Fato_Direct_XM.jus_Justificativa_int_FK
+	toColumn: Dim_Justificativa.jus_Justificativa_int_PK
+
+relationship 177c8d39-e294-4308-9b88-e954a5f05cc4
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: Fato_Direct_XM.cli_Cliente_int_FK
+	toColumn: Fato_acao.'COD CLI'
+
+relationship 3a2c46bb-2d6c-418b-8728-d956472c4d2c
+	fromColumn: Dim_Prd_Acordo.'DATA INICIO'
+	toColumn: LocalDateTable_c92b704a-933f-4a7f-9dfd-75906821f0a6.Date
+
+relationship f9a962cf-97c0-4e74-b8f0-9118283dabeb
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromColumn: Dim_Prd_Acordo.CODIGO
+	toColumn: Dim_Vendedor.ven_Vendedor_int_PK
+
+relationship 5ba75440-781f-40d4-acf4-b3d6dcc98d5e
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: Dim_Prd_Acordo.CODIGO
+	toColumn: Dim_Vendedor.sup_Supervisor_int_PK
+
+relationship 7ba9a9b5-8306-406d-a35d-6acbe1b6cbf4
+	fromColumn: Fato_Duplicatas.DTVENC
+	toColumn: LocalDateTable_c7d57097-c376-4ae1-aced-65226fd0d1fd.Date
+
+relationship fc9da287-c2df-4904-8792-e5308b7fd0a4
+	fromColumn: Fato_Duplicatas.DTPAG
+	toColumn: LocalDateTable_22bd4bcc-2d23-4dd8-b46c-9f820bf4ee6d.Date
+
+relationship 23f9aefa-2f8f-4e88-ac45-cb27b6f6c5c4
+	fromColumn: Fato_Duplicatas.DTEMISSAO
+	toColumn: LocalDateTable_52751bb3-a7c3-49c6-9bbf-2d6f01e6f182.Date
+
+relationship 73c2886e-d339-4a06-b6eb-83fe48e1566c
+	fromColumn: Fato_Duplicatas.DTDESC
+	toColumn: LocalDateTable_e2048eae-24d6-4adc-a94f-af07fabe1234.Date
+
+relationship dbf55a17-165e-4ce2-afb2-0e75b67c829c
+	fromColumn: Fato_Duplicatas.DTULTALTER
+	toColumn: LocalDateTable_36caa640-5871-4cef-a5d7-7b89872644f5.Date
+
+relationship 20ae6256-5ac0-45c0-b585-550929b86fae
+	fromColumn: Fato_Duplicatas.DTLANCCH
+	toColumn: LocalDateTable_46c55812-6490-4284-bed4-f699c2f96e65.Date
+
+relationship 55cd98e9-1213-4e95-9781-5e80acdc250b
+	fromColumn: Fato_Duplicatas.DTBAIXA
+	toColumn: LocalDateTable_9cda862b-fffd-4c34-b4bb-509667b818e6.Date
+
+relationship 51bb4954-f814-46ac-a312-b509bb139fb7
+	fromColumn: Fato_Duplicatas.DTLANCPRORROG
+	toColumn: LocalDateTable_2ec4e090-ca52-460c-a6ae-bdba346d8d46.Date
+
+relationship 574e9821-722c-4b7e-a634-572b5a7051ef
+	fromColumn: Fato_Duplicatas.DTVENCORIG
+	toColumn: LocalDateTable_99b8b062-dbf0-4c6a-a58b-7d57169b750b.Date
+
+relationship 3bd5c1a1-9e9d-472e-a2b1-5496c2cc15ee
+	fromColumn: Fato_Duplicatas.DTRECEBIMENTOPREVISTO
+	toColumn: LocalDateTable_c3c516f1-7d9d-4a38-8060-6fd735ca9cfe.Date
+
+relationship 91104fc6-a68f-40a2-962f-6ee63694f8de
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: Fato_Duplicatas.CODCLI
+	toColumn: Dim_Clientes.cli_Cliente_int_PK
+
+relationship a1a60a3c-91ac-4e20-b319-5567a62690b3
+	isActive: false
+	fromColumn: Fato_Duplicatas.CODFILIAL
+	toColumn: Dim_Empresa.emp_Empresa_int_PK
+
+relationship bae67b05-1d95-48c1-a352-2bf92981f4c8
+	isActive: false
+	fromColumn: Fato_Duplicatas.EMP_ATUAL
+	toColumn: Dim_Empresa.emp_Empresa_int_PK
+
+relationship dbb8d907-9c37-454d-a667-8fca5ae5072f
+	isActive: false
+	fromColumn: Fato_Rank_VD.ven_Vendedor_int_PK
+	toColumn: Dim_Vendedor.ven_Vendedor_int_PK
+

@@ -1,0 +1,20 @@
+table Dim_Tipo_Dev
+	lineageTag: a36732ff-6094-41d3-9c58-aee30831def8
+	sourceLineageTag: 6917cfa5-6ba0-4e21-9ac0-d8ba9452e8fa
+
+	column Tipo_Dev
+		dataType: string
+		lineageTag: 0ba265d0-35c2-4c4d-854b-feafe723ec7a
+		sourceLineageTag: 340ef1ae-9e41-403a-a4fd-459ad636ab69
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Tipo_Dev
+
+		annotation SummarizationSetBy = User
+
+	partition Dim_Tipo_Dev = entity
+		mode: directQuery
+		source
+			entityName: Dim_Tipo_Dev
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

@@ -1,0 +1,86 @@
+table Nova_Prod
+	lineageTag: 1afb30af-22ad-4e20-a8a9-fba910c76232
+	sourceLineageTag: cf71170b-f8ce-4681-b929-d02c40e1b623
+
+	column 'Nome da Origem'
+		dataType: string
+		lineageTag: 774b954f-62cc-4e65-8f06-3e9f30c14975
+		sourceLineageTag: 22516e22-204e-4846-8d21-07cd9f50fa08
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Nome da Origem
+
+		annotation SummarizationSetBy = User
+
+	column Tipo
+		dataType: string
+		lineageTag: 20e2c962-ab54-4ec4-9c53-777b1c1eb2fa
+		sourceLineageTag: 5037fa22-c3f0-4dca-af92-7466a6f0cc11
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Tipo
+
+		annotation SummarizationSetBy = User
+
+	column Categoria
+		dataType: string
+		lineageTag: 3b1ef63b-7d2d-4a41-9e8f-7a0a9e512e88
+		sourceLineageTag: 5160ccf1-246b-406e-b602-1c7a4061aa9a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Categoria
+
+		annotation SummarizationSetBy = User
+
+	column Indicador
+		dataType: string
+		lineageTag: 70c66ad1-1785-43e2-a590-e6c68eff5665
+		sourceLineageTag: 47bbf4e3-6e5f-4da0-b438-93cb83d12edd
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Indicador
+
+		annotation SummarizationSetBy = User
+
+	column Peso
+		dataType: double
+		lineageTag: 109f0a05-7dd3-40f2-81d6-738aca1e214d
+		sourceLineageTag: 9a8fc9bf-4eb8-4365-8324-cf9b9797fc3c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Peso
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Meta Max'
+		dataType: double
+		lineageTag: 8a389398-e6d4-422c-994b-11d16dd2a29d
+		sourceLineageTag: df521896-ce9c-46ed-a48f-34f1a5c90437
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Meta Max
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Meta Min'
+		dataType: double
+		lineageTag: 70f8671d-9ea8-4e54-8020-dd2f7817e379
+		sourceLineageTag: 66c75379-5dc5-4356-a3dc-eeba00ffdf45
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Meta Min
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Nova_Prod = entity
+		mode: directQuery
+		source
+			entityName: Nova_Prod
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

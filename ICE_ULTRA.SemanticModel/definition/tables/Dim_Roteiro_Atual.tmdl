@@ -1,0 +1,92 @@
+table Dim_Roteiro_Atual
+	lineageTag: b0bb40fe-a1d2-45dd-8ff7-8ddba852e791
+	sourceLineageTag: 7b11c1ff-c9b0-45ca-9188-b89859f42a3a
+
+	column cli_Cliente_int_FK
+		dataType: int64
+		formatString: 0
+		lineageTag: 1bf9bd9e-64e8-4bc5-b8f5-9e5266fd0f2e
+		sourceLineageTag: a8e14c0f-8f91-48fa-9b9a-dd6a8d069541
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: cli_Cliente_int_FK
+
+		annotation SummarizationSetBy = User
+
+	column ven_Vendedor_int_FK
+		dataType: int64
+		formatString: 0
+		lineageTag: afa51339-24a3-44e2-882e-0382223c9821
+		sourceLineageTag: 2a04a091-b998-4b44-8020-47332cce6b4d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ven_Vendedor_int_FK
+
+		annotation SummarizationSetBy = User
+
+	column emp_Empresa_int_FK
+		dataType: int64
+		formatString: 0
+		lineageTag: 1ba70eb7-8f21-48ad-9477-89d15d801679
+		sourceLineageTag: 4914383d-8f19-46e4-8970-56cab606ffc8
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: emp_Empresa_int_FK
+
+		annotation SummarizationSetBy = User
+
+	column prv_Data_dtm
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: e04aed39-957c-4383-8e52-2e8d4b74fcfc
+		sourceLineageTag: 0a9d3da2-30be-4659-b86e-bf083d9e98f1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: prv_Data_dtm
+
+		annotation SummarizationSetBy = User
+
+	column prv_DataSync_dtm
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 2d58dcfc-9670-4dfa-b415-04f6a88585f2
+		sourceLineageTag: 4696fc7a-258e-4bb2-a8f8-0fcfb770b4e2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: prv_DataSync_dtm
+
+		variation Variation
+			isDefault
+			relationship: dcdf526a-d0fd-4f1a-bc0d-7da0a9d8dcf1
+			defaultHierarchy: LocalDateTable_3f7c3c7c-624f-46af-9afe-9e398e3eb8aa.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column ST
+		dataType: int64
+		formatString: 0
+		lineageTag: 115ffd02-4756-4b23-8896-6a53698d0087
+		sourceLineageTag: d1ca5237-4f3a-4814-9b7e-e274ec1de541
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ST
+
+		annotation SummarizationSetBy = User
+
+	column S/C
+		dataType: int64
+		formatString: 0
+		lineageTag: d5055861-046b-4dec-bc9c-b2d6ee6ab271
+		sourceLineageTag: bc0c9221-ebda-4b88-be2a-05af0d76f677
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: S/C
+
+		annotation SummarizationSetBy = User
+
+	partition Dim_Roteiro_Atual = entity
+		mode: directQuery
+		source
+			entityName: Dim_Roteiro_Atual
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

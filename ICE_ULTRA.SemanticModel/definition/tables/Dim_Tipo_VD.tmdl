@@ -1,0 +1,20 @@
+table Dim_Tipo_VD
+	lineageTag: 90e8eacb-84f7-467e-a16d-70449e8b5ec0
+	sourceLineageTag: f355b7b4-b790-4cc5-ba00-87ed5aec21b3
+
+	column Tipo_VD
+		dataType: string
+		lineageTag: 85ec921f-5197-4c06-bfff-aeb96b1c8375
+		sourceLineageTag: 95664593-0598-4f8c-a83d-e0a320833f75
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Tipo_VD
+
+		annotation SummarizationSetBy = User
+
+	partition Dim_Tipo_VD = entity
+		mode: directQuery
+		source
+			entityName: Dim_Tipo_VD
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

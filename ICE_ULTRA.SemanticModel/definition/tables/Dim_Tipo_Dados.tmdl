@@ -1,0 +1,20 @@
+table Dim_Tipo_Dados
+	lineageTag: 5929133d-0e5b-41dd-9e1e-332e61cd48fb
+	sourceLineageTag: 30052080-897f-4884-81d5-eeb0c0c73ffb
+
+	column Tipo_Dados
+		dataType: string
+		lineageTag: c256f6c1-b101-4038-9718-70a390ad4223
+		sourceLineageTag: 9c22228e-175d-43ba-be21-8bcbfc9cbc1f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Tipo_Dados
+
+		annotation SummarizationSetBy = User
+
+	partition Dim_Tipo_Dados = entity
+		mode: directQuery
+		source
+			entityName: Dim_Tipo_Dados
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

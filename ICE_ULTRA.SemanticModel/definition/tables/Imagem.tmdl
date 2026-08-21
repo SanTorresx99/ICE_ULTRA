@@ -1,0 +1,101 @@
+table Imagem
+	lineageTag: 1937597c-04d1-47eb-8850-f358645569ad
+	sourceLineageTag: 0ac92c12-2c6a-485f-9316-d34016882d73
+
+	column ven_Vendedor_chr
+		dataType: string
+		lineageTag: e0765190-6d97-4a84-8225-06a69e5926d6
+		sourceLineageTag: 77dfc4c6-615b-4bfe-8ab0-759b0e7cca1e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ven_Vendedor_chr
+
+		annotation SummarizationSetBy = User
+
+	column 'URL VEND'
+		dataType: string
+		lineageTag: 051c6bc8-4953-42c5-b2e9-b88e01eb0a0f
+		sourceLineageTag: d131adf4-bf40-458b-8a31-fdde00659eee
+		dataCategory: ImageUrl
+		summarizeBy: none
+		sourceColumn: URL VEND
+
+		annotation SummarizationSetBy = User
+
+	column sup_Supervisor_chr
+		dataType: string
+		lineageTag: 993e73cf-077b-4292-ad05-a122005c6a21
+		sourceLineageTag: e7052103-716d-4735-8cb5-4e00cbb8948d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: sup_Supervisor_chr
+
+		annotation SummarizationSetBy = User
+
+	column 'URL SUP'
+		dataType: string
+		lineageTag: c02e1624-824a-49a5-94a5-684b6d5f4cff
+		sourceLineageTag: 686a15ea-ac38-4d8e-8e63-116d6dceb6cf
+		dataCategory: ImageUrl
+		summarizeBy: none
+		sourceColumn: URL SUP
+
+		annotation SummarizationSetBy = User
+
+	column ger_Gerente_chr
+		dataType: string
+		lineageTag: 44a880bf-b33f-44af-a9ac-dab73af24644
+		sourceLineageTag: b12ec5c6-fd44-477d-83dc-28952cc7aa1e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ger_Gerente_chr
+
+		annotation SummarizationSetBy = User
+
+	column 'URL GER'
+		dataType: string
+		lineageTag: 53eb5b69-6fc2-4dc8-9a0f-9febe73dd074
+		sourceLineageTag: d70a0a21-bd9b-417b-9cda-dfec6302f4c7
+		dataCategory: ImageUrl
+		summarizeBy: none
+		sourceColumn: URL GER
+
+		annotation SummarizationSetBy = User
+
+	column emp_Empresa_chr
+		dataType: string
+		lineageTag: 23b10b22-c70f-4fa3-bce5-a141e0d4d81a
+		sourceLineageTag: db0be2d3-1c8c-40d3-9edd-408b413cbf37
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: emp_Empresa_chr
+
+		annotation SummarizationSetBy = User
+
+	column emp_Empresa_int_FK
+		dataType: int64
+		formatString: 0
+		lineageTag: c7ea7b07-e2aa-4709-87f9-f5d9b0057349
+		sourceLineageTag: 326fb272-3666-44dc-84d3-93eac1c9c6a8
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: emp_Empresa_int_FK
+
+		annotation SummarizationSetBy = User
+
+	column 'URL EMP'
+		dataType: string
+		lineageTag: 6e31c6f6-dc93-4b06-9aa2-458d6bea82a8
+		sourceLineageTag: d476d168-b2ed-4325-9c2b-6236b6595773
+		dataCategory: ImageUrl
+		summarizeBy: none
+		sourceColumn: URL EMP
+
+		annotation SummarizationSetBy = User
+
+	partition Imagem = entity
+		mode: directQuery
+		source
+			entityName: Imagem
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

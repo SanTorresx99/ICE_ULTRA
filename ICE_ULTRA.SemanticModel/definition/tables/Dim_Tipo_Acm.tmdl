@@ -1,0 +1,20 @@
+table Dim_Tipo_Acm
+	lineageTag: eaeb7931-f207-42c1-a16d-63626c97c019
+	sourceLineageTag: b0029be1-aece-4989-9de3-a4ae86f21107
+
+	column Tipo_Acm
+		dataType: string
+		lineageTag: 9ca5f6fa-f1e8-43b3-8764-8114371059e3
+		sourceLineageTag: 188deb3a-9d56-4a35-b219-d206dd71400b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Tipo_Acm
+
+		annotation SummarizationSetBy = User
+
+	partition Dim_Tipo_Acm = entity
+		mode: directQuery
+		source
+			entityName: Dim_Tipo_Acm
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

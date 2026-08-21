@@ -1,0 +1,52 @@
+table Dim_Empresa
+	lineageTag: 2e530703-ed08-4e94-956d-9162ae0b43be
+	sourceLineageTag: efa7eb76-3696-4f0c-a47d-75e61b19177c
+
+	column emp_Empresa_chr
+		dataType: string
+		lineageTag: 08423282-f83e-49cf-b73e-0cf24aa26cc5
+		sourceLineageTag: 3d260ea2-32c1-4dfc-a67e-6374a546c6e1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: emp_Empresa_chr
+
+		annotation SummarizationSetBy = User
+
+	column emp_Empresa_int_PK
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		lineageTag: 43b9a501-d44e-4c6b-8034-d70eac37892c
+		sourceLineageTag: 223bd10d-2008-40ad-b8a0-f734d1d303d4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: emp_Empresa_int_PK
+
+		annotation SummarizationSetBy = User
+
+	column emp_Empresa_Desc
+		dataType: string
+		lineageTag: c14c2de3-2e77-4f96-8e20-14903db5a0b3
+		sourceLineageTag: e81d8165-63f4-4d43-93ae-d6def5765dea
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: emp_Empresa_Desc
+
+		annotation SummarizationSetBy = User
+
+	column emp_Empresa
+		dataType: string
+		lineageTag: e8cb8d37-b142-4ba8-9c9f-db6b5f2efbe9
+		sourceLineageTag: a8815563-e38c-4490-a62d-8299da00490c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: emp_Empresa
+
+		annotation SummarizationSetBy = User
+
+	partition Dim_Empresa = entity
+		mode: directQuery
+		source
+			entityName: Dim_Empresa
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

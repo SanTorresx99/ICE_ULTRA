@@ -1,0 +1,21 @@
+table Dim_Percent
+	lineageTag: 99b9846c-f37c-4470-bf77-86ecaaabe746
+	sourceLineageTag: b62570dc-03e7-4b1c-9ae6-f16592aa272d
+
+	column Percent_Meta
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: d94f0906-aefd-45b5-b2a8-a634e08a6380
+		sourceLineageTag: 44d6a8b7-9e21-4ce2-a67d-03fdc72a1d90
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Percent_Meta
+
+		annotation SummarizationSetBy = User
+
+	partition Dim_Percent = entity
+		mode: directQuery
+		source
+			entityName: Dim_Percent
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

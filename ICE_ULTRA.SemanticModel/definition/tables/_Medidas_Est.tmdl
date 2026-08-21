@@ -1,0 +1,121 @@
+table _Medidas_Est
+	lineageTag: 70429ee7-16c2-43fc-964a-507c21a06a98
+	sourceLineageTag: 40bfd32c-9d28-49a9-b969-33d5e686be43
+
+	measure Mapa_Aberto = EXTERNALMEASURE("Mapa_Aberto", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: c335c6e3-9a11-4983-b78f-949acc2ff28e
+		sourceLineageTag: 4fcbc5fb-a9a3-4927-b83a-44b9e6faa633
+		dataCategory: Uncategorized
+
+	measure Pedido_Aberto = EXTERNALMEASURE("Pedido_Aberto", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 13cccf15-4982-42f6-a310-b9a4579b9fce
+		sourceLineageTag: dcf2475f-ab6d-4827-9fa8-6a2e7cab58cd
+		dataCategory: Uncategorized
+
+	measure Mapa_Fechado = EXTERNALMEASURE("Mapa_Fechado", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 4bc7875c-d9a0-4cf1-9a7e-09edcb3a3871
+		sourceLineageTag: a43720dc-9b52-4d97-be5b-bd156ae5d352
+		dataCategory: Uncategorized
+
+	measure Mapa_Cancelado = EXTERNALMEASURE("Mapa_Cancelado", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: c8b868f8-84d2-4952-a912-cf0258847d2a
+		sourceLineageTag: 326da0af-186e-4088-a50b-25effb15fb59
+		dataCategory: Uncategorized
+
+	measure Qtde_Mapas = EXTERNALMEASURE("Qtde_Mapas", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: e5712563-9599-4bed-9699-d562d82dcd8e
+		sourceLineageTag: 86174def-4e9e-4248-9800-dfb461e97be0
+		dataCategory: Uncategorized
+
+	measure Atraso_Mapa = EXTERNALMEASURE("Atraso_Mapa", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: 9059bada-0ebf-402c-a095-5a010431c82c
+		sourceLineageTag: 22d8f1ff-4027-4e2b-b63f-ec56fdb6ba67
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Qtde_Ped_Mapa = EXTERNALMEASURE("Qtde_Ped_Mapa", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: c6476344-98cb-4d02-9b49-93baa559f6df
+		sourceLineageTag: dd78f821-4f1b-4607-b9a0-e8ae74354256
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure _Disponivel = EXTERNALMEASURE("_Disponivel", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: #,0
+		lineageTag: 8f770fad-750c-4049-99a4-3d6fe02a1836
+		sourceLineageTag: c5fba75b-0fff-400e-aa14-dd0aeb037768
+		dataCategory: Uncategorized
+
+	measure _Cped = EXTERNALMEASURE("_Cped", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: #,0
+		lineageTag: 3407599e-1f31-48af-942f-f176c33f3070
+		sourceLineageTag: 906fe4f4-8f96-486e-a3aa-9a9041e36fb1
+		dataCategory: Uncategorized
+
+	measure _Revenda = EXTERNALMEASURE("_Revenda", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: #,0
+		lineageTag: b81184bc-be20-4ba7-9e91-a4df563dfd12
+		sourceLineageTag: 7d6980a0-4505-45a3-bad9-0569c1e3e9be
+		dataCategory: Uncategorized
+
+	measure _Transito = EXTERNALMEASURE("_Transito", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: #,0
+		lineageTag: b7179fbc-3c75-43c4-8783-4001b34e8625
+		sourceLineageTag: d6e06621-9aa2-4286-b222-a9e8ff9b8e15
+		dataCategory: Uncategorized
+
+	measure _Estoque_Chao = EXTERNALMEASURE("_Estoque_Chao", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: #,0
+		lineageTag: 0d9e14ff-88e8-4de2-9b2f-de86115cdc27
+		sourceLineageTag: fe91417f-4db0-48d2-bdbf-46d19eaf6c07
+		dataCategory: Uncategorized
+
+	measure _Carregado = EXTERNALMEASURE("_Carregado", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: #,0
+		lineageTag: ccf45cbd-3a53-4e3b-84a5-ce7e22ef8d60
+		sourceLineageTag: 04634e03-d9ed-499b-8287-399492d00880
+		dataCategory: Uncategorized
+
+	measure _Total = EXTERNALMEASURE("_Total", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: #,0
+		lineageTag: ecf74ce9-dc8d-4d84-b70f-bd76d845cb6b
+		sourceLineageTag: f05a00c8-85ff-4dc5-aeef-bc5fbf5942e2
+		dataCategory: Uncategorized
+
+	measure _Patio = EXTERNALMEASURE("_Patio", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: #,0
+		lineageTag: 29bed4e9-edce-4b4a-9dda-e6753ab9a453
+		sourceLineageTag: edd242e9-23d4-4ba2-a0ca-f408bdbf47fa
+		dataCategory: Uncategorized
+
+	measure Qtde_FIFO = EXTERNALMEASURE("Qtde_FIFO", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 184e7273-63e9-42c7-80db-7b800b687592
+		sourceLineageTag: 8c6b883f-ac45-4b23-a388-a5e9268e095a
+		dataCategory: Uncategorized
+
+	measure Qtde_Dias_VCTO = EXTERNALMEASURE("Qtde_Dias_VCTO", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: 0508242b-d9e3-47c6-bd9a-6342a3c6c32c
+		sourceLineageTag: 92372f49-856c-40bb-a398-14ca8a9fd90f
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure _Porto = EXTERNALMEASURE("_Porto", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: #,0
+		lineageTag: cf386fdb-6c38-4ba2-9be7-bb36612b4ca5
+		sourceLineageTag: c1f93c81-cd73-4c41-bf18-de41f83392a4
+		dataCategory: Uncategorized
+
+	partition _Medidas_Est = entity
+		mode: directQuery
+		source
+			entityName: _Medidas_Est
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

@@ -1,0 +1,63 @@
+table Dim_Canal
+	lineageTag: d6df37f9-048e-4ac6-8cde-c3788f8186a0
+	sourceLineageTag: 70709acc-3f7e-4c3f-84a7-27011256deb8
+
+	column CODATIV
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		lineageTag: b12419b5-d0f4-432b-ac3e-99c721c6dd3f
+		sourceLineageTag: 1bbdf6da-47b9-42de-8947-2517f36a2d7f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CODATIV
+
+		annotation SummarizationSetBy = User
+
+	column RAMO
+		dataType: string
+		lineageTag: 9dc2681b-0556-42da-91c1-f2d42f37a3a6
+		sourceLineageTag: 0f08bf8c-b8ec-4f5e-abb0-128fe9c5a325
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: RAMO
+
+		annotation SummarizationSetBy = User
+
+	column COD_GRP
+		dataType: int64
+		formatString: 0
+		lineageTag: 626e6efe-eddc-4beb-ad81-4d64fb2abad6
+		sourceLineageTag: 20d69d4d-24d2-4d0d-928e-41a73e1020bb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: COD_GRP
+
+		annotation SummarizationSetBy = User
+
+	column 'CANAL GRP'
+		dataType: string
+		lineageTag: fec32f38-004f-40ab-8341-bd9da2f8524c
+		sourceLineageTag: b88726fa-d3e2-4b28-9e3e-ec3b7317d207
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CANAL GRP
+
+		annotation SummarizationSetBy = User
+
+	column ABR
+		dataType: string
+		lineageTag: d64a5686-48a4-487f-9133-ec5a904f04c6
+		sourceLineageTag: 5e9daecf-1447-4611-a361-a60f32a8c19a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ABR
+
+		annotation SummarizationSetBy = User
+
+	partition Dim_Canal = entity
+		mode: directQuery
+		source
+			entityName: Dim_Canal
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

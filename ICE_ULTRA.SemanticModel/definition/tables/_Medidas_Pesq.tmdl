@@ -1,0 +1,132 @@
+table _Medidas_Pesq
+	lineageTag: 595c4bbc-93bd-4b08-8c26-0c6e22e79dfb
+	sourceLineageTag: b8c814dc-cbe1-4e2e-adbd-e6d6e704c5d7
+
+	measure Vol_Total = EXTERNALMEASURE("Vol_Total", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: #,0
+		lineageTag: d598e7f9-62d3-4178-8f55-c7630078bc6d
+		sourceLineageTag: 648a1cc0-ce78-46ee-af4c-b55d27d9e433
+		dataCategory: Uncategorized
+
+	measure Potencial_Venda = EXTERNALMEASURE("Potencial_Venda", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: f4f0972f-fb07-4234-bb8e-0b7e5131b23f
+		sourceLineageTag: 6a6f6302-006c-46a5-992f-30a5ca5028cd
+		dataCategory: Uncategorized
+
+	measure Potencial_Compra = EXTERNALMEASURE("Potencial_Compra", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 8d0dd595-91b0-4871-968f-bd0231f69a3b
+		sourceLineageTag: d3297bf8-75ef-48e8-bfd5-60172490c3c0
+		dataCategory: Uncategorized
+
+	measure Lucro_bruto = EXTERNALMEASURE("Lucro_bruto", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 4388305f-c601-4c8a-af94-54fe3b0732e2
+		sourceLineageTag: 659a5d7c-9139-4693-8a73-9388097dd905
+		dataCategory: Uncategorized
+
+	measure %Margem_Lucro = EXTERNALMEASURE("%Margem_Lucro", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 04595f8f-fa19-4d9e-88ef-3bdb7206cad5
+		sourceLineageTag: f82df920-336d-4a53-8894-070adbdfe916
+		dataCategory: Uncategorized
+
+	measure Cli_Pesquisados = EXTERNALMEASURE("Cli_Pesquisados", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: d71387d5-dc44-425a-87c2-b152ef866873
+		sourceLineageTag: be89d001-9b6b-427c-b043-d1dcafd2df11
+		dataCategory: Uncategorized
+
+	measure Cli_Justificados = EXTERNALMEASURE("Cli_Justificados", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 3a9c8980-b081-4b2d-acec-c4624f4b7dc2
+		sourceLineageTag: bc28d19c-9f47-41e2-839c-50d265511614
+		dataCategory: Uncategorized
+
+	measure Indice_Pesquisados = EXTERNALMEASURE("Indice_Pesquisados", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: b4738379-01eb-4fec-9d60-f4621c877e30
+		sourceLineageTag: c18f2a4e-54af-4f1e-9aa9-40ed455427c3
+		dataCategory: Uncategorized
+
+	measure %Ind_Pesquisa = EXTERNALMEASURE("%Ind_Pesquisa", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 3fc2c7d1-9a21-4146-97d8-f995de6083f5
+		sourceLineageTag: ef8e90a3-c3c4-4960-a252-005278edcbe2
+		dataCategory: Uncategorized
+
+	measure %Mercado = EXTERNALMEASURE("%Mercado", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 8679f40f-6a9c-408e-9c7e-7bdd91b16722
+		sourceLineageTag: 0e9baf63-f4f5-4163-9dd2-7ace7640b3ce
+		dataCategory: Uncategorized
+
+	measure PM_Compra = EXTERNALMEASURE("PM_Compra", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 5728f309-dc5e-44d5-9aa5-12043fe155dc
+		sourceLineageTag: 5104c41a-cb4c-4bc7-909c-2513bedd3327
+		dataCategory: Uncategorized
+
+	measure PM_Venda = EXTERNALMEASURE("PM_Venda", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 69e8d066-1872-4f77-8636-9481423afa3a
+		sourceLineageTag: ac7fb7f1-4398-4e1c-baf8-a4f3849f4d7b
+		dataCategory: Uncategorized
+
+	measure PM_GP_und = EXTERNALMEASURE("PM_GP_und", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: 902b3a94-4a7b-43e5-bd62-0662e72cfe88
+		sourceLineageTag: 997b459c-e234-4af7-93d7-a09ee30ec864
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Lucro_Und = EXTERNALMEASURE("Lucro_Und", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: cc2c5d0f-38bc-43f2-9397-78bbd7d38f2c
+		sourceLineageTag: 6703b80d-fc2c-435c-953a-b90ce3a891de
+		dataCategory: Uncategorized
+
+	measure PM_Dif = EXTERNALMEASURE("PM_Dif", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: aa6bdf8a-15e9-43c6-9a75-ab27aaeb1651
+		sourceLineageTag: 1787c35e-e6a3-44a9-b397-e6088b9ee06c
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure %Ind_coleta = EXTERNALMEASURE("%Ind_coleta", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 5e5ddb93-6590-4cfc-ad85-eebcbcdd2aef
+		sourceLineageTag: 63973b3c-7bbf-4259-a811-fc53128bc2fc
+		dataCategory: Uncategorized
+
+	measure %Ind_Motivados = EXTERNALMEASURE("%Ind_Motivados", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 6d9f7c72-1c1e-4027-a112-af371310b97e
+		sourceLineageTag: 0d479f8b-72df-4f51-9e1d-985d653674fc
+		dataCategory: Uncategorized
+
+	measure Just_C/compra_3M = EXTERNALMEASURE("Just_C/compra_3M", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 1ed4c04a-0d07-47ac-8300-61e105605d24
+		sourceLineageTag: 8ec29162-e482-47ab-9e74-987e9fcd1f13
+		dataCategory: Uncategorized
+
+	measure Just_C/compra_6M = EXTERNALMEASURE("Just_C/compra_6M", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: f770cf64-8fe7-49fa-94b1-dc5d077a6a78
+		sourceLineageTag: 13d623b2-9214-475a-9aea-3c75fff95508
+		dataCategory: Uncategorized
+
+	measure Cli_S/Pesq = EXTERNALMEASURE("Cli_S/Pesq", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 71bfb6ca-544e-41bd-b214-7b596de3f46d
+		sourceLineageTag: 8a821def-6fb0-42fc-a228-6ba18056a422
+		dataCategory: Uncategorized
+
+	partition _Medidas_Pesq = entity
+		mode: directQuery
+		source
+			entityName: _Medidas_Pesq
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

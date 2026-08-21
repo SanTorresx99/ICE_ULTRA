@@ -1,0 +1,43 @@
+table Dim_Justificativa
+	lineageTag: e2e9d46b-7c19-4c33-a251-c62fe9feed00
+	sourceLineageTag: 42725e28-6594-4443-8afa-f0a26d63a297
+
+	column jus_Justificativa_int_PK
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		lineageTag: b035c230-fa83-45d0-a57b-efd60e3edd1d
+		sourceLineageTag: 81758c92-0939-4799-8d62-46017b9a49bc
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: jus_Justificativa_int_PK
+
+		annotation SummarizationSetBy = User
+
+	column 'Nome Justificativa'
+		dataType: string
+		lineageTag: 6c1d4f3a-78af-43eb-a194-ae16fc53f79e
+		sourceLineageTag: 37d1aefe-5c13-47ea-927c-6a0950b81d3f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Nome Justificativa
+
+		annotation SummarizationSetBy = User
+
+	column jus_Ativo_ind
+		dataType: int64
+		formatString: 0
+		lineageTag: 03810efe-d3cf-4996-a636-e211a810bb9a
+		sourceLineageTag: 57abd6c6-b664-4dfd-b2eb-c4950fa91d6f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: jus_Ativo_ind
+
+		annotation SummarizationSetBy = User
+
+	partition Dim_Justificativa = entity
+		mode: directQuery
+		source
+			entityName: Dim_Justificativa
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

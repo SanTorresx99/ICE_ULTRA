@@ -1,0 +1,230 @@
+table Tipo_Produto
+	lineageTag: 1d3aa469-968c-483f-9058-f1a16e725334
+	sourceLineageTag: 24651a02-d1f5-4281-aeca-21a7a714b7c3
+
+	column VOLUME
+		dataType: int64
+		formatString: 0
+		lineageTag: 50b4f5f5-f4fb-47be-9af3-e74b24b2eb0d
+		sourceLineageTag: fbce2243-dfc2-46e2-b794-a18ad8db7cc0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: VOLUME
+
+		annotation SummarizationSetBy = User
+
+	column COD
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		lineageTag: 379f63a9-72c1-4423-b21c-ba0cf16b5c3b
+		sourceLineageTag: f475e2f8-353e-4ec2-9af3-4d7f75bd5450
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: COD
+
+		annotation SummarizationSetBy = User
+
+	column CONDIÇÃO
+		dataType: string
+		lineageTag: 64d922d9-5b49-4f1e-bd26-3d1c03387f90
+		sourceLineageTag: 90d6986b-f3c4-4add-a857-8d35cdef75a7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CONDIÇÃO
+
+		annotation SummarizationSetBy = User
+
+	column 'CONDIÇÃO 2'
+		dataType: string
+		lineageTag: 3cf75213-9750-4d3f-a6bf-4e1e9d865360
+		sourceLineageTag: ec5ecf69-0144-42ea-9ba1-df9ca2deea87
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CONDIÇÃO 2
+
+		annotation SummarizationSetBy = User
+
+	column CONTAINER
+		dataType: int64
+		formatString: 0
+		lineageTag: fe49df45-3e63-4ee5-bf5c-c7a5d8990194
+		sourceLineageTag: f84d7ae8-4316-42ab-823e-9a51060daf00
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CONTAINER
+
+		annotation SummarizationSetBy = User
+
+	column DESCRIÇÃO
+		dataType: string
+		lineageTag: 44df1592-d8c1-4f84-8805-f31f8592f8c9
+		sourceLineageTag: d56e5835-1501-4ed9-8835-aacbe3ec09ba
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DESCRIÇÃO
+
+		annotation SummarizationSetBy = User
+
+	column FAMILIA
+		dataType: string
+		lineageTag: 0b1da625-7c43-4d92-9e76-982f25a9f349
+		sourceLineageTag: f794c7fb-935f-4173-97e2-cba444c9a7c5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: FAMILIA
+
+		annotation SummarizationSetBy = User
+
+	column mrp_MarcaProduto_chr
+		dataType: string
+		lineageTag: 3634f0db-9fed-44e8-8c47-088c4ae976bc
+		sourceLineageTag: 49a395aa-7154-4f4c-b9df-5a0a51b51ab0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: mrp_MarcaProduto_chr
+
+		annotation SummarizationSetBy = User
+
+	column PACK
+		dataType: int64
+		formatString: 0
+		lineageTag: e895a404-7fbc-44f8-b86d-d13f13c44bd9
+		sourceLineageTag: 00de7892-c536-476a-8ea6-fbc077397117
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PACK
+
+		annotation SummarizationSetBy = User
+
+	column PALETE
+		dataType: int64
+		formatString: 0
+		lineageTag: e66227f4-57a6-4ff8-9342-513f742c8114
+		sourceLineageTag: 7bbd7a97-374b-4db1-9395-16b75d9c1e6f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PALETE
+
+		annotation SummarizationSetBy = User
+
+	column Segmento
+		dataType: string
+		lineageTag: 48252760-fbd7-40cb-bfcd-f6dab0978e32
+		sourceLineageTag: 3e581435-385b-458f-a444-f40eaae10b6f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Segmento
+
+		annotation SummarizationSetBy = User
+
+	column smp_SubMarcaProduto_chr
+		dataType: string
+		lineageTag: 34d1e361-5c6d-4423-b4bb-5dd2a631ea17
+		sourceLineageTag: bb13cfc5-60b2-425f-825b-ca54a7b00a28
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: smp_SubMarcaProduto_chr
+
+		annotation SummarizationSetBy = User
+
+	column STATUS_RSL
+		dataType: string
+		lineageTag: a476da26-1e30-4b50-900e-3fbc9bb53a6b
+		sourceLineageTag: e17967de-ca16-4464-9597-0fd14c855f2d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: STATUS_RSL
+
+		annotation SummarizationSetBy = User
+
+	column 'Frete AM'
+		dataType: double
+		lineageTag: 661cfe7e-56fe-47e3-9fd3-701bdba095fc
+		sourceLineageTag: 0780ab09-3ab6-486b-be5f-828fb6d09f93
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Frete AM
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Frete RR'
+		dataType: double
+		lineageTag: d1ca00a3-eb67-4455-880f-f09b3d2e8e3d
+		sourceLineageTag: 2cc76bff-d86b-4401-b433-bfea66dd0bcb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Frete RR
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'FRETE ITA'
+		dataType: double
+		lineageTag: 05611280-bfb6-4d0b-a469-83d9e3f4aea2
+		sourceLineageTag: 650ba3a8-8c4c-46a3-ad83-fa3c193ecfd7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: FRETE ITA
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'FRETE PAR'
+		dataType: double
+		lineageTag: ea5b571f-b59f-418f-b6a0-ae3e243d7eb8
+		sourceLineageTag: 44d0113f-93fa-40c5-9ad1-10ae6254a1e3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: FRETE PAR
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'FRETE TAB'
+		dataType: double
+		lineageTag: 2e213a4e-1e0e-48b2-af88-01dda830af61
+		sourceLineageTag: 281eb4b5-999c-440a-8397-48d06f179810
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: FRETE TAB
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Volta AM'
+		dataType: double
+		lineageTag: 7be56ee6-0a39-43e9-b983-937ab9722fbb
+		sourceLineageTag: 1da94773-673f-4850-98b9-8417184d78ec
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Volta AM
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Volta RR'
+		dataType: double
+		lineageTag: 6e7ff249-d532-4709-9958-2df15594be79
+		sourceLineageTag: 8fc5d93f-f923-4234-af74-86b3271364a8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Volta RR
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Tipo_Produto = entity
+		mode: directQuery
+		source
+			entityName: Tipo_Produto
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

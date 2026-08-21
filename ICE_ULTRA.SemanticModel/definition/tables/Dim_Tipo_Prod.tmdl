@@ -1,0 +1,20 @@
+table Dim_Tipo_Prod
+	lineageTag: 260a6e08-8739-4b12-b4f4-f5308f5892b9
+	sourceLineageTag: 03a2dbe6-9e13-48a0-8ee6-f369e78ed822
+
+	column Tipo_Prod
+		dataType: string
+		lineageTag: 7540aea3-0210-4406-825f-c5c87c460ea8
+		sourceLineageTag: 3831bf1c-d907-455f-9d31-b804d19ad014
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Tipo_Prod
+
+		annotation SummarizationSetBy = User
+
+	partition Dim_Tipo_Prod = entity
+		mode: directQuery
+		source
+			entityName: Dim_Tipo_Prod
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

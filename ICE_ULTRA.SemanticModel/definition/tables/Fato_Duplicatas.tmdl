@@ -1,0 +1,1201 @@
+table Fato_Duplicatas
+	lineageTag: 21767875-c22f-4c87-aacf-166c7e557cdf
+	sourceLineageTag: 29b96ab3-060d-4621-bcc2-91bd5643ecf9
+
+	column CODCLI
+		dataType: int64
+		formatString: 0
+		lineageTag: 9d0d4227-2e16-47fe-821c-7ec813249afb
+		sourceLineageTag: 9dbcfa45-c1c2-4635-b7f4-281f986ccdeb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CODCLI
+
+		annotation SummarizationSetBy = User
+
+	column PREST
+		dataType: string
+		lineageTag: 5fb8a0b2-368b-44af-8f99-44a2b9290d05
+		sourceLineageTag: d45f35de-f9b8-454f-97d6-6a04764094c5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PREST
+
+		annotation SummarizationSetBy = User
+
+	column DUPLIC
+		dataType: int64
+		formatString: 0
+		lineageTag: b85186cf-1ebf-40fc-b3d7-07b1e9e5c1f1
+		sourceLineageTag: 4882d487-0a5b-4f59-9585-d57f872c8a7e
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: DUPLIC
+
+		annotation SummarizationSetBy = User
+
+	column VALOR
+		dataType: double
+		lineageTag: 62872e4e-29bd-434e-a4c2-9382495c79fd
+		sourceLineageTag: abb6c11d-b148-4ce2-b48a-4b108495c9b0
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: VALOR
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DTVENC
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 57149cb7-da3b-4074-aa6c-2e9eec1bb52d
+		sourceLineageTag: 9ea690af-f570-420e-92ef-d86f8abb28db
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DTVENC
+
+		variation Variation
+			isDefault
+			relationship: 7ba9a9b5-8306-406d-a35d-6acbe1b6cbf4
+			defaultHierarchy: LocalDateTable_c7d57097-c376-4ae1-aced-65226fd0d1fd.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column CODCOB
+		dataType: string
+		lineageTag: f90c8ea0-35e1-400c-b027-a2472bda6d1a
+		sourceLineageTag: 1d45e586-d8c6-49a7-8012-82109263ae5c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CODCOB
+
+		annotation SummarizationSetBy = User
+
+	column VPAGO
+		dataType: double
+		lineageTag: 42daeb48-483c-4b45-a116-01c38ab43539
+		sourceLineageTag: b676b95a-8d1a-415f-bb83-edf981fff7f9
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: VPAGO
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column VLDEVOL
+		dataType: double
+		lineageTag: e7ed6477-be5a-46ed-bf4f-5a5b0d471ad3
+		sourceLineageTag: 41e4f543-eca0-4e35-b189-2bd87151ab02
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: VLDEVOL
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column NUMASSOCDNI
+		dataType: double
+		lineageTag: 86e502fc-b974-4bfd-b6ae-a9329aa9ba16
+		sourceLineageTag: 2ba0613b-695c-4584-89d0-42f4c3061d5a
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: NUMASSOCDNI
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SUPERVISOR
+		dataType: string
+		lineageTag: deb84f97-9784-4b80-87e8-f5266ec8cc8c
+		sourceLineageTag: efff1e62-1008-4caa-b38e-2cf47d8fe2b2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SUPERVISOR
+
+		annotation SummarizationSetBy = User
+
+	column VALORCOMJURPREV
+		dataType: double
+		lineageTag: b901d6bb-80e4-48e8-a034-f9ac8ceddbff
+		sourceLineageTag: c566b960-8856-41db-ad32-e16363e2e3f4
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: VALORCOMJURPREV
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column VLRDOC
+		dataType: double
+		lineageTag: eec3beef-6aa8-4d9c-8496-7be70d555dde
+		sourceLineageTag: 1f4aa5cd-9bcc-4881-9412-8bcbdaae8675
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: VLRDOC
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TXPERM
+		dataType: double
+		lineageTag: 5ea9c84a-2a10-4be5-be31-e706b4125868
+		sourceLineageTag: 435fed29-f965-4d9d-95fb-3ebf443e7750
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: TXPERM
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TXPERMPREVREAL
+		dataType: double
+		lineageTag: 556ece41-116e-467a-a7a5-c12ae8ee83d0
+		sourceLineageTag: 25863b2c-def8-4d2f-8b10-6a3a6fb40d52
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: TXPERMPREVREAL
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TXPERMPREVISTO
+		dataType: double
+		lineageTag: d4c844f1-d3df-4e74-b6bc-747e772ccd09
+		sourceLineageTag: abdd3d44-e109-40ed-9675-3b389527c696
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: TXPERMPREVISTO
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DTPAG
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: b0a4c6de-149b-4b16-8949-212cc6639450
+		sourceLineageTag: 444809f9-67f0-4ddd-935b-35e71866e3d4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DTPAG
+
+		variation Variation
+			isDefault
+			relationship: fc9da287-c2df-4904-8792-e5308b7fd0a4
+			defaultHierarchy: LocalDateTable_22bd4bcc-2d23-4dd8-b46c-9f820bf4ee6d.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column DTEMISSAO
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 94d80c0e-9c5a-4194-bc25-8ae9a88d8360
+		sourceLineageTag: 35f6a690-a906-4144-9f81-e934eae1b656
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DTEMISSAO
+
+		variation Variation
+			isDefault
+			relationship: 23f9aefa-2f8f-4e88-ac45-cb27b6f6c5c4
+			defaultHierarchy: LocalDateTable_52751bb3-a7c3-49c6-9bbf-2d6f01e6f182.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column OPERACAO
+		dataType: string
+		lineageTag: 11143795-4992-4614-9fe0-9bbd437a5579
+		sourceLineageTag: fc60b254-f983-4888-b160-f0d31f776079
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: OPERACAO
+
+		annotation SummarizationSetBy = User
+
+	column DTDESC
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 69f860a6-3c1f-4ab0-bc2e-56826789fec1
+		sourceLineageTag: 0c84496b-a066-4300-ad1d-9b500a25d520
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DTDESC
+
+		variation Variation
+			isDefault
+			relationship: 73c2886e-d339-4a06-b6eb-83fe48e1566c
+			defaultHierarchy: LocalDateTable_e2048eae-24d6-4adc-a94f-af07fabe1234.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column PERDESC
+		dataType: double
+		lineageTag: 354412b4-af84-4d2f-b284-11d503cf6c1d
+		sourceLineageTag: 2fb3b820-3649-4287-aff6-a0943e1a117f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PERDESC
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CODFILIAL
+		dataType: int64
+		formatString: 0
+		lineageTag: 72cc2047-5401-4215-af89-819a659a8093
+		sourceLineageTag: 44f639d3-e486-4597-8da1-26bbb3862c18
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CODFILIAL
+
+		annotation SummarizationSetBy = User
+
+	column CODFILIALNF
+		dataType: int64
+		formatString: 0
+		lineageTag: b5b1d5cf-97e6-471c-90ee-b6a1d9a7d071
+		sourceLineageTag: 2f71da02-49d2-4ac5-acea-75be4592f151
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CODFILIALNF
+
+		annotation SummarizationSetBy = User
+
+	column CODUSUR
+		dataType: int64
+		formatString: 0
+		lineageTag: a60d36bd-baf6-4702-b264-29696d314271
+		sourceLineageTag: 1d84e4d2-5b0f-4043-b478-0bed0d5203a8
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CODUSUR
+
+		annotation SummarizationSetBy = User
+
+	column VALORDESC
+		dataType: double
+		lineageTag: d3203359-89fc-448a-8a19-3d9c73011d87
+		sourceLineageTag: 8fd2de70-aed3-493b-807b-b19feba8e335
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: VALORDESC
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DTULTALTER
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 2777540e-f56d-4a0c-b3da-41e524e799ae
+		sourceLineageTag: 2d017b22-f4db-4bf2-981c-28ce80b154ad
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DTULTALTER
+
+		variation Variation
+			isDefault
+			relationship: dbf55a17-165e-4ce2-afb2-0e75b67c829c
+			defaultHierarchy: LocalDateTable_36caa640-5871-4cef-a5d7-7b89872644f5.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column BOLETO
+		dataType: string
+		lineageTag: 7d40ed1f-1a3b-4896-8904-ba06abfb00db
+		sourceLineageTag: c78380aa-2b6e-4030-8e28-9322e38a59bf
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: BOLETO
+
+		annotation SummarizationSetBy = User
+
+	column NUMBANCO
+		dataType: double
+		lineageTag: 3a78435f-7345-4bdc-bb5c-7a7a8ed36233
+		sourceLineageTag: cd34cd6c-2e5b-4a12-ab6d-f33cedc49929
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: NUMBANCO
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column NUMAGENCIA
+		dataType: double
+		lineageTag: a8f84794-d8df-4085-9ba2-9541c04eddc0
+		sourceLineageTag: f163bde9-5da4-4a41-9d6d-378dd780407f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: NUMAGENCIA
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column NUMCHEQUE
+		dataType: double
+		lineageTag: ddfe1775-3009-43cf-a382-122ed743e03e
+		sourceLineageTag: c61a4360-f44d-4ab9-81c4-f5ba5818a133
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: NUMCHEQUE
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DTLANCCH
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 92c37687-1795-4cbd-9c77-9a0ba3f877b2
+		sourceLineageTag: d9fd4d3c-2b2f-472f-9f8d-f59a38124f7e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DTLANCCH
+
+		variation Variation
+			isDefault
+			relationship: 20ae6256-5ac0-45c0-b585-550929b86fae
+			defaultHierarchy: LocalDateTable_46c55812-6490-4284-bed4-f699c2f96e65.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column DTBAIXA
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: d1ac3ee3-2905-4188-9683-c4b3eda9371e
+		sourceLineageTag: ad8ec07d-91fb-4f00-b527-276994d7c3e5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DTBAIXA
+
+		variation Variation
+			isDefault
+			relationship: 55cd98e9-1213-4e95-9781-5e80acdc250b
+			defaultHierarchy: LocalDateTable_9cda862b-fffd-4c34-b4bb-509667b818e6.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column CODBAIXA
+		dataType: double
+		lineageTag: a3109e20-d92f-4a33-b125-2de07af8efe2
+		sourceLineageTag: fa20389d-85cb-449d-a258-c992b4f38c1f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CODBAIXA
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column NOSSONUMBCO
+		dataType: string
+		lineageTag: 0f1d760f-bde0-4511-af9f-8e1b6d946826
+		sourceLineageTag: 50c40cda-a94f-4290-9c29-42ff63fdc027
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: NOSSONUMBCO
+
+		annotation SummarizationSetBy = User
+
+	column OBS2
+		dataType: string
+		lineageTag: fa674b10-98f1-4dbe-b8f1-411bc7ba14e2
+		sourceLineageTag: a59ae055-7767-4ba0-8440-2692687f415e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: OBS2
+
+		annotation SummarizationSetBy = User
+
+	column ALINEA
+		dataType: double
+		lineageTag: f49971af-971a-4a69-9993-0eac9dd4486c
+		sourceLineageTag: 4c10129d-949d-4402-b348-ea55a320629d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ALINEA
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column NUMTRANS
+		dataType: double
+		lineageTag: 7961f43e-9557-437c-aeef-c51927148ad6
+		sourceLineageTag: 42e14c00-8d76-4fa0-8b60-2d36e8eeb0e3
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: NUMTRANS
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DTLANCPRORROG
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 9c7a821d-bb0d-4e46-938c-01e07220717a
+		sourceLineageTag: 396e5b39-290c-42e1-bd56-dc8b3ad597a5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DTLANCPRORROG
+
+		variation Variation
+			isDefault
+			relationship: 51bb4954-f814-46ac-a312-b509bb139fb7
+			defaultHierarchy: LocalDateTable_2ec4e090-ca52-460c-a6ae-bdba346d8d46.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column DTVENCORIG
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: bf8563e5-606f-4b36-9066-451a85cf6dff
+		sourceLineageTag: 21998464-a0c0-4f40-be91-3c97462baaac
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DTVENCORIG
+
+		variation Variation
+			isDefault
+			relationship: 574e9821-722c-4b7e-a634-572b5a7051ef
+			defaultHierarchy: LocalDateTable_99b8b062-dbf0-4c6a-a58b-7d57169b750b.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column CODBANCO
+		dataType: double
+		lineageTag: f76d2e30-12bc-40f1-962b-bebc207856a2
+		sourceLineageTag: 19f28587-c237-45b9-a74c-fd059beb4969
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CODBANCO
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CODCOBBANCO
+		dataType: string
+		lineageTag: ee3f6be1-62a9-48d0-b12b-010b8e27044a
+		sourceLineageTag: e998f57d-8edd-4428-bf45-f6b68a34637c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CODCOBBANCO
+
+		annotation SummarizationSetBy = User
+
+	column LINHADIG
+		dataType: string
+		lineageTag: c74269d7-2335-4182-81a2-75af53768290
+		sourceLineageTag: 85feaa4b-6e6a-4967-9ddb-b06b5db54448
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: LINHADIG
+
+		annotation SummarizationSetBy = User
+
+	column NUMCAR
+		dataType: double
+		lineageTag: d2c9ed88-2e85-476e-83a1-9fad97e69886
+		sourceLineageTag: aba1afdc-3c0b-4282-8d39-bc37cb986631
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: NUMCAR
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TXCOB
+		dataType: double
+		lineageTag: 9e921343-4e38-4c6d-8206-7fe85648a4c5
+		sourceLineageTag: fd1d337f-30c3-435f-a08b-d831a4af02f5
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: TXCOB
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column USUARIOBD
+		dataType: string
+		lineageTag: 98536c85-b89b-4dd2-bce5-ef3ada406ae2
+		sourceLineageTag: cd976ed8-754b-4819-8530-d26e1f9f89b8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: USUARIOBD
+
+		annotation SummarizationSetBy = User
+
+	column NOMEREPRESENTANTE
+		dataType: string
+		lineageTag: fcc8e278-87ee-464f-ad43-535c81d14bde
+		sourceLineageTag: d8086068-0f88-4dcb-b867-0016db6db113
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: NOMEREPRESENTANTE
+
+		annotation SummarizationSetBy = User
+
+	column FANTASIA
+		dataType: string
+		lineageTag: cb4daf13-78cf-4fd0-b1bc-ad7213ea45d5
+		sourceLineageTag: d794f403-76bc-4557-96f9-476ac27a981c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: FANTASIA
+
+		annotation SummarizationSetBy = User
+
+	column NUMTRANSVENDA
+		dataType: double
+		lineageTag: 347da560-c490-412c-b04f-c4f45ba45d30
+		sourceLineageTag: ab2e0041-d10c-429a-b95d-f7878774fe40
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: NUMTRANSVENDA
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column COBRANCA
+		dataType: string
+		lineageTag: 5e87cc95-1b59-43e6-af0b-60d939db9d2b
+		sourceLineageTag: d93e07a5-6983-4947-9c35-731733cd16f1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: COBRANCA
+
+		annotation SummarizationSetBy = User
+
+	column CLIENTE
+		dataType: string
+		lineageTag: b6e008f3-4120-43b4-898e-26aa582bed82
+		sourceLineageTag: bfd446ec-839e-49a5-ae5f-0bf5fead0194
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CLIENTE
+
+		annotation SummarizationSetBy = User
+
+	column CODSUPERVISOR
+		dataType: int64
+		formatString: 0
+		lineageTag: 8c4d61e3-960f-4640-91c7-adb879948c24
+		sourceLineageTag: 83b496cb-ef95-42ab-a202-effb9ee8e7c7
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CODSUPERVISOR
+
+		annotation SummarizationSetBy = User
+
+	column VALORORIG
+		dataType: double
+		lineageTag: 91b7e8c4-15ca-484a-9440-c95438fd28fe
+		sourceLineageTag: 96aa5170-240a-4943-9c08-e1cbedf35768
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: VALORORIG
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CODCOBORIG
+		dataType: string
+		lineageTag: f5ba2f74-1b91-4cae-9637-186574c11e7b
+		sourceLineageTag: 43881108-9d5f-45bd-a1d1-844b76f42cd9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CODCOBORIG
+
+		annotation SummarizationSetBy = User
+
+	column ENDERECO
+		dataType: string
+		lineageTag: b250487d-9956-4d8a-bfb3-ea9b331eb067
+		sourceLineageTag: 2a327fc3-d2bc-40bb-bf1d-c065d18e156b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ENDERECO
+
+		annotation SummarizationSetBy = User
+
+	column BAIRRO
+		dataType: string
+		lineageTag: 665daffd-91b8-45c5-80fd-4d93e86167fd
+		sourceLineageTag: 6f4e8d23-2cc6-4dcc-82dc-6b9ba271ae65
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: BAIRRO
+
+		annotation SummarizationSetBy = User
+
+	column MUNICIPIO
+		dataType: string
+		lineageTag: 9aac17ca-0112-494b-bf0f-39dfa4f4177e
+		sourceLineageTag: f5a9029f-63db-4186-97a9-859ebb2502ee
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: MUNICIPIO
+
+		annotation SummarizationSetBy = User
+
+	column ESTADO
+		dataType: string
+		lineageTag: 92337bf3-a224-44e0-8966-71c0dfe1fa0c
+		sourceLineageTag: 3ee138f6-0bda-4af0-85b2-2f43b35e97c5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ESTADO
+
+		annotation SummarizationSetBy = User
+
+	column CEP
+		dataType: string
+		lineageTag: f8d598a4-0988-439c-8edf-0197f09fa655
+		sourceLineageTag: f862b68e-da4a-48d7-b5d5-70b695c031b5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CEP
+
+		annotation SummarizationSetBy = User
+
+	column RAZAOSOCIAL
+		dataType: string
+		lineageTag: d2b9b4c1-a1ff-4726-8026-c9819258611e
+		sourceLineageTag: 101e02a1-505a-4380-a6ed-7374d256b8e4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: RAZAOSOCIAL
+
+		annotation SummarizationSetBy = User
+
+	column ENDFIL
+		dataType: string
+		lineageTag: 0d43c696-4c84-4943-b061-41d06341ccc1
+		sourceLineageTag: fe7a6063-8326-46a2-ab7c-bc6529a57440
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ENDFIL
+
+		annotation SummarizationSetBy = User
+
+	column BAIFIL
+		dataType: string
+		lineageTag: 7fdf7253-e040-4829-a55c-dae2952b092c
+		sourceLineageTag: 8dbca9e0-a940-465e-a1f0-14800046b25b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: BAIFIL
+
+		annotation SummarizationSetBy = User
+
+	column TELFIL
+		dataType: string
+		lineageTag: badb263f-4c29-4d6d-84f8-5848ff309b68
+		sourceLineageTag: 5e0c6a11-365b-4f7b-a555-4cc4aed93e02
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TELFIL
+
+		annotation SummarizationSetBy = User
+
+	column CEPFIL
+		dataType: string
+		lineageTag: 6cc3e95d-07bc-4091-bbfb-c4fa17441eba
+		sourceLineageTag: 38f7c117-6c96-4bff-9ebc-a154c53a598f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CEPFIL
+
+		annotation SummarizationSetBy = User
+
+	column CIDFIL
+		dataType: string
+		lineageTag: f3f6a295-639f-489e-9f39-9e15e15a18a6
+		sourceLineageTag: 2be05f29-ce63-44c8-af14-0df071a6ecb3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CIDFIL
+
+		annotation SummarizationSetBy = User
+
+	column UFFIL
+		dataType: string
+		lineageTag: 95627b5f-d8c1-468e-af64-1a652ffe5733
+		sourceLineageTag: eaf4294b-7e9e-48bf-8e6b-0f9a98301879
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: UFFIL
+
+		annotation SummarizationSetBy = User
+
+	column ENDERENT
+		dataType: string
+		lineageTag: 6929435e-9ca9-4277-8bde-a35b57c4f316
+		sourceLineageTag: 91fc42c7-dec4-4330-9b70-48b4ec65c455
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ENDERENT
+
+		annotation SummarizationSetBy = User
+
+	column MUNICENT
+		dataType: string
+		lineageTag: c17b2b88-6741-4d41-ad85-e2fba0e1e59e
+		sourceLineageTag: 33bbbc43-3049-4655-9dfd-c863425850db
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: MUNICENT
+
+		annotation SummarizationSetBy = User
+
+	column NOME
+		dataType: string
+		lineageTag: 0c7dcc54-8ad3-40cb-819f-f36d366cc86f
+		sourceLineageTag: e6867594-41fd-4fc3-9c8e-a6385f616f96
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: NOME
+
+		annotation SummarizationSetBy = User
+
+	column AGENCIA
+		dataType: string
+		lineageTag: 03cbf929-eaae-412b-98c2-e5d234b14cb3
+		sourceLineageTag: 7c6c4405-9dc8-49e5-be5f-0504d86ce991
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: AGENCIA
+
+		annotation SummarizationSetBy = User
+
+	column CONTA
+		dataType: string
+		lineageTag: 55f0099e-80bb-41a9-ae08-fbc804212a31
+		sourceLineageTag: bd173c36-cc85-4481-a723-6c78ab6d5dd1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CONTA
+
+		annotation SummarizationSetBy = User
+
+	column TELENT
+		dataType: string
+		lineageTag: 63cdec88-9ff1-4384-b86a-0b5f6613d8c2
+		sourceLineageTag: aa414ed2-fee9-44c5-bece-4409e712c646
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TELENT
+
+		annotation SummarizationSetBy = User
+
+	column FAXCLI
+		dataType: string
+		lineageTag: a136ff87-7071-4627-bfb1-e52fe22340cb
+		sourceLineageTag: ca3cd23d-ac90-4cee-a011-a8dcc48558a7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: FAXCLI
+
+		annotation SummarizationSetBy = User
+
+	column TELCELENT
+		dataType: string
+		lineageTag: 6ddc413a-1a24-475b-90e0-cae14afed1a7
+		sourceLineageTag: 803d2b01-8fa0-4a9c-91f5-91c3682d7bd1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TELCELENT
+
+		annotation SummarizationSetBy = User
+
+	column CODFUNCESTORNO
+		dataType: double
+		lineageTag: 0b40783a-1761-4afa-b786-d3b8c10b9ef6
+		sourceLineageTag: f024c2c8-b909-4fbc-8a4b-6c3de19cf2d2
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CODFUNCESTORNO
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column FUNCESTORNO
+		dataType: string
+		lineageTag: eb28e591-5550-4f08-8f42-a429efbec1d6
+		sourceLineageTag: 5ca7d54d-8106-41d6-a212-1d0087d07291
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: FUNCESTORNO
+
+		annotation SummarizationSetBy = User
+
+	column OBSFINANC
+		dataType: string
+		lineageTag: 48b7b682-f506-4aee-bd71-31e9d763f2aa
+		sourceLineageTag: 8c5f16ae-b154-4c88-aa52-a2ad5b71d5b4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: OBSFINANC
+
+		annotation SummarizationSetBy = User
+
+	column AGRUPADO
+		dataType: string
+		lineageTag: 0723f4d6-f172-446e-86bf-1efffaa1a0e6
+		sourceLineageTag: 7816a37b-27c8-4bcf-a3bd-b3f7b5af2ece
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: AGRUPADO
+
+		annotation SummarizationSetBy = User
+
+	column NUMNOTA
+		dataType: double
+		lineageTag: fa78c403-e46d-4d75-a433-167103c11b5a
+		sourceLineageTag: b103b828-7cf8-4a0e-a24b-56c1c1e5dab2
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: NUMNOTA
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column OBS
+		dataType: string
+		lineageTag: c9eec035-a1af-4175-b1dc-d1036c35e30c
+		sourceLineageTag: a6d76e6f-dbab-4e79-a854-a0227cca8015
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: OBS
+
+		annotation SummarizationSetBy = User
+
+	column VLRDESPBANCARIAS
+		dataType: double
+		lineageTag: 1720d04e-7557-4919-83c9-ec597145cfcf
+		sourceLineageTag: cde7e377-ac1a-4a16-a070-66d9ac0d5ac8
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: VLRDESPBANCARIAS
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column VLRDESPCARTORAIS
+		dataType: double
+		lineageTag: d25b2de9-1cef-452a-80e3-1b337fe470ba
+		sourceLineageTag: 04dc735f-d9cc-4a88-8baa-7e11cda0dc0d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: VLRDESPCARTORAIS
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column VLROUTROSACRESC
+		dataType: double
+		lineageTag: aee1ceb2-e1f3-4488-901c-a43b4d6875aa
+		sourceLineageTag: 80601e57-dc62-428c-aa90-65e8f5b89bd2
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: VLROUTROSACRESC
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column VLRTOTDESPESASEJUROS
+		dataType: double
+		lineageTag: cf2fd4d1-9799-43be-bfb8-32735547f752
+		sourceLineageTag: 735e6fe2-82ca-425f-a7f9-0df050362776
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: VLRTOTDESPESASEJUROS
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PERCMULTA
+		dataType: double
+		lineageTag: 4bf65016-68ff-4772-a8f5-bddf0be9d756
+		sourceLineageTag: 9a744321-5d5a-41fb-b9a4-89372d4fa7b2
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PERCMULTA
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column VALORMULTA
+		dataType: double
+		lineageTag: d3a59fc6-790a-4368-8739-0830619f9e60
+		sourceLineageTag: 31bd26bd-715b-4435-b360-1c8687275a6d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: VALORMULTA
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column VLTOTALJUROSMULTA
+		dataType: double
+		lineageTag: 61e14f06-e22d-4092-be16-eaa6bc292531
+		sourceLineageTag: 65ed3f79-7faa-48b4-9889-b49ce59184ca
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: VLTOTALJUROSMULTA
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DTRECEBIMENTOPREVISTO
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 27902e6b-90b0-401c-9ae1-0f0472e19cb6
+		sourceLineageTag: 1026f3da-2716-4c3f-87cf-284fe5050059
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DTRECEBIMENTOPREVISTO
+
+		variation Variation
+			isDefault
+			relationship: 3bd5c1a1-9e9d-472e-a2b1-5496c2cc15ee
+			defaultHierarchy: LocalDateTable_c3c516f1-7d9d-4a38-8060-6fd735ca9cfe.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column TITULOCOMDATAPREVISTA
+		dataType: string
+		lineageTag: 1a368ccd-8671-4674-847b-3323eeec0a91
+		sourceLineageTag: 4ce57634-fea3-4a60-ae41-7b59e32190d3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TITULOCOMDATAPREVISTA
+
+		annotation SummarizationSetBy = User
+
+	column TITULOCOMDATAPREVISTASIMNAO
+		dataType: string
+		lineageTag: 71238635-e9a8-4e83-8242-2643a6e9f5bb
+		sourceLineageTag: f236d51d-9876-4375-b3ba-d4572f6f55e3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TITULOCOMDATAPREVISTASIMNAO
+
+		annotation SummarizationSetBy = User
+
+	column NUMTRANSVENDAPREST
+		dataType: string
+		lineageTag: f7670c70-cae0-496f-9426-da4c2fe60840
+		sourceLineageTag: 940c05a9-4835-4c6c-a795-463b25e6437a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: NUMTRANSVENDAPREST
+
+		annotation SummarizationSetBy = User
+
+	column BANCARIO
+		dataType: string
+		lineageTag: 3ea152cb-cadb-4eb7-b60f-bec0005f7be8
+		sourceLineageTag: a9da3a24-231f-47cf-9d4c-460ad832a079
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: BANCARIO
+
+		annotation SummarizationSetBy = User
+
+	column CNOMEBANCO
+		dataType: string
+		lineageTag: 28ba0a11-c124-4eb5-ab3b-3772ff2c7d7a
+		sourceLineageTag: 63c6ce64-c41c-4c2c-bd43-2fa9c3df69f9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CNOMEBANCO
+
+		annotation SummarizationSetBy = User
+
+	column CAGENCIA
+		dataType: string
+		lineageTag: 854c4021-fc43-4be5-9f6b-dbeae820154b
+		sourceLineageTag: 9d6cc1c6-55a1-41de-a363-20327bf9f72f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CAGENCIA
+
+		annotation SummarizationSetBy = User
+
+	column CCONTA
+		dataType: string
+		lineageTag: 57e06fce-2001-4052-8511-22aeb35a1f9e
+		sourceLineageTag: 93a75387-596a-4ef7-ac24-49458006f57a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CCONTA
+
+		annotation SummarizationSetBy = User
+
+	column CTXJUROS
+		dataType: double
+		lineageTag: d7d61469-bf9b-402b-bb5e-331b8a06255f
+		sourceLineageTag: 1798e365-b385-4ae0-8934-86dbfafe4450
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CTXJUROS
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SITUACAO
+		dataType: string
+		lineageTag: 2e6f9ea8-6b8f-4a9a-b465-aa263531f408
+		sourceLineageTag: c74a8284-093e-4bc5-af24-e4e8a04db313
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SITUACAO
+
+		annotation SummarizationSetBy = User
+
+	column DIAS_BOLETO
+		dataType: int64
+		formatString: 0
+		lineageTag: 2042e165-c0fb-4808-8bfb-9d0901dac6e2
+		sourceLineageTag: 11c6cb37-274f-4830-b9b2-8ad601136c52
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: DIAS_BOLETO
+
+		annotation SummarizationSetBy = User
+
+	column DIAS_ATRASO
+		dataType: int64
+		formatString: 0
+		lineageTag: aad82959-3ad0-4547-96dd-d3236fba76e4
+		sourceLineageTag: 8cea2269-9250-4ff6-a4d4-216f01b88937
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: DIAS_ATRASO
+
+		annotation SummarizationSetBy = User
+
+	column DIAS_PGTO
+		dataType: int64
+		formatString: 0
+		lineageTag: 101f8fe1-1cbf-43b6-82a6-0b46fef24291
+		sourceLineageTag: fbf23cde-54f5-4b50-a5de-6b511303dce9
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: DIAS_PGTO
+
+		annotation SummarizationSetBy = User
+
+	column JUROS_DIARIO
+		dataType: double
+		lineageTag: 1477b85e-eac9-4d87-9440-e9547d3b7014
+		sourceLineageTag: d02c46b1-a3f2-4afb-9cca-e0a5d28ce7fd
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: JUROS_DIARIO
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column JUROS_PREVISTO
+		dataType: double
+		lineageTag: 6c14da11-d204-4078-ad97-6111f4ed0141
+		sourceLineageTag: e852cea0-25ac-4b4e-b4f8-7a162f89c186
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: JUROS_PREVISTO
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column RECEBER+JUROSPREV
+		dataType: double
+		lineageTag: aa231fa2-7cd0-4c11-ac16-29c0005a010c
+		sourceLineageTag: 276ee3e4-2294-449c-ad05-cd46ecea11f8
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: RECEBER+JUROSPREV
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column VEND_ATUAL
+		dataType: int64
+		formatString: 0
+		lineageTag: a9b812c6-bb83-4b62-9c07-8e8e181cc687
+		sourceLineageTag: 89a12b7a-2866-4be7-8c06-ceefad705b00
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: VEND_ATUAL
+
+		annotation SummarizationSetBy = User
+
+	column EMP_ATUAL
+		dataType: int64
+		formatString: 0
+		lineageTag: 776f12f6-67fe-4abf-91cf-d347c625b4bf
+		sourceLineageTag: 3ec2b1be-6c24-4f1a-a5f0-785adee207ad
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: EMP_ATUAL
+
+		annotation SummarizationSetBy = User
+
+	column TIPO_COBRANCA
+		dataType: string
+		lineageTag: 866f11c1-9e91-4aee-ba18-f7e3e4b606e0
+		sourceLineageTag: 2be8cadb-5400-4659-bcf7-fa5dd86d97e8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TIPO_COBRANCA
+
+		annotation SummarizationSetBy = User
+
+	column OBSERVACOES
+		dataType: string
+		lineageTag: 2004a9c7-7361-4676-9c6a-3255d80a305a
+		sourceLineageTag: 6fef76c8-63a4-48d3-a566-8bbd07e58ddc
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: OBSERVACOES
+
+		annotation SummarizationSetBy = User
+
+	partition Fato_Duplicatas = entity
+		mode: directQuery
+		source
+			entityName: Fato_Duplicatas
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

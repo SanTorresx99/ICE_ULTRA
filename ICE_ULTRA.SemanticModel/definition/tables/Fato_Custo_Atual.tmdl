@@ -1,0 +1,232 @@
+table Fato_Custo_Atual
+	lineageTag: 960e1dda-c380-4759-bad0-7fb720ddbe2b
+	sourceLineageTag: 40bf91a9-2223-4127-961e-e8c5c5d168c4
+
+	column CODPROD
+		dataType: int64
+		formatString: 0
+		lineageTag: bc4c9dca-a190-44a0-911e-bf7d94fa1630
+		sourceLineageTag: dc1a84fb-959d-470a-b143-5229d2a8ecd5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CODPROD
+
+		annotation SummarizationSetBy = User
+
+	column CODFILIAL
+		dataType: int64
+		formatString: 0
+		lineageTag: f3424f91-d4f0-40d0-b56d-560a68ab3f1f
+		sourceLineageTag: edc53c6a-32ad-4d03-8fbb-619d6285bcfc
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CODFILIAL
+
+		annotation SummarizationSetBy = User
+
+	column CUSTOULTENT
+		dataType: double
+		lineageTag: 5718b7bc-80fb-417b-9c83-38717cc64297
+		sourceLineageTag: 0d55945e-f62c-44cd-b4d8-97d1917207b7
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CUSTOULTENT
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DESCRICAO
+		dataType: string
+		lineageTag: bbf66433-c21a-4a88-859a-b76a97403983
+		sourceLineageTag: 9ace36f9-5d4e-4be9-bb7b-740f60040d06
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DESCRICAO
+
+		annotation SummarizationSetBy = User
+
+	column EMBALAGEM
+		dataType: string
+		lineageTag: aab67d0f-2f4f-4e68-bb1e-beb62dedbf24
+		sourceLineageTag: 3310547d-6f1a-48d7-868c-57f23b8fbad9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: EMBALAGEM
+
+		annotation SummarizationSetBy = User
+
+	column CUSTOFIN
+		dataType: double
+		lineageTag: a8fd61f6-cd5b-4d61-9c94-b238c6e494c3
+		sourceLineageTag: 9389d62d-531a-42e5-86be-6d674db0ff5c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CUSTOFIN
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CUSTOCONT
+		dataType: double
+		lineageTag: fe0346bd-25f5-4374-8293-4fbbe495692a
+		sourceLineageTag: f1c49e08-3784-461d-83ad-703eae0f2316
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CUSTOCONT
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CUSTOREAL
+		dataType: double
+		lineageTag: 6786c2ea-f460-482b-945a-980d37c581fb
+		sourceLineageTag: b726dbf9-5638-47e1-96df-f6d4cb5c509f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CUSTOREAL
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column VALORULTENT
+		dataType: double
+		lineageTag: bb6aa564-1a88-4bce-956b-e465d4a52a48
+		sourceLineageTag: 4cbedf34-a62f-4c10-96a8-e271a8dd02de
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: VALORULTENT
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column VLULTENTCONTSEMST
+		dataType: double
+		lineageTag: 23cb69be-fa23-42af-9956-0293a1207c6b
+		sourceLineageTag: e4da2abf-655f-4f64-8058-b3c974d1291d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: VLULTENTCONTSEMST
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column STBCR
+		dataType: double
+		lineageTag: f761d120-885d-4253-8add-1bebfb29d5e1
+		sourceLineageTag: a1c3c4eb-497a-4301-a7ef-6c5a5cd0ab85
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: STBCR
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column BASEBCR
+		dataType: double
+		lineageTag: e8f8ec70-74cc-4cf9-8259-66cacf402854
+		sourceLineageTag: a68d5d1f-87b7-4954-9229-1ffc5038301c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: BASEBCR
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DTULTENT
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: ab3da2c5-ec7d-4007-97ed-26d0b571b8b0
+		sourceLineageTag: 64e9e035-a2e5-4345-8dab-6b05c59417ca
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DTULTENT
+
+		variation Variation
+			isDefault
+			relationship: e550e7e2-7e87-4512-8c4e-0555f0ee55e4
+			defaultHierarchy: LocalDateTable_dce39179-00bf-48bd-aa83-805d5f21482b.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column CUSTOULTENTSEMST
+		dataType: double
+		lineageTag: 59b918ea-96d4-4ffe-a080-d96533d6b351
+		sourceLineageTag: d8567664-090f-42b0-89a7-74d07a106ee6
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CUSTOULTENTSEMST
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PAUTA
+		dataType: string
+		lineageTag: a9d7aaf1-4134-4883-ad9b-fc5eb27136d4
+		sourceLineageTag: 54b08c05-65c0-48bd-8d4f-815215944c85
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PAUTA
+
+		annotation SummarizationSetBy = User
+
+	column ST
+		dataType: double
+		lineageTag: e2950eed-9a3a-424e-a5e0-622f4ca17b4c
+		sourceLineageTag: b44f9bf6-8341-4d73-bab7-24be7bbe2cbc
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ST
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PREÇO
+		dataType: double
+		lineageTag: 55fb0f23-507e-4d47-80dc-f2ce5d053040
+		sourceLineageTag: af64028c-6cad-4795-82a7-b73a7db1eeeb
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PREÇO
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CMV
+		dataType: double
+		lineageTag: 4c97997c-dac5-4603-b718-c64787c06810
+		sourceLineageTag: 11eba0a7-3314-4090-95f6-a930b8d61a0e
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CMV
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CONC
+		dataType: string
+		lineageTag: a43f3b51-50e3-4490-a577-70bf9e10881e
+		sourceLineageTag: ce39273c-281b-4b73-a74e-d7dfeb34782d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CONC
+
+		annotation SummarizationSetBy = User
+
+	partition Fato_Custo_Atual = entity
+		mode: directQuery
+		source
+			entityName: Fato_Custo_Atual
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

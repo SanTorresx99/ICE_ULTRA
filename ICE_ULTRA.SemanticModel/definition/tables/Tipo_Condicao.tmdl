@@ -1,0 +1,175 @@
+table Tipo_Condicao
+	lineageTag: ccdd5226-740f-4239-99da-5d7a436dddd6
+	sourceLineageTag: 717e8a1e-35fc-47d4-895e-d30b93b95158
+
+	column con_Condicao_int_PK
+		dataType: int64
+		formatString: 0
+		lineageTag: 4f850398-e50e-4258-bbb3-44aac57a415f
+		sourceLineageTag: 7be86d00-0949-48f5-a4d8-1706e38a051d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: con_Condicao_int_PK
+
+		annotation SummarizationSetBy = User
+
+	column emp_Empresa_int_FK
+		dataType: int64
+		formatString: 0
+		lineageTag: 8e0ff50e-b462-4f2b-8fd6-c0b1816cffc6
+		sourceLineageTag: 39ed4c35-5e41-4e58-ba82-6cf59eb791c7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: emp_Empresa_int_FK
+
+		annotation SummarizationSetBy = User
+
+	column con_Condicao_chr
+		dataType: string
+		lineageTag: 1a62f020-cfd9-4c59-a348-7e7734c257ec
+		sourceLineageTag: d5ced400-6153-417b-9935-88e0630e20d1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: con_Condicao_chr
+
+		annotation SummarizationSetBy = User
+
+	column con_ValorMinimo_cur
+		dataType: double
+		lineageTag: 8e0c09b2-55b0-442a-ae44-a613d5d85464
+		sourceLineageTag: aee29401-9d30-40d8-9ac0-00312c1f2470
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: con_ValorMinimo_cur
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column con_DataSync_dtm
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 4526ff03-b0c6-47f2-a116-e8539a5e13f0
+		sourceLineageTag: 7fdc57f2-a244-4214-9c25-a789612c5e72
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: con_DataSync_dtm
+
+		variation Variation
+			isDefault
+			relationship: c6ae1f9c-e0ea-437f-823e-6b3b7cc2d17b
+			defaultHierarchy: LocalDateTable_dfab1496-e481-4020-9779-90646611460d.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column con_Criado_dtm
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 83eb70c4-31d2-4395-a2a9-2dfe774805b9
+		sourceLineageTag: f75b69dd-8383-42ed-81e6-6956beef7017
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: con_Criado_dtm
+
+		variation Variation
+			isDefault
+			relationship: 4308fca9-e84a-4ac5-a12c-07026888850a
+			defaultHierarchy: LocalDateTable_ed21a697-053c-4fbe-8fe3-d59cc98955b8.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column con_Ativo_ind
+		dataType: int64
+		formatString: 0
+		lineageTag: 54d126d6-926c-483d-8680-a5a9c5eb94d7
+		sourceLineageTag: f524a1e8-a1d5-4a66-8414-e2edf61247e2
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: con_Ativo_ind
+
+		annotation SummarizationSetBy = User
+
+	column con_Ordem_int
+		dataType: int64
+		formatString: 0
+		lineageTag: c7067a3f-6dda-4936-8ded-44b87d6e7833
+		sourceLineageTag: cc4394bc-433d-4292-8e5c-8b8d91668590
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: con_Ordem_int
+
+		annotation SummarizationSetBy = User
+
+	column con_AprovacaoManual_ind
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 60801100-bb3d-4db8-8adf-aaab3ca6bdb4
+		sourceLineageTag: 793c07a8-7b49-48be-9c1c-cc51a11c4f09
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: con_AprovacaoManual_ind
+
+		annotation SummarizationSetBy = User
+
+	column con_SobrepoeLimiteCredito_ind
+		dataType: int64
+		formatString: 0
+		lineageTag: 64896e14-6721-40a7-a29e-2aa8c087f69c
+		sourceLineageTag: ef37f4be-4c04-4814-a1ff-ca0769579fe0
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: con_SobrepoeLimiteCredito_ind
+
+		annotation SummarizationSetBy = User
+
+	column con_ProntaEntrega_ind
+		dataType: int64
+		formatString: 0
+		lineageTag: d1cfd391-b6e3-4a0a-a151-8331d393ff56
+		sourceLineageTag: 946ec8a8-362f-444d-a8b4-fe4b3f298cb2
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: con_ProntaEntrega_ind
+
+		annotation SummarizationSetBy = User
+
+	column con_TipoRecebimento_ind
+		dataType: int64
+		formatString: 0
+		lineageTag: c3ac3267-6420-4516-80f4-89057abef195
+		sourceLineageTag: 9d998046-15bb-4285-83e6-89076ade3c21
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: con_TipoRecebimento_ind
+
+		annotation SummarizationSetBy = User
+
+	column con_PrazoVencimento_int
+		dataType: int64
+		formatString: 0
+		lineageTag: 63c2b31d-16f1-40c4-b017-7595034bad48
+		sourceLineageTag: b10a157c-daec-4aab-b4c4-e4671d5c40e8
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: con_PrazoVencimento_int
+
+		annotation SummarizationSetBy = User
+
+	column con_Correcao_num
+		dataType: double
+		lineageTag: 46d9a8d4-831c-4dd0-b4ba-4a88006eae05
+		sourceLineageTag: c123af8a-fee8-4a6d-986f-3fff8737233f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: con_Correcao_num
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Tipo_Condicao = entity
+		mode: directQuery
+		source
+			entityName: Tipo_Condicao
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

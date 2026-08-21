@@ -1,0 +1,37 @@
+table Dim_Data_Atualiza
+	lineageTag: ed8bbcb4-832e-4962-aafb-3964db5425e9
+	sourceLineageTag: 005a90f2-4528-4f07-a13e-644f70509abb
+
+	column dt_item
+		dataType: int64
+		formatString: 0
+		lineageTag: 289d554f-9fd1-47de-8676-7267771a018f
+		sourceLineageTag: 95764473-3dba-4af3-a8d5-6fda25c70a0e
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: dt_item
+
+		annotation SummarizationSetBy = User
+
+	column dt_datetime
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 349ade6c-5632-451c-a9fe-d1e5af22a054
+		sourceLineageTag: 8be4182c-7e2e-4946-8703-45508edb6cd0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: dt_datetime
+
+		variation Variation
+			isDefault
+			relationship: 5941b71a-c97b-4187-9d7a-9c7649129468
+			defaultHierarchy: LocalDateTable_cdb6fabd-7c0d-41b6-866c-495d9b43b42d.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	partition Dim_Data_Atualiza = entity
+		mode: directQuery
+		source
+			entityName: Dim_Data_Atualiza
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

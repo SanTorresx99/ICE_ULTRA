@@ -1,0 +1,263 @@
+table Fato_Coaching
+	lineageTag: 4f95e326-0b24-4fd3-8dbf-c722a16d542c
+	sourceLineageTag: 013f4062-22e3-49b9-a4fa-a87698b260b9
+
+	column form_sha512
+		dataType: int64
+		formatString: 0
+		lineageTag: e04d2eb7-28b8-4fbc-ad6c-ba36e2566ab3
+		sourceLineageTag: 54abc29b-c100-423d-901c-12a5c397b922
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: form_sha512
+
+		annotation SummarizationSetBy = User
+
+	column cofo_nome
+		dataType: int64
+		formatString: 0
+		lineageTag: cd2b9343-e3ab-4ef8-bc76-071b0f46b6eb
+		sourceLineageTag: c5b768a0-9d6c-484d-816b-58450f8d4327
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: cofo_nome
+
+		annotation SummarizationSetBy = User
+
+	column cofo_descricao
+		dataType: int64
+		formatString: 0
+		lineageTag: c7b13b2a-8a2f-4b2f-971b-1584795d8c62
+		sourceLineageTag: 6e8fe768-0119-4375-b371-7bd9bf965625
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: cofo_descricao
+
+		annotation SummarizationSetBy = User
+
+	column cofa_nome
+		dataType: int64
+		formatString: 0
+		lineageTag: 384e355b-6653-4d22-b5e8-f3efb90e420d
+		sourceLineageTag: 737a81a0-abbb-4669-ad24-02c25e433540
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: cofa_nome
+
+		annotation SummarizationSetBy = User
+
+	column cofa_nome_int
+		dataType: int64
+		formatString: 0
+		lineageTag: 6715a15f-cb9a-492e-8e2e-c18e3fc1c1be
+		sourceLineageTag: 5a5a3d5a-4569-42b8-93e7-952598427624
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: cofa_nome_int
+
+		annotation SummarizationSetBy = User
+
+	column coda_valor
+		dataType: int64
+		formatString: 0
+		lineageTag: e39a9b50-b088-48f8-aacc-6288356eda10
+		sourceLineageTag: 71ba5261-e758-4ed9-b737-4c68dc399c0f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: coda_valor
+
+		annotation SummarizationSetBy = User
+
+	column coda_refer_type
+		dataType: int64
+		formatString: 0
+		lineageTag: c8438905-eeb8-4df5-85d7-6498728f1ebf
+		sourceLineageTag: 515260d7-f377-4920-8d43-cf9cf296ce55
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: coda_refer_type
+
+		annotation SummarizationSetBy = User
+
+	column coda_refer_id
+		dataType: int64
+		formatString: 0
+		lineageTag: ac747df9-021a-4b8b-a724-f6a79501d0d4
+		sourceLineageTag: a7d5fe4c-b8e5-40c5-b937-f7f1cf6a38f7
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: coda_refer_id
+
+		annotation SummarizationSetBy = User
+
+	column coda_coach_type
+		dataType: int64
+		formatString: 0
+		lineageTag: eb3cf0db-8a47-473b-9070-bb3641f9df30
+		sourceLineageTag: 4f0ca8a8-0a30-4205-ae6b-9f4b3180ff0a
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: coda_coach_type
+
+		annotation SummarizationSetBy = User
+
+	column coda_coach_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 6e3484ea-d1b5-47b4-ac2f-94ef744fc63f
+		sourceLineageTag: ffd56d19-470c-43f9-ac29-69f82e5c1346
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: coda_coach_id
+
+		annotation SummarizationSetBy = User
+
+	column coda_coach_finish
+		dataType: int64
+		formatString: 0
+		lineageTag: d7d0b6d4-c1b4-45b9-92c0-1e523d34792a
+		sourceLineageTag: 9825572f-6bf3-431e-ba93-dcee76041904
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: coda_coach_finish
+
+		annotation SummarizationSetBy = User
+
+	column coda_valida
+		dataType: int64
+		formatString: 0
+		lineageTag: f838cbf6-3184-4cae-ad61-2984bd811116
+		sourceLineageTag: a58a0fcb-cf06-4a67-af08-65f1a87beedb
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: coda_valida
+
+		annotation SummarizationSetBy = User
+
+	column coda_valida_type
+		dataType: int64
+		formatString: 0
+		lineageTag: 6371c1ae-9f62-4971-a5cb-4b841bb4f57b
+		sourceLineageTag: 1d7032ee-cd2d-455f-859a-16c1ebee9be8
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: coda_valida_type
+
+		annotation SummarizationSetBy = User
+
+	column coda_valida_id
+		dataType: int64
+		formatString: 0
+		lineageTag: e021e547-48d6-4b22-be2e-d2fcdd384a8b
+		sourceLineageTag: ce7a3b4e-8bf8-41a2-bdca-89c1e8e5cc4e
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: coda_valida_id
+
+		annotation SummarizationSetBy = User
+
+	column coda_valida_finish
+		dataType: int64
+		formatString: 0
+		lineageTag: ce6ef3a0-aa36-443a-83e3-19891ec1b8df
+		sourceLineageTag: 7592c299-4f45-4edc-85bf-9529accae2d5
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: coda_valida_finish
+
+		annotation SummarizationSetBy = User
+
+	column coda_datetime_coach
+		dataType: int64
+		formatString: 0
+		lineageTag: 3be3fae1-3142-4e44-bdc8-69f6d28982b3
+		sourceLineageTag: b9dba7f6-a50f-4c91-be4f-531bb02e2976
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: coda_datetime_coach
+
+		annotation SummarizationSetBy = User
+
+	column coda_datetime_valida
+		dataType: int64
+		formatString: 0
+		lineageTag: 198a4401-04c1-407c-896e-66a053791831
+		sourceLineageTag: c5fa95cb-b673-4275-9d5e-87eb7d7faa30
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: coda_datetime_valida
+
+		annotation SummarizationSetBy = User
+
+	column coda_datetime
+		dataType: int64
+		formatString: 0
+		lineageTag: 705fc6a8-079d-41c6-a35b-aee3ec46eb95
+		sourceLineageTag: 801a22b8-8ae5-4650-ae49-d1e5d35c663d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: coda_datetime
+
+		annotation SummarizationSetBy = User
+
+	column coda_user
+		dataType: int64
+		formatString: 0
+		lineageTag: 61d29995-bbff-4b21-be2b-ca9bab8d9a63
+		sourceLineageTag: 0ba9af74-4e47-42a0-96f8-a2236086d44f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: coda_user
+
+		annotation SummarizationSetBy = User
+
+	column coda_ip
+		dataType: int64
+		formatString: 0
+		lineageTag: 26f3d284-0aa2-4a2d-9cab-762f2a3f3683
+		sourceLineageTag: bc5301f8-6c8d-4095-bb33-93855983a918
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: coda_ip
+
+		annotation SummarizationSetBy = User
+
+	column tiqu_codigo
+		dataType: int64
+		formatString: 0
+		lineageTag: d53367bf-7fa4-412e-84e9-120704aa9285
+		sourceLineageTag: b60ae6d3-9a9d-4572-b3e3-108229f1a6b7
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: tiqu_codigo
+
+		annotation SummarizationSetBy = User
+
+	column tiqu_nome
+		dataType: int64
+		formatString: 0
+		lineageTag: 3557d413-9720-48c0-857d-21be74511c11
+		sourceLineageTag: 76932c8b-efdb-440d-88c2-1e96705f80b3
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: tiqu_nome
+
+		annotation SummarizationSetBy = User
+
+	column cofa_codigo
+		dataType: int64
+		formatString: 0
+		lineageTag: 9e890d2f-bafb-44b6-856d-05b734c4bc24
+		sourceLineageTag: f498d65e-36b6-4ba1-8cb3-a4291cfd2a3c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: cofa_codigo
+
+		annotation SummarizationSetBy = User
+
+	partition Fato_Coaching = entity
+		mode: directQuery
+		source
+			entityName: Fato_Coaching
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

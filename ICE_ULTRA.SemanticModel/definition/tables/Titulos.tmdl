@@ -1,0 +1,92 @@
+table Titulos
+	lineageTag: 6eced5cb-34f1-4c67-9424-e371edde11d2
+	sourceLineageTag: c6bf19a5-5865-4845-9b3a-55f704a775a4
+
+	measure 'Titulo Relatorio' = EXTERNALMEASURE("Titulo Relatorio", STRING, "DirectQuery para AS – RSL-BI")
+		lineageTag: b163b05c-4bca-4fb6-a732-8d0592dd97e5
+		sourceLineageTag: 7d0f4395-3e47-4ae0-b5bf-2f80d9cabcde
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isText":true}
+
+	measure Ult_Venda_XM = EXTERNALMEASURE("Ult_Venda_XM", STRING, "DirectQuery para AS – RSL-BI")
+		lineageTag: a1ea3bb8-d1de-4023-a2b9-a1725612013a
+		sourceLineageTag: 55c1ce42-346a-4705-b9ad-553dc35dcec8
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isText":true}
+
+	measure Titulo_YOY = EXTERNALMEASURE("Titulo_YOY", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 5566396f-10b9-4349-ba68-ae4b02e907a4
+		sourceLineageTag: 3dea5973-e471-495b-9013-d37f8e97a6d9
+		dataCategory: Uncategorized
+
+	measure Titulo_Fech_Diario = EXTERNALMEASURE("Titulo_Fech_Diario", STRING, "DirectQuery para AS – RSL-BI")
+		lineageTag: 365170f5-3361-4d79-a32b-4e66b80f6e9a
+		sourceLineageTag: 73895909-cf17-4e36-a760-86c80b917e42
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isText":true}
+
+	measure Ult_Venda_WTR_F = EXTERNALMEASURE("Ult_Venda_WTR_F", STRING, "DirectQuery para AS – RSL-BI")
+		lineageTag: 0548da0b-c8da-4a35-a5b5-40e06d12226e
+		sourceLineageTag: d3431ff9-0690-4488-9894-488aae5503d9
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isText":true}
+
+	measure Ult_atualizacao_Dash = EXTERNALMEASURE("Ult_atualizacao_Dash", STRING, "DirectQuery para AS – RSL-BI")
+		lineageTag: 9b87501d-5ee3-4871-9f5a-31cdadd638ed
+		sourceLineageTag: db6306f7-dd89-41a1-a1ce-5878f22a19fd
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isText":true}
+
+	measure Ult_Venda_WTR = EXTERNALMEASURE("Ult_Venda_WTR", STRING, "DirectQuery para AS – RSL-BI")
+		lineageTag: 0f5224b6-7c43-4fdc-88d7-9e4047f696fd
+		sourceLineageTag: db1c3a4f-c456-4815-a12d-b36aff0ef301
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isText":true}
+
+	measure Ult_Direct_XM = EXTERNALMEASURE("Ult_Direct_XM", STRING, "DirectQuery para AS – RSL-BI")
+		lineageTag: 6a761cab-655a-4a1d-8020-c205c2572f76
+		sourceLineageTag: 0e903277-d622-4985-b90f-96458a63ea3a
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isText":true}
+
+	measure Mes_Filtro = EXTERNALMEASURE("Mes_Filtro", STRING, "DirectQuery para AS – RSL-BI")
+		lineageTag: 12b4dc29-7ed2-4754-8c63-574a69ded3bc
+		sourceLineageTag: 1bf6f5c7-353c-4f5a-b262-d44c384f78a4
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isText":true}
+
+	measure 'Titulo LINHA LINHA' = EXTERNALMEASURE("Titulo LINHA LINHA", STRING, "DirectQuery para AS – RSL-BI")
+		lineageTag: dafe73d2-875d-4ad3-977e-dea456943a7b
+		sourceLineageTag: 1ed020ca-38a4-447c-9fff-2a8d28c60a7d
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isText":true}
+
+	measure Data_Acumulado = EXTERNALMEASURE("Data_Acumulado", STRING, "DirectQuery para AS – RSL-BI")
+		lineageTag: 15e08c09-3b0e-4b1f-b3d6-82682be52b38
+		sourceLineageTag: 2a03c43e-9b48-42fb-a6e0-2680abc92905
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isText":true}
+
+	measure Ult_Estoque_Atualiza = EXTERNALMEASURE("Ult_Estoque_Atualiza", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: a795d5b8-915f-45fe-9da4-59ef2b2755c3
+		sourceLineageTag: c2174d4f-8eee-49a3-9398-53a0ccd260c9
+		dataCategory: Uncategorized
+
+	partition Titulos = entity
+		mode: directQuery
+		source
+			entityName: Titulos
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

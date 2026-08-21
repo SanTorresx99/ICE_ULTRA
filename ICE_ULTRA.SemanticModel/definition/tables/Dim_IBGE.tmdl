@@ -1,0 +1,128 @@
+table Dim_IBGE
+	lineageTag: 8b5c8254-03c8-4f68-9458-578585c56f27
+	sourceLineageTag: a27562a7-de78-4b47-8a7e-7870afa9dbf2
+
+	column COD_CID
+		dataType: int64
+		formatString: 0
+		lineageTag: 67d0fd0d-1f63-4c55-9967-6083adeec0f3
+		sourceLineageTag: c71e348e-b6ca-4c22-b535-1559fd2f69fe
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: COD_CID
+
+		annotation SummarizationSetBy = User
+
+	column COD_IBGE
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		lineageTag: 1cac69bb-3105-4607-8845-8c85de2782fb
+		sourceLineageTag: dd3f9695-97cd-475a-822a-41eee5b4f5a8
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: COD_IBGE
+
+		annotation SummarizationSetBy = User
+
+	column EMP
+		dataType: int64
+		formatString: 0
+		lineageTag: 909d0ba6-37be-463b-9d3b-70afb2ac372d
+		sourceLineageTag: e4efb92f-4704-495e-a2b6-2bcb5f9e7cd3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: EMP
+
+		annotation SummarizationSetBy = User
+
+	column UF
+		dataType: string
+		lineageTag: b6170345-ff60-4cf1-b96a-b896b18fe4ae
+		sourceLineageTag: f0c5fe88-a7b1-4499-bbee-37e8dd701fb1
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: UF
+
+		annotation SummarizationSetBy = User
+
+	column MUNICIPIO
+		dataType: string
+		lineageTag: aa2a9880-7a96-46c8-beb5-8d8f323f71e9
+		sourceLineageTag: 3668aca0-8aa4-4d8a-90b5-4cac5974b192
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: MUNICIPIO
+
+		annotation SummarizationSetBy = User
+
+	column POPULAÇÃO_2022
+		dataType: int64
+		formatString: 0
+		lineageTag: 23c3d0fc-4a72-4796-9d9a-9a65f4fa9006
+		sourceLineageTag: 30b26b22-b2d4-4504-b7ad-b4112310108a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: POPULAÇÃO_2022
+
+		annotation SummarizationSetBy = User
+
+	column PDVs
+		dataType: int64
+		formatString: 0
+		lineageTag: e33cff45-8bca-49a6-bfd5-7a8f633f6b0a
+		sourceLineageTag: 397fe7a1-2ad5-4c00-b704-e9b0c7e20780
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PDVs
+
+		annotation SummarizationSetBy = User
+
+	column CADASTRADOS
+		dataType: int64
+		formatString: 0
+		lineageTag: 650318d9-e492-4cc7-8058-6c0d1190ad54
+		sourceLineageTag: 20f5f7f2-c4e8-4be1-ac05-107abaca38f3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CADASTRADOS
+
+		annotation SummarizationSetBy = User
+
+	column ATIVOS
+		dataType: int64
+		formatString: 0
+		lineageTag: 5defb24e-4c30-4427-83db-76525294a6be
+		sourceLineageTag: b4573947-d995-40e2-b747-3532835c4b5a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ATIVOS
+
+		annotation SummarizationSetBy = User
+
+	column 'MEDIA 3M'
+		dataType: string
+		lineageTag: 895fc0b7-96fc-4cf8-bef1-5bdd87202b2e
+		sourceLineageTag: a11ad4c7-fc6d-402b-85c6-72423b358639
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: MEDIA 3M
+
+		annotation SummarizationSetBy = User
+
+	column MES_OURO
+		dataType: string
+		lineageTag: a4ced8bd-9c36-4ff2-9702-22765b559e58
+		sourceLineageTag: f67c022b-24fc-4f86-a659-fd4e364f99a0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: MES_OURO
+
+		annotation SummarizationSetBy = User
+
+	partition Dim_IBGE = entity
+		mode: directQuery
+		source
+			entityName: Dim_IBGE
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

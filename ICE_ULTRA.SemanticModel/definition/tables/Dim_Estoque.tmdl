@@ -1,0 +1,266 @@
+table Dim_Estoque
+	lineageTag: c6093b20-44e5-4ea6-82e8-12b8f1aad703
+	sourceLineageTag: 10b1e23d-f70e-41a5-b4f7-407d8bc555db
+
+	column CÓDIGO
+		dataType: int64
+		formatString: 0
+		lineageTag: aec671b8-f364-4ff2-a61b-40ea0b888aeb
+		sourceLineageTag: 84734e12-22f7-4592-a8a5-39962a4eb786
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CÓDIGO
+
+		annotation SummarizationSetBy = User
+
+	column 'DESCRIÇÃO DO PRODUTO'
+		dataType: string
+		lineageTag: 3770b8ed-c72a-43ae-97e7-b7966f8de614
+		sourceLineageTag: 0dce4652-8e08-4dd5-90c9-5aafc0e82d16
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DESCRIÇÃO DO PRODUTO
+
+		annotation SummarizationSetBy = User
+
+	column SKU
+		dataType: int64
+		formatString: 0
+		lineageTag: 7c4ec5cb-4e04-40a6-8449-88e89d8e155a
+		sourceLineageTag: 9272d701-3d0b-47c4-97f2-616f7fd2b437
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: SKU
+
+		annotation SummarizationSetBy = User
+
+	column CPED
+		dataType: int64
+		formatString: 0
+		lineageTag: a518e2fb-147c-4310-bcf1-8a521985378c
+		sourceLineageTag: 985e2994-7ac4-4199-a663-e90fc8b67017
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CPED
+
+		annotation SummarizationSetBy = User
+
+	column CARREGADO
+		dataType: int64
+		formatString: 0
+		lineageTag: 3fa293c5-fc5d-43fd-b6ea-7e70cbb45901
+		sourceLineageTag: b943f4e3-7eda-4c9e-9479-27cb19f53076
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CARREGADO
+
+		annotation SummarizationSetBy = User
+
+	column PORTO
+		dataType: int64
+		formatString: 0
+		lineageTag: 38a488a3-79ea-44a1-96a5-56b5b043b217
+		sourceLineageTag: c9351831-b5f3-40b3-a955-970498353524
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PORTO
+
+		annotation SummarizationSetBy = User
+
+	column 'PATIO REVENDA'
+		dataType: int64
+		formatString: 0
+		lineageTag: bcccd795-0a32-4438-b5da-f8e169567e93
+		sourceLineageTag: f5176e21-847d-4f72-a8ac-e61e64305732
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PATIO REVENDA
+
+		annotation SummarizationSetBy = User
+
+	column 'ESTOQUE CHÃO'
+		dataType: int64
+		formatString: 0
+		lineageTag: e189faba-2a83-4012-8bdd-35ef5c583647
+		sourceLineageTag: 8e6c45ff-588e-4832-aa71-c0175c39b6b5
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ESTOQUE CHÃO
+
+		annotation SummarizationSetBy = User
+
+	column TOTAL
+		dataType: int64
+		formatString: 0
+		lineageTag: 42904240-33f4-4bfa-a85e-6909b7d90535
+		sourceLineageTag: cefdf70b-572b-4db7-a6b8-a60de30174b7
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: TOTAL
+
+		annotation SummarizationSetBy = User
+
+	column VALOR
+		dataType: double
+		lineageTag: b98a00c8-c2a1-470b-b7ff-0d372fa86b08
+		sourceLineageTag: 3693ee28-ed40-4981-ad55-bb4dd1c7fc01
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: VALOR
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'VALOR ESTOQUE CHÃO'
+		dataType: double
+		lineageTag: 3b2bfcd7-3650-4876-a12d-6aec2bfe92e0
+		sourceLineageTag: 9bb1dee8-938e-48bf-baad-ada1efdf3234
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: VALOR ESTOQUE CHÃO
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'VALOR TOTAL'
+		dataType: double
+		lineageTag: f5bdaf77-b933-47c6-b6e6-8fdda95f0027
+		sourceLineageTag: 0aef5fb8-7bb5-4925-aa36-6e9d4b7cc31d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: VALOR TOTAL
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Sheet
+		dataType: string
+		lineageTag: 4fee0615-2919-43f0-92be-d969cc237087
+		sourceLineageTag: 833f7939-4805-4fea-bd0e-1deff08775e2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sheet
+
+		annotation SummarizationSetBy = User
+
+	column false
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 311b7215-1928-47b9-9599-32b825b8f52f
+		sourceLineageTag: 9ce647e2-8e98-4138-a1c8-e8157bfc6407
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: false
+
+		annotation SummarizationSetBy = User
+
+	column EMP
+		dataType: int64
+		formatString: 0
+		lineageTag: dd4da1b4-22f7-45ac-8e3a-5fbe5959a40e
+		sourceLineageTag: abde9dc6-f172-4a45-aaf1-24182211570a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: EMP
+
+		annotation SummarizationSetBy = User
+
+	column CMV
+		dataType: double
+		lineageTag: f97731e5-71bc-4ada-8ab1-dbffda167211
+		sourceLineageTag: 9a41aea2-b1ff-4f9b-9ace-e8bd4b24f0aa
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CMV
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column FRETE
+		dataType: double
+		lineageTag: 3638a692-600b-4268-b07a-43d2ede7fd16
+		sourceLineageTag: 19f890bc-418d-4eaf-bb42-643613249c19
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: FRETE
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PALETIZAÇÃO
+		dataType: string
+		lineageTag: d6c400a1-3e28-4e52-91ea-ee994d1e744d
+		sourceLineageTag: 356d42a8-b86b-4a02-9de0-bdaa3ae7f4b3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PALETIZAÇÃO
+
+		annotation SummarizationSetBy = User
+
+	column 'ADF PARINTINS_1'
+		dataType: string
+		lineageTag: 38cf21ca-f498-4f7b-b5b7-6cbca6f00d2c
+		sourceLineageTag: ca1309b1-5a6b-48ec-a09b-baba5f4c2f2c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ADF PARINTINS_1
+
+		annotation SummarizationSetBy = User
+
+	column Column19
+		dataType: string
+		lineageTag: 6611372e-87b0-4f6d-957d-1023ab6b6617
+		sourceLineageTag: e77732e4-cd00-422b-b175-695134722c22
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Column19
+
+		annotation SummarizationSetBy = User
+
+	column 'NOME ARQUIVO'
+		dataType: string
+		lineageTag: 0b068a7e-2ae7-4ce0-9ee0-46f554f6197e
+		sourceLineageTag: 2aa3cdae-fca8-4194-990e-f22a3a9c9892
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: NOME ARQUIVO
+
+		annotation SummarizationSetBy = User
+
+	column ULT_ATUALIZACAO
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 7c5327f2-409a-43ba-a61b-d670d1b73ea3
+		sourceLineageTag: 969f336a-edee-4336-8891-93bd668ab98f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ULT_ATUALIZACAO
+
+		variation Variation
+			isDefault
+			relationship: 4a6aa5b6-3523-4406-998e-1243bee6f0d7
+			defaultHierarchy: LocalDateTable_ec2671e4-7803-4664-bad9-a0767c949df8.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column REVENDA
+		dataType: string
+		lineageTag: 790d57a4-ca19-49f4-8774-78cc0cc9f280
+		sourceLineageTag: 2667b67e-ecfe-4428-94a4-6860523dc661
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: REVENDA
+
+		annotation SummarizationSetBy = User
+
+	partition Dim_Estoque = entity
+		mode: directQuery
+		source
+			entityName: Dim_Estoque
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

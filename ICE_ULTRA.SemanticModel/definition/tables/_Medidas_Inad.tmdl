@@ -1,0 +1,99 @@
+table _Medidas_Inad
+	lineageTag: 7b0f6977-d3db-49ba-af14-da32bd162e86
+	sourceLineageTag: 7e600494-fc27-4e47-8e3a-b927355ef102
+
+	measure Valor_Pago = EXTERNALMEASURE("Valor_Pago", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: 23af4b4b-202f-45fc-a6d4-980e609d4f65
+		sourceLineageTag: a607681f-b866-4ff8-bc20-d62d540997d8
+		dataCategory: Uncategorized
+
+	measure Parcela = EXTERNALMEASURE("Parcela", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: 122871bc-79e0-4fef-8e25-725d2d9427aa
+		sourceLineageTag: 8934d32b-4cbc-4355-a105-f13ed4952843
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Valor_Titulo = EXTERNALMEASURE("Valor_Titulo", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: 6ec10794-afe9-4550-a869-9ff172e0843e
+		sourceLineageTag: 9c8b5dfa-a2ff-4d46-9527-a4ac325f8fc5
+		dataCategory: Uncategorized
+
+	measure Valor_Receber+Juros = EXTERNALMEASURE("Valor_Receber+Juros", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: 69ee1816-88ad-4b55-808b-f2b12f334ca0
+		sourceLineageTag: 403063e2-393f-4137-ace0-9c2a36a47dc5
+		dataCategory: Uncategorized
+
+	measure Qtde_Titulos = EXTERNALMEASURE("Qtde_Titulos", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 81a2e128-e998-4245-84f7-6d154daa5905
+		sourceLineageTag: 4d4d9d23-c939-4b3a-9dc4-133b04c75a57
+		dataCategory: Uncategorized
+
+	measure Fat_Med_6M = EXTERNALMEASURE("Fat_Med_6M", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: 4b40612b-ed25-45a8-9215-ec8158e7c3a7
+		sourceLineageTag: bb090af3-c69f-471f-8da5-df0a9cc6a044
+		dataCategory: Uncategorized
+
+	measure Atraso_Dias = EXTERNALMEASURE("Atraso_Dias", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: 2ff26e2b-4010-4dd5-89e4-a80cb43473eb
+		sourceLineageTag: be6202c5-180e-48cf-ae98-251aba60cbf6
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Var_Vlr_Titulo = EXTERNALMEASURE("Var_Vlr_Titulo", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: #,0.00
+		lineageTag: 0d8f2991-bf2e-4701-bedc-152ce833554a
+		sourceLineageTag: a3c77203-d5e3-4acf-ba98-6c498bb4315f
+		dataCategory: Uncategorized
+
+	measure Var_Vlr_Titulo+Juros = EXTERNALMEASURE("Var_Vlr_Titulo+Juros", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: #,0.00
+		lineageTag: beaab6eb-097a-4a4f-a19d-0eef0e3bf914
+		sourceLineageTag: 0b8a41be-ed26-4609-aa32-32f877787863
+		dataCategory: Uncategorized
+
+	measure Var_Qtde_Tit = EXTERNALMEASURE("Var_Qtde_Tit", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 1cd7df63-fc67-4611-8d68-584a10d88cbe
+		sourceLineageTag: 534c8570-1aa8-46dc-a375-8282cb999b2e
+		dataCategory: Uncategorized
+
+	measure Atraso_Medio = EXTERNALMEASURE("Atraso_Medio", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: f7bc1a44-6220-41bb-941f-07f626f2649d
+		sourceLineageTag: 6633471d-4654-4dba-ac7a-a53031dfc138
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Valor_Inadimplencia <365' = EXTERNALMEASURE("Valor_Inadimplencia <365", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: ba0aa25f-2ae8-49db-be91-88bd75b86a08
+		sourceLineageTag: 874e4a2f-5f34-4dee-9494-80692e278543
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Valor_Inadimplencia = EXTERNALMEASURE("Valor_Inadimplencia", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: c7ad762e-a5de-4b8e-a7e5-f00795b621c9
+		sourceLineageTag: 0ca44450-56b6-4f00-b175-d75f28a688cd
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Tit_Inadimplencia = EXTERNALMEASURE("Tit_Inadimplencia", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: ce3d4b74-c95f-4d06-9706-9787bcb5323a
+		sourceLineageTag: 8c7a2c68-3abd-4a04-8717-b05684406872
+		dataCategory: Uncategorized
+
+	partition _Medidas_Inad = entity
+		mode: directQuery
+		source
+			entityName: _Medidas_Inad
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

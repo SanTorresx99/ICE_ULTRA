@@ -1,0 +1,30 @@
+table Filtro_Acao
+	lineageTag: a1c855ba-411a-4d7a-8b6b-4f7f83a54d89
+
+	column Opcao
+		dataType: string
+		lineageTag: c2a855ab-1234-4567-890a-dfec34e5a012
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Opcao]
+
+	column Codigo
+		dataType: int64
+		lineageTag: d1a855ab-3456-7890-abcd-ef0123456789
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Codigo]
+
+	partition Filtro_Acao = calculated
+		mode: import
+		source =
+				DATATABLE(
+					"Opcao", STRING,
+					"Codigo", INTEGER,
+					{
+						{"Ação Total (ICE+ULTRA)", 1},
+						{"Somente ICE", 2},
+						{"Somente Petra Ultra", 3}
+					}
+				)
+

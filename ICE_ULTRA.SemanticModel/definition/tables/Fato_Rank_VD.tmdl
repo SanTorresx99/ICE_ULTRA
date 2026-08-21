@@ -1,0 +1,1021 @@
+table Fato_Rank_VD
+	lineageTag: 015d4548-c06f-4a79-9ccd-76d017cab1be
+	sourceLineageTag: 4259cd71-b1b4-4bb6-b9e0-108ea63ce0ce
+
+	column ven_Vendedor_int_PK
+		dataType: int64
+		formatString: 0
+		lineageTag: 5da84e0a-7b84-4bdf-aec5-8ba069899988
+		sourceLineageTag: fbb7dd9d-5cb5-4170-b2c0-e87cc0e897ff
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ven_Vendedor_int_PK
+
+		annotation SummarizationSetBy = User
+
+	column emp_Empresa_int_FK
+		dataType: int64
+		formatString: 0
+		lineageTag: 6007fe8a-a657-4aac-bf17-6ccaec124415
+		sourceLineageTag: ba5dbe25-8588-4b66-8b02-8468c0dea4c4
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: emp_Empresa_int_FK
+
+		annotation SummarizationSetBy = User
+
+	column ven_Vendedor_chr
+		dataType: string
+		lineageTag: d6988543-cfda-42e4-864a-6f0ada2a2b4c
+		sourceLineageTag: a0fd169e-35af-4fe2-b0ed-e91bb6f6ab81
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ven_Vendedor_chr
+
+		annotation SummarizationSetBy = User
+
+	column 'META 600ML'
+		dataType: int64
+		formatString: 0
+		lineageTag: cd822c51-7e80-4d1f-abb0-cdb15806a1e1
+		sourceLineageTag: e7e319ff-867f-4856-afc8-8ff42f82140d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: META 600ML
+
+		annotation SummarizationSetBy = User
+
+	column 'REAL 600ML'
+		dataType: int64
+		formatString: 0
+		lineageTag: 8af499bb-ef34-4245-885d-d8dd572f570a
+		sourceLineageTag: acb8ee52-e64d-4b25-b1ac-4cd6861c4556
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REAL 600ML
+
+		annotation SummarizationSetBy = User
+
+	column %600ML
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 04709422-fabd-4ff9-b91a-4b02c4fcf0d1
+		sourceLineageTag: 4d90d5c0-6354-435a-a9f1-216049b2549c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: %600ML
+
+		annotation SummarizationSetBy = User
+
+	column 'GAP 600ML'
+		dataType: int64
+		formatString: 0
+		lineageTag: addff5f2-1134-4e43-be70-347816a0b6f4
+		sourceLineageTag: 250324c2-aa9c-496b-be4f-3f5878d168e5
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: GAP 600ML
+
+		annotation SummarizationSetBy = User
+
+	column PTS_600
+		dataType: int64
+		formatString: 0
+		lineageTag: 6eaac39d-d672-4570-85e5-e50690856600
+		sourceLineageTag: cc07f41d-bac7-4df9-aa43-0f009a8ddb4f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PTS_600
+
+		annotation SummarizationSetBy = User
+
+	column 'META 1000ML'
+		dataType: int64
+		formatString: 0
+		lineageTag: 39fc25c2-76c2-474a-a0b8-7214e00ec8db
+		sourceLineageTag: a37b924f-6b5e-4750-945e-ddf97695fe4f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: META 1000ML
+
+		annotation SummarizationSetBy = User
+
+	column 'REAL 1000ML'
+		dataType: int64
+		formatString: 0
+		lineageTag: 81e8f6cf-0e34-45d5-99d1-f80d21b1f315
+		sourceLineageTag: f3b2f8eb-9720-4205-aed0-3bd55e66f3af
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REAL 1000ML
+
+		annotation SummarizationSetBy = User
+
+	column %1000ML
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: d9058e96-95cd-48fd-92d7-d679005a15da
+		sourceLineageTag: dc68b3a5-094d-4eae-bfd8-c40149fd8b7c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: %1000ML
+
+		annotation SummarizationSetBy = User
+
+	column 'GAP 1000ML'
+		dataType: int64
+		formatString: 0
+		lineageTag: 02170f3d-8bfd-43c9-a17f-8bf4552acab4
+		sourceLineageTag: 392d6719-da3b-4122-ab37-5bb192835b10
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: GAP 1000ML
+
+		annotation SummarizationSetBy = User
+
+	column PTS_1000
+		dataType: int64
+		formatString: 0
+		lineageTag: d47fd0b0-7d67-4d00-8304-855928bad48f
+		sourceLineageTag: 50dc459f-a072-46ef-83df-092dbf412ed7
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PTS_1000
+
+		annotation SummarizationSetBy = User
+
+	column 'META 350ML'
+		dataType: int64
+		formatString: 0
+		lineageTag: 87125e33-7791-49fd-a2a0-0fbed52fa79a
+		sourceLineageTag: 11d3e6b6-6123-4c69-a960-77c214c8a0dd
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: META 350ML
+
+		annotation SummarizationSetBy = User
+
+	column 'REAL 350ML'
+		dataType: int64
+		formatString: 0
+		lineageTag: 1b55c387-fc84-41d8-a827-731ae39eea42
+		sourceLineageTag: cb145b2a-6d45-4668-8fee-7a15197a4edc
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REAL 350ML
+
+		annotation SummarizationSetBy = User
+
+	column %350ML
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 24cedc90-4120-4998-b176-ee915e460e3f
+		sourceLineageTag: a7f3e1f9-f161-4a3a-a1e5-a3f2e096445f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: %350ML
+
+		annotation SummarizationSetBy = User
+
+	column 'GAP 350ML'
+		dataType: int64
+		formatString: 0
+		lineageTag: bedfabbc-dc83-44b9-91d0-4ae8bc9652b7
+		sourceLineageTag: 306aa972-dcd4-41ed-968e-84a3e3d2de6b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: GAP 350ML
+
+		annotation SummarizationSetBy = User
+
+	column PTS_350
+		dataType: int64
+		formatString: 0
+		lineageTag: adecd566-b586-480a-a208-1ffd6fc83342
+		sourceLineageTag: c152d35f-fa29-464e-bbf7-5db8c91a23ce
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PTS_350
+
+		annotation SummarizationSetBy = User
+
+	column 'META 330ML'
+		dataType: int64
+		formatString: 0
+		lineageTag: da0c6b05-f2ce-4429-adda-fab2cae1631f
+		sourceLineageTag: 38499926-7267-4871-b1be-fcd2cfbc98e6
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: META 330ML
+
+		annotation SummarizationSetBy = User
+
+	column 'REAL 330ML'
+		dataType: int64
+		formatString: 0
+		lineageTag: 753f8566-7066-4062-9641-da3e0ffb02af
+		sourceLineageTag: 14bbae4d-e486-4b41-8726-3f021c91f614
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REAL 330ML
+
+		annotation SummarizationSetBy = User
+
+	column %330ML
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 19291e66-5052-410e-b470-7f0a1235832c
+		sourceLineageTag: 6c0cdd89-d88a-4b5d-b668-da61f4afa446
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: %330ML
+
+		annotation SummarizationSetBy = User
+
+	column 'GAP 330ML'
+		dataType: int64
+		formatString: 0
+		lineageTag: be557533-2657-4028-87da-0e24280331b3
+		sourceLineageTag: 37f426c0-c61e-4eb5-ba75-4dc5dfa8055a
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: GAP 330ML
+
+		annotation SummarizationSetBy = User
+
+	column PTS_330
+		dataType: int64
+		formatString: 0
+		lineageTag: 31da7614-ce63-47dd-8ee5-7edabd833d33
+		sourceLineageTag: 8439d615-a72e-4ae2-b5b0-6fe56b9aaec2
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PTS_330
+
+		annotation SummarizationSetBy = User
+
+	column 'META 250ML'
+		dataType: int64
+		formatString: 0
+		lineageTag: 88aa881e-8d33-4e65-b554-7c194b57fb93
+		sourceLineageTag: e27a852a-5fcc-45a9-8e1e-205e5371cbc9
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: META 250ML
+
+		annotation SummarizationSetBy = User
+
+	column 'REAL 250ML'
+		dataType: int64
+		formatString: 0
+		lineageTag: ba3d274b-d676-40d5-8c96-eca7da2e78c0
+		sourceLineageTag: 8a4cf773-379f-4dc2-b44e-a4c4bb4ced7d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REAL 250ML
+
+		annotation SummarizationSetBy = User
+
+	column %250ML
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 6409d552-11c3-4f42-9d0d-63d0a9e2b719
+		sourceLineageTag: b0c0ca16-1d67-4acf-9a2e-ca38f80fea28
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: %250ML
+
+		annotation SummarizationSetBy = User
+
+	column 'GAP 250ML'
+		dataType: int64
+		formatString: 0
+		lineageTag: 15572a53-218e-40ac-ad85-803c8d361ba1
+		sourceLineageTag: f5f9b9c6-8603-46a1-ac57-0d466d8ac273
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: GAP 250ML
+
+		annotation SummarizationSetBy = User
+
+	column PTS_250
+		dataType: int64
+		formatString: 0
+		lineageTag: ef0285d5-ce08-4988-bd71-0c21b9515e99
+		sourceLineageTag: 20d3a85e-7e8c-48b9-ab12-359ce07b9a87
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PTS_250
+
+		annotation SummarizationSetBy = User
+
+	column 'META 269ML_C12'
+		dataType: int64
+		formatString: 0
+		lineageTag: ebd2c8db-215d-4767-976f-ef25e9bf7f1d
+		sourceLineageTag: ff3fe6e7-efa3-471e-ac32-e337e0b6cae4
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: META 269ML_C12
+
+		annotation SummarizationSetBy = User
+
+	column 'REAL 269ML_C12'
+		dataType: int64
+		formatString: 0
+		lineageTag: 59e3c83c-82a5-48e2-9088-484b9fddb6e4
+		sourceLineageTag: 06e698cc-b2c9-43b4-b80d-70bfc69f7675
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REAL 269ML_C12
+
+		annotation SummarizationSetBy = User
+
+	column %269ML_C12
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: cae0f1e9-cac3-4efa-8675-3c37d5ddec5e
+		sourceLineageTag: 9a1615c7-27d7-4d86-a71f-9b9a16befa95
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: %269ML_C12
+
+		annotation SummarizationSetBy = User
+
+	column 'GAP 269ML_C12'
+		dataType: int64
+		formatString: 0
+		lineageTag: 401f1e92-59b1-408f-be46-de5dda5c7270
+		sourceLineageTag: 06d71304-0723-4b9e-a14c-480a68d89ed9
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: GAP 269ML_C12
+
+		annotation SummarizationSetBy = User
+
+	column PTS_269ML_C12
+		dataType: int64
+		formatString: 0
+		lineageTag: eb9d1279-25e9-49e5-afbc-6042c66addd2
+		sourceLineageTag: ff1ec193-e8e7-48aa-8dfe-72f6f2a8b98d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PTS_269ML_C12
+
+		annotation SummarizationSetBy = User
+
+	column 'META 269ML_C15'
+		dataType: int64
+		formatString: 0
+		lineageTag: 22074be8-1bea-4654-8957-bea5a38d2d86
+		sourceLineageTag: 26951197-2ad9-413e-9fc2-49b682c42664
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: META 269ML_C15
+
+		annotation SummarizationSetBy = User
+
+	column 'REAL 269ML_C15'
+		dataType: int64
+		formatString: 0
+		lineageTag: 5785a13b-f714-49b3-b6cf-cdba179ebb31
+		sourceLineageTag: 214ca1fe-355e-4ac7-8a5a-e4983f9113db
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REAL 269ML_C15
+
+		annotation SummarizationSetBy = User
+
+	column %269ML_C15
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 24edc037-9fa6-4fca-80e0-1d29b1399ea0
+		sourceLineageTag: 8a22285f-ba29-424a-bd3e-f57b6407a2ab
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: %269ML_C15
+
+		annotation SummarizationSetBy = User
+
+	column 'GAP 269ML_C15'
+		dataType: int64
+		formatString: 0
+		lineageTag: 89c5ab30-4b37-4dec-9c92-7b01b8bac37f
+		sourceLineageTag: a418ce0b-3a85-4470-b2de-9a34903c7e8b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: GAP 269ML_C15
+
+		annotation SummarizationSetBy = User
+
+	column PTS_269_C15
+		dataType: int64
+		formatString: 0
+		lineageTag: 736b2e93-8ac4-4c94-88ad-fdf97c909842
+		sourceLineageTag: a859dc1a-83bd-4339-aa17-ce561ef4df7e
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PTS_269_C15
+
+		annotation SummarizationSetBy = User
+
+	column 'META ICE275ML'
+		dataType: int64
+		formatString: 0
+		lineageTag: 7aa954eb-8317-47f7-98cd-0018bf0bc2e9
+		sourceLineageTag: 73faf826-b4b5-498f-a1bb-c8f3469ac8b3
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: META ICE275ML
+
+		annotation SummarizationSetBy = User
+
+	column 'REAL ICE275ML'
+		dataType: int64
+		formatString: 0
+		lineageTag: 453af3a4-6ce3-4d52-91a6-219e360ed263
+		sourceLineageTag: d216399b-7ec3-45c3-8691-7167793332c9
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REAL ICE275ML
+
+		annotation SummarizationSetBy = User
+
+	column %ICE275ML
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 6d83f6e6-8eea-444b-84df-4293b3ef947d
+		sourceLineageTag: fbdb1d52-e07e-419f-95e3-efbaae65eaef
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: %ICE275ML
+
+		annotation SummarizationSetBy = User
+
+	column 'GAP ICE275ML'
+		dataType: int64
+		formatString: 0
+		lineageTag: 0938d7ce-bef5-4893-9e62-f8a6c63fd669
+		sourceLineageTag: 6309c70a-b082-4611-b276-6bedb37d44df
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: GAP ICE275ML
+
+		annotation SummarizationSetBy = User
+
+	column PTS_ICE275ML
+		dataType: int64
+		formatString: 0
+		lineageTag: b2725612-5906-4351-a765-c26f0678a0b7
+		sourceLineageTag: 991ce7b2-16ed-41b1-83cf-48529e1d819b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PTS_ICE275ML
+
+		annotation SummarizationSetBy = User
+
+	column 'META POS'
+		dataType: int64
+		formatString: 0
+		lineageTag: cbb195a8-192b-4263-a067-7c2007851c29
+		sourceLineageTag: 5ec1d50d-0c20-4d1a-aa19-cccff28be9a5
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: META POS
+
+		annotation SummarizationSetBy = User
+
+	column 'POS GERAL'
+		dataType: int64
+		formatString: 0
+		lineageTag: b6ce0770-2bb5-4cf4-b586-41faea3b20b5
+		sourceLineageTag: cf7ad5c4-b9c2-4aad-a3dc-f85257a56e99
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: POS GERAL
+
+		annotation SummarizationSetBy = User
+
+	column '%POS GERAL'
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 43f9b345-fc62-417b-a042-002e901d62a0
+		sourceLineageTag: 72354d48-2aee-4b1b-970f-8db70f719437
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: %POS GERAL
+
+		annotation SummarizationSetBy = User
+
+	column 'GAP POS GERAL'
+		dataType: int64
+		formatString: 0
+		lineageTag: a86c9d6e-e97c-4d6a-8032-f80c87e244db
+		sourceLineageTag: a0369a53-0e9d-4848-9878-b87bf42f27ca
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: GAP POS GERAL
+
+		annotation SummarizationSetBy = User
+
+	column PTS_POS_GERAL
+		dataType: int64
+		formatString: 0
+		lineageTag: 40ef390f-8ab0-4b4e-9e54-d8f6b3bf22f8
+		sourceLineageTag: fa4f5919-fb9e-466b-97ee-9f50137acd4d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PTS_POS_GERAL
+
+		annotation SummarizationSetBy = User
+
+	column 'POS ICE275ML'
+		dataType: int64
+		formatString: 0
+		lineageTag: 9417a819-7652-429a-bf21-7fc6dd4e9791
+		sourceLineageTag: f4c5a0eb-eea7-4aab-9ad7-135784387a36
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: POS ICE275ML
+
+		annotation SummarizationSetBy = User
+
+	column '%POS ICE275ML'
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 5a475f3c-92ad-4dbb-9aaa-6d13a628e726
+		sourceLineageTag: 7e012b82-4303-4c96-8ba7-5205dde3d328
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: %POS ICE275ML
+
+		annotation SummarizationSetBy = User
+
+	column 'GAP POS ICE275ML'
+		dataType: int64
+		formatString: 0
+		lineageTag: dae836e3-f321-441f-9f1f-cb10428ecfa2
+		sourceLineageTag: fbf783d0-5e81-4bc1-a5ae-1f5212136499
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: GAP POS ICE275ML
+
+		annotation SummarizationSetBy = User
+
+	column PTS_POS_ICE275ML
+		dataType: double
+		formatString: 0
+		lineageTag: e0877e6b-30ea-4d02-b2ba-4b8d3c50b208
+		sourceLineageTag: d1032a70-957a-4369-8c8b-a671266c082f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PTS_POS_ICE275ML
+
+		annotation SummarizationSetBy = User
+
+	column 'POS ITA_PREM'
+		dataType: int64
+		formatString: 0
+		lineageTag: a1fc03f1-6b0f-4485-9cfe-f1912a7165e9
+		sourceLineageTag: 3c5adc08-9767-4626-b3c3-b90dcb5fce14
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: POS ITA_PREM
+
+		annotation SummarizationSetBy = User
+
+	column '%POS ITAPREM'
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 2c075c2f-a5b2-4963-878d-5682850c008f
+		sourceLineageTag: 1f394fb1-1dce-4d6c-a01b-a7c31e9131d9
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: %POS ITAPREM
+
+		annotation SummarizationSetBy = User
+
+	column 'GAP POS ITA_PREM'
+		dataType: int64
+		formatString: 0
+		lineageTag: abc8a879-1688-4f91-96c0-2cc11c2bc75d
+		sourceLineageTag: 3ce332f7-ea21-4d68-a745-bab952799f90
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: GAP POS ITA_PREM
+
+		annotation SummarizationSetBy = User
+
+	column PTS_POS_ITAPREM
+		dataType: double
+		formatString: 0
+		lineageTag: 0fb8a8a1-a2dd-4b7d-ad9b-0d60d9fab124
+		sourceLineageTag: d949afad-ac56-4734-a43d-3c45592018d3
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PTS_POS_ITAPREM
+
+		annotation SummarizationSetBy = User
+
+	column 'POS BLKPRIN'
+		dataType: int64
+		formatString: 0
+		lineageTag: 6ec0f1d1-4062-4837-a46e-7b03fe773717
+		sourceLineageTag: 9fe96a66-f776-4154-9a33-f63b906bff92
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: POS BLKPRIN
+
+		annotation SummarizationSetBy = User
+
+	column '%POS BLKPRIN'
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 5ef528ca-abb7-42cf-a1e6-ddc5e7d79cfe
+		sourceLineageTag: f4a0ac6d-e0e4-4d2c-b253-34592d7768f0
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: %POS BLKPRIN
+
+		annotation SummarizationSetBy = User
+
+	column 'GAP POS BLKPRIN'
+		dataType: int64
+		formatString: 0
+		lineageTag: e226ffe6-7351-4ae8-bb0c-de0c853e84a4
+		sourceLineageTag: 369f2e74-37d6-4f7e-88dd-242b9b8561cd
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: GAP POS BLKPRIN
+
+		annotation SummarizationSetBy = User
+
+	column PTS_POS_BLKPRIN
+		dataType: double
+		formatString: 0
+		lineageTag: 46260183-078b-4713-85d1-6dc6b5e921ee
+		sourceLineageTag: bef4bcae-6b54-4e63-b116-ebc5fc42c378
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PTS_POS_BLKPRIN
+
+		annotation SummarizationSetBy = User
+
+	column META_VAS
+		dataType: int64
+		formatString: 0
+		lineageTag: bb6d153b-b39a-4764-a633-b561174a217e
+		sourceLineageTag: a033a59c-c130-4005-9dae-8dc415ad6729
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: META_VAS
+
+		annotation SummarizationSetBy = User
+
+	column REAL_VAS
+		dataType: int64
+		formatString: 0
+		lineageTag: 32c79aa8-8921-486d-afe2-6353d436a53a
+		sourceLineageTag: 866792fb-24e8-4046-8280-0b842694567b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REAL_VAS
+
+		annotation SummarizationSetBy = User
+
+	column %GIRO_VAS
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 0e1aaa77-d908-4317-8f9e-feaf7a8e9bcc
+		sourceLineageTag: 0ee0de66-c1fd-4c62-a347-8631391053c7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: %GIRO_VAS
+
+		annotation SummarizationSetBy = User
+
+	column 'GAP VAS'
+		dataType: int64
+		formatString: 0
+		lineageTag: a0bbaf33-002c-4714-91aa-1908a18fd6f9
+		sourceLineageTag: 1601f880-95d6-4d17-b932-0075771fc191
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: GAP VAS
+
+		annotation SummarizationSetBy = User
+
+	column PTS_VAS
+		dataType: double
+		formatString: 0
+		lineageTag: 52f9d165-05e8-47f7-a2d5-6e931834499c
+		sourceLineageTag: 68d56e4d-b6b9-4126-9b8c-8b95e133b547
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PTS_VAS
+
+		annotation SummarizationSetBy = User
+
+	column META_MAT
+		dataType: int64
+		formatString: 0
+		lineageTag: c0ae0ca2-688d-449a-b12a-7395aae68353
+		sourceLineageTag: 4ddc12fb-9a53-45f1-b16f-feea6807a1ca
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: META_MAT
+
+		annotation SummarizationSetBy = User
+
+	column REAL_MAT
+		dataType: int64
+		formatString: 0
+		lineageTag: 45f09945-327e-4f44-9bd1-1f3198263694
+		sourceLineageTag: d8796c89-8e89-40f3-88f6-6ccf69e58c4e
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REAL_MAT
+
+		annotation SummarizationSetBy = User
+
+	column %GIRO_MAT
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: a4dfecb7-bdb0-4688-8018-a9262f2ac67c
+		sourceLineageTag: 9b387a6a-4fc3-4b5b-84a9-d8111386936f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: %GIRO_MAT
+
+		annotation SummarizationSetBy = User
+
+	column 'GAP MAT'
+		dataType: int64
+		formatString: 0
+		lineageTag: 227c91e3-10a1-4057-9d1a-5e9ca91ab145
+		sourceLineageTag: 1b1a48f8-6d59-4862-8820-fd8a089440c9
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: GAP MAT
+
+		annotation SummarizationSetBy = User
+
+	column PTS_MAT
+		dataType: double
+		formatString: 0
+		lineageTag: 4b7b2433-6311-4e4d-8cbc-54911236dc33
+		sourceLineageTag: 4c71fa22-2a14-4eaa-b1ef-d13bb230079a
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PTS_MAT
+
+		annotation SummarizationSetBy = User
+
+	column META_DEV
+		dataType: double
+		lineageTag: 9c8e4955-8207-49e4-9043-300e1c2fb8fc
+		sourceLineageTag: 00fe46ba-3bc2-4caa-bc3e-cb8a7b9a118a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: META_DEV
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column REAL_DEV
+		dataType: double
+		lineageTag: 52b89c59-f62c-4070-8355-b0dbf6dc1310
+		sourceLineageTag: d7a71ba4-e9b1-49dc-99a5-ed52fca543dc
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: REAL_DEV
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column %DEV
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 8fc54405-b6c5-4ec4-8e40-450519777b86
+		sourceLineageTag: fc0d9a54-fe37-4666-9e3e-18f4d0952c67
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: %DEV
+
+		annotation SummarizationSetBy = User
+
+	column GAP_DEV
+		dataType: double
+		formatString: 0
+		lineageTag: 4a13ab32-3f21-42bc-b92d-2d9c57d620d2
+		sourceLineageTag: 123b88fa-1332-4c2e-8b4e-1338d5f7543b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: GAP_DEV
+
+		annotation SummarizationSetBy = User
+
+	column PTS_DEV
+		dataType: int64
+		formatString: 0
+		lineageTag: a617242a-99c3-4770-b90c-c3bd658d6064
+		sourceLineageTag: 9c1a8cfe-e55d-423f-8ec7-734a24e36926
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PTS_DEV
+
+		annotation SummarizationSetBy = User
+
+	column META_INAD
+		dataType: double
+		lineageTag: a8aaca4a-b599-4b2f-9982-d210188fcf4e
+		sourceLineageTag: 5e82880d-bdfd-45c5-be22-509851fdc0f7
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: META_INAD
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column REAL_INAD
+		dataType: double
+		lineageTag: ab322a43-4aa7-4e1d-95b3-fa81c833e761
+		sourceLineageTag: 9bc3e469-f337-4a28-b6e1-9265b05eb8c2
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: REAL_INAD
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column %INAD
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 1595c316-2b0a-4a8e-acdb-f4eea3a74051
+		sourceLineageTag: 07943b75-554f-485a-a51e-c3f0b583cedf
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: %INAD
+
+		annotation SummarizationSetBy = User
+
+	column 'GAP INAD'
+		dataType: double
+		formatString: 0
+		lineageTag: 49894a67-5830-4510-8571-7e8316e9e9ce
+		sourceLineageTag: 57fd68dd-6dd6-427b-b982-4b1efae1a619
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: GAP INAD
+
+		annotation SummarizationSetBy = User
+
+	column PTS_INAD
+		dataType: int64
+		formatString: 0
+		lineageTag: 42042b8b-2b1e-4837-98fa-bd2365c69a23
+		sourceLineageTag: ac90da8e-feb5-4835-a530-6ab1f5d852a7
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PTS_INAD
+
+		annotation SummarizationSetBy = User
+
+	column PTS_VOLUME
+		dataType: int64
+		formatString: 0
+		lineageTag: 53d6ecf6-f0b5-4ce4-8042-3e0e44f14f56
+		sourceLineageTag: 1bf16256-0deb-4dcb-b617-1621d24f31b5
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PTS_VOLUME
+
+		annotation SummarizationSetBy = User
+
+	column PTS_CONTROLE
+		dataType: int64
+		formatString: 0
+		lineageTag: 3f39b9fa-043e-4721-aa76-170877241624
+		sourceLineageTag: e359c53e-1a4c-46ad-a840-f740f8a7b8cc
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PTS_CONTROLE
+
+		annotation SummarizationSetBy = User
+
+	column PTS_TOTAL
+		dataType: int64
+		formatString: 0
+		lineageTag: 984f9623-790d-428d-92f9-41e43f25d16a
+		sourceLineageTag: 92bad8a2-d823-4fa2-ae01-8fb240a7373f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PTS_TOTAL
+
+		annotation SummarizationSetBy = User
+
+	column PTS_ATUAL
+		dataType: int64
+		formatString: 0
+		lineageTag: 536a2390-240a-4df9-8534-558a57d05c2e
+		sourceLineageTag: a3a9ca98-581d-4111-bf4d-97a072f2228e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PTS_ATUAL
+
+		annotation SummarizationSetBy = User
+
+	column PTS_ANTERIOR
+		dataType: int64
+		formatString: 0
+		lineageTag: eb5a63c3-7e35-4f0b-a308-bf052952ebd8
+		sourceLineageTag: 4224df6d-045b-48bf-b0b5-2e9675232082
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PTS_ANTERIOR
+
+		annotation SummarizationSetBy = User
+
+	column RANK
+		dataType: int64
+		formatString: 0
+		lineageTag: a4e5fabd-00d5-4d94-a6e7-aa23ff73837b
+		sourceLineageTag: edc92b11-11ad-4a2a-98c4-fe54127b057b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: RANK
+
+		annotation SummarizationSetBy = User
+
+	column FOTO
+		dataType: string
+		lineageTag: 4eda33ec-3c34-4f84-b083-08c10475b0c0
+		sourceLineageTag: 91e655f7-dae6-44cd-834d-be5efb2b7fb7
+		dataCategory: ImageUrl
+		summarizeBy: none
+		sourceColumn: FOTO
+
+		annotation SummarizationSetBy = User
+
+	column SIT_META
+		dataType: string
+		lineageTag: e50fdfe9-ecc5-4102-b98c-66f3447aa690
+		sourceLineageTag: 528457ae-394b-4570-83db-154b64ce1e34
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SIT_META
+
+		annotation SummarizationSetBy = User
+
+	column TIPO_VD
+		dataType: string
+		lineageTag: 7cb20b4d-4863-4c60-b2dd-fd3a3f5a7a65
+		sourceLineageTag: d1025c98-e686-419e-9ec3-9b362f3f3a84
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TIPO_VD
+
+		annotation SummarizationSetBy = User
+
+	column EMP
+		dataType: string
+		lineageTag: b6e2d625-f5e8-40c1-8773-3c99ec044110
+		sourceLineageTag: 13c9d6b2-092c-4fca-a0ab-d075abfa9e63
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: EMP
+
+		annotation SummarizationSetBy = User
+
+	column ANO
+		dataType: int64
+		formatString: 0
+		lineageTag: 715d62ef-5118-4047-abd7-e875c4e58faa
+		sourceLineageTag: 81f53f13-6352-4261-ac4a-7d4723f08011
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ANO
+
+		annotation SummarizationSetBy = User
+
+	column MES
+		dataType: int64
+		formatString: 0
+		lineageTag: 9787a43f-0912-40ad-9164-fb0b3991115c
+		sourceLineageTag: a22712b8-00fc-4580-a67c-5db53024e602
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: MES
+
+		annotation SummarizationSetBy = User
+
+	partition Fato_Rank_VD = entity
+		mode: directQuery
+		source
+			entityName: Fato_Rank_VD
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

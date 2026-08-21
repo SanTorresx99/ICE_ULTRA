@@ -1,0 +1,108 @@
+table Dim_Prd_Acordo
+	lineageTag: c5ee5e5c-7ef9-4f60-87c4-64fcdf4e58f7
+	sourceLineageTag: ad49a651-c202-4396-b2bf-3dc783fc4945
+
+	column CODIGO
+		dataType: int64
+		formatString: 0
+		lineageTag: 90566cca-cc8b-4181-a6fa-89d742a98dd0
+		sourceLineageTag: 67bb85bc-cc59-4ed0-8208-5c32c69b6aed
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CODIGO
+
+		annotation SummarizationSetBy = User
+
+	column NOME
+		dataType: string
+		lineageTag: daef3498-03ce-40c4-9411-f3178a8f7e3d
+		sourceLineageTag: aa4087f8-7f14-437b-ab65-e559c0163ff0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: NOME
+
+		annotation SummarizationSetBy = User
+
+	column CARGO
+		dataType: string
+		lineageTag: 6406663b-7309-4d72-b664-de5bbf3bf8ca
+		sourceLineageTag: 65175461-8883-4ac1-9852-8c72737bcc10
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CARGO
+
+		annotation SummarizationSetBy = User
+
+	column 'DATA SOLICITADA'
+		dataType: string
+		lineageTag: b4a9f3f4-2caf-47d6-8a2c-92807797148b
+		sourceLineageTag: a43aeac8-e138-4d53-9f4c-e88535b26f90
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DATA SOLICITADA
+
+		annotation SummarizationSetBy = User
+
+	column 'DATA INICIO'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 896c6595-fa6c-44a4-970e-225341454a40
+		sourceLineageTag: 957ce658-0948-4b19-854a-55b234ed345c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DATA INICIO
+
+		variation Variation
+			isDefault
+			relationship: 3a2c46bb-2d6c-418b-8728-d956472c4d2c
+			defaultHierarchy: LocalDateTable_c92b704a-933f-4a7f-9dfd-75906821f0a6.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column PERIDO
+		dataType: string
+		lineageTag: 2baa2846-daa3-4e9c-9a50-376e9c0ef030
+		sourceLineageTag: 76adee96-7f0f-4cfd-9203-4d0d81d4c0a5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: PERIDO
+
+		annotation SummarizationSetBy = User
+
+	column VALOR
+		dataType: int64
+		formatString: 0
+		lineageTag: 72778a41-3784-46cd-a451-d11f27d017c1
+		sourceLineageTag: 340e78e7-5a81-47f3-b9db-3386b8c6bd97
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: VALOR
+
+		annotation SummarizationSetBy = User
+
+	column SOLICITANTE
+		dataType: string
+		lineageTag: b4090b13-6961-4ca6-a1e3-a3e6052ee8b0
+		sourceLineageTag: 51994416-2559-4072-9a4e-5844f5e7eb72
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: SOLICITANTE
+
+		annotation SummarizationSetBy = User
+
+	column OBS
+		dataType: string
+		lineageTag: 7b4d0994-5b8f-4060-a6e6-0fd71206b124
+		sourceLineageTag: 0fddcf2e-4e44-45fe-86ff-f73f5baf70c5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: OBS
+
+		annotation SummarizationSetBy = User
+
+	partition Dim_Prd_Acordo = entity
+		mode: directQuery
+		source
+			entityName: Dim_Prd_Acordo
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

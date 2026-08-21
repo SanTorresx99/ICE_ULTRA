@@ -1,0 +1,88 @@
+table _Medidas_Cont
+	lineageTag: 6ebf7860-31cb-4a1d-b18e-2523f7f2f341
+	sourceLineageTag: 452ba56b-145d-4f22-b07d-a5ee4169203a
+
+	measure Var_Despesas = EXTERNALMEASURE("Var_Despesas", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: cbffd5c3-af8b-4acb-8bd4-8b9a88119a47
+		sourceLineageTag: 25080eb6-175f-4294-89ff-f247582dd902
+		dataCategory: Uncategorized
+
+	measure VLR_Realizado = EXTERNALMEASURE("VLR_Realizado", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: #,0.00
+		lineageTag: d04751ee-a57b-4f42-941c-175416ecb9af
+		sourceLineageTag: 4410924d-7b32-4c52-88b7-e7a1df074991
+		dataCategory: Uncategorized
+
+	measure Lucro_TT = EXTERNALMEASURE("Lucro_TT", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: df0e9fb3-26ca-4932-a67e-50d49c678afc
+		sourceLineageTag: 3a3a035f-b686-4e5b-9dcb-c1bbf109525b
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Resultado = EXTERNALMEASURE("Resultado", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: e18743f1-e127-40d1-9f61-2708fec46b67
+		sourceLineageTag: 55dcc802-7d61-4f1e-b1f1-8339bc33c731
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure CustoADF = EXTERNALMEASURE("CustoADF", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: 36f92f7a-a6ec-49fb-aa2c-593f578375ce
+		sourceLineageTag: c81e01f4-074d-4ae9-9953-f06e15a3ba7d
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure DevADF = EXTERNALMEASURE("DevADF", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: 8808a4b6-dab6-47a7-be28-1b46f08bf96f
+		sourceLineageTag: b9ed5e33-eaa8-4f6b-95c0-9fed1e5a8aa7
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure FatADF = EXTERNALMEASURE("FatADF", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: 759283fc-ffe1-4d7b-8956-475c6d7932f0
+		sourceLineageTag: c93c6f19-4990-4c0b-91da-6f3e799905a2
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure VLR_Real+Prev = EXTERNALMEASURE("VLR_Real+Prev", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: #,0.00
+		lineageTag: 9473d129-5f4e-46ae-b5a9-0d23675e0c59
+		sourceLineageTag: 4bf3fe75-912b-43c9-b511-2a6dcbfa6db7
+		dataCategory: Uncategorized
+
+	measure Orcamento = EXTERNALMEASURE("Orcamento", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: #,0.00
+		lineageTag: 26267536-36f6-4308-80c9-850da36a21e9
+		sourceLineageTag: c755062e-8a7c-4802-bb01-5472095f1eed
+		dataCategory: Uncategorized
+
+	measure 'Orcamento 2' = EXTERNALMEASURE("Orcamento 2", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: #,0.00
+		lineageTag: de54f677-d1cb-4932-a50e-355d9d1d42b0
+		sourceLineageTag: 56cb07b6-ba53-4240-b79a-8912d4c73742
+		dataCategory: Uncategorized
+
+	measure %LL = EXTERNALMEASURE("%LL", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 925c3c94-0cb6-4439-9906-56769b43aa0e
+		sourceLineageTag: 592bfe40-6b38-401c-9c53-a6271488e708
+		dataCategory: Uncategorized
+
+	measure FatBrutoADF = EXTERNALMEASURE("FatBrutoADF", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: 805e2c16-2a61-4242-ba81-dadff18b01f4
+		sourceLineageTag: 29a776f8-68a5-473b-91a4-13fb3aff6737
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition _Medidas_Cont = entity
+		mode: directQuery
+		source
+			entityName: _Medidas_Cont
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

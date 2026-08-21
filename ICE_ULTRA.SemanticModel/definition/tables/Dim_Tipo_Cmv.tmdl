@@ -1,0 +1,20 @@
+table Dim_Tipo_Cmv
+	lineageTag: 75350f8d-a458-4ce9-883f-361d02f8d178
+	sourceLineageTag: a05475bd-0b81-4746-b644-b83cb5b91002
+
+	column Tipo_CMV
+		dataType: string
+		lineageTag: 679dab51-6ca1-4235-ac74-2a34bd4814cc
+		sourceLineageTag: ca3ed8bd-8b0f-49f5-8d58-85dd3af6ea16
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Tipo_CMV
+
+		annotation SummarizationSetBy = User
+
+	partition Dim_Tipo_Cmv = entity
+		mode: directQuery
+		source
+			entityName: Dim_Tipo_Cmv
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

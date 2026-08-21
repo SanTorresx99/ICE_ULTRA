@@ -1,0 +1,53 @@
+table Dim_Conta
+	lineageTag: e0ef217c-63c9-47e4-8a53-33c035aab909
+	sourceLineageTag: 3a574bc1-ce60-4f47-8101-e0730c76c8e8
+
+	column CODCONTA
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		lineageTag: d4e1c456-5355-497e-b8dd-319e2a3a0170
+		sourceLineageTag: a083c825-8740-4353-a0c3-b02cee9f77b7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CODCONTA
+
+		annotation SummarizationSetBy = User
+
+	column CONTA
+		dataType: string
+		lineageTag: a947008f-6b69-4ff9-92f0-bf2e02617436
+		sourceLineageTag: 752ea405-a52a-41a9-a936-5ace9d11e2e3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CONTA
+
+		annotation SummarizationSetBy = User
+
+	column GRUPOCONTA
+		dataType: int64
+		formatString: 0
+		lineageTag: 161fe402-868a-4061-9022-e0b6d6cd3940
+		sourceLineageTag: c7e58ab8-1672-4c72-a1f5-1fb714cb1d11
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: GRUPOCONTA
+
+		annotation SummarizationSetBy = User
+
+	column GRUPO
+		dataType: string
+		lineageTag: 702ef3cd-399a-4454-98a2-83da365271df
+		sourceLineageTag: 44b92789-6eeb-4e74-89e9-f2ba32a2a47b
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: GRUPO
+
+		annotation SummarizationSetBy = User
+
+	partition Dim_Conta = entity
+		mode: directQuery
+		source
+			entityName: Dim_Conta
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

@@ -1,0 +1,20 @@
+table Dim_Tipo_Frete
+	lineageTag: 8b64ef9a-f1b1-45c9-949f-383bc6eea616
+	sourceLineageTag: d4cacc38-9e0c-407d-a72f-b44277dd8dcf
+
+	column Tipo_Frete
+		dataType: string
+		lineageTag: effd0e09-6233-46ef-8a4e-618ba400c8ad
+		sourceLineageTag: 97efbddf-ddda-41bd-adb0-663445d31b8c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Tipo_Frete
+
+		annotation SummarizationSetBy = User
+
+	partition Dim_Tipo_Frete = entity
+		mode: directQuery
+		source
+			entityName: Dim_Tipo_Frete
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

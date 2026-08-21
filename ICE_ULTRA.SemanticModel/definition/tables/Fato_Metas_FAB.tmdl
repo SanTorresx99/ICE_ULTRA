@@ -1,0 +1,194 @@
+table Fato_Metas_FAB
+	lineageTag: dfe9ff05-90d3-4825-a429-307306aa9cc7
+	sourceLineageTag: 9baa81a4-9787-494e-95bf-b46b537385f1
+
+	column 'IMP_METAS.xlsx'
+		dataType: string
+		lineageTag: 39fa0e33-1a97-4f10-a7d8-14c66558b59c
+		sourceLineageTag: 723fe495-fe70-4c88-a64a-1f5620e55cf0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: IMP_METAS.xlsx
+
+		annotation SummarizationSetBy = User
+
+	column IMP_META_FAB
+		dataType: string
+		lineageTag: f83cfb0d-f5f2-4531-b8d5-9ae90a820c87
+		sourceLineageTag: 2da3f76c-b205-48e2-98d5-ca777392b4a3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: IMP_META_FAB
+
+		annotation SummarizationSetBy = User
+
+	column DATA
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: f4be754c-87e6-40a4-bedc-635734ad7c2f
+		sourceLineageTag: 0116f5b6-2002-4ee7-8b4e-bf0c461e0a12
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DATA
+
+		annotation SummarizationSetBy = User
+
+	column IDEMPRESA
+		dataType: int64
+		formatString: 0
+		lineageTag: adedb268-b847-4505-9ef3-4cb09d758adc
+		sourceLineageTag: 8b5f166d-1995-4953-b298-d3450bedca3c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: IDEMPRESA
+
+		annotation SummarizationSetBy = User
+
+	column IDPRODUTO
+		dataType: int64
+		formatString: 0
+		lineageTag: 95a6c962-9cec-448f-8f18-71617422a185
+		sourceLineageTag: 2c6a982e-8f24-43cb-a935-dc1f9736b0c8
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: IDPRODUTO
+
+		annotation SummarizationSetBy = User
+
+	column META
+		dataType: double
+		lineageTag: aae8d4ec-c722-4413-a268-34f6d62a113e
+		sourceLineageTag: 2cdc2efa-8d60-45bb-b27e-026fc02833b9
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: META
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PM
+		dataType: double
+		lineageTag: 399d9bb9-5ee0-4dc5-97d9-f8ceb7af925d
+		sourceLineageTag: 78dd3650-cbd4-4f5d-9024-d79b197ef807
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PM
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column META_D
+		dataType: int64
+		formatString: 0
+		lineageTag: e5a17e79-de59-403a-ab09-07d951a8ae39
+		sourceLineageTag: 8df97738-20a0-43fd-a154-c7ead97b93e3
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: META_D
+
+		annotation SummarizationSetBy = User
+
+	column Column9
+		dataType: string
+		lineageTag: 37a3ef45-eeba-4b55-8744-56fe5d28f57c
+		sourceLineageTag: 0e6a0b20-6442-4ee2-a27f-9c4e6fc1d32e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Column9
+
+		annotation SummarizationSetBy = User
+
+	column Column10
+		dataType: double
+		lineageTag: af119690-7cdf-46ef-9233-43a80d0de91d
+		sourceLineageTag: fef761fc-5975-46cb-9332-0d65c6e51e27
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Column10
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column IMP_META_FAB_1
+		dataType: string
+		lineageTag: 18ad6a19-4178-49ea-b422-947c0ffcbae4
+		sourceLineageTag: 9fcce929-9cc3-40f5-9147-90b7a43dab89
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: IMP_META_FAB_1
+
+		annotation SummarizationSetBy = User
+
+	column Sheet
+		dataType: string
+		lineageTag: 4d3d59df-f6ac-449a-862d-5d0899c9309f
+		sourceLineageTag: 795f8765-01eb-4692-9634-2b3c00bb4803
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sheet
+
+		annotation SummarizationSetBy = User
+
+	column false
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 26a5c91b-8088-42a7-a4f0-0b90dd7496fd
+		sourceLineageTag: 148175b1-26f0-4487-bf56-9c6861ccf58e
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: false
+
+		annotation SummarizationSetBy = User
+
+	column CONC_MetaBatida
+		dataType: string
+		lineageTag: ad09fafb-467f-4527-8d9e-33784ecfd953
+		sourceLineageTag: 31cadd70-0e44-484f-b59e-212162e1ca9a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CONC_MetaBatida
+
+		annotation SummarizationSetBy = User
+
+	column Real_Vol
+		dataType: int64
+		formatString: 0
+		lineageTag: 9bf07d90-4190-40f4-b9ce-087ce150d980
+		sourceLineageTag: a6e72484-7689-4ee5-96c3-0b5ff263e56c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Real_Vol
+
+		annotation SummarizationSetBy = User
+
+	column Qtd_ProdMeta
+		dataType: int64
+		formatString: 0
+		lineageTag: 5b6fb224-91dd-44d2-bdc7-3a4b203c97d3
+		sourceLineageTag: 376b2fbb-7b45-472c-bb5d-3309bc09779b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Qtd_ProdMeta
+
+		annotation SummarizationSetBy = User
+
+	column Meta_Batida
+		dataType: int64
+		formatString: 0
+		lineageTag: 02dde261-ce60-4433-96b3-e79b7dbd3079
+		sourceLineageTag: 1a950cfc-f08a-4894-800e-871d14361915
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Meta_Batida
+
+		annotation SummarizationSetBy = User
+
+	partition Fato_Metas_FAB = entity
+		mode: directQuery
+		source
+			entityName: Fato_Metas_FAB
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

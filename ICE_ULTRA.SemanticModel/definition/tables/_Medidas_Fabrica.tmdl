@@ -1,0 +1,59 @@
+table _Medidas_Fabrica
+	lineageTag: 9b044761-5836-43da-8769-b210129ef6ec
+	sourceLineageTag: 347a7c9a-3fc7-4d87-8812-54ba95d8bb7a
+
+	measure Vol_Fab_Hist = EXTERNALMEASURE("Vol_Fab_Hist", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: f10cf308-5603-40e4-9814-28b054e93a79
+		sourceLineageTag: 57653c1d-880b-4654-8642-4b159ac98dbb
+		dataCategory: Uncategorized
+
+	measure Fat_Fab_Hist = EXTERNALMEASURE("Fat_Fab_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: e0ea6c1f-f6a3-469e-83d6-24a213ecc047
+		sourceLineageTag: 0b3a23be-9daf-4a90-99f7-571be529e822
+		dataCategory: Uncategorized
+
+	measure FatDev_Fab_Hist = EXTERNALMEASURE("FatDev_Fab_Hist", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 6ba085b8-7099-4a9b-a96e-cd525210f4f5
+		sourceLineageTag: cb67c2c8-2985-4980-b47e-377edeb30547
+		dataCategory: Uncategorized
+
+	measure VolDev_Fab_Hist = EXTERNALMEASURE("VolDev_Fab_Hist", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: f5e1b496-3c23-4e17-90d5-1a5c1f381180
+		sourceLineageTag: d5d10203-233d-489d-9ac1-8589bbdab5e7
+		dataCategory: Uncategorized
+
+	measure HL_Fab_Hist = EXTERNALMEASURE("HL_Fab_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: a8840ca8-0ecb-4aba-8c2a-e0eb75c37e7f
+		sourceLineageTag: 90905c40-b3fe-40ea-a029-bfcda8b2eeb5
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Posit_Fab_Hist = EXTERNALMEASURE("Posit_Fab_Hist", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 42a8dba0-de25-40ae-85c1-b0a03edc96f7
+		sourceLineageTag: b5aac63f-d9bb-4624-9171-3ed5970d6de8
+		dataCategory: Uncategorized
+
+	measure IPC_Fab_Hist = EXTERNALMEASURE("IPC_Fab_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 48bf2f1e-fbf8-4a46-967d-365c514957aa
+		sourceLineageTag: c01048bd-a19d-4a82-b772-8cada93a3b62
+		dataCategory: Uncategorized
+
+	measure Qtd_Ped_Fab_Hist = EXTERNALMEASURE("Qtd_Ped_Fab_Hist", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 2688c398-fc14-49eb-97ab-1dafed73cb47
+		sourceLineageTag: 4a985f0f-5bc9-4267-992a-f22fa61ef67a
+		dataCategory: Uncategorized
+
+	partition _Medidas_Fabrica = entity
+		mode: directQuery
+		source
+			entityName: _Medidas_Fabrica
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

@@ -1,0 +1,529 @@
+table Fato_Pedidos_Atual_XM
+	lineageTag: 9174b4ca-52a6-467b-b34e-9b3f64c7a8f0
+	sourceLineageTag: b024cc6e-2b00-4edf-9616-1a9fa925b483
+
+	column emp_Empresa_int_FK
+		dataType: double
+		formatString: 0
+		lineageTag: 1c415628-430e-44db-8701-d289b7385050
+		sourceLineageTag: dddce88d-4e34-440a-92ab-e5b0df43e585
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: emp_Empresa_int_FK
+
+		annotation SummarizationSetBy = User
+
+	column ped_NumeroPedido_int
+		dataType: int64
+		formatString: 0
+		lineageTag: 1a28cdeb-8039-4319-9351-9ac966366598
+		sourceLineageTag: a2747a74-2756-46fd-ac88-9d3150379635
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ped_NumeroPedido_int
+
+		annotation SummarizationSetBy = User
+
+	column ven_Vendedor_int_FK
+		dataType: int64
+		formatString: 0
+		lineageTag: 9ce6bf81-a23f-419d-aa71-a8eacd6baba0
+		sourceLineageTag: 340315e6-ea99-4c32-b0dd-811f5c13f138
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ven_Vendedor_int_FK
+
+		annotation SummarizationSetBy = User
+
+	column cli_Cliente_int_FK
+		dataType: int64
+		formatString: 0
+		lineageTag: bbecb210-dbd9-4a3f-b117-48171ccc1bfe
+		sourceLineageTag: fcc86ab2-26fb-40de-b55a-ff9d0a307c2f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: cli_Cliente_int_FK
+
+		annotation SummarizationSetBy = User
+
+	column vis_Visita_int_PK
+		dataType: int64
+		formatString: 0
+		lineageTag: 052d6797-283a-4f5d-9ed9-fd27860e8b6f
+		sourceLineageTag: 84c74652-aeaf-416e-aa29-5482af3f3107
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: vis_Visita_int_PK
+
+		annotation SummarizationSetBy = User
+
+	column vis_Inicio_dtm
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: 81764bfa-62e6-42b6-b0df-73a75a58d664
+		sourceLineageTag: e4206ea1-d146-47da-a615-640141bcb977
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: vis_Inicio_dtm
+
+		variation Variation
+			isDefault
+			relationship: 09f8cfd4-60f0-43b4-902d-8da722dd99c4
+			defaultHierarchy: LocalDateTable_ff9f3e84-5cc7-47f8-aa88-88dfef292606.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column vis_Termino_dtm
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: a0e9c064-102e-4bab-8f30-2b99ba7dfc6b
+		sourceLineageTag: dffa8a10-4897-4a61-b21b-4a09baa27d9a
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: vis_Termino_dtm
+
+		variation Variation
+			isDefault
+			relationship: 3bfe732f-099c-415d-922e-b7f8e5d1a465
+			defaultHierarchy: LocalDateTable_65c6e64b-df5e-4420-9eb1-06fae3f0b30f.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column status_visita
+		dataType: string
+		lineageTag: a4b8de80-919f-4a2a-b022-0c32f85afda1
+		sourceLineageTag: a4f89f67-8b59-4b78-b245-9b007368fcd3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: status_visita
+
+		annotation SummarizationSetBy = User
+
+	column jus_Justificativa_int_FK
+		dataType: int64
+		formatString: 0
+		lineageTag: ea0b9c3e-f454-4756-8499-a4301fc2e1a8
+		sourceLineageTag: 95550b8d-a66f-4d8e-8e3e-cf227dc47f43
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: jus_Justificativa_int_FK
+
+		annotation SummarizationSetBy = User
+
+	column vis_ForaRota_ind
+		dataType: double
+		formatString: 0
+		lineageTag: 2756c8ff-db74-4a04-8970-ad952628c4a5
+		sourceLineageTag: 9d9fb866-9a48-4669-9fe0-fb944a3ea0b5
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: vis_ForaRota_ind
+
+		annotation SummarizationSetBy = User
+
+	column ped_DataEmissao_dtm
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: ba5df7b7-8ee7-44c5-b6fe-5f478d809c8d
+		sourceLineageTag: 2453950f-dd9f-49a2-9323-dc71b6786252
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ped_DataEmissao_dtm
+
+		variation Variation
+			isDefault
+			relationship: a37da3b9-0e7f-4795-86ec-c5e94d7c3e4a
+			defaultHierarchy: LocalDateTable_fd9df76f-fcc0-4eb8-a468-fd501a7d5744.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column con_Condicao_int_FK
+		dataType: int64
+		formatString: 0
+		lineageTag: bc9b7978-1d89-40ef-8a39-0d4705e9e603
+		sourceLineageTag: 7830f999-2d6f-4653-87f1-284067279ae8
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: con_Condicao_int_FK
+
+		annotation SummarizationSetBy = User
+
+	column ped_DataEntrega_dtm
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: c144dedc-531f-4d75-89b6-d085d1c14a6e
+		sourceLineageTag: a2917064-e295-45a6-ae20-4ecde45c7ea0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ped_DataEntrega_dtm
+
+		variation Variation
+			isDefault
+			relationship: 9bb7eab2-e0e4-4546-9139-3fd03317fa21
+			defaultHierarchy: LocalDateTable_4b9dda62-faee-42b1-99c5-c4f9eb5c3319.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column ped_Latitude_num
+		dataType: double
+		lineageTag: ebd6c0eb-c0bd-4566-96b5-46386909a475
+		sourceLineageTag: 00a811f1-444c-49ad-a412-aca86311b1a4
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ped_Latitude_num
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ped_Longitude_num
+		dataType: double
+		lineageTag: dcd8e995-4dc4-4b76-a5e7-9fe49a17f2a9
+		sourceLineageTag: 99c5adb9-8c76-465c-9379-ccc8ee097a9b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ped_Longitude_num
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tpp_TipoPedido_int_FK
+		dataType: double
+		formatString: 0
+		lineageTag: d087241d-69f3-49f0-93b6-e80b7ad783b0
+		sourceLineageTag: d4c61ba3-8c22-402a-9307-5458f12523f7
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: tpp_TipoPedido_int_FK
+
+		annotation SummarizationSetBy = User
+
+	column ped_MotivoNaoAprovacao_chr
+		dataType: string
+		lineageTag: 8c9be4d9-fc0c-46b2-9de6-debc2b2ad1c3
+		sourceLineageTag: 64b83c67-341e-4df8-b086-3e045bc8d387
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ped_MotivoNaoAprovacao_chr
+
+		annotation SummarizationSetBy = User
+
+	column ped_PodeAprovar_int
+		dataType: int64
+		formatString: 0
+		lineageTag: 1215eeb4-3839-4ade-b0c4-6e4d42fe4997
+		sourceLineageTag: 527bae15-99b6-4a55-bd91-0013b7580db8
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ped_PodeAprovar_int
+
+		annotation SummarizationSetBy = User
+
+	column tpg_TipoPagamento_int_FK
+		dataType: int64
+		formatString: 0
+		lineageTag: e2b2fece-2ab9-4f1a-b2ee-9934fe39bdc7
+		sourceLineageTag: cf9229f7-2b31-43dc-8ad8-331b66e97b32
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: tpg_TipoPagamento_int_FK
+
+		annotation SummarizationSetBy = User
+
+	column prd_Produto_int_FK
+		dataType: int64
+		formatString: 0
+		lineageTag: 8ee4b9be-aa8e-4cb8-b75c-de51ace3adbe
+		sourceLineageTag: ddd165db-26e9-45b1-a0ed-d7cbe440c1bc
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: prd_Produto_int_FK
+
+		annotation SummarizationSetBy = User
+
+	column itp_Quantidade_int
+		dataType: double
+		formatString: 0
+		lineageTag: c0242cd8-69f0-49f2-8bdb-e09120f3d6b1
+		sourceLineageTag: 77a866a6-f40e-42e3-ba5c-0a331247f9c2
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: itp_Quantidade_int
+
+		annotation SummarizationSetBy = User
+
+	column tab_Tabela_int_FK
+		dataType: int64
+		formatString: 0
+		lineageTag: 9a86663e-3fcc-47b4-b1a0-d10ea3aeb0f7
+		sourceLineageTag: b5a99e7f-210d-46be-b1c9-9360c3ed7dd3
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: tab_Tabela_int_FK
+
+		annotation SummarizationSetBy = User
+
+	column itp_ValorUnitario_cur
+		dataType: double
+		lineageTag: 409465b9-f59e-4cbb-ba71-c6ff1b0e2e8e
+		sourceLineageTag: 864aa0a5-d9ce-4f99-95e8-c577f2648952
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: itp_ValorUnitario_cur
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column itp_PrecoBase_cur
+		dataType: double
+		lineageTag: 9943f08d-f349-4380-ab18-fbbfecb4aad0
+		sourceLineageTag: 17f16ef6-387c-41fb-81aa-383a0c477672
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: itp_PrecoBase_cur
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column itp_TipoItem_ind
+		dataType: double
+		formatString: 0
+		lineageTag: ebf34f32-bb0a-4467-9242-e39d70440a51
+		sourceLineageTag: 050e4191-7cb8-4154-8152-b62b2dcc95eb
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: itp_TipoItem_ind
+
+		annotation SummarizationSetBy = User
+
+	column itp_SaldoAlcada_int
+		dataType: int64
+		formatString: 0
+		lineageTag: 1b9dbea3-5524-4b25-a725-7101535e4d4f
+		sourceLineageTag: a31dda6a-39f6-462c-921f-ab19a67e9167
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: itp_SaldoAlcada_int
+
+		annotation SummarizationSetBy = User
+
+	column com_Combo_int_FK
+		dataType: int64
+		formatString: 0
+		lineageTag: c00b827e-65d4-4726-b819-5ea90e184c06
+		sourceLineageTag: 78680c1c-7787-4b7b-85a9-29b7b4db22ce
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: com_Combo_int_FK
+
+		annotation SummarizationSetBy = User
+
+	column sta_StatusPedido_ind
+		dataType: double
+		formatString: 0
+		lineageTag: c524a08d-d65c-4262-b5c3-91bbf51a065a
+		sourceLineageTag: acc8ea1a-8855-4de1-862b-a4696836c228
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: sta_StatusPedido_ind
+
+		annotation SummarizationSetBy = User
+
+	column sit_SituacaoPedido_int_FK
+		dataType: int64
+		formatString: 0
+		lineageTag: 4b03f384-8af4-4247-8ddb-19b2f4b74039
+		sourceLineageTag: bebf3a19-ec9f-4c1a-a154-267a2552b1f3
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: sit_SituacaoPedido_int_FK
+
+		annotation SummarizationSetBy = User
+
+	column Status_Ped
+		dataType: string
+		lineageTag: 9d082289-4ef5-4c9d-baa1-14a9ac0d0330
+		sourceLineageTag: 7f4b361c-2d91-46bc-bba2-2147ffe187bf
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Status_Ped
+
+		annotation SummarizationSetBy = User
+
+	column vis_LatitudeInicio_num
+		dataType: double
+		lineageTag: feabaec8-b341-4b6e-9a0d-65983a03e66c
+		sourceLineageTag: 18239371-58aa-46be-b183-2fe273cb4c97
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: vis_LatitudeInicio_num
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column vis_LongitudeInicio_num
+		dataType: double
+		lineageTag: 0b770276-db03-4f6b-8f6c-59f544c1d8b9
+		sourceLineageTag: 57b98a62-f3fd-41f5-a7d2-9ee0a60bc468
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: vis_LongitudeInicio_num
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column vis_LatitudeFinal_num
+		dataType: double
+		lineageTag: 36f3dfaa-d655-4a6f-9a3e-761ab0556e06
+		sourceLineageTag: d5ec0977-8460-4c6f-ba3e-660d6fb38955
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: vis_LatitudeFinal_num
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column vis_LongitudeFinal_num
+		dataType: double
+		lineageTag: efb40242-1547-4dc3-8d4f-4283c8793f9b
+		sourceLineageTag: 150f06ea-f5e7-493e-829b-8f313d0a2b59
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: vis_LongitudeFinal_num
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Latitude
+		dataType: double
+		lineageTag: 8eb40002-0e5b-422c-a255-507c0a10b90f
+		sourceLineageTag: fffd13b5-f440-47e7-99a3-ca26d15626c6
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Latitude
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Longitude
+		dataType: double
+		lineageTag: 60b889ba-1f9b-4d7e-82b2-065a0741d384
+		sourceLineageTag: 702b3e9d-3f39-4b12-8e77-1dfcd9eb4c6a
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Longitude
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Tempo_atendimento
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: 89f1bb9d-194e-4cf4-b307-e52a6b9f19f0
+		sourceLineageTag: 992894f8-7567-486f-a400-c196c75652a0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Tempo_atendimento
+
+		variation Variation
+			isDefault
+			relationship: fc4862f6-42e2-4981-962c-3513d2a740f3
+			defaultHierarchy: LocalDateTable_136dc4bc-7039-4848-b80e-2d97c6a4e0f9.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column IDRCA_ATUAL
+		dataType: int64
+		formatString: 0
+		lineageTag: d9642563-e21c-404c-9303-ebec5b7121cc
+		sourceLineageTag: 3863d161-e120-4c62-819c-86b7e1283c8b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: IDRCA_ATUAL
+
+		annotation SummarizationSetBy = User
+
+	column Combo_Desc
+		dataType: string
+		lineageTag: e81221c7-2dec-4730-8db3-5d879fbc3d62
+		sourceLineageTag: b8d60d33-8d64-41ce-9327-adb464d393c0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Combo_Desc
+
+		annotation SummarizationSetBy = User
+
+	column Tipo
+		dataType: int64
+		formatString: 0
+		lineageTag: a65ed514-aaff-477f-9a46-f195b30cf229
+		sourceLineageTag: a6e42830-a910-4971-b0c1-d33785832d21
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Tipo
+
+		annotation SummarizationSetBy = User
+
+	column Dados
+		dataType: string
+		lineageTag: f7540325-237f-44ed-b5d7-1b3980729601
+		sourceLineageTag: b26c8ed9-00e8-4f59-a6a8-0c1d919e7bed
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Dados
+
+		annotation SummarizationSetBy = User
+
+	column Distancia
+		dataType: double
+		lineageTag: a3e0e885-2eef-4f27-8411-90cef40fef35
+		sourceLineageTag: 4f8d0b23-baeb-46e3-8c64-40de3cfb7025
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Distancia
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Raio
+		dataType: string
+		lineageTag: 045e1654-aa1d-45d8-9532-0a584e98a0de
+		sourceLineageTag: b8d0c2f8-099d-40a0-852e-97407acab8e2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Raio
+
+		annotation SummarizationSetBy = User
+
+	column Data
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: a7d0cb7c-32fa-4be5-9afb-1f4a1d80e755
+		sourceLineageTag: 55cd39b5-90d1-4dfa-82b2-471dfad36cd9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Data
+
+		variation Variation
+			isDefault
+			relationship: 1fc81728-b319-4a88-a42d-08b34d77b9b7
+			defaultHierarchy: LocalDateTable_8dab2586-bc95-41f1-a556-35bdd8d987e0.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	partition Fato_Pedidos_Atual_XM = entity
+		mode: directQuery
+		source
+			entityName: Fato_Pedidos_Atual_XM
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

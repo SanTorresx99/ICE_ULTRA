@@ -1,0 +1,61 @@
+table _Medias_Control
+	lineageTag: 9374429e-d1d4-47ab-b518-a14da3ead3cb
+	sourceLineageTag: 0e029a71-9b7f-4831-bce2-50aeed9dba41
+
+	measure Vol_Ctr_Hist = EXTERNALMEASURE("Vol_Ctr_Hist", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 9984db86-252a-4232-bb92-cbef86b8ef8b
+		sourceLineageTag: 0b11c6dd-25e7-4557-b197-e0de79672626
+		dataCategory: Uncategorized
+
+	measure Fat_Ctr_Hist = EXTERNALMEASURE("Fat_Ctr_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: 840eaf78-54a4-497b-af4d-e789ec811534
+		sourceLineageTag: 2af13120-b597-49db-b597-a57bf4c85c6e
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure VolDev_Ctr_Hist = EXTERNALMEASURE("VolDev_Ctr_Hist", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 025280a4-50ae-40b0-9440-75e760db02b7
+		sourceLineageTag: df0ff042-8b69-45af-b497-fa1a3f3c447f
+		dataCategory: Uncategorized
+
+	measure FatDev_Ctr_Hist = EXTERNALMEASURE("FatDev_Ctr_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: 52147991-7d68-4132-ba9e-353afbc76253
+		sourceLineageTag: 70c7d15a-a788-40e8-aea9-93713917b4db
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure HL_Ctr_Hist = EXTERNALMEASURE("HL_Ctr_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: e727f9bc-6d20-4f4b-abe8-53d27876b01c
+		sourceLineageTag: 7c483fa0-5e53-4506-a67a-72e1d2c5c5a9
+		dataCategory: Uncategorized
+
+	measure Posit_Ctr_Hist = EXTERNALMEASURE("Posit_Ctr_Hist", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 89ab16e0-5359-4bc8-b3a5-a3383877b97d
+		sourceLineageTag: d00a373d-cfa9-47b4-9667-042f4c2ba8f6
+		dataCategory: Uncategorized
+
+	measure IPC_Ctr_Hist = EXTERNALMEASURE("IPC_Ctr_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: db011644-0419-4380-98db-553bd58339ac
+		sourceLineageTag: b7f12ed0-c740-4c66-900d-7d51b908d541
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Qtd_Ped_Ctr_Hist = EXTERNALMEASURE("Qtd_Ped_Ctr_Hist", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 594e4edf-a3a2-4109-881e-bef16d060f4e
+		sourceLineageTag: 895a7dc0-d896-46e8-9dff-3d4b547f0420
+		dataCategory: Uncategorized
+
+	partition _Medias_Control = entity
+		mode: directQuery
+		source
+			entityName: _Medias_Control
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

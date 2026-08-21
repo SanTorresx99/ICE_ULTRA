@@ -1,0 +1,150 @@
+table Dim_Combo
+	lineageTag: 1e365068-f03e-4d64-b4d1-f8d21be3ed1d
+	sourceLineageTag: 664c2cbf-aa18-4477-95d0-d31d02b27ac6
+
+	column com_Combo_int_PK
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		lineageTag: 17a26b42-518c-44b4-aa2f-9a41d0fda255
+		sourceLineageTag: 524313b2-45fe-418d-ae09-2d660319ffd9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: com_Combo_int_PK
+
+		annotation SummarizationSetBy = User
+
+	column emp_Empresa_int_FK
+		dataType: int64
+		formatString: 0
+		lineageTag: 031f4e69-3962-43ab-b279-2e001606aad2
+		sourceLineageTag: 23e3d2ed-360c-4fd8-a657-ee7965e4a90b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: emp_Empresa_int_FK
+
+		annotation SummarizationSetBy = User
+
+	column com_Codigo_chr
+		dataType: string
+		lineageTag: 05313203-0e10-4731-8deb-0c461d415b0c
+		sourceLineageTag: 6b58b75a-c854-45e2-b674-12913f9544d3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: com_Codigo_chr
+
+		annotation SummarizationSetBy = User
+
+	column com_Descricao_chr
+		dataType: string
+		lineageTag: 185da515-935d-4ce8-a8a4-77769a4f1066
+		sourceLineageTag: c45b19d9-4f47-4bcc-90b5-319a05ba53d0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: com_Descricao_chr
+
+		annotation SummarizationSetBy = User
+
+	column com_DataInicio_dtm
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 424a393e-0522-4a46-9c4a-9aaa3978b221
+		sourceLineageTag: 3192d17a-0a10-4e33-9cde-4bfd3e661ea4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: com_DataInicio_dtm
+
+		variation Variation
+			isDefault
+			relationship: 5ca99b7c-c9a5-4d96-888b-4c8f4e1734bc
+			defaultHierarchy: LocalDateTable_f6d43390-c3c1-4b39-b016-4d4339443f30.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column com_DataFim_dtm
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: c80dbfed-5bff-40bb-84f1-2077cd2780ae
+		sourceLineageTag: ed4609cc-0115-41cd-9816-040dd03047be
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: com_DataFim_dtm
+
+		variation Variation
+			isDefault
+			relationship: 4d74afc3-1db1-45d7-95ea-4c3f2427636f
+			defaultHierarchy: LocalDateTable_f85bb61d-53f0-4fb1-b603-4dcfdd9f3a48.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column com_Ativo_ind
+		dataType: int64
+		formatString: 0
+		lineageTag: 8afb1318-b76a-4a95-9ccc-cccc4342281a
+		sourceLineageTag: 77911e47-1787-486a-8c46-fea9fa6815e8
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: com_Ativo_ind
+
+		annotation SummarizationSetBy = User
+
+	column com_Imagem_chr
+		dataType: string
+		lineageTag: ab12c0ba-756e-4357-aa16-687506034635
+		sourceLineageTag: a8c250e2-ac6a-4f7d-be56-76cdfeca0eb9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: com_Imagem_chr
+
+		annotation SummarizationSetBy = User
+
+	column com_NovosClientes_ind
+		dataType: int64
+		formatString: 0
+		lineageTag: 5f703718-4f15-4ea8-8f2d-02e40948f172
+		sourceLineageTag: 81ffc0c5-a6f0-43f3-808e-f27fb8d0c676
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: com_NovosClientes_ind
+
+		annotation SummarizationSetBy = User
+
+	column com_NovosClientesDias_int
+		dataType: int64
+		formatString: 0
+		lineageTag: b2730ae7-9a8f-4515-8567-d96245deb2a9
+		sourceLineageTag: 5795141c-da0e-413d-ac4d-61d1b1261c96
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: com_NovosClientesDias_int
+
+		annotation SummarizationSetBy = User
+
+	column com_QuantidadeMaximaPedido_int
+		dataType: int64
+		formatString: 0
+		lineageTag: 2907c86f-72dd-4f90-90b3-8804bb6e24a8
+		sourceLineageTag: 5eab7e11-9120-44df-a5a2-1a22470a25a5
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: com_QuantidadeMaximaPedido_int
+
+		annotation SummarizationSetBy = User
+
+	column com_QuantidadeLimiteVigencia_int
+		dataType: int64
+		formatString: 0
+		lineageTag: e2b91794-d9df-48b6-b824-3f82285045c2
+		sourceLineageTag: 8930520d-d79d-4801-8d70-be5f162f94dd
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: com_QuantidadeLimiteVigencia_int
+
+		annotation SummarizationSetBy = User
+
+	partition Dim_Combo = entity
+		mode: directQuery
+		source
+			entityName: Dim_Combo
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

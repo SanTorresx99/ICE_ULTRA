@@ -1,0 +1,62 @@
+table Medidas_Site
+	lineageTag: d7804053-1cf1-4ed1-982e-da8eb2dabd11
+	sourceLineageTag: 65c11159-0ed9-47c7-bb2b-2ae730bc690f
+
+	measure Vol_Site = EXTERNALMEASURE("Vol_Site", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 9e5f95d9-5369-4935-94d7-5a3f9d7ea1e6
+		sourceLineageTag: d35da087-0038-4178-b118-b4e3d52bb582
+		dataCategory: Uncategorized
+
+	measure Fat_Site = EXTERNALMEASURE("Fat_Site", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: 9a599016-4f5a-43ec-be34-6f214e4b55c1
+		sourceLineageTag: 8410151b-b1d5-4c8e-b5b7-972b111340b1
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure HL_Site = EXTERNALMEASURE("HL_Site", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: 032dd397-0dd0-4c7c-a2ee-72a5bc1f6113
+		sourceLineageTag: 03cda50c-7c9c-43eb-8cfa-9baba476a226
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Qtde_Ped_Site = EXTERNALMEASURE("Qtde_Ped_Site", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 145b9ec4-8f9e-493a-b8f0-035fee220a89
+		sourceLineageTag: d6be3639-77df-4cb5-b487-94912f273c9a
+		dataCategory: Uncategorized
+
+	measure Itens_Vda_Site = EXTERNALMEASURE("Itens_Vda_Site", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 89a060ae-e866-449b-8a0d-955442797c7a
+		sourceLineageTag: bab9deb9-10af-4488-a9ec-c2b28fab812a
+		dataCategory: Uncategorized
+
+	measure Positivacao_Site = EXTERNALMEASURE("Positivacao_Site", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 57d8a19c-b2c9-40f8-beac-b9a4860587ee
+		sourceLineageTag: 3347c906-e8da-4312-95e9-778f8b93cb57
+		dataCategory: Uncategorized
+
+	measure IPC_Site = EXTERNALMEASURE("IPC_Site", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: d7d122a7-733a-4524-8410-0eb558e58272
+		sourceLineageTag: 8db655c9-3a47-4325-8ee7-40ef946f065c
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Tkt_Med_Site = EXTERNALMEASURE("Tkt_Med_Site", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: db474239-7258-4f47-a9d2-0a8a54e9ed7f
+		sourceLineageTag: af63e5f7-2d56-4f46-9786-bff9c036944c
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Medidas_Site = entity
+		mode: directQuery
+		source
+			entityName: Medidas_Site
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

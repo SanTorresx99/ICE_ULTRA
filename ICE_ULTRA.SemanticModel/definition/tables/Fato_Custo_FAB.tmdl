@@ -1,0 +1,209 @@
+table Fato_Custo_FAB
+	lineageTag: cb18decc-810a-4a60-bb67-db49c972b30e
+	sourceLineageTag: 71190b48-5eda-4ff8-b9b1-ec3889c8d375
+
+	column DATA
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 2a4c538d-5dff-48df-8b70-1092f3127017
+		sourceLineageTag: ab11089a-d100-4d92-9260-88b70ca845bd
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DATA
+
+		variation Variation
+			isDefault
+			relationship: cc83fb19-1cf8-4d40-9908-5e4784c29da1
+			defaultHierarchy: LocalDateTable_6798e528-0106-42ee-947b-45408d35463a.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column FILIAL
+		dataType: int64
+		formatString: 0
+		lineageTag: 07046a7b-5e75-43ef-831a-5e4096babc5d
+		sourceLineageTag: bde8c897-00c9-4b59-bd96-d533a057f2b5
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: FILIAL
+
+		annotation SummarizationSetBy = User
+
+	column CP
+		dataType: int64
+		formatString: 0
+		lineageTag: cfb13ff4-75ca-4841-94de-f716c9e3d17b
+		sourceLineageTag: afc313a7-32e3-484d-9d8f-7aec78e753ba
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CP
+
+		annotation SummarizationSetBy = User
+
+	column WINTHOR
+		dataType: int64
+		formatString: 0
+		lineageTag: f61767e8-cdfd-4e63-af16-8be793194a4c
+		sourceLineageTag: 0e868190-74b6-48b3-818e-dba2e4794bdb
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: WINTHOR
+
+		annotation SummarizationSetBy = User
+
+	column Palete
+		dataType: int64
+		formatString: 0
+		lineageTag: 404ab1dc-c0b5-485a-afca-82bbb0ccc734
+		sourceLineageTag: 3be141de-41d0-4f65-bb03-5065c914c256
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Palete
+
+		annotation SummarizationSetBy = User
+
+	column Conteiner
+		dataType: int64
+		formatString: 0
+		lineageTag: d531de8b-7221-4e2c-8a0d-d9b59f1a6ed6
+		sourceLineageTag: 53cd60f4-18ba-4702-ab95-72f8c318731c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Conteiner
+
+		annotation SummarizationSetBy = User
+
+	column Preço
+		dataType: double
+		lineageTag: 48661f85-5ff4-4208-8279-1911d22678a1
+		sourceLineageTag: 6fbdf4cd-3723-474d-b7e4-09fdf77461df
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Preço
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Preço2
+		dataType: double
+		lineageTag: 31571211-056a-4268-8077-34a65034db1f
+		sourceLineageTag: 8af94637-af83-4e9f-993d-aae68beafe03
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Preço2
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'ICMS ST'
+		dataType: double
+		lineageTag: 0271f3ae-2d29-46ce-85b4-57123baf670e
+		sourceLineageTag: dcf94c54-cd7b-4b64-a7a8-dad2ad29d0a8
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ICMS ST
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'FECP s/ST'
+		dataType: double
+		lineageTag: bd33c6d7-3c67-4f89-9935-172e75390bf6
+		sourceLineageTag: f72d83ad-9ee3-4a08-964c-b3f90ac3cf94
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: FECP s/ST
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Frete IDA'
+		dataType: double
+		lineageTag: d5446221-82b1-47f3-b3fd-3599465996e5
+		sourceLineageTag: 935dc2f2-ef2f-45b1-9db1-c144ef74c327
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Frete IDA
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Frete VOLTA'
+		dataType: double
+		lineageTag: dd2b21a7-6928-4e7b-96cf-38afb1c07712
+		sourceLineageTag: 0bb8c9ee-b43a-44a4-8cbb-d20f630d2ca6
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Frete VOLTA
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Frete TT'
+		dataType: double
+		lineageTag: 9741a7ad-55f3-4db6-881e-e2bbaad1619b
+		sourceLineageTag: 22ba9fc5-1524-4952-a932-427361b90a74
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Frete TT
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Custo_Preço
+		dataType: double
+		lineageTag: 477f9464-c69c-4b43-aab7-3bb3c3373a54
+		sourceLineageTag: 794ac946-8325-4d04-b537-619356a8b310
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Custo_Preço
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Custo_Preço2
+		dataType: double
+		lineageTag: f1348699-8f91-4104-9c8d-5c2db8037175
+		sourceLineageTag: 5dc38efc-b5e3-4eaf-91ae-48b2f756c476
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Custo_Preço2
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TIPO
+		dataType: string
+		lineageTag: d42c9c8d-9e21-47fa-a21a-112156f4e398
+		sourceLineageTag: c983d065-69d6-481c-b9d8-2c099a07b354
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TIPO
+
+		annotation SummarizationSetBy = User
+
+	column CONC
+		dataType: string
+		lineageTag: 7cf9eee3-b71e-4739-9c35-46cf62bd9a8e
+		sourceLineageTag: 1aba1040-928b-4ef2-b8d8-70dc12cd0d23
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CONC
+
+		annotation SummarizationSetBy = User
+
+	partition Fato_Custo_FAB = entity
+		mode: directQuery
+		source
+			entityName: Fato_Custo_FAB
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

@@ -1,0 +1,20 @@
+table Dim_Tipo_Meta
+	lineageTag: b364ad83-627c-4735-ab07-8cf147700955
+	sourceLineageTag: 2234059d-06db-4106-9a35-c043dc46b0a9
+
+	column Tipo_Meta
+		dataType: string
+		lineageTag: 4af58672-0f88-4b2e-8c70-72ef25825475
+		sourceLineageTag: d7f75ce0-0a58-46db-921e-f7ebe875bcca
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Tipo_Meta
+
+		annotation SummarizationSetBy = User
+
+	partition Dim_Tipo_Meta = entity
+		mode: directQuery
+		source
+			entityName: Dim_Tipo_Meta
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

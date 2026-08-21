@@ -1,0 +1,73 @@
+table Fato_acao
+	lineageTag: 15d6c7ad-b7e5-4679-98e2-0f18154ace4b
+	sourceLineageTag: 081ae889-41f3-4742-8708-2dae0600b61b
+
+	column 'Nome da Origem'
+		dataType: string
+		lineageTag: cc6d0e6f-4d06-4786-bdea-a22e28897935
+		sourceLineageTag: 7cb6afb5-b5a1-4dd1-b50d-75214a2986cf
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Nome da Origem
+
+		annotation SummarizationSetBy = User
+
+	column 'COD CLI'
+		dataType: int64
+		formatString: 0
+		lineageTag: fe247636-ec70-424f-8c11-f8d49ec02575
+		sourceLineageTag: f18c031f-8627-4386-8b0c-b7eef56e0e63
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: COD CLI
+
+		annotation SummarizationSetBy = User
+
+	column CONC
+		dataType: int64
+		formatString: 0
+		lineageTag: e1c9211c-2469-4407-8a47-85a63a8c1691
+		sourceLineageTag: b94c30ef-dbed-4c15-9470-a43633433fa9
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CONC
+
+		annotation SummarizationSetBy = User
+
+	column TIPO
+		dataType: string
+		lineageTag: a0f9f9bf-1eba-4532-bae9-bc5709eba7f8
+		sourceLineageTag: db1214db-c7c6-41ae-aafa-21af46ba44f2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TIPO
+
+		annotation SummarizationSetBy = User
+
+	column META
+		dataType: int64
+		formatString: 0
+		lineageTag: 584fa372-156b-4bc8-a35e-c2fcd95c684d
+		sourceLineageTag: 9b649a86-a758-4dab-b383-b702b82a8c9f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: META
+
+		annotation SummarizationSetBy = User
+
+	column META_ANT
+		dataType: string
+		lineageTag: e9975995-a6d0-404f-bd24-e1c020927404
+		sourceLineageTag: ab655c53-9804-425c-82e5-abbbb224d7e7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: META_ANT
+
+		annotation SummarizationSetBy = User
+
+	partition Fato_acao = entity
+		mode: directQuery
+		source
+			entityName: Fato_acao
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

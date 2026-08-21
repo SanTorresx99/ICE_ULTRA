@@ -1,0 +1,18 @@
+# Power BI Project user settings and cache
+*.pbi
+.pbi/
+**/temp/
+**/cache/
+
+# Windows temp files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Office temporary files
+~$*
+
+# Diagnostics/logs
+*.log
+*.zip
+*.tmp

@@ -1,0 +1,56 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "57ef0153331b1c1e253c",
+  "position": {
+    "x": 9.6055210305030236,
+    "y": 0,
+    "z": 0,
+    "height": 720.41407728772685,
+    "width": 1270.6732106065429,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "htmlContent443BE3AD55E043BF878BED274D3A6855",
+    "query": {
+      "queryState": {
+        "content": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas_Ranking"
+                    }
+                  },
+                  "Property": "Ranking_Sellers_HTML"
+                }
+              },
+              "queryRef": "Medidas_Ranking.Ranking_Sellers_HTML",
+              "nativeQueryRef": "Ranking_Sellers_HTML"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "b5dc9f2052404f340a95",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas_Ranking"
+              }
+            },
+            "Property": "Ranking_Sellers_HTML"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

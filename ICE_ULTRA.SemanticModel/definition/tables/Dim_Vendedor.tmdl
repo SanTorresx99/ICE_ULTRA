@@ -1,0 +1,263 @@
+table Dim_Vendedor
+	lineageTag: da9a9c93-5368-4943-ae03-1145db07e987
+	sourceLineageTag: edd1dd9e-dd17-41ba-99c9-b7c8b72eb21f
+
+	column VD_Ativo_Status
+		dataType: string
+		lineageTag: 8838d460-0008-4657-8265-5cb98c6e5610
+		sourceLineageTag: abb1187b-178a-4747-92f6-8126cc8f67be
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: VD_Ativo_Status
+
+		annotation SummarizationSetBy = User
+
+	column Tipo_Rota
+		dataType: string
+		lineageTag: e13b314f-3876-46b6-a9ce-3ddfaca9f5a4
+		sourceLineageTag: 99c60928-5f2a-4ee7-80ac-28b775906ef3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Tipo_Rota
+
+		annotation SummarizationSetBy = User
+
+	column Meta_Cad
+		dataType: int64
+		formatString: 0
+		lineageTag: 64ce8e5e-83a1-4643-93eb-541dedfc8bd2
+		sourceLineageTag: bef8a1d9-7e89-46ac-8bed-4bdb44c8b292
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Meta_Cad
+
+		annotation SummarizationSetBy = User
+
+	column ven_Vendedor_int_PK
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		lineageTag: 1a0e87a7-1a74-44c4-a7cd-40e7e6dc1cde
+		sourceLineageTag: 58034533-9ed4-45ec-8324-a9ec4539f158
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ven_Vendedor_int_PK
+
+		annotation SummarizationSetBy = User
+
+	column emp_Empresa_int_FK
+		dataType: int64
+		formatString: 0
+		lineageTag: 697edfbf-1cfa-444d-aad1-0ca23af67259
+		sourceLineageTag: 8386039e-978f-4e70-ab3c-8b0f79693ddb
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: emp_Empresa_int_FK
+
+		annotation SummarizationSetBy = User
+
+	column ven_Vendedor_chr
+		dataType: string
+		lineageTag: f038b477-0114-4d24-ba0f-9090aa16ab4b
+		sourceLineageTag: 524c9d92-d6da-4ae1-a3eb-7a5e6a117f93
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ven_Vendedor_chr
+
+		annotation SummarizationSetBy = User
+
+	column ven_Ativo_ind
+		dataType: int64
+		formatString: 0
+		lineageTag: 1a8010cb-b617-40af-acc7-0dd53239b8e2
+		sourceLineageTag: 44fab82e-5f8c-440a-84a8-fe8efc75e940
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ven_Ativo_ind
+
+		annotation SummarizationSetBy = User
+
+	column ven_Monitor_int_FK
+		dataType: int64
+		formatString: 0
+		lineageTag: 49d0df36-60a6-47c0-9d08-f72007e00682
+		sourceLineageTag: eeb3c72c-b212-4d4c-8d99-1621777f88c9
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ven_Monitor_int_FK
+
+		annotation SummarizationSetBy = User
+
+	column sup_Supervisor_int_PK
+		dataType: int64
+		formatString: 0
+		lineageTag: 5eaee347-155a-4654-b06e-094061a1a048
+		sourceLineageTag: 8377f32b-facb-4360-88fb-af0d02262c4d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: sup_Supervisor_int_PK
+
+		annotation SummarizationSetBy = User
+
+	column sup_Supervisor_chr
+		dataType: string
+		lineageTag: 35ee7a8a-26d0-4a79-95cf-e80262126ebb
+		sourceLineageTag: 51f0d163-9fcc-4e28-99f7-b9c5534f3109
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: sup_Supervisor_chr
+
+		annotation SummarizationSetBy = User
+
+	column sup_Ativo_ind
+		dataType: int64
+		formatString: 0
+		lineageTag: bca2260d-e79c-45ae-b258-db20ce1ec62d
+		sourceLineageTag: e0e8ca83-629b-4266-87c6-c1fe77c177bb
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: sup_Ativo_ind
+
+		annotation SummarizationSetBy = User
+
+	column ger_Gerente_int_PK
+		dataType: int64
+		formatString: 0
+		lineageTag: 37498915-5c14-468f-981e-984b9a5787bb
+		sourceLineageTag: dacf11d3-52ff-42a3-a822-a0aba7b07285
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ger_Gerente_int_PK
+
+		annotation SummarizationSetBy = User
+
+	column ger_Gerente_chr
+		dataType: string
+		lineageTag: c29c3d16-2a9b-4748-9923-cd469f06d837
+		sourceLineageTag: 607540bf-69bd-4f52-a11b-0fd63baaa999
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ger_Gerente_chr
+
+		annotation SummarizationSetBy = User
+
+	column ger_Ativo_ind
+		dataType: int64
+		formatString: 0
+		lineageTag: 0f941efe-40bb-4b42-b793-155a873e24d4
+		sourceLineageTag: 3a13f3b4-3c09-4f7f-8311-d08e0a8a1081
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ger_Ativo_ind
+
+		annotation SummarizationSetBy = User
+
+	column gov_Governadoria_int_PK
+		dataType: int64
+		formatString: 0
+		lineageTag: dddcdb5c-e767-4c4b-ad72-5927ff665f36
+		sourceLineageTag: a59b2dbe-b84b-4e8c-a3f4-9ae4a9b5165d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: gov_Governadoria_int_PK
+
+		annotation SummarizationSetBy = User
+
+	column gov_Governadoria_chr
+		dataType: string
+		lineageTag: 258834e7-66fa-4047-aec2-0083d4ca9f64
+		sourceLineageTag: df519af0-7bb9-4cea-b629-f8af1805f499
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: gov_Governadoria_chr
+
+		annotation SummarizationSetBy = User
+
+	column gov_Ativo_ind
+		dataType: int64
+		formatString: 0
+		lineageTag: 607e0c21-f1f9-4d21-96ed-a25a16b8abe4
+		sourceLineageTag: 82ff9070-d0e9-4e5b-859b-ac2287402109
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: gov_Ativo_ind
+
+		annotation SummarizationSetBy = User
+
+	column empresa_desc_
+		dataType: string
+		lineageTag: 06b714d0-434c-4a04-8e75-897eaade4a67
+		sourceLineageTag: 1c52527f-bcc4-49a8-a92b-dfd7abde0bc3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: empresa_desc_
+
+		annotation SummarizationSetBy = User
+
+	column 'imagem vend'
+		dataType: string
+		lineageTag: bf2f6107-dec2-45d5-bb19-5549f927af69
+		sourceLineageTag: 2f5a07ad-3991-406c-ab42-6b9062708188
+		dataCategory: ImageUrl
+		summarizeBy: none
+		sourceColumn: imagem vend
+
+		annotation SummarizationSetBy = User
+
+	column 'imagem sup'
+		dataType: string
+		lineageTag: 18a27e64-74b0-4f42-983f-ac37298f44f2
+		sourceLineageTag: 91591964-e771-4825-a658-45e73074285d
+		dataCategory: ImageUrl
+		summarizeBy: none
+		sourceColumn: imagem sup
+
+		annotation SummarizationSetBy = User
+
+	column 'imagem ger'
+		dataType: string
+		lineageTag: 1f387b82-ae34-49ee-a8c9-c79ff8ae3124
+		sourceLineageTag: 7cd7dfde-17f3-4125-89bb-2363b2d35c70
+		dataCategory: ImageUrl
+		summarizeBy: none
+		sourceColumn: imagem ger
+
+		annotation SummarizationSetBy = User
+
+	column 'imagem rev'
+		dataType: string
+		lineageTag: 3a5c2dbf-4d4d-48ca-8553-ca586ff72275
+		sourceLineageTag: 901e7c70-ae88-4453-a705-40725e191b9d
+		dataCategory: ImageUrl
+		summarizeBy: none
+		sourceColumn: imagem rev
+
+		annotation SummarizationSetBy = User
+
+	column Filial_Corr
+		dataType: int64
+		formatString: 0
+		lineageTag: ea51bc6d-6e89-487d-b1e0-6c3747434444
+		sourceLineageTag: 86194ac9-cb0f-44aa-bad5-32dc12203dac
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Filial_Corr
+
+		annotation SummarizationSetBy = User
+
+	column Tipo_RNK
+		dataType: string
+		lineageTag: 61802b6c-8f47-4ba4-a9de-4723c42cb548
+		sourceLineageTag: 0f0d7306-177b-4fc4-9acc-538aef698726
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Tipo_RNK
+
+		annotation SummarizationSetBy = User
+
+	partition Dim_Vendedor = entity
+		mode: directQuery
+		source
+			entityName: Dim_Vendedor
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

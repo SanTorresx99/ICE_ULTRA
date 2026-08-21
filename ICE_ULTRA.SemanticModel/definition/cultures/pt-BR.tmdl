@@ -1,0 +1,187 @@
+cultureInfo pt-BR
+
+	linguisticMetadata =
+			{
+			  "Version": "2.0.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "dim_calendario.qtd_ice_preco": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Calendario",
+			          "ConceptualProperty": "QTD_ICE_PRECO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ICE": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "CRYSTAL ICE": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dim_calendario.qtd_p_ultra_preco": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Calendario",
+			          "ConceptualProperty": "QTD_P_ULTRA_PRECO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ULTRA": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "PETRA ULTRA": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas_winthor.qtd_acao_ultracrystal": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Winthor",
+			          "ConceptualProperty": "QTD_ACAO_ULTRACRYSTAL"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ACAO": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dim_vendedor.sup_supervisor_chr": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Vendedor",
+			          "ConceptualProperty": "sup_Supervisor_chr"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "dim_vendedor.ven_vendedor_chr": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Vendedor",
+			          "ConceptualProperty": "ven_Vendedor_chr"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Vendedor": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas_winthor.total_petra_ultra": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Winthor",
+			          "ConceptualProperty": "TOTAL PETRA ULTRA"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "CLI ULTRA": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas_winthor.total_cli_ice": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Winthor",
+			          "ConceptualProperty": "TOTAL CLI ICE"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "CLI ICE": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "table_medidas_winthor.qtd_cli_total_acao": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas_Winthor",
+			          "ConceptualProperty": "QTD CLI TOTAL ACAO"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "CLI ACAO": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  }
+			}
+		contentType: json
+

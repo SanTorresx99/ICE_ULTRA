@@ -1,0 +1,356 @@
+table Fato_Vendas_Hist_Control
+	lineageTag: b57d2579-f86f-460e-a95c-07fbd2c76fa7
+	sourceLineageTag: 42858893-2f16-4ce0-b69c-c9122b7abf2f
+
+	column IDEMPRESA
+		dataType: int64
+		formatString: 0
+		lineageTag: 06e45f81-a5c3-478f-99bb-aa5a6fde1a89
+		sourceLineageTag: 09c72d33-33c9-4753-a765-8f5ff7ac5734
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: IDEMPRESA
+
+		annotation SummarizationSetBy = User
+
+	column IDPEDIDO
+		dataType: int64
+		formatString: 0
+		lineageTag: a0e43583-e057-4605-902b-7c6f8c3a11d1
+		sourceLineageTag: f837ddcf-c56c-429e-88cd-a8dc7a9d466f
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: IDPEDIDO
+
+		annotation SummarizationSetBy = User
+
+	column IDRCA
+		dataType: int64
+		formatString: 0
+		lineageTag: e6ec72fd-eabe-4e0f-bf1f-5088c5715702
+		sourceLineageTag: 6731ce71-f94a-457f-a4c9-d064b49af045
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: IDRCA
+
+		annotation SummarizationSetBy = User
+
+	column IDCLIENTE
+		dataType: string
+		lineageTag: 43e954b1-044f-4d84-85d0-0fb8734a2496
+		sourceLineageTag: 07461d86-f8b3-40cd-b74d-e4b30d52cc09
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: IDCLIENTE
+
+		annotation SummarizationSetBy = User
+
+	column IDPAGAMENTO
+		dataType: int64
+		formatString: 0
+		lineageTag: b253f901-43d1-4d12-9714-b3cf503dceb3
+		sourceLineageTag: 33ee9bb6-d519-41e8-9e03-73bfe717aafe
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: IDPAGAMENTO
+
+		annotation SummarizationSetBy = User
+
+	column IDCOBRANCA
+		dataType: string
+		lineageTag: 54f2c965-5a1f-49d7-9ba4-6689c305db94
+		sourceLineageTag: b5628715-8dc9-4c09-b008-edac14a29a03
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: IDCOBRANCA
+
+		annotation SummarizationSetBy = User
+
+	column TRANSACAO
+		dataType: string
+		lineageTag: 00c21c6c-e5c9-44f4-8137-39cb86aeb8de
+		sourceLineageTag: ccd4e868-8db6-4a09-a40e-1da8b9f58743
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: TRANSACAO
+
+		annotation SummarizationSetBy = User
+
+	column IDPEDIDORCA
+		dataType: string
+		lineageTag: cae60e63-a997-4a83-82a1-731211fbafa3
+		sourceLineageTag: 072a6b93-bcd0-4781-ba02-6bbcfc6707a3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: IDPEDIDORCA
+
+		annotation SummarizationSetBy = User
+
+	column IDPEDIDOXM
+		dataType: string
+		lineageTag: c11900c8-21ab-47bd-b5a7-d8b020a987f4
+		sourceLineageTag: a417d8af-5994-46f4-a271-4b6664611c0c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: IDPEDIDOXM
+
+		annotation SummarizationSetBy = User
+
+	column IDPRODUTO
+		dataType: int64
+		formatString: 0
+		lineageTag: fe5a4648-48bb-41f0-87f7-b25899b991bb
+		sourceLineageTag: 6af6e6ab-2aa3-4c4f-b1d6-d5496111dd45
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: IDPRODUTO
+
+		annotation SummarizationSetBy = User
+
+	column QUANTIDADE
+		dataType: int64
+		formatString: 0
+		lineageTag: 069ff50d-7f53-4c6f-997f-acde267fd32a
+		sourceLineageTag: 407024b5-6c13-49b1-9e32-a79600cdcaf5
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: QUANTIDADE
+
+		annotation SummarizationSetBy = User
+
+	column VLRUNITARIO
+		dataType: double
+		lineageTag: d3a0ea5a-7074-46d5-af39-f65be7ac20b4
+		sourceLineageTag: 642ce941-7b41-45c2-b72d-ad9bd5be8360
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: VLRUNITARIO
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column VLRTOTAL
+		dataType: double
+		lineageTag: 8b75c7f9-f34e-4ce9-bc3e-052a716ad760
+		sourceLineageTag: e90e7ea1-0887-4ee1-a82e-d5bf649719e2
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: VLRTOTAL
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DTPEDIDO
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: ae8f92db-82fa-4925-a028-3b6aed98608f
+		sourceLineageTag: 1dd29f98-d325-4bd3-9199-fbc444c36228
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DTPEDIDO
+
+		annotation SummarizationSetBy = User
+
+	column DTENTREGA
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: bfd324c3-e0f3-4544-8172-69c0ec3d5516
+		sourceLineageTag: 7e525d0b-3196-47e1-bf01-a76445c26c2f
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: DTENTREGA
+
+		variation Variation
+			isDefault
+			relationship: 30db44f7-0d13-4d68-b91d-bbc5fc4bbac8
+			defaultHierarchy: LocalDateTable_31cdd75d-91f3-4397-8e64-e7e89c42557e.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column MAPA
+		dataType: int64
+		formatString: 0
+		lineageTag: 1dd09b6a-c9dc-4f3c-9aec-550f09757114
+		sourceLineageTag: 438844a2-228f-484e-84fc-fea9c686f98d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: MAPA
+
+		annotation SummarizationSetBy = User
+
+	column QTDDEV
+		dataType: int64
+		formatString: 0
+		lineageTag: b21aa117-0f36-48fe-b165-5e8085963f5f
+		sourceLineageTag: b9e10e5d-90df-4cff-a410-c4f8290cae77
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: QTDDEV
+
+		annotation SummarizationSetBy = User
+
+	column VALVDEV
+		dataType: double
+		lineageTag: 7ff1c37f-9e62-4efc-8852-5bb7095c2e29
+		sourceLineageTag: 96ea0fcb-074f-4a2f-90ca-1aac50e12095
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: VALVDEV
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CODDEVOLUCAO
+		dataType: int64
+		formatString: 0
+		lineageTag: 032efc80-d807-492e-a5da-3b716c06a5f4
+		sourceLineageTag: 513134b0-b1d1-413a-a385-c2ddebd63c28
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CODDEVOLUCAO
+
+		annotation SummarizationSetBy = User
+
+	column MOTIVO
+		dataType: string
+		lineageTag: 171679dc-b250-48c2-9ee4-f0b10f6f2135
+		sourceLineageTag: dab525aa-7720-4507-a469-051a077e19e0
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: MOTIVO
+
+		annotation SummarizationSetBy = User
+
+	column CPFCNPJ
+		dataType: string
+		lineageTag: bbca3671-0f4a-4362-8ba0-fc2d30d06a10
+		sourceLineageTag: 3671bb4a-ed22-4581-8934-6df24fbe2405
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CPFCNPJ
+
+		annotation SummarizationSetBy = User
+
+	column IDCONTROL
+		dataType: string
+		lineageTag: 2deddb05-456b-433f-a47c-10c0f499169b
+		sourceLineageTag: bca37209-fd35-4963-a9c4-880135279586
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: IDCONTROL
+
+		annotation SummarizationSetBy = User
+
+	column IDEMPRESA2
+		dataType: string
+		lineageTag: d1aaacee-9274-44e7-bccc-a1e613f66c48
+		sourceLineageTag: 29007370-544e-4262-a636-dd848861a1d7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: IDEMPRESA2
+
+		annotation SummarizationSetBy = User
+
+	column EMP_ATUAL
+		dataType: int64
+		formatString: 0
+		lineageTag: 8f72ad29-7699-44e9-a9d9-75231794d456
+		sourceLineageTag: 1230e38b-2c1e-42fe-915d-8b3f5a405449
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: EMP_ATUAL
+
+		annotation SummarizationSetBy = User
+
+	column CONC_IPC
+		dataType: string
+		lineageTag: 87c18103-0885-484b-b45d-9477f4fe5a03
+		sourceLineageTag: 4265c23b-dce0-4708-8dc5-7c759bb60821
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: CONC_IPC
+
+		annotation SummarizationSetBy = User
+
+	column RCA_ATUAL
+		dataType: int64
+		formatString: 0
+		lineageTag: 74503dbf-4fd3-48af-9390-90b720db5b7b
+		sourceLineageTag: b79bbb02-84a4-49c8-bd3a-fef1bb918067
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: RCA_ATUAL
+
+		annotation SummarizationSetBy = User
+
+	column CLI_ATUAL
+		dataType: int64
+		formatString: 0
+		lineageTag: 90c1680f-824b-47b9-81d5-13065dc41fd5
+		sourceLineageTag: 392ee26e-57ba-4ab6-ada5-c0eca9ce09e7
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: CLI_ATUAL
+
+		annotation SummarizationSetBy = User
+
+	column 'BASE_HISTORICO_CONTROL.xlsx'
+		dataType: string
+		lineageTag: 086ccdcf-4268-451b-8b99-d844dd2057f4
+		sourceLineageTag: db571adc-b6d2-47da-9f98-1bc77014cef2
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: BASE_HISTORICO_CONTROL.xlsx
+
+		annotation SummarizationSetBy = User
+
+	column Manaus
+		dataType: string
+		lineageTag: 709a33bc-1376-437a-b8e8-577edd08bcbc
+		sourceLineageTag: d3b87b4a-3242-441b-b78e-f10a9b32e5f7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Manaus
+
+		annotation SummarizationSetBy = User
+
+	column Manaus_1
+		dataType: string
+		lineageTag: 19c92a39-174b-4fc2-b59c-ba00eaa69ab8
+		sourceLineageTag: 6f85a476-8dca-49e1-b6a6-6364d6c7250d
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Manaus_1
+
+		annotation SummarizationSetBy = User
+
+	column Sheet
+		dataType: string
+		lineageTag: c69924d8-d5e5-4b3f-965c-2f2801ba98a4
+		sourceLineageTag: 3f83b6ed-c487-472d-bc03-6d4ca34eb7fe
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Sheet
+
+		annotation SummarizationSetBy = User
+
+	column false
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 9823d5cf-b2b3-4d94-b6d4-08b8e35baefd
+		sourceLineageTag: 7d27331c-d934-43b0-b027-67a28de449c5
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: false
+
+		annotation SummarizationSetBy = User
+
+	partition Fato_Vendas_Hist_Control = entity
+		mode: directQuery
+		source
+			entityName: Fato_Vendas_Hist_Control
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

@@ -1,0 +1,21 @@
+table Tipo_Selecao
+	lineageTag: 2c6a1008-7242-4621-8b89-2d1b52e52122
+	sourceLineageTag: 77354fe3-ee06-4440-ac3f-c1ad16ffa90c
+
+	column Selecao
+		dataType: int64
+		formatString: 0
+		lineageTag: 1213fa42-066b-468c-9cf3-c1302e18c76f
+		sourceLineageTag: 1d603649-34eb-46a6-90bd-0f8768ec5510
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Selecao
+
+		annotation SummarizationSetBy = User
+
+	partition Tipo_Selecao = entity
+		mode: directQuery
+		source
+			entityName: Tipo_Selecao
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

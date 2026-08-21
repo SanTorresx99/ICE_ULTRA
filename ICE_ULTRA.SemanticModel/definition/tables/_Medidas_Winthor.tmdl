@@ -1,0 +1,599 @@
+table _Medidas_Winthor
+	lineageTag: 2826449a-b4e9-4404-86df-2c68e0b9ed4c
+	sourceLineageTag: d09ceffa-a6a9-46b1-8aa1-2c75d549f13f
+
+	measure Fat_Bruto_WTH_Hist = EXTERNALMEASURE("Fat_Bruto_WTH_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: 7adaa5c7-60cb-42b5-a113-0caba9c5ef5c
+		sourceLineageTag: 61f4bdd4-423c-4be3-812d-758f3297d22f
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Fat_Liq_WTH_Hist = EXTERNALMEASURE("Fat_Liq_WTH_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: b9254195-ddf4-4c7f-b727-70cc356c4669
+		sourceLineageTag: a64935b5-915e-4366-b737-f4ae4f7f5b1b
+		dataCategory: Uncategorized
+
+	measure Fat_Dev_WTH_Hist = EXTERNALMEASURE("Fat_Dev_WTH_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: 657dbe79-a92a-41f2-807a-b9fea1be14e1
+		sourceLineageTag: 330fdc07-6a21-453b-89ee-af7abadf473b
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Vol_Dev_WTH_Hist = EXTERNALMEASURE("Vol_Dev_WTH_Hist", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 4acf6e13-fe60-47ff-9f0a-da1834d42b8f
+		sourceLineageTag: a0345d30-346a-4fc2-88a1-321b178150e5
+		dataCategory: Uncategorized
+
+	measure HL_Bruto_WTH_Hist = EXTERNALMEASURE("HL_Bruto_WTH_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: c36bd65c-501e-46eb-be48-c61cac1b6fe7
+		sourceLineageTag: c4069b1a-1740-4d08-b93a-4a7f9f7446ea
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure HL_s/BNF_WTH_Hist = EXTERNALMEASURE("HL_s/BNF_WTH_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: 7cf72ae9-3ede-4d10-b219-f86492e96f79
+		sourceLineageTag: db3a41c0-d17d-4621-9818-3593a8ad601d
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Vol_BNF_WTH_Hist = EXTERNALMEASURE("Vol_BNF_WTH_Hist", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 71926de5-4a4c-423b-8b00-708eef028745
+		sourceLineageTag: a9b54a53-8ff6-4dc3-b27f-77b7e9f74681
+		dataCategory: Uncategorized
+
+	measure %Meta_Vol_Hist = EXTERNALMEASURE("%Meta_Vol_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: c3ba8fe7-8f25-4937-9cc6-d4964acbffb6
+		sourceLineageTag: 58d5f597-dc0d-49d5-9fa4-06bc904649de
+		dataCategory: Uncategorized
+
+	measure %Meta_Fat_Hist = EXTERNALMEASURE("%Meta_Fat_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 8be961bd-3376-402c-b104-45bbd085d814
+		sourceLineageTag: 0b489e31-f00c-4b1a-b72f-50c1a6a7e988
+		dataCategory: Uncategorized
+
+	measure Real_PM_Hist = EXTERNALMEASURE("Real_PM_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: b60d419c-c35f-492d-8399-d1e511185624
+		sourceLineageTag: d27eee6e-6c5f-402c-be5f-13c5bec51b91
+		dataCategory: Uncategorized
+
+	measure %Meta_PM_Hist = EXTERNALMEASURE("%Meta_PM_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: ad4eea35-7505-4b49-95d3-69a7632b920a
+		sourceLineageTag: 362d5815-68c9-494b-b46b-e57c4539971f
+		dataCategory: Uncategorized
+
+	measure Real_PMHL_Hist = EXTERNALMEASURE("Real_PMHL_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: c52caf17-8a0e-40d0-aa93-fbe52c9ac79e
+		sourceLineageTag: 7137ac60-8a50-4b86-ba63-6347e6833466
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure %Meta_PMHL_Hist = EXTERNALMEASURE("%Meta_PMHL_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: b7f96318-5457-476e-abfe-afa5a1e83cdd
+		sourceLineageTag: b5ac230e-2d2c-4304-b667-6415ef00b548
+		dataCategory: Uncategorized
+
+	measure Tend_Vol_WTH_Hist = EXTERNALMEASURE("Tend_Vol_WTH_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: 0a217cf5-b741-4ca4-b37d-dae6120b1e13
+		sourceLineageTag: c50ebe9c-7f52-4efa-9d59-2e02a51b66f6
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Tend_Fat_WTH_Hist = EXTERNALMEASURE("Tend_Fat_WTH_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: 138585bf-bc47-4b22-ba58-ee742682005e
+		sourceLineageTag: fe47c6af-5895-4bae-9906-4cd15167d5ab
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Tend_HL_WTH_Hist = EXTERNALMEASURE("Tend_HL_WTH_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: c7d7a951-fe02-4ce0-b7b0-7a795a5ba064
+		sourceLineageTag: 46fd1fb8-ea32-42fb-a899-e5f1190a29eb
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure %Tend_Meta_Vol_Hist = EXTERNALMEASURE("%Tend_Meta_Vol_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 1048a140-5d8d-4e17-9eb8-06b2edd85025
+		sourceLineageTag: fca3bb8e-3540-44ff-8444-93bceeb36c6c
+		dataCategory: Uncategorized
+
+	measure %Tend_Meta_HL_Hist = EXTERNALMEASURE("%Tend_Meta_HL_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: cad340aa-0cfd-4756-bcb0-f0b0c5ff7c6e
+		sourceLineageTag: 308f975d-9573-4685-9805-0a62d625dae7
+		dataCategory: Uncategorized
+
+	measure %Tend_Meta_Fat_Hist = EXTERNALMEASURE("%Tend_Meta_Fat_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 800cfd09-4740-4ad1-89ca-3ea7a375e612
+		sourceLineageTag: 0a06edad-52bf-490c-aa28-c1d6edeed9ad
+		dataCategory: Uncategorized
+
+	measure Qtde_Ped_WTH_Hist = EXTERNALMEASURE("Qtde_Ped_WTH_Hist", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 1e5737da-ed2e-4937-bc87-7cd526344204
+		sourceLineageTag: bf1328cd-2437-484d-bcac-9144fc24d670
+		dataCategory: Uncategorized
+
+	measure Qtde_PedDev_WTH_Hist = EXTERNALMEASURE("Qtde_PedDev_WTH_Hist", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 060dc7cd-e483-442d-a0e2-de433eaa2dbf
+		sourceLineageTag: e931749f-1c48-4e3b-9321-de6b38388885
+		dataCategory: Uncategorized
+
+	measure Positivacao_WTH_Hist = EXTERNALMEASURE("Positivacao_WTH_Hist", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: c8de206c-42f6-4a39-86c1-fef803bfe6c5
+		sourceLineageTag: fc26d979-e297-4ce6-90ff-6014f2622522
+		dataCategory: Uncategorized
+
+	measure Vol_Liq_WTH_Hist = EXTERNALMEASURE("Vol_Liq_WTH_Hist", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: #,0
+		lineageTag: 6dbcc265-f6d8-4c59-bec5-cbcd73e3d005
+		sourceLineageTag: 33d68096-5e2c-4651-84bd-f22c3f13fa41
+		dataCategory: Uncategorized
+
+	measure HL_Liq_WTH_Hist = EXTERNALMEASURE("HL_Liq_WTH_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: #,0.00
+		lineageTag: 3fe3ade0-fd18-453e-967b-e974cf3b58bd
+		sourceLineageTag: aebc31c6-ddf6-4980-adad-b7566a9028e2
+		dataCategory: Uncategorized
+
+	measure %Meta_HL_Hist = EXTERNALMEASURE("%Meta_HL_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 5863e19e-6024-449a-b0bf-9188d805a239
+		sourceLineageTag: c992a802-c46b-47fa-8d05-97bf43c8048e
+		dataCategory: Uncategorized
+
+	measure Vol_s/BNF_WTH_Hist = EXTERNALMEASURE("Vol_s/BNF_WTH_Hist", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 628f7c92-56ca-4dcb-b01e-ba29e77578c4
+		sourceLineageTag: 262bd347-1d00-4129-a6be-16238fae7413
+		dataCategory: Uncategorized
+
+	measure _Base_Cli_WTH = EXTERNALMEASURE("_Base_Cli_WTH", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: #,0
+		lineageTag: c56ebd24-69f2-4a9c-9f72-05b09bf4b8f0
+		sourceLineageTag: d91d92f9-4974-4919-97b3-80a12d183440
+		dataCategory: Uncategorized
+
+	measure IPC_WTH_Hist = EXTERNALMEASURE("IPC_WTH_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: 0.00
+		lineageTag: 31c95c01-0326-459c-9ac9-19e09680bc54
+		sourceLineageTag: 15d28511-7fe0-4d94-baea-4d7e6df892bd
+		dataCategory: Uncategorized
+
+	measure Vol_Bruto_WTH_Hist = EXTERNALMEASURE("Vol_Bruto_WTH_Hist", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 0cec6ac4-3fbc-4844-ad6c-df67f1fb807a
+		sourceLineageTag: 5b42dd76-ca8f-427e-8aa8-d82a0bb8bf6b
+		dataCategory: Uncategorized
+
+	measure Gap_MetaDir_HL_Hist = EXTERNALMEASURE("Gap_MetaDir_HL_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: #,0
+		lineageTag: 468afb65-2025-4d6b-bc60-a345a9c41e68
+		sourceLineageTag: 31ee4274-00d2-4cbd-9ebd-04a026a81ece
+		dataCategory: Uncategorized
+
+	measure Gap_Meta_Vol_Hist = EXTERNALMEASURE("Gap_Meta_Vol_Hist", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: e05d15ec-7e28-4da9-bc5a-483ee7b0134e
+		sourceLineageTag: 3338c79d-33ee-46ee-9621-09e9f08bf76d
+		dataCategory: Uncategorized
+
+	measure %Positivaçao_Hist = EXTERNALMEASURE("%Positivaçao_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 8916f598-07c6-4283-ad69-538ffadedbbf
+		sourceLineageTag: 2c53ae8a-2ee6-49be-82a4-759f83242dad
+		dataCategory: Uncategorized
+
+	measure Gap_Meta_HL_Hist = EXTERNALMEASURE("Gap_Meta_HL_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: c472a465-0024-4307-a525-b1b64a84ed6b
+		sourceLineageTag: 51c0894b-26b5-414f-b039-246d410dd2fb
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Gap_Meta_Fat_Hist = EXTERNALMEASURE("Gap_Meta_Fat_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: 86ee43ff-2970-4c48-9afa-44f4cc478deb
+		sourceLineageTag: 744ac68b-7352-4164-91f6-8a256c66a765
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Rank_Pos_VD = EXTERNALMEASURE("Rank_Pos_VD", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 3db5df3f-a5fb-40f5-8b3e-c23f34945b9e
+		sourceLineageTag: 0959cca9-95bc-4f38-923f-a3b7af1d6a05
+		dataCategory: Uncategorized
+
+	measure Rank_Vol_VD = EXTERNALMEASURE("Rank_Vol_VD", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 47d5740c-71c0-4749-b196-3c6fca50397d
+		sourceLineageTag: d67a2be5-30d1-43c8-802c-79ad77f69795
+		dataCategory: Uncategorized
+
+	measure Rank_Fat_VD = EXTERNALMEASURE("Rank_Fat_VD", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: b37f5c51-b717-44ae-9e67-e41c86e8801e
+		sourceLineageTag: 1496eb6c-d225-420f-9011-f65d5dc71630
+		dataCategory: Uncategorized
+
+	measure Rank_Vol_Rev = EXTERNALMEASURE("Rank_Vol_Rev", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: d3ca5c98-7112-4210-bb7f-855f7abd08d4
+		sourceLineageTag: 73f46c0e-7110-440a-99bb-5054bfab0e0a
+		dataCategory: Uncategorized
+
+	measure Rank_Vol_SV = EXTERNALMEASURE("Rank_Vol_SV", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 4b43686d-6880-4aa3-a485-cb08e69fc649
+		sourceLineageTag: 18eb4edb-1b70-42fb-abfb-3e9dda41ce9f
+		dataCategory: Uncategorized
+
+	measure Rank_Vol_GV = EXTERNALMEASURE("Rank_Vol_GV", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 1311a8bd-64b3-4194-9531-73b858acc866
+		sourceLineageTag: 3a827cab-4f3c-437b-b334-10fba7e113e7
+		dataCategory: Uncategorized
+
+	measure Rank_Pos_Rev = EXTERNALMEASURE("Rank_Pos_Rev", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 4ee1db58-f824-44d9-a21b-5dd0e096e315
+		sourceLineageTag: f1140238-2528-4084-ab29-d857bfb0038d
+		dataCategory: Uncategorized
+
+	measure Rank_Pos_SV = EXTERNALMEASURE("Rank_Pos_SV", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 584c9409-49b5-4c5b-b5a4-8fd2f518843b
+		sourceLineageTag: f23948a2-dc82-49d8-a084-1ffeee3fb1d0
+		dataCategory: Uncategorized
+
+	measure Rank_Pos_GV = EXTERNALMEASURE("Rank_Pos_GV", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 6189d749-df00-4c02-9d9e-b4f765780423
+		sourceLineageTag: e4392349-578c-4b16-8d4b-b3a73a470caf
+		dataCategory: Uncategorized
+
+	measure Rank_Fat_Rev = EXTERNALMEASURE("Rank_Fat_Rev", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 3890045a-0981-4f5b-bc17-7ec48f7600f6
+		sourceLineageTag: c5c3d746-b60a-43ce-af0b-2bcd7bd0d02d
+		dataCategory: Uncategorized
+
+	measure Rank_Fat_SV = EXTERNALMEASURE("Rank_Fat_SV", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: f417a9a2-9bc1-4344-8610-c88b49edb52e
+		sourceLineageTag: a333bc0c-4b1d-41b0-a03d-bcb9d5718a72
+		dataCategory: Uncategorized
+
+	measure Rank_Fat_GV = EXTERNALMEASURE("Rank_Fat_GV", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 077cd51b-f203-4ca5-a3c0-4a400dc88c53
+		sourceLineageTag: 934989e2-1bb0-458e-90d9-198ce3fe5679
+		dataCategory: Uncategorized
+
+	measure Gap_MetaDir_Fat_Hist = EXTERNALMEASURE("Gap_MetaDir_Fat_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: 81158e2f-450c-442c-951d-8a13972564dc
+		sourceLineageTag: d7caab1f-65b8-4c21-bbab-cd93d3448268
+		dataCategory: Uncategorized
+
+	measure Gap_MetaDir_Vol_Hist = EXTERNALMEASURE("Gap_MetaDir_Vol_Hist", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: #,0
+		lineageTag: 1106919c-6f04-42b3-8365-3c4f1667752e
+		sourceLineageTag: da7573bc-26bc-4485-a965-70b638d30cc7
+		dataCategory: Uncategorized
+
+	measure %Dev_Fat_Hist = EXTERNALMEASURE("%Dev_Fat_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: c140590f-2a67-4896-a893-427cac91225b
+		sourceLineageTag: 9f74faed-2bbc-4548-b162-a45d627b3116
+		dataCategory: Uncategorized
+
+	measure TKT_Med__WTH_Hist = EXTERNALMEASURE("TKT_Med__WTH_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: 57318756-21be-43fe-aef0-2ce979ba9c6b
+		sourceLineageTag: 569dbf0c-5c94-4e46-bb68-9ffa5e5600f8
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Qtde_Ped_Vda_WTH_Hist = EXTERNALMEASURE("Qtde_Ped_Vda_WTH_Hist", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 71954870-1455-4a18-9987-e0e29d860c41
+		sourceLineageTag: de9a15e5-1025-4182-a2fe-c0bb8a87e4f7
+		dataCategory: Uncategorized
+
+	measure Qtde_Ped_Aberto_WTH_Hist = EXTERNALMEASURE("Qtde_Ped_Aberto_WTH_Hist", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 314ed1c3-76d4-4b1c-b037-14449dbb7604
+		sourceLineageTag: 2adabfd8-6e26-432c-82d0-39299d37b2a4
+		dataCategory: Uncategorized
+
+	measure Vlr_Ped_Aberto_WTH_Hist = EXTERNALMEASURE("Vlr_Ped_Aberto_WTH_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: f04c387d-40f1-42ad-8379-aa20266eaf41
+		sourceLineageTag: ea10ab7a-b41d-4b51-9339-06dfbf630363
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Real_Vol_Hoje = EXTERNALMEASURE("Real_Vol_Hoje", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: f10ffc2e-34d2-4b44-a851-1a432ce19bd3
+		sourceLineageTag: 469228f6-64c3-4051-a6aa-c50b0adf4f3a
+		dataCategory: Uncategorized
+
+	measure Real_HL_Hoje = EXTERNALMEASURE("Real_HL_Hoje", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: #,0.00
+		lineageTag: 9c2c0b22-4a88-4ce9-940e-214c24c93ae3
+		sourceLineageTag: 661f2f16-7e52-4039-b4a3-8b3971c361a4
+		dataCategory: Uncategorized
+
+	measure Real_Fat_Hoje = EXTERNALMEASURE("Real_Fat_Hoje", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: 0e05e401-e81c-4088-bd25-4a8c2baf1086
+		sourceLineageTag: dd300424-2eb4-485d-bf2e-d6da1da56d7d
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'DT.Ult.Compra_Hist' = EXTERNALMEASURE("DT.Ult.Compra_Hist", DATETIME, "DirectQuery para AS – RSL-BI")
+		formatString: General Number
+		lineageTag: 99eb3aa0-c11d-4336-833b-e6a7118c3037
+		sourceLineageTag: 3347c27f-65a6-490e-9ffa-dfce41b208f6
+		dataCategory: Uncategorized
+
+	measure 'DT.Ult.BD_Hist' = EXTERNALMEASURE("DT.Ult.BD_Hist", DATETIME, "DirectQuery para AS – RSL-BI")
+		formatString: General Number
+		lineageTag: 9e1e299c-d346-4fdc-abef-14e304f6c210
+		sourceLineageTag: 1c81674c-8059-4342-93be-c80abc96b55a
+		dataCategory: Uncategorized
+
+	measure Dias_S/Compra_Hist = EXTERNALMEASURE("Dias_S/Compra_Hist", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: ddb1b8b9-9d48-4c09-a149-a9a8aba2a811
+		sourceLineageTag: 77b4cd4f-d2b3-4264-a0fa-336718ab683a
+		dataCategory: Uncategorized
+
+	measure 'Valor.Ult.Compra_Hist' = EXTERNALMEASURE("Valor.Ult.Compra_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: 0.00
+		lineageTag: 924be035-8319-4fc3-a194-301026435640
+		sourceLineageTag: 44fe522c-b7ba-47ff-9e3f-b3a89845a107
+		dataCategory: Uncategorized
+
+	measure Qtde_Ped_BNF_WTH_Hist = EXTERNALMEASURE("Qtde_Ped_BNF_WTH_Hist", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 6a1b885d-aaa3-4937-a7af-54dbf231f3e5
+		sourceLineageTag: 2325f3cf-7fc5-4a2e-aed4-127bebc19dc6
+		dataCategory: Uncategorized
+
+	measure IPC_Max_WTH_Hist = EXTERNALMEASURE("IPC_Max_WTH_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: afd13dd6-71f2-42e2-b2b1-3381d0cb8804
+		sourceLineageTag: 9bd4065d-1027-4eda-a6e4-a12cda4c9daa
+		dataCategory: Uncategorized
+
+	measure Itens_Ped_WTH_Hist = EXTERNALMEASURE("Itens_Ped_WTH_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: ba10bbda-2d43-4946-b97d-2bf571ccc251
+		sourceLineageTag: 52ecdfd9-5fbb-4072-a28a-d28799532ce7
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Vol_Consig_WTH_Hist = EXTERNALMEASURE("Vol_Consig_WTH_Hist", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 83912df2-3bb5-41dd-959c-53ed6b09a01e
+		sourceLineageTag: d365e361-3594-405c-bcb8-56214358b537
+		dataCategory: Uncategorized
+
+	measure Qtde_PedConsig_WTH_Hist = EXTERNALMEASURE("Qtde_PedConsig_WTH_Hist", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 0c055223-aec3-44ef-958b-9019b1378556
+		sourceLineageTag: 3de8e6cf-0536-45ea-9d88-2e085e4dc7dd
+		dataCategory: Uncategorized
+
+	measure %Dir_Real_Meta_Fat_Hist = EXTERNALMEASURE("%Dir_Real_Meta_Fat_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: 99748867-64db-4829-a1c4-271273cc8b79
+		sourceLineageTag: 9a1bab29-e0df-4a83-99fd-a53bb449fdec
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure %Dir_Meta_PMHL_Hist = EXTERNALMEASURE("%Dir_Meta_PMHL_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: b560e240-557f-4f09-9c69-79a67972c740
+		sourceLineageTag: ddbaf089-6400-49a6-b983-4021966a195f
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure %MetaDir_PM_Hist = EXTERNALMEASURE("%MetaDir_PM_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: da7e7995-0be6-48fb-a80d-161faec5dabe
+		sourceLineageTag: 2eec08f5-bbcf-44bb-af94-3751895295b5
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure %Dir_Real_Meta_HL_Hist = EXTERNALMEASURE("%Dir_Real_Meta_HL_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: fcaee262-45ed-48f3-a7c3-17d2a352a7fd
+		sourceLineageTag: 0df959b3-680a-4e62-a625-efb3891efd73
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure %Dir_Real_Meta_Vol_Hist = EXTERNALMEASURE("%Dir_Real_Meta_Vol_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: 457034de-f13f-42bc-9e50-25184bb000de
+		sourceLineageTag: 00b294fe-a0b9-4ac9-8b1a-b3271244f083
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure %Dir_Tend_Meta_Fat_Hist = EXTERNALMEASURE("%Dir_Tend_Meta_Fat_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: 80d248fd-9268-42de-9c3a-72d365d39485
+		sourceLineageTag: cd472fe9-189d-4c70-95c3-43186ea6478a
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure %Dir_Tend_Meta_HL_Hist = EXTERNALMEASURE("%Dir_Tend_Meta_HL_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: 99ab3a0a-074b-4ccf-9972-adf172c7f38d
+		sourceLineageTag: 2b57eaac-6cd0-4b34-953b-c8ee74e5bc7b
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure %Dir_Tend_Meta_Vol_Hist = EXTERNALMEASURE("%Dir_Tend_Meta_Vol_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: 5e3fa52f-c5b0-49ed-81cc-f4fed268fd4f
+		sourceLineageTag: 21d10f02-ac33-466a-8914-6231632da17c
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure _Base_Cli_Inat = EXTERNALMEASURE("_Base_Cli_Inat", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: #,0
+		lineageTag: b706d2df-a0a7-491a-86cb-e18ab3819b53
+		sourceLineageTag: 760e6d92-7dc2-4b3e-873a-7794d4c9f426
+		dataCategory: Uncategorized
+
+	measure _Visita_Esp_WTH = EXTERNALMEASURE("_Visita_Esp_WTH", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 9ee4b4dd-6963-4b00-9b6e-20c35239d84d
+		sourceLineageTag: b3dec567-ee06-4bfa-9d4c-6e965dba4505
+		dataCategory: Uncategorized
+
+	measure _Base_Cli_TT = EXTERNALMEASURE("_Base_Cli_TT", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: #,0
+		lineageTag: e83e95ff-8538-4703-88b2-c84c25d24667
+		sourceLineageTag: 4883cdfd-523a-46a2-ba42-3223d7a19581
+		dataCategory: Uncategorized
+
+	measure %Cad_WTH = EXTERNALMEASURE("%Cad_WTH", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: af92db62-a14e-437a-8954-f5e8296d7de7
+		sourceLineageTag: 3c8025b8-6b6c-4911-b7a9-407b80d49e22
+		dataCategory: Uncategorized
+
+	measure %Cad_Meta = EXTERNALMEASURE("%Cad_Meta", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 184f223f-6391-4b44-803c-5942bd7fe7f3
+		sourceLineageTag: 6ab63492-46a4-46bb-b0da-ef3d702c0626
+		dataCategory: Uncategorized
+
+	measure _Gap_Meta_Cad = EXTERNALMEASURE("_Gap_Meta_Cad", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 5382579e-5040-4a10-81b9-3f72fb63f668
+		sourceLineageTag: cb75c356-3698-49c4-948b-f1525474ac51
+		dataCategory: Uncategorized
+
+	measure _Base_produtos = EXTERNALMEASURE("_Base_produtos", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: f1efa59d-3520-4856-bd06-ea8dbe81f2cc
+		sourceLineageTag: 028afc29-04a4-4809-b72d-60a6b99a72bf
+		dataCategory: Uncategorized
+
+	measure Qtd_Itens_vz = EXTERNALMEASURE("Qtd_Itens_vz", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: 058894a4-d2db-4ac7-a9f6-43b985b9bcf2
+		sourceLineageTag: b58be71d-f03b-4ddd-882c-4635d5609c29
+		dataCategory: Uncategorized
+
+	measure Itens_C/_Vda = EXTERNALMEASURE("Itens_C/_Vda", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: 0
+		lineageTag: abbe67d3-0dff-4ef5-9835-358e5c99cb66
+		sourceLineageTag: a5c0005d-fb72-4763-93a3-56eb41691145
+		dataCategory: Uncategorized
+
+	measure Fat_Perda_WTH_Hist = EXTERNALMEASURE("Fat_Perda_WTH_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: #,0.00
+		lineageTag: 3ae3ebe6-ac49-4b8f-9223-a2b4cdf57e19
+		sourceLineageTag: 93e39895-e7ff-43bf-9636-f5ecb784a44a
+		dataCategory: Uncategorized
+
+	measure Vol_Perda_WTH_Hist = EXTERNALMEASURE("Vol_Perda_WTH_Hist", INTEGER, "DirectQuery para AS – RSL-BI")
+		formatString: #,0
+		lineageTag: f55ad616-4573-4f6e-a300-495c4c2a89b7
+		sourceLineageTag: f6b63f07-57b7-43ef-aca6-f94e2c78b7da
+		dataCategory: Uncategorized
+
+	measure %Perda_Fat_Hist = EXTERNALMEASURE("%Perda_Fat_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: b5b78fe9-92b2-40a3-a085-bd8ae8206971
+		sourceLineageTag: 77056625-2e6e-420e-8d22-b46e386e67cc
+		dataCategory: Uncategorized
+
+	measure Fat_BrutoAcm_WTH = EXTERNALMEASURE("Fat_BrutoAcm_WTH", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: a35f26b3-e796-43e6-8473-0c9673335452
+		sourceLineageTag: 9f2a107b-bbc2-4409-bc3c-d5a1d24cee66
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Tend_15 = EXTERNALMEASURE("Tend_15", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: 296a0e5f-49bd-4054-8ca5-d8d57f7ccc7e
+		sourceLineageTag: da1c42be-2a41-43a0-98ea-0435e00f61b5
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure %Inad_Fat_Hist = EXTERNALMEASURE("%Inad_Fat_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
+		lineageTag: ec56bcef-794c-4423-bd95-7f7540005053
+		sourceLineageTag: 39347027-dd59-4249-8842-f65718da943c
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure QTD_ACAO_HIST = [QTD_ICE_HIST] + [QTD_P_ULTRA_HIST]
+		lineageTag: 2ce343bd-1f28-4cb6-a7b2-a9381f2bac0d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure QTD_ACAO_ATUAL = [QTD_ICE_ATUAL] + [QTD_P_ULTRA_ATUAL]
+		lineageTag: 309267a6-c080-4809-88d7-feb4992ef9c0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure QTD_ACAO_ULTRACRYSTAL = [QTD_ICE_PRECO] + [QTD_P_ULTRA_PRECO]
+		lineageTag: bc9c6a8f-7769-4a05-8025-92f8fec26898
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'QTD CLI ICE ATUAL' = CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(VALUES(Dim_Clientes[cli_Cliente_int_PK]), [QTD_ICE_ATUAL] > 0))
+		lineageTag: 3f9cd9fc-3954-4f53-a703-1a419cb8918b
+
+	measure 'QTD CLI ICE HIST' = CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(VALUES(Dim_Clientes[cli_Cliente_int_PK]), [QTD_ICE_HIST] > 0))
+		lineageTag: 4985f513-7f4d-49c8-9dfd-d64ea15b7697
+
+	measure 'TOTAL CLI ICE' = CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(VALUES(Dim_Clientes[cli_Cliente_int_PK]), [QTD_ICE_PRECO] > 0))
+		lineageTag: 56b3321a-c1cc-4885-9cdd-7458074340ea
+
+	measure 'QTD CLI PETRA ULTRA ATUAL' = CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(VALUES(Dim_Clientes[cli_Cliente_int_PK]), [QTD_P_ULTRA_ATUAL] > 0))
+		lineageTag: 9815dc22-b320-4560-b19e-64b7405c20f3
+
+	measure 'QTD CLI PETRA ULTRA HIST' = CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(VALUES(Dim_Clientes[cli_Cliente_int_PK]), [QTD_P_ULTRA_HIST] > 0))
+		lineageTag: eb321cbd-f55c-4140-8948-1d198c09ce00
+
+	measure 'TOTAL PETRA ULTRA' = CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(VALUES(Dim_Clientes[cli_Cliente_int_PK]), [QTD_P_ULTRA_PRECO] > 0))
+		lineageTag: c83d25fe-e173-4fb4-9183-c243b1e75a52
+
+	measure 'QTD CLI TOTAL ACAO' = CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(VALUES(Dim_Clientes[cli_Cliente_int_PK]), [QTD_ACAO_ULTRACRYSTAL] > 0))
+		lineageTag: 5e241a90-e137-45a2-820b-1286ce9175fa
+
+	partition _Medidas_Winthor = entity
+		mode: directQuery
+		source
+			entityName: _Medidas_Winthor
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

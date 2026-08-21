@@ -1,0 +1,11 @@
+expression 'DirectQuery para AS – RSL-BI' =
+		let
+		    Source = AnalysisServices.Database("powerbi://api.powerbi.com/v1.0/myorg/RSL_BI", "RSL-BI"),
+		    Cubes = Table.Combine(Source[Data]),
+		    Cube = Cubes{[Id="Model", Kind="Cube"]}[Data]
+		in
+		    Cube
+	lineageTag: 67f88d7d-a72a-423e-9c41-fddc7ae804f4
+
+	annotation PBI_IncludeFutureArtifacts = True
+

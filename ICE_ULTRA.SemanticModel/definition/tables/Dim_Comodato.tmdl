@@ -1,0 +1,313 @@
+table Dim_Comodato
+	lineageTag: 3fdfcbf3-e2d0-465f-992c-9aa8c4d8da16
+	sourceLineageTag: 8c901e40-3622-4543-8076-561a8ef8bc9a
+
+	column Meta
+		dataType: double
+		lineageTag: bf654ac2-46e9-4780-9c8c-cd3c8ee97c4f
+		sourceLineageTag: 2748833d-e7ba-4c41-b9f8-a3faa184ffc7
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Meta
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Status
+		dataType: string
+		lineageTag: 520e570f-19a2-428e-8b1d-ba4960e9c7e8
+		sourceLineageTag: 71a28634-d718-465a-9925-44595471318c
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = User
+
+	column cmd_NumeroComodato_int
+		dataType: int64
+		formatString: 0
+		lineageTag: d8286fa1-97ff-4a21-bbaf-bc8d1c1433c5
+		sourceLineageTag: cc17d8b4-ece0-4c77-b10f-6af90d19307c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: cmd_NumeroComodato_int
+
+		annotation SummarizationSetBy = User
+
+	column cmd_Inclusao_dtm
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 9c0ae72a-da18-490a-82f3-b11796c26abf
+		sourceLineageTag: 5635e86b-d7e1-4494-bd19-a9f9a456ae56
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: cmd_Inclusao_dtm
+
+		variation Variation
+			isDefault
+			relationship: 502c40c4-643f-426a-8a41-482bcdd896f0
+			defaultHierarchy: LocalDateTable_1d7d1efb-d0fa-4fa4-a13a-3143864f0656.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column cli_Cliente_int_FK
+		dataType: int64
+		formatString: 0
+		lineageTag: 07313878-acf3-4b36-9dec-adf2ac9c334b
+		sourceLineageTag: 13a98f15-9af6-4cf4-9205-882f8f4532e6
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: cli_Cliente_int_FK
+
+		annotation SummarizationSetBy = User
+
+	column emp_Empresa_int_FK
+		dataType: int64
+		formatString: 0
+		lineageTag: 25277eba-7793-4f07-8839-876fb4ab0658
+		sourceLineageTag: f355c600-1d97-498c-8030-4daf5e741685
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: emp_Empresa_int_FK
+
+		annotation SummarizationSetBy = User
+
+	column cmd_Saida_dtm
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 808b6c11-8a4a-4098-878c-57e49101f932
+		sourceLineageTag: 8e6e800e-b738-45fa-bb5a-17289b2dc9c4
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: cmd_Saida_dtm
+
+		variation Variation
+			isDefault
+			relationship: 25a02921-3927-41c6-950f-9ba622f68825
+			defaultHierarchy: LocalDateTable_e9ad67e8-834f-4b12-bf9e-267cfc40288d.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column cmd_VigenciaFim_dtm
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 6901148b-7b4e-465e-a1cb-8beb852cad00
+		sourceLineageTag: 9abb8d55-115e-4608-b867-802a029fb786
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: cmd_VigenciaFim_dtm
+
+		variation Variation
+			isDefault
+			relationship: b33ff141-1541-4e3e-a276-bcb80c6dee55
+			defaultHierarchy: LocalDateTable_a805c736-0f81-40f4-b422-9cd65115fa87.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column cit_Tipo_int
+		dataType: int64
+		formatString: 0
+		lineageTag: c0bed30a-4cc5-4a00-90eb-4b6b1a793123
+		sourceLineageTag: ea79ef9b-804f-4bf3-9669-d06beb84e259
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: cit_Tipo_int
+
+		annotation SummarizationSetBy = User
+
+	column cit_codCat_int
+		dataType: int64
+		formatString: 0
+		lineageTag: afdd1159-cebe-4dec-b267-d389881b65f8
+		sourceLineageTag: c89d57d4-b1f4-4508-bcf0-610ddf3c1e36
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: cit_codCat_int
+
+		annotation SummarizationSetBy = User
+
+	column ven_Vendedor_int_FK
+		dataType: int64
+		formatString: 0
+		lineageTag: 683306ba-bb6c-44ba-9211-b0fdd411f41c
+		sourceLineageTag: bb9e287d-d247-4ccc-8729-82d59c39f6e5
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: ven_Vendedor_int_FK
+
+		annotation SummarizationSetBy = User
+
+	column cit_codTipo_int
+		dataType: int64
+		formatString: 0
+		lineageTag: 96cf9332-a8d8-4f23-90db-df96932ec958
+		sourceLineageTag: f497f927-fd02-4e66-bea0-93beede04473
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: cit_codTipo_int
+
+		annotation SummarizationSetBy = User
+
+	column cit_CodigoItem_int
+		dataType: int64
+		formatString: 0
+		lineageTag: a9f13ec5-db7d-4495-b7e0-60316297f4ff
+		sourceLineageTag: 4bd711f4-ca00-4df7-97bf-076eece67d31
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: cit_CodigoItem_int
+
+		annotation SummarizationSetBy = User
+
+	column cit_Retorno_int
+		dataType: int64
+		formatString: 0
+		lineageTag: 671e4c86-1cfc-4968-9cbc-127d0b02032c
+		sourceLineageTag: 3f8808ad-52ac-423e-a5da-47c7b15aa26d
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: cit_Retorno_int
+
+		annotation SummarizationSetBy = User
+
+	column cmd_dataDevolucao_dtm
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 0f49c4e0-3910-413c-bd5b-3e151f4ec4ff
+		sourceLineageTag: f2c080bc-6bcd-4629-8257-fe4f7ae4a9d9
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: cmd_dataDevolucao_dtm
+
+		variation Variation
+			isDefault
+			relationship: ae535006-1390-47b2-937c-1e1fef8708e4
+			defaultHierarchy: LocalDateTable_33dfc675-7eca-4ebe-8617-97aa32ad7ec2.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = User
+
+	column cit_Quantidade_int
+		dataType: int64
+		formatString: 0
+		lineageTag: ed0a2b47-14f3-40df-a436-de6c60849f13
+		sourceLineageTag: 546c8c8f-fff6-4c5c-ba74-e332f15fad66
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: cit_Quantidade_int
+
+		annotation SummarizationSetBy = User
+
+	column cit_Quantidade_Dev_int
+		dataType: int64
+		formatString: 0
+		lineageTag: 30ecb18c-527b-4e66-89cb-fa99ffc7a1df
+		sourceLineageTag: 94e0d4b5-69a9-4ff2-b112-66c2964fce01
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: cit_Quantidade_Dev_int
+
+		annotation SummarizationSetBy = User
+
+	column cit_Quantidade_Abert_int
+		dataType: int64
+		formatString: 0
+		lineageTag: db714a20-3ee1-4254-a602-348b2931c08a
+		sourceLineageTag: d0631188-fe31-452e-a099-bb865ee479c7
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: cit_Quantidade_Abert_int
+
+		annotation SummarizationSetBy = User
+
+	column cit_ValorItem_cur
+		dataType: double
+		lineageTag: b6d2f9f0-c5bd-4b41-aef6-00d7768d7a78
+		sourceLineageTag: ce513d9d-310b-4891-b1c8-f8040d0174ad
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: cit_ValorItem_cur
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Cmd_Descricao
+		dataType: string
+		lineageTag: 7a67bccc-b0f5-40d3-b910-38a720cce168
+		sourceLineageTag: bd213207-40e6-4f3c-8bee-54ad96c973c7
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Cmd_Descricao
+
+		annotation SummarizationSetBy = User
+
+	column St_Mat
+		dataType: string
+		lineageTag: 73e34e37-22f8-4fa9-8f1f-26fbf31b307b
+		sourceLineageTag: 90b6e4e8-0346-4869-8b9b-fd952419ef69
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: St_Mat
+
+		annotation SummarizationSetBy = User
+
+	column St_Vas
+		dataType: string
+		lineageTag: 5803dcd4-a692-4e37-a769-4ff95d9afec1
+		sourceLineageTag: c3a295d5-923c-45b5-a9fd-188fe18117f3
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: St_Vas
+
+		annotation SummarizationSetBy = User
+
+	column 'STATUS 2'
+		dataType: string
+		lineageTag: 1b776ab6-a672-4dab-ae82-c439a5541989
+		sourceLineageTag: f59c614a-b4f1-4a24-b697-9f89c7b70305
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: STATUS 2
+
+		annotation SummarizationSetBy = User
+
+	column cit_Quantidade_Dev_cor
+		dataType: int64
+		formatString: 0
+		lineageTag: c6d92db2-97eb-43d1-894f-e69ba078dcd4
+		sourceLineageTag: 18690d6a-dc0d-42a1-b0ff-91e177928905
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: cit_Quantidade_Dev_cor
+
+		annotation SummarizationSetBy = User
+
+	column Dias_Aberto
+		dataType: int64
+		formatString: 0
+		lineageTag: a9379049-1431-4811-a11e-412e540220b2
+		sourceLineageTag: f0cffb62-8a38-483d-933f-b284f205c1a5
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Dias_Aberto
+
+		annotation SummarizationSetBy = User
+
+	column Dias_Vencido
+		dataType: int64
+		formatString: 0
+		lineageTag: 450d280d-6eb4-4c93-9ead-5421137ebd95
+		sourceLineageTag: cacfe038-a64b-4f78-9f4b-a4d0c6a5e62b
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: Dias_Vencido
+
+		annotation SummarizationSetBy = User
+
+	partition Dim_Comodato = entity
+		mode: directQuery
+		source
+			entityName: Dim_Comodato
+			expressionSource: 'DirectQuery para AS – RSL-BI'
+

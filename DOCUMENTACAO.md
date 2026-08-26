@@ -48,5 +48,28 @@ O painel direito apresenta a lista dos vendedores com foco na legibilidade e pro
 
 ---
 
+## 🚀 Regras de Negócio e Dinâmicas do Rodapé (HTML)
+
+Recentemente, foram adicionadas validações e indicadores dinâmicos ao rodapé do painel para refletir com mais precisão o progresso da equipe:
+
+### 🏆 Critério Dinâmico de Parabenização
+Para evitar parabenizações incorretas (como quando um supervisor é filtrado e possui poucas vendas totais), foi implementada uma validação condicional:
+* **Condição**: Média de caixas vendidas por vendedor maior ou igual a **50** OU pelo menos um vendedor individual com vendas maior ou igual a **50**.
+* **Resultado**: 
+  * Se a condição for atendida, exibe a palavra **"PARABENS"**.
+  * Se a condição não for atendida, exibe a mensagem de incentivo **"Vamos acelerar!"**.
+
+### 👥 Indicador de Clientes Alcançados
+O rodapé agora totaliza dinamicamente o número total de clientes únicos alcançados pela ação, respeitando a seleção de produto ativa:
+* **Ação Total**: Utiliza a medida `[QTD CLI TOTAL ACAO]`.
+* **Somente ICE**: Utiliza a medida `[TOTAL CLI ICE]`.
+* **Somente Petra**: Utiliza a medida `[TOTAL PETRA ULTRA]`.
+
+O formato final do rodapé consolidou-se em:
+`Total da ação: X caixas — Y clientes alcançados — [Mensagem Condicional]`
+
+---
+
 ## 🛠️ Arquivos Alterados
-* [`Medidas_Ranking.tmdl`](file:///C:/Users/a.alves/Downloads/ICE_ULTRA/ICE_ULTRA.SemanticModel/definition/tables/Medidas_Ranking.tmdl): Contém as medidas Base64 e a lógica atualizada do visual HTML na medida `Ranking_Sellers_HTML`.
+* [`Medidas_Ranking.tmdl`](file:///C:/Users/a.alves/Downloads/ICE_ULTRA/ICE_ULTRA.SemanticModel/definition/tables/Medidas_Ranking.tmdl): Contém as medidas Base64, lógica do rodapé dinâmico de metas e clientes alcançados no visual `Ranking_Sellers_HTML`.
+* [`DOCUMENTACAO.md`](file:///C:/Users/a.alves/Downloads/ICE_ULTRA/DOCUMENTACAO.md): Atualizado com as novas regras de negócio do rodapé dinâmico.

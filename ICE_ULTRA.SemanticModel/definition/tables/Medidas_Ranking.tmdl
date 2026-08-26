@@ -471,6 +471,18 @@ table Medidas_Ranking
 			
 			VAR MaxSales = MAXX(RankedSellers, [@Sales])
 			VAR TotalSales = SUMX(RankedSellers, [@Sales])
+			VAR AvgSales = AVERAGEX(RankedSellers, [@Sales])
+			VAR MsgParabens = IF(AvgSales >= 50 || MaxSales >= 50, "PARABENS", "Vamos acelerar!")
+			VAR TotalClients =
+			    CALCULATE(
+			        SWITCH(
+			            OpcaoSel,
+			            1, [QTD CLI TOTAL ACAO],
+			            2, [TOTAL CLI ICE],
+			            3, [TOTAL PETRA ULTRA]
+			        ),
+			        PeriodoContexto
+			    )
 			
 			VAR DataInicio = FORMAT(StartDate, "dd/mm")
 			VAR DataFim = FORMAT(EndDate, "dd/mm")
@@ -540,6 +552,14 @@ table Medidas_Ranking
 			VAR Tab1Class = IF(OpcaoSel = 1, "nav-tab active", "nav-tab")
 			VAR Tab2Class = IF(OpcaoSel = 2, "nav-tab active", "nav-tab")
 			VAR Tab3Class = IF(OpcaoSel = 3, "nav-tab active", "nav-tab")
+			
+			VAR ContainerClass =
+				SWITCH(
+					OpcaoSel,
+					1, "dashboard-container theme-gold",
+					2, "dashboard-container theme-ice",
+					3, "dashboard-container theme-petra"
+				)
 			
 			VAR HTML_Header = "
 			<!DOCTYPE html>
@@ -661,7 +681,7 @@ table Medidas_Ranking
 			    }
 			    .showcase-single { height: 90%; display: flex; align-items: center; justify-content: center; }
 			    .showcase-double { height: 90%; display: flex; gap: 30px; align-items: center; justify-content: center; }
-			    
+			
 			    /* Trio Showcase - 3D Rotating Carousel */
 			    .showcase-trio {
 			      height: 90%;
@@ -689,7 +709,7 @@ table Medidas_Ranking
 			      animation: carouselTrio 9s infinite ease-in-out;
 			      animation-delay: -6s;
 			    }
-			    
+			
 			    /* Quad Showcase - 3D Rotating Carousel */
 			    .showcase-quad {
 			      height: 90%;
@@ -721,11 +741,11 @@ table Medidas_Ranking
 			      animation: carouselQuad 12s infinite ease-in-out;
 			      animation-delay: -9s;
 			    }
-			    
+			
 			    .showcase-img { object-fit: contain; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.8)); }
 			    .showcase-double .showcase-img { height: 360px; }
 			    .showcase-single .showcase-img { height: 380px; }
-			    
+			
 			    /* Standalone Petra Mega Styling */
 			    .petra-mega {
 			      height: 460px !important;
@@ -736,7 +756,7 @@ table Medidas_Ranking
 			      0%, 100% { transform: translate(0, 0) scale(1.05) rotate(0deg); }
 			      50% { transform: translate(15px, -20px) scale(1.15) rotate(4deg); }
 			    }
-			    
+			
 			    /* 3D Carousel Keyframe for Trio (9s cycle, 3s per position) */
 			    @keyframes carouselTrio {
 			      0%, 100% {
@@ -755,7 +775,7 @@ table Medidas_Ranking
 			        filter: brightness(0.6) drop-shadow(0 5px 10px rgba(0,0,0,0.6));
 			      }
 			    }
-			    
+			
 			    /* 3D Carousel Keyframe for Quad (12s cycle, 3s per position) */
 			    @keyframes carouselQuad {
 			      0%, 100% {
@@ -779,8 +799,8 @@ table Medidas_Ranking
 			        filter: brightness(0.55) drop-shadow(0 5px 10px rgba(0,0,0,0.6));
 			      }
 			    }
-
-
+			
+			
 			    .ranking-panel { flex: 5.5; display: flex; flex-direction: column; gap: 16px; height: 100%; }
 			    .table-container {
 			      border: 1.5px solid #c98e28;
@@ -806,14 +826,14 @@ table Medidas_Ranking
 			    .left-section { display: flex; align-items: center; gap: 6px; }
 			    .middle-section { display: flex; flex-direction: column; gap: 4px; overflow: hidden; }
 			    .info-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; width: 100%; }
-			    
+			
 			    .pos-badge { width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Oswald'; font-size: 0.85rem; font-weight: 700; box-shadow: 0 2px 5px rgba(0,0,0,0.5); }
 			    .badge-gold { background: radial-gradient(circle, #ffe699 0%, #c98e28 100%); color: #000; border: 1px solid #ffe699; }
 			    .badge-silver { background: radial-gradient(circle, #f0f0f0 0%, #8c9398 100%); color: #000; border: 1px solid #f0f0f0; }
 			    .badge-bronze { background: radial-gradient(circle, #f5b076 0%, #944b19 100%); color: #000; border: 1px solid #f5b076; }
 			    .badge-regular { background: radial-gradient(circle, #7d4e0b 0%, #3a2202 100%); color: #edd37d; border: 1px solid #c98e28; }
 			    .medal-icon { font-size: 1.1rem; display: inline-flex; justify-content: center; width: 22px; }
-			    
+			
 			    .name { color: #ffffff; font-size: 0.95rem; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex: 1; }
 			    .clients-count {
 			      font-size: 0.72rem;
@@ -844,10 +864,115 @@ table Medidas_Ranking
 			      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 			    }
 			    .trophy { font-size: 1.1rem; }
+			
+			    /* Theme ICE Overrides */
+			    .theme-ice {
+			      background: radial-gradient(circle at 50% 30%, #fef08a 0%, #facc15 100%);
+			      border-color: #ca8a04;
+			    }
+			    .theme-ice .title-area h1 { color: #000000; text-shadow: none; }
+			    .theme-ice .title-area p { color: #475569; }
+			    .theme-ice .filter-summary {
+			      background: rgba(0, 0, 0, 0.05);
+			      border-color: rgba(202, 138, 4, 0.3);
+			    }
+			    .theme-ice .filter-badge { color: #475569; }
+			    .theme-ice .filter-badge strong { color: #854d0e; }
+			    .theme-ice .product-hero {
+			      background: radial-gradient(circle, rgba(254, 240, 138, 0.3) 0%, rgba(250, 204, 21, 0.2) 80%);
+			      border-color: rgba(202, 138, 4, 0.5);
+			    }
+			    .theme-ice .table-container {
+			      border-color: #ca8a04;
+			      background: rgba(255, 255, 255, 0.9);
+			    }
+			    .theme-ice .ranking-item {
+			      border-bottom: 1px solid rgba(202, 138, 4, 0.2);
+			    }
+			    .theme-ice .name { color: #1e293b; }
+			    .theme-ice .score { color: #1e293b; }
+			    .theme-ice .score span { color: #475569; }
+			    .theme-ice .clients-count {
+			      color: #854d0e;
+			      background: rgba(234, 179, 8, 0.15);
+			      border-color: rgba(234, 179, 8, 0.4);
+			    }
+			    .theme-ice .bar-wrapper {
+			      background: rgba(0, 0, 0, 0.05);
+			      border-color: rgba(202, 138, 4, 0.2);
+			    }
+			    .theme-ice .fill-bar {
+			      background: linear-gradient(90deg, #eab308, #ca8a04);
+			      box-shadow: 0 0 8px rgba(234, 179, 8, 0.5);
+			    }
+			    .theme-ice .footer-bar {
+			      background: linear-gradient(90deg, #ca8a04 0%, #fef08a 50%, #ca8a04 100%);
+			      color: #000000;
+			      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+			    }
+			    .theme-ice .badge-regular {
+			      background: radial-gradient(circle, #fef08a 0%, #eab308 100%);
+			      color: #000000;
+			      border-color: #ca8a04;
+			    }
+			
+			    /* Theme Petra Overrides */
+			    .theme-petra {
+			      background: radial-gradient(circle at 50% 30%, #0b132b 0%, #010817 100%);
+			      border-color: #94a3b8;
+			    }
+			    .theme-petra .title-area h1 { color: #f8fafc; text-shadow: 0 0 15px rgba(255,255,255,0.1); }
+			    .theme-petra .title-area p { color: #94a3b8; }
+			    .theme-petra .filter-summary {
+			      background: rgba(255, 255, 255, 0.03);
+			      border-color: rgba(148, 163, 184, 0.2);
+			    }
+			    .theme-petra .filter-badge { color: #94a3b8; }
+			    .theme-petra .filter-badge strong { color: #cbd5e1; }
+			    .theme-petra .product-hero {
+			      background: radial-gradient(circle, rgba(148, 163, 184, 0.05) 0%, rgba(2, 6, 23, 0.8) 80%);
+			      border-color: rgba(148, 163, 184, 0.3);
+			    }
+			    .theme-petra .table-container {
+			      border-color: #94a3b8;
+			      background: rgba(15, 23, 42, 0.8);
+			    }
+			    .theme-petra .table-container::-webkit-scrollbar-thumb {
+			      background: #94a3b8;
+			    }
+			    .theme-petra .ranking-item {
+			      border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+			    }
+			    .theme-petra .name { color: #f1f5f9; }
+			    .theme-petra .score { color: #f1f5f9; }
+			    .theme-petra .score span { color: #94a3b8; }
+			    .theme-petra .clients-count {
+			      color: #cbd5e1;
+			      background: rgba(148, 163, 184, 0.1);
+			      border-color: rgba(148, 163, 184, 0.3);
+			    }
+			    .theme-petra .bar-wrapper {
+			      background: rgba(255, 255, 255, 0.03);
+			      border-color: rgba(148, 163, 184, 0.25);
+			    }
+			    .theme-petra .fill-bar {
+			      background: linear-gradient(90deg, #94a3b8, #cbd5e1);
+			      box-shadow: 0 0 8px rgba(203, 213, 225, 0.5);
+			    }
+			    .theme-petra .footer-bar {
+			      background: linear-gradient(90deg, #475569 0%, #cbd5e1 50%, #475569 100%);
+			      color: #0f172a;
+			      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+			    }
+			    .theme-petra .badge-regular {
+			      background: radial-gradient(circle, #475569 0%, #1e293b 100%);
+			      color: #cbd5e1;
+			      border-color: #94a3b8;
+			    }
 			  </style>
 			</head>
 			<body>
-			  <main class=""dashboard-container"">
+			  <main class=""" & ContainerClass & """>
 			    <header class=""header-bar"">
 			      <div class=""title-area"">
 			        <h1>" & ActionTitle & "</h1>
@@ -920,7 +1045,7 @@ table Medidas_Ranking
 			        </div>
 			        <footer class=""footer-bar"">
 			          <span class=""trophy"">&#127942;</span>
-			          <span>Total da ação: " & FORMAT(TotalSales, "#,##0") & " caixas — Parabéns a todos!</span>
+			          <span>Total da ação: " & FORMAT(TotalSales, "#,##0") & " caixas — " & FORMAT(TotalClients, "#,##0") & " clientes alcançados — " & MsgParabens & "</span>
 			        </footer>
 			      </section>
 			    </div>

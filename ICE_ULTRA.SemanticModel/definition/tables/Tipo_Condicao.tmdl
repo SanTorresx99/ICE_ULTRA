@@ -44,8 +44,6 @@ table Tipo_Condicao
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column con_DataSync_dtm
 		dataType: dateTime
 		formatString: General Number
@@ -164,8 +162,6 @@ table Tipo_Condicao
 		sourceColumn: con_Correcao_num
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	partition Tipo_Condicao = entity
 		mode: directQuery

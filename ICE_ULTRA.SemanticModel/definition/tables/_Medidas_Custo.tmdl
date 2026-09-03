@@ -13,28 +13,20 @@ table _Medidas_Custo
 		sourceLineageTag: 16431bce-0a24-40cc-8a26-d03fb9af5730
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure Custo = EXTERNALMEASURE("Custo", DOUBLE, "DirectQuery para AS – RSL-BI")
 		lineageTag: 46e9b148-7a80-4f94-a1d2-d71a2b22238a
 		sourceLineageTag: 7b4ca291-e677-4287-b317-cbe4b2f4bbea
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure PVV_Meta = EXTERNALMEASURE("PVV_Meta", DOUBLE, "DirectQuery para AS – RSL-BI")
 		lineageTag: e51145ad-565c-431e-aab2-a2e1501fb4c5
 		sourceLineageTag: 606c0361-10e9-48af-a408-d73527d3174f
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure Lucro = EXTERNALMEASURE("Lucro", DOUBLE, "DirectQuery para AS – RSL-BI")
 		lineageTag: bd304fca-b34b-45ae-85ad-c3dd9c0299af
 		sourceLineageTag: 712fa5dd-50df-48fd-9fe1-c71ab0ad43ae
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure Rank_Prd = EXTERNALMEASURE("Rank_Prd", INTEGER, "DirectQuery para AS – RSL-BI")
 		formatString: 0
@@ -59,8 +51,6 @@ table _Medidas_Custo
 		sourceLineageTag: 9b7998e0-a2e8-4be2-97d7-09c0657f018a
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure Fat_Prev = EXTERNALMEASURE("Fat_Prev", DOUBLE, "DirectQuery para AS – RSL-BI")
 		formatString: #,0.00
 		lineageTag: 6f5dbc55-a137-4928-a1f1-6292adf957f5
@@ -78,8 +68,6 @@ table _Medidas_Custo
 		sourceLineageTag: 4d4c9e30-9aef-40f8-aff5-835cdea4eebd
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure Meta_Margem = EXTERNALMEASURE("Meta_Margem", DOUBLE, "DirectQuery para AS – RSL-BI")
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: ae1bc714-c8e6-4421-94f6-7d96d389b4a1
@@ -90,8 +78,6 @@ table _Medidas_Custo
 		lineageTag: 728d6245-c326-4277-8265-450fd75357e6
 		sourceLineageTag: be4764e4-9c32-4d85-b864-e5974999127c
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure %Lucro_AxLucro_P = EXTERNALMEASURE("%Lucro_AxLucro_P", DOUBLE, "DirectQuery para AS – RSL-BI")
 		formatString: 0.00%;-0.00%;0.00%
@@ -110,14 +96,10 @@ table _Medidas_Custo
 		sourceLineageTag: b2c41fc8-5932-4806-a45f-abed2c1a34cc
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure _Custo_Fatura = EXTERNALMEASURE("_Custo_Fatura", DOUBLE, "DirectQuery para AS – RSL-BI")
 		lineageTag: bac46e1f-1027-42e2-8857-a0632d50ea03
 		sourceLineageTag: 44e7ac5e-9577-4155-ae91-896c1aa3bfc7
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure Itens_Margem_zero = EXTERNALMEASURE("Itens_Margem_zero", INTEGER, "DirectQuery para AS – RSL-BI")
 		formatString: 0

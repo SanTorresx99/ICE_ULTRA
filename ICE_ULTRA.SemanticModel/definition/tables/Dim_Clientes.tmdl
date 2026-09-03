@@ -124,8 +124,6 @@ table Dim_Clientes
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column cli_Longitude_num
 		dataType: double
 		lineageTag: 95da972d-6e19-4c98-bac0-a7265f43fcf2
@@ -135,8 +133,6 @@ table Dim_Clientes
 		sourceColumn: cli_Longitude_num
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column blq_Bloqueio_int_FK
 		dataType: int64
@@ -158,8 +154,6 @@ table Dim_Clientes
 		sourceColumn: lim_Limite_cur
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column cli_Criado_dtm
 		dataType: dateTime
@@ -366,8 +360,6 @@ table Dim_Clientes
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column Saldo_Devedor
 		dataType: double
 		lineageTag: 0f19d381-3526-4506-8ace-14ffae0df762
@@ -378,8 +370,6 @@ table Dim_Clientes
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column Saldo_Disponivel
 		dataType: double
 		lineageTag: d7f9b480-2e4f-4dcf-b5f4-826bcfe9ab3e
@@ -389,8 +379,6 @@ table Dim_Clientes
 		sourceColumn: Saldo_Disponivel
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column cli_Cobranca
 		dataType: string

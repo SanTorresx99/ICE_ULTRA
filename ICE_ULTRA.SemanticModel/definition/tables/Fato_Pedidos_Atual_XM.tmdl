@@ -174,8 +174,6 @@ table Fato_Pedidos_Atual_XM
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column ped_Longitude_num
 		dataType: double
 		lineageTag: dcd8e995-4dc4-4b76-a5e7-9fe49a17f2a9
@@ -185,8 +183,6 @@ table Fato_Pedidos_Atual_XM
 		sourceColumn: ped_Longitude_num
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column tpp_TipoPedido_int_FK
 		dataType: double
@@ -274,8 +270,6 @@ table Fato_Pedidos_Atual_XM
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column itp_PrecoBase_cur
 		dataType: double
 		lineageTag: 9943f08d-f349-4380-ab18-fbbfecb4aad0
@@ -285,8 +279,6 @@ table Fato_Pedidos_Atual_XM
 		sourceColumn: itp_PrecoBase_cur
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column itp_TipoItem_ind
 		dataType: double
@@ -363,8 +355,6 @@ table Fato_Pedidos_Atual_XM
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column vis_LongitudeInicio_num
 		dataType: double
 		lineageTag: 0b770276-db03-4f6b-8f6c-59f544c1d8b9
@@ -374,8 +364,6 @@ table Fato_Pedidos_Atual_XM
 		sourceColumn: vis_LongitudeInicio_num
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column vis_LatitudeFinal_num
 		dataType: double
@@ -387,8 +375,6 @@ table Fato_Pedidos_Atual_XM
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column vis_LongitudeFinal_num
 		dataType: double
 		lineageTag: efb40242-1547-4dc3-8d4f-4283c8793f9b
@@ -398,8 +384,6 @@ table Fato_Pedidos_Atual_XM
 		sourceColumn: vis_LongitudeFinal_num
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column Latitude
 		dataType: double
@@ -411,8 +395,6 @@ table Fato_Pedidos_Atual_XM
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column Longitude
 		dataType: double
 		lineageTag: 60b889ba-1f9b-4d7e-82b2-065a0741d384
@@ -422,8 +404,6 @@ table Fato_Pedidos_Atual_XM
 		sourceColumn: Longitude
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column Tempo_atendimento
 		dataType: dateTime
@@ -492,8 +472,6 @@ table Fato_Pedidos_Atual_XM
 		sourceColumn: Distancia
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column Raio
 		dataType: string

@@ -130,8 +130,6 @@ table Fato_Carregamento
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column MAPA_ABERTO
 		dataType: int64
 		formatString: 0
@@ -207,8 +205,6 @@ table Fato_Carregamento
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column KMFINAL
 		dataType: double
 		lineageTag: f6ea9632-6167-4e3a-83e0-52fb105b3e30
@@ -218,8 +214,6 @@ table Fato_Carregamento
 		sourceColumn: KMFINAL
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column DESTINO
 		dataType: string
@@ -251,8 +245,6 @@ table Fato_Carregamento
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column CODCONFERENTE
 		dataType: double
 		lineageTag: e9891043-5b3e-488f-b652-a950cceabb54
@@ -262,8 +254,6 @@ table Fato_Carregamento
 		sourceColumn: CODCONFERENTE
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column CODFATURISTA
 		dataType: double
@@ -275,8 +265,6 @@ table Fato_Carregamento
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column CODROTEIRIZADOR
 		dataType: double
 		lineageTag: 19a54157-260b-4f3b-ac87-8c85b67eb755
@@ -286,8 +274,6 @@ table Fato_Carregamento
 		sourceColumn: CODROTEIRIZADOR
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column CODMONTADORMAPA
 		dataType: double
@@ -299,8 +285,6 @@ table Fato_Carregamento
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column CODUSUARIOCANCEL
 		dataType: double
 		lineageTag: 9893eadb-44fd-4fed-aa1d-2b1a85ae3582
@@ -310,8 +294,6 @@ table Fato_Carregamento
 		sourceColumn: CODUSUARIOCANCEL
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column DATACONFERENCIA
 		dataType: dateTime

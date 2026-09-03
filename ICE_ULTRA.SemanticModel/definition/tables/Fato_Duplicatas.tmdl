@@ -25,7 +25,6 @@ table Fato_Duplicatas
 
 	column DUPLIC
 		dataType: int64
-		formatString: 0
 		lineageTag: b85186cf-1ebf-40fc-b3d7-07b1e9e5c1f1
 		sourceLineageTag: 4882d487-0a5b-4f59-9585-d57f872c8a7e
 		dataCategory: Uncategorized
@@ -43,8 +42,6 @@ table Fato_Duplicatas
 		sourceColumn: VALOR
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column DTVENC
 		dataType: dateTime
@@ -82,8 +79,6 @@ table Fato_Duplicatas
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column VLDEVOL
 		dataType: double
 		lineageTag: e7ed6477-be5a-46ed-bf4f-5a5b0d471ad3
@@ -94,8 +89,6 @@ table Fato_Duplicatas
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column NUMASSOCDNI
 		dataType: double
 		lineageTag: 86e502fc-b974-4bfd-b6ae-a9329aa9ba16
@@ -105,8 +98,6 @@ table Fato_Duplicatas
 		sourceColumn: NUMASSOCDNI
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column SUPERVISOR
 		dataType: string
@@ -128,8 +119,6 @@ table Fato_Duplicatas
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column VLRDOC
 		dataType: double
 		lineageTag: eec3beef-6aa8-4d9c-8496-7be70d555dde
@@ -139,8 +128,6 @@ table Fato_Duplicatas
 		sourceColumn: VLRDOC
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column TXPERM
 		dataType: double
@@ -152,8 +139,6 @@ table Fato_Duplicatas
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column TXPERMPREVREAL
 		dataType: double
 		lineageTag: 556ece41-116e-467a-a7a5-c12ae8ee83d0
@@ -164,8 +149,6 @@ table Fato_Duplicatas
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column TXPERMPREVISTO
 		dataType: double
 		lineageTag: d4c844f1-d3df-4e74-b6bc-747e772ccd09
@@ -175,8 +158,6 @@ table Fato_Duplicatas
 		sourceColumn: TXPERMPREVISTO
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column DTPAG
 		dataType: dateTime
@@ -246,8 +227,6 @@ table Fato_Duplicatas
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column CODFILIAL
 		dataType: int64
 		formatString: 0
@@ -272,7 +251,6 @@ table Fato_Duplicatas
 
 	column CODUSUR
 		dataType: int64
-		formatString: 0
 		lineageTag: a60d36bd-baf6-4702-b264-29696d314271
 		sourceLineageTag: 1d84e4d2-5b0f-4043-b478-0bed0d5203a8
 		dataCategory: Uncategorized
@@ -290,8 +268,6 @@ table Fato_Duplicatas
 		sourceColumn: VALORDESC
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column DTULTALTER
 		dataType: dateTime
@@ -329,8 +305,6 @@ table Fato_Duplicatas
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column NUMAGENCIA
 		dataType: double
 		lineageTag: a8f84794-d8df-4085-9ba2-9541c04eddc0
@@ -341,8 +315,6 @@ table Fato_Duplicatas
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column NUMCHEQUE
 		dataType: double
 		lineageTag: ddfe1775-3009-43cf-a382-122ed743e03e
@@ -352,8 +324,6 @@ table Fato_Duplicatas
 		sourceColumn: NUMCHEQUE
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column DTLANCCH
 		dataType: dateTime
@@ -397,8 +367,6 @@ table Fato_Duplicatas
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column NOSSONUMBCO
 		dataType: string
 		lineageTag: 0f1d760f-bde0-4511-af9f-8e1b6d946826
@@ -429,8 +397,6 @@ table Fato_Duplicatas
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column NUMTRANS
 		dataType: double
 		lineageTag: 7961f43e-9557-437c-aeef-c51927148ad6
@@ -440,8 +406,6 @@ table Fato_Duplicatas
 		sourceColumn: NUMTRANS
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column DTLANCPRORROG
 		dataType: dateTime
@@ -485,8 +449,6 @@ table Fato_Duplicatas
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column CODCOBBANCO
 		dataType: string
 		lineageTag: ee3f6be1-62a9-48d0-b12b-010b8e27044a
@@ -517,8 +479,6 @@ table Fato_Duplicatas
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column TXCOB
 		dataType: double
 		lineageTag: 9e921343-4e38-4c6d-8206-7fe85648a4c5
@@ -528,8 +488,6 @@ table Fato_Duplicatas
 		sourceColumn: TXCOB
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column USUARIOBD
 		dataType: string
@@ -571,8 +529,6 @@ table Fato_Duplicatas
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column COBRANCA
 		dataType: string
 		lineageTag: 5e87cc95-1b59-43e6-af0b-60d939db9d2b
@@ -595,7 +551,6 @@ table Fato_Duplicatas
 
 	column CODSUPERVISOR
 		dataType: int64
-		formatString: 0
 		lineageTag: 8c4d61e3-960f-4640-91c7-adb879948c24
 		sourceLineageTag: 83b496cb-ef95-42ab-a202-effb9ee8e7c7
 		dataCategory: Uncategorized
@@ -613,8 +568,6 @@ table Fato_Duplicatas
 		sourceColumn: VALORORIG
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column CODCOBORIG
 		dataType: string
@@ -836,8 +789,6 @@ table Fato_Duplicatas
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column FUNCESTORNO
 		dataType: string
 		lineageTag: eb28e591-5550-4f08-8f42-a429efbec1d6
@@ -878,8 +829,6 @@ table Fato_Duplicatas
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column OBS
 		dataType: string
 		lineageTag: c9eec035-a1af-4175-b1dc-d1036c35e30c
@@ -900,8 +849,6 @@ table Fato_Duplicatas
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column VLRDESPCARTORAIS
 		dataType: double
 		lineageTag: d25b2de9-1cef-452a-80e3-1b337fe470ba
@@ -911,8 +858,6 @@ table Fato_Duplicatas
 		sourceColumn: VLRDESPCARTORAIS
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column VLROUTROSACRESC
 		dataType: double
@@ -924,8 +869,6 @@ table Fato_Duplicatas
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column VLRTOTDESPESASEJUROS
 		dataType: double
 		lineageTag: cf2fd4d1-9799-43be-bfb8-32735547f752
@@ -935,8 +878,6 @@ table Fato_Duplicatas
 		sourceColumn: VLRTOTDESPESASEJUROS
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column PERCMULTA
 		dataType: double
@@ -948,8 +889,6 @@ table Fato_Duplicatas
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column VALORMULTA
 		dataType: double
 		lineageTag: d3a59fc6-790a-4368-8739-0830619f9e60
@@ -960,8 +899,6 @@ table Fato_Duplicatas
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column VLTOTALJUROSMULTA
 		dataType: double
 		lineageTag: 61e14f06-e22d-4092-be16-eaa6bc292531
@@ -971,8 +908,6 @@ table Fato_Duplicatas
 		sourceColumn: VLTOTALJUROSMULTA
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column DTRECEBIMENTOPREVISTO
 		dataType: dateTime
@@ -1070,8 +1005,6 @@ table Fato_Duplicatas
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column SITUACAO
 		dataType: string
 		lineageTag: 2e6f9ea8-6b8f-4a9a-b465-aa263531f408
@@ -1125,8 +1058,6 @@ table Fato_Duplicatas
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column JUROS_PREVISTO
 		dataType: double
 		lineageTag: 6c14da11-d204-4078-ad97-6111f4ed0141
@@ -1137,8 +1068,6 @@ table Fato_Duplicatas
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column RECEBER+JUROSPREV
 		dataType: double
 		lineageTag: aa231fa2-7cd0-4c11-ac16-29c0005a010c
@@ -1148,8 +1077,6 @@ table Fato_Duplicatas
 		sourceColumn: RECEBER+JUROSPREV
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column VEND_ATUAL
 		dataType: int64

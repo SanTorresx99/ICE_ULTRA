@@ -147,8 +147,6 @@ table Fato_Vendas_Hist_Fabrica
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column VLRTOTAL
 		dataType: double
 		lineageTag: af1fdfbb-ce8e-4f7f-a8aa-70fe5625fb15
@@ -158,8 +156,6 @@ table Fato_Vendas_Hist_Fabrica
 		sourceColumn: VLRTOTAL
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column DTPEDIDO
 		dataType: dateTime

@@ -70,6 +70,148 @@ O formato final do rodapé consolidou-se em:
 
 ---
 
-## 🛠️ Arquivos Alterados
-* [`Medidas_Ranking.tmdl`](file:///C:/Users/a.alves/Downloads/ICE_ULTRA/ICE_ULTRA.SemanticModel/definition/tables/Medidas_Ranking.tmdl): Contém as medidas Base64, lógica do rodapé dinâmico de metas e clientes alcançados no visual `Ranking_Sellers_HTML`.
-* [`DOCUMENTACAO.md`](file:///C:/Users/a.alves/Downloads/ICE_ULTRA/DOCUMENTACAO.md): Atualizado com as novas regras de negócio do rodapé dinâmico.
+---
+
+---
+
+## 📱 Versão HTML Mobile Verticalizada (Modo "Light Screen")
+
+Com base nos mockups verticais incluídos (`Modelo_ICE.jpeg` e `Modelo_Ultra_Mobile.jpeg`), foi desenvolvida uma solução verticalizada focada na experiência de visualização por smartphones e telas portáteis:
+
+### 🌟 Características da Versão Mobile:
+1. **Modo "Light Screen" (Tema Claro Otimizado)**:
+   * Desenvolvido especialmente para telas de celulares e ambientes com iluminação diurna.
+   * Fundo claro suave (`#f1f5f9`), cartões brancos com elevação suave (`box-shadow`), tipografia de alto contraste (`#0f172a` / `#475569`).
+   * Paleta temática adaptativa: Dourado quente para **Petra Ultra**, Rubi/Vermelho para **Crystal Ice**.
+   * Inclui alternador interativo de tema (**☀️ Light / 🌙 Dark**) para comparação com os mockups escuros originais.
+
+2. **Linhas Sutis de Campo de Futebol no Background**:
+   * Marca d'água vetorial discreta (`opacity: 0.07`), elegante e sem poluição visual.
+   * Reproduz geometricamente:
+     * Linhas limites do campo com escanteios nos 4 cantos.
+     * Linha de meio-campo com círculo central e ponto central.
+     * Grande área e pequena área superior e inferior.
+     * Marca da cal (pênalti) e meia-lua da grande área.
+     * Traves e gols superior e inferior com detalhes sutis da rede em linhas pontilhadas.
+
+3. **Repartição Dinâmica dos Vendedores em Lotes (Tabela de Liga / Futebol)**:
+   * **Critério de Ativação**:
+     * Se a quantidade de vendedores ativos for **$\ge 5$**, a divisão em 5 categorias é aplicada automaticamente.
+     * Se a quantidade for **$< 5$** (ex: filtro por equipe/supervisor pequeno), os marcadores e divisores são **omitidos**, exibindo apenas o ranking limpo normal.
+   * **As 5 Categorias Dinâmicas**:
+     * 🏆 **G4 • Libertadores**: Top 4 colocados (1º ao 4º) com destaque nobre e vaga direta.
+     * 🥈 **G-Nº • Pré-Libertadores**: 1/4 do total de vendedores (ex: até o G10 se forem 40 vendedores).
+     * ⚽ **G-Nº • Sul-Americana**: 2/4 do total de vendedores (50% superior restante).
+     * ⚠️ **Zona de Rebaixamento**: 3/4 do total de vendedores (alerta de perigo).
+     * 🔻 **Série B • Rebaixados**: Últimos colocados (restante até o final, necessitam reagir).
+   * **Marcadores Visuais**: Banners divisores de categoria estilizados com cores temáticas e selos em miniatura (*pills*) em cada linha de vendedor (`G4`, `Pré-Lib`, `Sula`, `Rebaixamento`, `Série B`).
+
+4. **Padrão Verticalizado Fiel aos Mockups**:
+   * **Header de Destaque**: Título "Ranking da Ação", nome do produto com efeito gradiente metálico e badge de período ("✦ Realizado dos dias 14/08 a 01/09 ✦").
+   * **Showcase Hero com Garrafa Flutuante**: Garrafa do produto ativo com animação fluida de flutuação 3D, gotas de condensação e halo de brilho suave.
+   * **Pódios e Medalhas (TOP 3)**:
+     * 1º Lugar: Medalha de Ouro 🥇 com fita e linha destacada.
+     * 2º Lugar: Medalha de Prata 🥈 com fita e linha destacada.
+     * 3º Lugar: Medalha de Bronze 🥉 com fita e linha destacada.
+     * 4º ao 15º: Badges circulares limpos.
+   * **Tabela de Vendedores**: Colunas `#`, `Vendedor`, `Caixas` e `Posit.`, além de barra de progresso proporcional calculada com base no 1º colocado.
+   * **2 Grandes Blocos de KPI**:
+     * **Total de Caixas** com ícone temático de engradado (826 / 1.600 / 2.426).
+     * **Total de Positivações** com gráfico de barras ascendente e seta 📈 (428 / 643 / 1.071).
+
+5. **Lógica Dinâmica de Parabenização e Slogan**:
+   * Validação condicional: Média >= 50 OU Venda Máxima >= 50.
+   * Título: **"PARABÉNS A TODOS OS VENDEDORES!"** quando atingida a meta de incentivo, ou **"VAMOS ACELERAR!"** em caso contrário.
+   * Slogan motivacional: `— Juntos somos mais fortes! —` em tipografia cursiva elegante (`Dancing Script` / `Caveat`).
+   * Resumo de rodapé com total de caixas e clientes alcançados.
+
+---
+
+---
+
+## 🏆 Tabelão Único Brasileirão - Página Completa PBIP (1280x720)
+
+Para atender a demanda de acompanhamento pelas equipes de supervisores em tela cheia (formato padrão PBIP de **1280px de largura por 720px de altura**), foi desenvolvido um painel integrado em formato de tabela de classificação do Campeonato Brasileiro:
+
+### 🌟 Especificações e Recursos:
+1. **Background de Campo de Futebol Suave ("Verde Claro" & Discreto)**:
+   * Fundo gradiente em verde suave de gramado (`#edf7ed` a `#e2efe4`), com listras verticais sutis de corte de grama (*mowing stripes*).
+   * Marca d'água vetorial de campo de futebol em paisagem 1280x720 com linhas em branco e cinza suave (`opacity: 0.12`), traves laterais com rede pontilhada, grandes e pequenas áreas, círculos e arcos de escanteio.
+
+2. **⚙️ 3 Motores de Cálculo do Ranking (Interativos)**:
+   A classificação dos vendedores e a composição dos lotes esportivos podem ser alternadas dinamicamente entre 3 critérios:
+   * **Motor 1: Volume de Produtos Vendidos (Caixas)**:
+     * Ordenação decrescente pela quantidade total de caixas vendidas.
+     * Barra proporcional dourada/verde relativa ao 1º colocado.
+   * **Motor 2: Quantidade de Clientes Atingidos (Positivações)**:
+     * Ordenação decrescente pelo número de clientes únicos positivados.
+   * **Motor 3: % de Clientes Atingidos (Cobertura da Carteira)**:
+     * Fórmula:
+       $$\% \text{ Atingido} = \left(\frac{\text{Clientes Alcançados}}{\text{Clientes da Base}}\right) \times 100$$
+     * Barra e badge com cores dinâmicas de performance:
+       * **Verde ($\ge 40\%$)**: Alta cobertura de clientes.
+       * **Âmbar ($25\% \text{ a } 39.9\%$)**: Média cobertura.
+       * **Vermelho ($< 25\%$)**: Baixa cobertura / Alerta.
+
+3. **Aproveitamento Total do Espaço Horizontal (1280px)**:
+   * Colunas amplas e organizadas:
+     * `#` (Posição com medalhas 🥇, 🥈, 🥉 e badges).
+     * `Zona Brasileirão` (Tags proeminentes de classificação).
+     * `Vendedor` (Nome completo sem cortes bruscos).
+     * `Supervisor` (Identificação da equipe em tag cinza elegante).
+     * `Volume (Cx)` (Volume numérico e barra proporcional).
+     * `Clientes Posit.` (Quantidade de positivações).
+     * `Base Clientes` (Tamanho da carteira cadastrada do vendedor).
+     * `% Atingido Base` (Percentual de cobertura com mini-gauge).
+     * `Status / Tag` (Tags dinâmicas de futebol ajustadas para 170px com fonte compacta 0.68rem e sem overlap: 🏆 **INVICTO**, ⚡ **MELHOR NO VOL**, 🎯 **CAMISA 10**, 🔥 **NO ATAQUE**, 🛡️ **EM JOGO**, 🏠 **PERDENDO EM CASA**, ❓ **CADÊ O TÉCNICO?**).
+
+4. **Divisão Dinâmica em 5 Categorias do Brasileirão**:
+   * Mantém a regra matemática estabelecida:
+     * 🏆 **G4 • Libertadores**: Posições 1 a 4 (Classificação direta).
+     * 🥈 **G-Nº • Pré-Libertadores**: 5º até $\approx 1/4$ do total (Ex: G14 em 54 vendedores).
+     * ⚽ **G-Nº • Sul-Americana**: Até $\approx 2/4$ do total (Ex: G27 em 54 vendedores).
+     * ⚠️ **Zona de Rebaixamento**: Até $\approx 3/4$ do total (Ex: Z41 em 54 vendedores).
+     * 🔻 **Série B • Rebaixados**: Últimos colocados (restante).
+5. **Regra de Exclusão de Supervisores (Vendedor == Supervisor)**:
+   * **Objetivo**: Garantir que apenas vendedores legítimos de linha de frente componham o ranking e as estatísticas.
+   * **Critério de Exclusão**: Se o nome do vendedor for idêntico ao nome do supervisor (`[@Name] = [@Supervisor]`), indicando vendas diretas do supervisor ou pedidos de apoio:
+     * O registro é **completamente excluído do ranking** (não recebe colocação e não é renderizado no HTML).
+     * Os totais de caixas (`TotalSales`), contagem de participantes (`CountSellers`) e positivações (`TotalClients`) são recalculados desconsiderando esse volume.
+   * **Implementação**:
+     * DAX: `FILTER(RawSellers, [@Sales] > 0 && (ISBLANK([@Supervisor]) || TRIM([@Name]) <> TRIM([@Supervisor])))` aplicado em `[Ranking_Brasileirao_HTML]`, `[Ranking_Mobile_HTML]` e `[Ranking_Sellers_HTML]`.
+     * Mockups JS: `.filter(s => !s.sup || !s.name || s.name.trim().toLowerCase() !== s.sup.trim().toLowerCase())`.
+
+6. **Arquitetura Responsiva e Alta Densidade de Visualização**:
+   * **Responsividade Fluida 100% x 100%**:
+     * Remove larguras e alturas fixas de pixel (`width: 100%; height: 100%; min-width: 920px; min-height: 540px;`).
+     * Permite aumentar livremente as dimensões da página PBIP no Power BI (ex: $1600 \times 900$, $1920 \times 1080$ Full HD, ou páginas longas verticais como $1280 \times 1400$), ocupando todo o espaço sem cortes nem sobras brancas.
+     * **Grid CSS Fluido**: Colunas principais usam `minmax(..., fr)` (como nome do vendedor e supervisor), expandindo proporcionalmente conforme a largura aumenta.
+     * **Marca d'água Vetorial Escalável**: SVG com `preserveAspectRatio="none"` e coordenadas percentuais normalizadas, adaptando o desenho do gramado e traves a qualquer proporção de tela.
+   * **Otimização de Espaço Vertical (Mais Vendedores na Tela)**:
+     * Cabeçalho compacto reduzido para 56px e rodapé para 36px.
+     * Altura de linha otimizada para ~32px (em vez dos ~48px anteriores).
+     * **Capacidade de Visualização Simultânea**:
+       * Em **720px**: de 6-7 vendedores visíveis para **17+ vendedores simultâneos** sem rolagem.
+       * Em **900px**: **22+ vendedores simultâneos**.
+       * Em **1080px (Full HD)**: **28+ vendedores simultâneos**.
+       * Em **1400px (Página longa)**: **37+ vendedores simultâneos**.
+     * Seletor interativo de densidade no mockup (`Compacto 17+` vs `Ultra 21+`).
+
+7. **Estrutura de Páginas do Relatório PBIP**:
+   * **`Ranking Geral`** (`1304 x 750`): Página widescreen com a tabela fluida do Brasileirão (`[Ranking_Brasileirao_HTML]`), ocupando 100% da área com alta densidade (17+ vendedores simultâneos), 3 motores de cálculo e coluna de Zona ampliada para 150px (zero overlap na tag *PRÉ-LIBERTADORES*).
+   * **`Mobile`** (`720 x 1280`): Página verticalizada otimizada para smartphones (`[Ranking_Mobile_HTML]`) no modo light screen com divisões de zonas.
+   * **`Rankin`** (`1280 x 720`): Visão desktop clássica com tabela à esquerda e cartazes/KPIs à direita (`[Ranking_Sellers_HTML]`).
+   * **`Audit`** (`1280 x 720`): Página de conferência e auditoria de dados.
+   * **`Info`** (`1280 x 720`): Instruções e regras da campanha.
+
+---
+
+## 🛠️ Arquivos e Entregáveis
+* [`tabela_brasileirao.html`](file:///C:/Users/a.alves/Downloads/ICE_ULTRA/Mockup/tabela_brasileirao.html): Visual em página cheia **100% responsivo**, com alta densidade (17+ a 28+ vendedores simultâneos), alternador interativo entre os 3 motores de cálculo, filtros de escopo, densidade, marcas d'água e tabela completa do Brasileirão.
+* [`ranking_mobile.html`](file:///C:/Users/a.alves/Downloads/ICE_ULTRA/Mockup/ranking_mobile.html): Arquivo mobile autônomo verticalizado (modo light screen) com divisões de futebol e marcas d'água.
+* [`Medidas_Ranking.tmdl`](file:///C:/Users/a.alves/Downloads/ICE_ULTRA/ICE_ULTRA.SemanticModel/definition/tables/Medidas_Ranking.tmdl): Contém as medidas Base64, `[Ranking_Sellers_HTML]`, `[Ranking_Mobile_HTML]` e a nova medida `[Ranking_Brasileirao_HTML]` responsiva e compacta para exibição em qualquer tamanho de tela no Power BI.
+* [`Filtro_Ranking_Motor.tmdl`](file:///C:/Users/a.alves/Downloads/ICE_ULTRA/ICE_ULTRA.SemanticModel/definition/tables/Filtro_Ranking_Motor.tmdl): Tabela de parâmetros com os 3 motores de ordenação do ranking (Volume, Clientes Positivados e % Base).
+* [`DOCUMENTACAO.md`](file:///C:/Users/a.alves/Downloads/ICE_ULTRA/DOCUMENTACAO.md): Atualizado com a arquitetura completa das soluções visuais, alta densidade e os 3 motores de classificação.
+
+
+

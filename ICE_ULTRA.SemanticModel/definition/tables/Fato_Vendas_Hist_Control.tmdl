@@ -128,8 +128,6 @@ table Fato_Vendas_Hist_Control
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column VLRTOTAL
 		dataType: double
 		lineageTag: 8b75c7f9-f34e-4ce9-bc3e-052a716ad760
@@ -139,8 +137,6 @@ table Fato_Vendas_Hist_Control
 		sourceColumn: VLRTOTAL
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column DTPEDIDO
 		dataType: dateTime
@@ -200,8 +196,6 @@ table Fato_Vendas_Hist_Control
 		sourceColumn: VALVDEV
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column CODDEVOLUCAO
 		dataType: int64

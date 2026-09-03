@@ -25,8 +25,6 @@ table _Medidas_Cmd
 		sourceLineageTag: 26c16abc-0568-41da-a115-2be9dd87537b
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure '%Mat.Pesado' = EXTERNALMEASURE("%Mat.Pesado", DOUBLE, "DirectQuery para AS – RSL-BI")
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 6c7d7199-7e20-476a-8aea-92fb814255a7
@@ -62,28 +60,20 @@ table _Medidas_Cmd
 		sourceLineageTag: 3016c744-73f5-4b65-9b6b-e10ff5bbaf9a
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isText":true}
-
 	measure 'FORMATACAO STS VAS' = EXTERNALMEASURE("FORMATACAO STS VAS", STRING, "DirectQuery para AS – RSL-BI")
 		lineageTag: 8cf04a30-7a3a-45e7-966e-808482ba71f0
 		sourceLineageTag: a9c80db6-3ba9-48b5-9a1c-12bc084de55e
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isText":true}
 
 	measure 'MP STS 2' = EXTERNALMEASURE("MP STS 2", STRING, "DirectQuery para AS – RSL-BI")
 		lineageTag: 6f246376-e0a8-4e40-be99-0f627fb6c222
 		sourceLineageTag: 28e45066-3ea1-4bdc-ad54-e7055f2a8d80
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isText":true}
-
 	measure 'STS VAS' = EXTERNALMEASURE("STS VAS", STRING, "DirectQuery para AS – RSL-BI")
 		lineageTag: 46437b32-7026-461d-9687-46a0a9f6006a
 		sourceLineageTag: c65bfcd6-ffbb-46e1-8ff0-6e9ce24de8ec
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isText":true}
 
 	measure %Peso_Total_Cmd = EXTERNALMEASURE("%Peso_Total_Cmd", DOUBLE, "DirectQuery para AS – RSL-BI")
 		formatString: 0.00%;-0.00%;0.00%
@@ -108,14 +98,10 @@ table _Medidas_Cmd
 		sourceLineageTag: a45ad24d-294d-4b3b-8277-e9cfd33fdb22
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure Status_Mat = EXTERNALMEASURE("Status_Mat", STRING, "DirectQuery para AS – RSL-BI")
 		lineageTag: 14e6f8f4-1e50-41e0-8229-dcd2b5d08e3d
 		sourceLineageTag: 53618e38-59be-43d1-9ad8-a337fe93a554
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isText":true}
 
 	measure 'Qtde_Cli_Mat >2' = EXTERNALMEASURE("Qtde_Cli_Mat >2", INTEGER, "DirectQuery para AS – RSL-BI")
 		formatString: 0
@@ -253,8 +239,6 @@ table _Medidas_Cmd
 		lineageTag: 1eee5745-1f9f-46b6-b929-5c5df4d5df70
 		sourceLineageTag: 0e0c14b3-5e65-494a-83f6-609e55f692ba
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure Qtde_Cli_Vas_TT = EXTERNALMEASURE("Qtde_Cli_Vas_TT", INTEGER, "DirectQuery para AS – RSL-BI")
 		formatString: 0
@@ -507,8 +491,6 @@ table _Medidas_Cmd
 		sourceLineageTag: 69ac9945-91b6-40e8-b57b-26c52b0c2fde
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure Qtde_Vas_Minimo = EXTERNALMEASURE("Qtde_Vas_Minimo", INTEGER, "DirectQuery para AS – RSL-BI")
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 4f55a1ec-99cd-4c03-8071-888594c7173b
@@ -528,7 +510,6 @@ table _Medidas_Cmd
 		dataCategory: Uncategorized
 
 	measure Cli_Mat_Minimo = EXTERNALMEASURE("Cli_Mat_Minimo", INTEGER, "DirectQuery para AS – RSL-BI")
-		formatString: 0
 		lineageTag: 36db6d37-3b92-46d5-af47-6e6474b72b12
 		sourceLineageTag: acf37ae3-8323-42a4-b4d2-90dd31f4d665
 		dataCategory: Uncategorized
@@ -538,14 +519,10 @@ table _Medidas_Cmd
 		sourceLineageTag: f0017ea1-a291-4d67-a723-483281c281d6
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isText":true}
-
 	measure Status_Cli_Vas = EXTERNALMEASURE("Status_Cli_Vas", STRING, "DirectQuery para AS – RSL-BI")
 		lineageTag: 683d02ff-9f23-4e67-ae6c-656e7b2417fa
 		sourceLineageTag: 390451e2-785b-4031-81a4-6a6f72df3882
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isText":true}
 
 	measure Giro1_Mat = EXTERNALMEASURE("Giro1_Mat", INTEGER, "DirectQuery para AS – RSL-BI")
 		formatString: 0
@@ -569,8 +546,6 @@ table _Medidas_Cmd
 		lineageTag: 057ef4ce-e6d1-4e52-989c-f9b504246d80
 		sourceLineageTag: d9600c50-45ba-4baf-9989-17cd9a140747
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure Giro1_Vas = EXTERNALMEASURE("Giro1_Vas", INTEGER, "DirectQuery para AS – RSL-BI")
 		formatString: 0
@@ -636,8 +611,6 @@ table _Medidas_Cmd
 		lineageTag: 3492ebb1-c723-4808-abfd-c1efdde78932
 		sourceLineageTag: 1f2b009b-ab50-4dc4-918e-78a1e2043ece
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isText":true}
 
 	measure Cli_Mat_Vda_dia = EXTERNALMEASURE("Cli_Mat_Vda_dia", INTEGER, "DirectQuery para AS – RSL-BI")
 		formatString: 0

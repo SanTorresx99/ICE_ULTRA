@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brasileirão de Vendas - Tabela Responsiva PBIP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Oswald:wght@500;600;700&family=Roboto+Condensed:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Roboto Condensed', sans-serif;
+      color: #0f172a;
+      background-color: #eef6f0;
+      user-select: none;
+    }
+
+    /* Container 100% Fluido e Responsivo para PBIP */
+    .pbip-screen {
+      width: 100%;
+      height: 100%;
+      min-width: 920px;
+      min-height: 540px;
+      background: linear-gradient(180deg, #f3faf5 0%, #eaf5ec 50%, #e2efe4 100%);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Listras do Gramado Fluido */
+    .pitch-stripes {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.08) 0px,
+        rgba(255, 255, 255, 0.08) 70px,
+        rgba(0, 0, 0, 0.015) 70px,
+        rgba(0, 0, 0, 0.015) 140px
+      );
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* SVG do Campo de Futebol Fluido (Estica para 1280x720, 1600x900, 1920x1080 etc) */
+    .pitch-lines-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.12;
+    }
+
+    .pitch-line { stroke: #ffffff; stroke-width: 1.8; fill: none; }
+    .pitch-line-gray { stroke: #64748b; stroke-width: 1.4; fill: none; }
+    .pitch-goal { stroke: #ffffff; stroke-width: 2.2; fill: none; }
+    .pitch-net { stroke: #64748b; stroke-width: 0.9; stroke-dasharray: 4 4; }
+    .pitch-spot { fill: #ffffff; }
+
+    /* Camada de Conteúdo */
+    .app-layer {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Cabeçalho Compacto e Slim (Height: 56px) */
+    .header-bar {
+      height: 56px;
+      padding: 6px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(10px);
+      border-bottom: 1.5px solid rgba(226, 232, 240, 0.9);
+      flex-shrink: 0;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .trophy-icon-wrap {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #fef08a 0%, #f59e0b 50%, #b45309 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      box-shadow: 0 4px 10px rgba(217, 119, 6, 0.25);
+    }
+
+    .brand-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.35rem;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      background: linear-gradient(135deg, #065f46 0%, #047857 50%, #b45309 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+    }
+
+    .brand-sub {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #64748b;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-top: 1px;
+    }
+
+    /* Seletor dos 3 Motores de Ranking */
+    .engine-selector-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .engine-tabs {
+      display: flex;
+      gap: 4px;
+      background: #f1f5f9;
+      padding: 3px;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+    }
+
+    .engine-btn {
+      padding: 4px 10px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      cursor: pointer;
+      background: transparent;
+      color: #475569;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .engine-btn:hover {
+      color: #0f172a;
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .engine-btn.active {
+      background: #ffffff;
+      color: #047857;
+      border-color: #10b981;
+      box-shadow: 0 2px 6px rgba(4, 120, 87, 0.18);
+      font-weight: 700;
+    }
+
+    /* Controles da Direita e KPIs */
+    .right-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .scope-pills {
+      display: flex;
+      gap: 3px;
+    }
+
+    .scope-chip {
+      padding: 3px 8px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      border-radius: 9999px;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      color: #475569;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .scope-chip.active {
+      background: #0f172a;
+      color: #ffffff;
+      border-color: #0f172a;
+    }
+
+    /* Seletor de Densidade */
+    .density-toggle-wrap {
+      display: flex;
+      align-items: center;
+      background: #e2e8f0;
+      border-radius: 6px;
+      padding: 2px;
+    }
+
+    .density-btn {
+      padding: 2px 7px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      border: none;
+      background: transparent;
+      color: #475569;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: all 0.15s;
+    }
+
+    .density-btn.active {
+      background: #ffffff;
+      color: #0f172a;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .kpi-summary-group {
+      display: flex;
+      gap: 6px;
+    }
+
+    .kpi-mini-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 3px 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 62px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+    }
+
+    .kpi-mini-val {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1;
+      color: #047857;
+    }
+
+    .kpi-mini-lbl {
+      font-size: 0.58rem;
+      font-weight: 600;
+      color: #64748b;
+      text-transform: uppercase;
+      margin-top: 1px;
+    }
+
+    /* Área Principal da Tabela - Ocupa 100% do Espaço Restante */
+    .table-container {
+      flex: 1;
+      padding: 6px 18px 4px 18px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      min-height: 0;
+    }
+
+    .brasileirao-table-wrap {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(8px);
+      border-radius: 10px;
+      border: 1.5px solid #cbd5e1;
+      box-shadow: 0 6px 20px rgba(15, 23, 42, 0.04);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      min-height: 0;
+    }
+
+    /* Grid Responsivo das Colunas (Adapta fluidamente a 1280px, 1600px, 1920px) */
+    .table-head-grid, .table-row {
+      display: grid;
+      grid-template-columns: 34px 150px minmax(175px, 1.8fr) minmax(110px, 1fr) minmax(110px, 1fr) 85px 70px minmax(110px, 1fr) 140px;
+      align-items: center;
+      column-gap: 8px;
+      padding: 4px 12px;
+    }
+
+    .table-head-grid {
+      background: #f8fafc;
+      border-bottom: 2px solid #cbd5e1;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      color: #475569;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .col-center { text-align: center; }
+    .col-right { text-align: right; }
+
+    .table-body-scroll {
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: 4px 10px;
+      min-height: 0;
+    }
+
+    .table-body-scroll::-webkit-scrollbar {
+      width: 6px;
+    }
+    .table-body-scroll::-webkit-scrollbar-track {
+      background: #f1f5f9;
+      border-radius: 3px;
+    }
+    .table-body-scroll::-webkit-scrollbar-thumb {
+      background: #94a3b8;
+      border-radius: 3px;
+    }
+
+    /* Banners das Zonas Brasileirão Compactos */
+    .zone-banner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 3px 10px;
+      border-radius: 6px;
+      margin: 4px 0 2px 0;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .zone-banner.zone-libertadores {
+      background: linear-gradient(90deg, rgba(16, 185, 129, 0.20) 0%, rgba(245, 158, 11, 0.12) 100%);
+      border-left: 4px solid #10b981;
+      color: #047857;
+    }
+    .zone-banner.zone-pre {
+      background: linear-gradient(90deg, rgba(14, 165, 233, 0.18) 0%, transparent 100%);
+      border-left: 4px solid #0ea5e9;
+      color: #0369a1;
+    }
+    .zone-banner.zone-sula {
+      background: linear-gradient(90deg, rgba(245, 158, 11, 0.18) 0%, transparent 100%);
+      border-left: 4px solid #f59e0b;
+      color: #b45309;
+    }
+    .zone-banner.zone-z4 {
+      background: linear-gradient(90deg, rgba(249, 115, 22, 0.20) 0%, transparent 100%);
+      border-left: 4px solid #f97316;
+      color: #c2410c;
+    }
+    .zone-banner.zone-serieb {
+      background: linear-gradient(90deg, rgba(239, 68, 68, 0.20) 0%, transparent 100%);
+      border-left: 4px solid #ef4444;
+      color: #b91c1c;
+    }
+
+    .zone-subtitle {
+      font-size: 0.68rem;
+      font-family: 'Roboto Condensed', sans-serif;
+      font-weight: 600;
+      opacity: 0.85;
+      text-transform: none;
+    }
+
+    /* Linhas da Tabela Otimizadas (Altura ~32px) */
+    .table-row {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      transition: all 0.12s ease;
+      font-size: 0.82rem;
+      min-height: 32px;
+    }
+
+    /* Modo Ultra Compacto (Altura ~27px) */
+    .density-ultra .table-row {
+      min-height: 27px;
+      padding: 2px 8px;
+      font-size: 0.78rem;
+    }
+    .density-ultra .zone-banner {
+      padding: 2px 8px;
+      margin: 2px 0 1px;
+      font-size: 0.72rem;
+    }
+    .density-ultra .pos-number {
+      width: 20px;
+      height: 20px;
+      font-size: 0.75rem;
+    }
+
+    .table-row:hover {
+      background: #f8fafc;
+      transform: translateX(2px);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+    }
+
+    .table-row.top-1 {
+      background: linear-gradient(90deg, rgba(245, 158, 11, 0.12) 0%, #ffffff 100%);
+      border-color: rgba(245, 158, 11, 0.45);
+    }
+    .table-row.top-2 {
+      background: linear-gradient(90deg, rgba(148, 163, 184, 0.12) 0%, #ffffff 100%);
+      border-color: rgba(148, 163, 184, 0.45);
+    }
+    .table-row.top-3 {
+      background: linear-gradient(90deg, rgba(217, 119, 6, 0.10) 0%, #ffffff 100%);
+      border-color: rgba(217, 119, 6, 0.4);
+    }
+
+    /* Badges de Posição Compactos */
+    .pos-number {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin: 0 auto;
+    }
+
+    .pos-number.gold {
+      background: radial-gradient(circle, #fef08a 0%, #eab308 60%, #b45309 100%);
+      color: #000;
+      border: 1px solid #ffe57f;
+    }
+    .pos-number.silver {
+      background: radial-gradient(circle, #ffffff 0%, #cbd5e1 60%, #64748b 100%);
+      color: #000;
+      border: 1px solid #e2e8f0;
+    }
+    .pos-number.bronze {
+      background: radial-gradient(circle, #fed7aa 0%, #f97316 60%, #9a3412 100%);
+      color: #000;
+      border: 1px solid #fed7aa;
+    }
+    .pos-number.regular {
+      background: #e2e8f0;
+      color: #334155;
+      font-size: 0.78rem;
+    }
+
+    /* Badges de Zona */
+    .zone-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.69rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2px;
+      width: fit-content;
+      max-width: 145px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      box-sizing: border-box;
+    }
+
+    .tag-libertadores {
+      background: rgba(16, 185, 129, 0.16);
+      color: #047857;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+    }
+    .tag-pre {
+      background: rgba(14, 165, 233, 0.16);
+      color: #0369a1;
+      border: 1px solid rgba(14, 165, 233, 0.4);
+    }
+    .tag-sula {
+      background: rgba(245, 158, 11, 0.16);
+      color: #b45309;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+    }
+    .tag-z4 {
+      background: rgba(249, 115, 22, 0.16);
+      color: #c2410c;
+      border: 1px solid rgba(249, 115, 22, 0.4);
+    }
+    .tag-serieb {
+      background: rgba(239, 68, 68, 0.16);
+      color: #b91c1c;
+      border: 1px solid rgba(239, 68, 68, 0.4);
+    }
+
+    /* Vendedor e Supervisor */
+    .seller-fullname {
+      font-weight: 700;
+      font-size: 0.84rem;
+      text-transform: uppercase;
+      color: #0f172a;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .sup-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      padding: 1px 6px;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #475569;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Colunas de Métricas */
+    .metric-cell {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1;
+    }
+
+    .metric-cell.active-motor {
+      color: #047857;
+      text-shadow: 0 1px 2px rgba(4, 120, 87, 0.15);
+    }
+
+    .metric-sub {
+      font-size: 0.65rem;
+      font-family: 'Roboto Condensed', sans-serif;
+      font-weight: normal;
+      color: #64748b;
+    }
+
+    .volume-box-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 2px;
+    }
+
+    .metric-bar-track {
+      width: 100%;
+      height: 4px;
+      background: #e2e8f0;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .metric-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #10b981, #059669);
+      border-radius: 2px;
+    }
+
+    /* % Cobertura da Base */
+    .pct-box-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 2px;
+    }
+
+    .pct-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      padding: 1px 6px;
+      border-radius: 3px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .pct-high { background: rgba(16, 185, 129, 0.18); color: #047857; }
+    .pct-mid { background: rgba(245, 158, 11, 0.18); color: #b45309; }
+    .pct-low { background: rgba(239, 68, 68, 0.18); color: #b91c1c; }
+
+    .pct-bar-track {
+      width: 100%;
+      height: 4px;
+      background: #e2e8f0;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .pct-bar-fill {
+      height: 100%;
+      border-radius: 2px;
+    }
+
+    /* TAGs Dinâmicas de Futebol Compactas */
+    .status-chip {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      text-align: center;
+      padding: 2px 7px;
+      border-radius: 9999px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      max-width: 145px;
+      margin: 0 auto;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+
+    .tag-invicto {
+      background: linear-gradient(90deg, #fef3c7 0%, #fde68a 100%);
+      color: #92400e;
+      border: 1px solid #f59e0b;
+    }
+    .tag-melhor-vol {
+      background: #ecfdf5;
+      color: #065f46;
+      border: 1px solid #10b981;
+    }
+    .tag-camisa10 {
+      background: #d1fae5;
+      color: #047857;
+      border: 1px solid #34d399;
+    }
+    .tag-ataque {
+      background: #f0f9ff;
+      color: #0369a1;
+      border: 1px solid #38bdf8;
+    }
+    .tag-jogo {
+      background: #f8fafc;
+      color: #334155;
+      border: 1px solid #cbd5e1;
+    }
+    .tag-perdendo-casa {
+      background: #fff7ed;
+      color: #c2410c;
+      border: 1px solid #fb923c;
+    }
+    .tag-cade-tecnico {
+      background: #fef2f2;
+      color: #991b1b;
+      border: 1px solid #f87171;
+    }
+
+    /* Rodapé Compacto (Height: 36px) */
+    .footer-bar {
+      height: 36px;
+      padding: 3px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(8px);
+      border-top: 1.5px solid #cbd5e1;
+      flex-shrink: 0;
+    }
+
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .congrats-pill {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, #ecfdf5 0%, #fef3c7 100%);
+      border: 1px solid #10b981;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #065f46;
+      text-transform: uppercase;
+    }
+
+    .slogan-script {
+      font-family: 'Caveat', cursive;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #b45309;
+      line-height: 1;
+    }
+
+    .footer-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.72rem;
+      color: #64748b;
+      font-weight: 600;
+    }
+
+    .engine-indicator-text {
+      padding: 2px 8px;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      color: #0f172a;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="pbip-screen" id="app-screen">
+    <!-- Listras do Gramado Fluido -->
+    <div class="pitch-stripes"></div>
+
+    <!-- Linhas do Campo de Futebol Fluido (Scalable Vector Graphics 100% x 100%) -->
+    <svg class="pitch-lines-svg" viewBox="0 0 1000 600" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="15" y="15" width="970" height="570" rx="10" class="pitch-line"/>
+      <line x1="500" y1="15" x2="500" y2="585" class="pitch-line"/>
+      <circle cx="500" cy="300" r="70" class="pitch-line"/>
+      <circle cx="500" cy="300" r="3" class="pitch-spot"/>
+      <path d="M 15 35 A 20 20 0 0 0 35 15" class="pitch-line"/>
+      <path d="M 965 15 A 20 20 0 0 0 985 35" class="pitch-line"/>
+      <path d="M 15 565 A 20 20 0 0 1 35 585" class="pitch-line"/>
+      <path d="M 965 585 A 20 20 0 0 1 985 565" class="pitch-line"/>
+      <rect x="15" y="170" width="150" height="260" class="pitch-line-gray"/>
+      <rect x="15" y="230" width="55" height="140" class="pitch-line-gray"/>
+      <circle cx="120" cy="300" r="2.5" class="pitch-spot"/>
+      <path d="M 165 245 A 70 70 0 0 1 165 355" class="pitch-line-gray"/>
+      <rect x="3" y="260" width="12" height="80" rx="2" class="pitch-goal"/>
+      <line x1="3" y1="275" x2="15" y2="275" class="pitch-net"/>
+      <line x1="3" y1="295" x2="15" y2="295" class="pitch-net"/>
+      <line x1="3" y1="315" x2="15" y2="315" class="pitch-net"/>
+      <line x1="3" y1="335" x2="15" y2="335" class="pitch-net"/>
+      <path d="M 835 245 A 70 70 0 0 0 835 355" class="pitch-line-gray"/>
+      <rect x="835" y="170" width="150" height="260" class="pitch-line-gray"/>
+      <rect x="930" y="230" width="55" height="140" class="pitch-line-gray"/>
+      <circle cx="880" cy="300" r="2.5" class="pitch-spot"/>
+      <rect x="985" y="260" width="12" height="80" rx="2" class="pitch-goal"/>
+      <line x1="985" y1="275" x2="997" y2="275" class="pitch-net"/>
+      <line x1="985" y1="295" x2="997" y2="295" class="pitch-net"/>
+      <line x1="985" y1="315" x2="997" y2="315" class="pitch-net"/>
+      <line x1="985" y1="335" x2="997" y2="335" class="pitch-net"/>
+    </svg>
+
+    <!-- Conteúdo da Aplicação -->
+    <div class="app-layer">
+      <!-- Cabeçalho Compacto -->
+      <header class="header-bar">
+        <div class="brand-group">
+          <div class="trophy-icon-wrap">🏆</div>
+          <div>
+            <h1 class="brand-title">Brasileirão de Vendas</h1>
+            <span class="brand-sub">Petra Ultra & Crystal Ice • Classificação Geral</span>
+          </div>
+        </div>
+
+        <!-- 3 Motores de Cálculo do Ranking -->
+        <div class="engine-selector-box">
+          <nav class="engine-tabs">
+            <button class="engine-btn active" id="motor-sales" onclick="setEngine('sales')">
+              📦 Volume (Cx)
+            </button>
+            <button class="engine-btn" id="motor-clients" onclick="setEngine('clients')">
+              👥 Clientes Posit.
+            </button>
+            <button class="engine-btn" id="motor-pct" onclick="setEngine('pct')">
+              🎯 % Atingido Base
+            </button>
+          </nav>
+        </div>
+
+        <!-- Controles da Direita -->
+        <div class="right-controls">
+          <!-- Filtro de Escopo -->
+          <div class="scope-pills">
+            <button class="scope-chip active" id="scope-all" onclick="setScope('all')">Todos (54)</button>
+            <button class="scope-chip" id="scope-top15" onclick="setScope('top15')">Top 15</button>
+            <button class="scope-chip" id="scope-small" onclick="setScope('small')">Equipe &lt; 5</button>
+          </div>
+
+          <!-- Seletor de Densidade de Linhas -->
+          <div class="density-toggle-wrap">
+            <button class="density-btn active" id="dens-compact" onclick="setDensity('compact')">Compacto (17+)</button>
+            <button class="density-btn" id="dens-ultra" onclick="setDensity('ultra')">Ultra (21+)</button>
+          </div>
+
+          <!-- Cards de Resumo KPI -->
+          <div class="kpi-summary-group">
+            <div class="kpi-mini-card">
+              <span class="kpi-mini-val" id="kpi-sellers-val">54</span>
+              <span class="kpi-mini-lbl">Vendedores</span>
+            </div>
+            <div class="kpi-mini-card">
+              <span class="kpi-mini-val" id="kpi-boxes-val">2.426</span>
+              <span class="kpi-mini-lbl">Caixas</span>
+            </div>
+            <div class="kpi-mini-card">
+              <span class="kpi-mini-val" id="kpi-posit-val">1.071</span>
+              <span class="kpi-mini-lbl">Positivações</span>
+            </div>
+            <div class="kpi-mini-card">
+              <span class="kpi-mini-val" id="kpi-cov-val">43.8%</span>
+              <span class="kpi-mini-lbl">Média Base</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Tabelão Único Brasileirão Fluido -->
+      <main class="table-container">
+        <div class="brasileirao-table-wrap">
+          <!-- Cabeçalho da Tabela -->
+          <div class="table-head-grid">
+            <span class="col-center">Pos</span>
+            <span>Zona Brasileirão</span>
+            <span>Vendedor</span>
+            <span>Supervisor</span>
+            <span class="col-right" id="th-sales">Volume (Cx)</span>
+            <span class="col-right" id="th-clients">Clientes Posit.</span>
+            <span class="col-right">Base Clientes</span>
+            <span class="col-right" id="th-pct">% Atingido Base</span>
+            <span class="col-center">Status / Tag</span>
+          </div>
+
+          <!-- Corpo com Scroll Suave -->
+          <div class="table-body-scroll" id="table-body">
+            <!-- Renderizado dinamicamente via JS -->
+          </div>
+        </div>
+      </main>
+
+      <!-- Rodapé Compacto -->
+      <footer class="footer-bar">
+        <div class="footer-left">
+          <div class="congrats-pill" id="footer-congrats">
+            <span>🏆</span>
+            <span id="congrats-text">PARABÉNS A TODOS OS VENDEDORES!</span>
+          </div>
+          <div class="slogan-script">Juntos somos mais fortes!</div>
+        </div>
+
+        <div class="footer-right">
+          <span class="engine-indicator-text" id="engine-indicator-lbl">
+            Classificação ordenada por: <strong>Volume de Produtos Vendidos (Caixas)</strong>
+          </span>
+          <span id="period-summary-text">✦ Realizado de 14/08 a 31/08 ✦</span>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    const allSellers = [{"name": "RAFAEL DE SOUZA ALVES", "sales": 63, "clients": 26, "base_clients": 80, "pct": 32.5, "sup": "Marcos Silva"}, {"name": "GENESIS RICARDO DA COSTA", "sales": 53, "clients": 27, "base_clients": 91, "pct": 29.7, "sup": "Anderson Costa"}, {"name": "FRANCISCO GLAUBERSON CUNHA BATISTA", "sales": 36, "clients": 16, "base_clients": 102, "pct": 15.7, "sup": "Roberto Lima"}, {"name": "ELIVILSON DEMETRIO CAETANO", "sales": 30, "clients": 18, "base_clients": 113, "pct": 15.9, "sup": "Carlos Eduardo"}, {"name": "DONIZETE PEREIRA SILVA", "sales": 26, "clients": 12, "base_clients": 124, "pct": 9.7, "sup": "Danielle Souza"}, {"name": "JOSE SOARES LIMA NETO", "sales": 17, "clients": 14, "base_clients": 135, "pct": 10.4, "sup": "Fernando Ramos"}, {"name": "ANANIAS LEANDRO DA SILVA", "sales": 16, "clients": 9, "base_clients": 81, "pct": 11.1, "sup": "Marcos Silva"}, {"name": "GEAN RICHARD DA SILVA GAMA", "sales": 16, "clients": 14, "base_clients": 92, "pct": 15.2, "sup": "Anderson Costa"}, {"name": "MARCIO NUNES SOUSA", "sales": 16, "clients": 10, "base_clients": 103, "pct": 9.7, "sup": "Roberto Lima"}, {"name": "BRUNO RENAN BANDEIRA GOMES", "sales": 15, "clients": 6, "base_clients": 114, "pct": 5.3, "sup": "Carlos Eduardo"}, {"name": "SANDERLEY MIGUEL DA SILVA ALMEIDA", "sales": 15, "clients": 11, "base_clients": 125, "pct": 8.8, "sup": "Danielle Souza"}, {"name": "MARCELO DA COSTA CARVALHO", "sales": 13, "clients": 6, "base_clients": 136, "pct": 4.4, "sup": "Fernando Ramos"}, {"name": "ERICK GIMACH GAMA", "sales": 12, "clients": 11, "base_clients": 82, "pct": 13.4, "sup": "Marcos Silva"}, {"name": "EVERTON DA ROCHA OLIVEIRA", "sales": 11, "clients": 6, "base_clients": 93, "pct": 6.5, "sup": "Anderson Costa"}, {"name": "FERNANDA LEAL DE MELO", "sales": 10, "clients": 11, "base_clients": 104, "pct": 10.6, "sup": "Roberto Lima"}, {"name": "JACKSON ARA\u00daJO DE OLIVEIRA", "sales": 9, "clients": 6, "base_clients": 115, "pct": 5.2, "sup": "Carlos Eduardo"}, {"name": "RAMON BARBOSA DOS SANTOS", "sales": 9, "clients": 11, "base_clients": 126, "pct": 8.7, "sup": "Danielle Souza"}, {"name": "RENATO ABREU DE OLIVEIRA", "sales": 9, "clients": 7, "base_clients": 137, "pct": 5.1, "sup": "Fernando Ramos"}, {"name": "ALDAIR FERREIRA VIEIRA", "sales": 8, "clients": 3, "base_clients": 83, "pct": 3.6, "sup": "Marcos Silva"}, {"name": "ANTONIO CARLOS DINIZ JUNIOR", "sales": 8, "clients": 8, "base_clients": 94, "pct": 8.5, "sup": "Anderson Costa"}, {"name": "GAUVIA DOS SANTOS DE LIMA", "sales": 8, "clients": 4, "base_clients": 105, "pct": 3.8, "sup": "Roberto Lima"}, {"name": "HANS MULLER LISBOA DA SILVA", "sales": 7, "clients": 8, "base_clients": 116, "pct": 6.9, "sup": "Carlos Eduardo"}, {"name": "HUMBERTO DO NASCIMENTO HOLANDA", "sales": 7, "clients": 4, "base_clients": 127, "pct": 3.1, "sup": "Danielle Souza"}, {"name": "ADRIANO SOUZA DA SILVA", "sales": 6, "clients": 9, "base_clients": 138, "pct": 6.5, "sup": "Fernando Ramos"}, {"name": "ALCIMAR BATISTA PANTOJA", "sales": 6, "clients": 5, "base_clients": 84, "pct": 6.0, "sup": "Marcos Silva"}, {"name": "ALEXANDRE LEITE BRAUNA", "sales": 6, "clients": 10, "base_clients": 95, "pct": 10.5, "sup": "Anderson Costa"}, {"name": "ANTONIO FERREIRA DE AGUIAR FILHO", "sales": 6, "clients": 6, "base_clients": 106, "pct": 5.7, "sup": "Roberto Lima"}, {"name": "DJAMES SILVA SANTOS", "sales": 6, "clients": 2, "base_clients": 117, "pct": 1.7, "sup": "Carlos Eduardo"}, {"name": "ALDINEY VALE DA SILVA", "sales": 5, "clients": 3, "base_clients": 139, "pct": 2.2, "sup": "Fernando Ramos"}, {"name": "ALEX DIEGO SANTOS DE OLIVEIRA", "sales": 5, "clients": 8, "base_clients": 85, "pct": 9.4, "sup": "Marcos Silva"}, {"name": "ILGLISSON FERREIRA DE SOUZA", "sales": 5, "clients": 4, "base_clients": 96, "pct": 4.2, "sup": "Anderson Costa"}, {"name": "WILLIAM CRISTIANO COUTINHO FERREIRA", "sales": 5, "clients": 9, "base_clients": 107, "pct": 8.4, "sup": "Roberto Lima"}, {"name": "AILTON CESAR SOARES", "sales": 4, "clients": 4, "base_clients": 118, "pct": 3.4, "sup": "Carlos Eduardo"}, {"name": "THIAGO LUCATELLE SOUZA DE SOUZA", "sales": 4, "clients": 9, "base_clients": 129, "pct": 7.0, "sup": "Danielle Souza"}, {"name": "ALEX RABELO DE SOUZA", "sales": 3, "clients": 5, "base_clients": 140, "pct": 3.6, "sup": "Fernando Ramos"}, {"name": "DIEGO VALE DA SILVA", "sales": 3, "clients": 2, "base_clients": 86, "pct": 2.3, "sup": "Marcos Silva"}, {"name": "KLEILTON PORTO", "sales": 3, "clients": 6, "base_clients": 97, "pct": 6.2, "sup": "Anderson Costa"}, {"name": "LEANDRO DO NASCIMENTO DUARTE", "sales": 3, "clients": 2, "base_clients": 108, "pct": 1.9, "sup": "Roberto Lima"}, {"name": "MACSUEL GOMES DA SILVA", "sales": 3, "clients": 7, "base_clients": 119, "pct": 5.9, "sup": "Carlos Eduardo"}, {"name": "KELVISON PAES RODRIGUES DA SILVA", "sales": 2, "clients": 2, "base_clients": 130, "pct": 1.5, "sup": "Danielle Souza"}, {"name": "LAURO SABA SILVA DE SOUSA", "sales": 2, "clients": 7, "base_clients": 141, "pct": 5.0, "sup": "Fernando Ramos"}, {"name": "MAISSON TAVARES FRANCO", "sales": 2, "clients": 3, "base_clients": 87, "pct": 3.4, "sup": "Marcos Silva"}, {"name": "SERGIO PEREIRA DE SOUZA", "sales": 2, "clients": 8, "base_clients": 98, "pct": 8.2, "sup": "Anderson Costa"}, {"name": "ALDENLUAN SOUZA DA SILVA", "sales": 1, "clients": 4, "base_clients": 109, "pct": 3.7, "sup": "Roberto Lima"}, {"name": "CAIO EDUARDO MARQUES DOS SANTOS", "sales": 1, "clients": 2, "base_clients": 120, "pct": 1.7, "sup": "Carlos Eduardo"}, {"name": "EDIVANILSON BARBODA DE SOUSA", "sales": 1, "clients": 5, "base_clients": 131, "pct": 3.8, "sup": "Danielle Souza"}, {"name": "HERIC MENEZES DE ARAGAO", "sales": 1, "clients": 2, "base_clients": 142, "pct": 1.4, "sup": "Fernando Ramos"}, {"name": "KLEIBE JUNIOR SERR\u00c3O VIANA", "sales": 1, "clients": 6, "base_clients": 88, "pct": 6.8, "sup": "Marcos Silva"}, {"name": "ROGERIO JOSE SIMOES", "sales": 1, "clients": 2, "base_clients": 99, "pct": 2.0, "sup": "Anderson Costa"}, {"name": "RUI NASCIMENTO DA SILVA", "sales": 1, "clients": 7, "base_clients": 110, "pct": 6.4, "sup": "Roberto Lima"}, {"name": "THIAGO DA SILVA MACEDO", "sales": 1, "clients": 3, "base_clients": 121, "pct": 2.5, "sup": "Carlos Eduardo"}, {"name": "VENDEDOR INATIVO BOA VISTA", "sales": 1, "clients": 8, "base_clients": 132, "pct": 6.1, "sup": "Danielle Souza"}, {"name": "VILDES SOUSA FERREIRA", "sales": 1, "clients": 4, "base_clients": 143, "pct": 2.8, "sup": "Fernando Ramos"}, {"name": "WASHINGTON DAS CHAGAS OLIVEIRA", "sales": 1, "clients": 2, "base_clients": 89, "pct": 2.2, "sup": "Marcos Silva"}];
+    const top15Sellers = [{"name": "Carlos Augusto dos Santos Miranda", "sales": 154, "clients": 12, "base_clients": 120, "pct": 10.0, "sup": "Marcos Silva"}, {"name": "Sanderley Miguel da Silva Almeida", "sales": 133, "clients": 40, "base_clients": 95, "pct": 42.1, "sup": "Anderson Costa"}, {"name": "Rafael de Souza Alves", "sales": 75, "clients": 39, "base_clients": 85, "pct": 45.9, "sup": "Roberto Lima"}, {"name": "Rogerio Jose Simoes", "sales": 75, "clients": 22, "base_clients": 110, "pct": 20.0, "sup": "Carlos Eduardo"}, {"name": "Genesis Ricardo da Costa", "sales": 72, "clients": 11, "base_clients": 90, "pct": 12.2, "sup": "Danielle Souza"}, {"name": "Ananias Leandro da Silva", "sales": 46, "clients": 16, "base_clients": 88, "pct": 18.2, "sup": "Fernando Ramos"}, {"name": "Antonio Carlos Diniz Junior", "sales": 45, "clients": 18, "base_clients": 82, "pct": 22.0, "sup": "Marcos Silva"}, {"name": "Diego Vale da Silva", "sales": 37, "clients": 10, "base_clients": 75, "pct": 13.3, "sup": "Anderson Costa"}, {"name": "Heric Menezes de Aragao", "sales": 36, "clients": 6, "base_clients": 92, "pct": 6.5, "sup": "Roberto Lima"}, {"name": "Francisco Glauberson Cunha Batista", "sales": 34, "clients": 31, "base_clients": 86, "pct": 36.0, "sup": "Carlos Eduardo"}, {"name": "Marcelo da Costa Carvalho", "sales": 33, "clients": 12, "base_clients": 78, "pct": 15.4, "sup": "Danielle Souza"}, {"name": "William Cristiano Coutinho Ferreira", "sales": 30, "clients": 17, "base_clients": 84, "pct": 20.2, "sup": "Fernando Ramos"}, {"name": "Lucas Mateus Reis Nascimento", "sales": 29, "clients": 3, "base_clients": 96, "pct": 3.1, "sup": "Marcos Silva"}, {"name": "Alex Rabelo de Souza", "sales": 28, "clients": 23, "base_clients": 70, "pct": 32.9, "sup": "Anderson Costa"}, {"name": "Aldiney Vale da Silva", "sales": 27, "clients": 12, "base_clients": 85, "pct": 14.1, "sup": "Roberto Lima"}];
+    const smallTeamSellers = [{"name": "Rogerio Jose Simoes", "sales": 60, "clients": 22, "base_clients": 90, "pct": 24.4, "sup": "Carlos Eduardo"}, {"name": "Donizete Pereira Silva", "sales": 52, "clients": 28, "base_clients": 85, "pct": 32.9, "sup": "Carlos Eduardo"}, {"name": "Hans Muller Lisboa da Silva", "sales": 41, "clients": 35, "base_clients": 75, "pct": 46.7, "sup": "Carlos Eduardo"}];
+
+    let currentEngine = 'sales';
+    let currentScope = 'all';
+    let currentDensity = 'compact';
+
+    function setEngine(engineKey) {
+      currentEngine = engineKey;
+      document.getElementById('motor-sales').classList.toggle('active', engineKey === 'sales');
+      document.getElementById('motor-clients').classList.toggle('active', engineKey === 'clients');
+      document.getElementById('motor-pct').classList.toggle('active', engineKey === 'pct');
+
+      const lbl = document.getElementById('engine-indicator-lbl');
+      if (engineKey === 'sales') {
+        lbl.innerHTML = 'Classificação ordenada por: <strong>Volume de Produtos Vendidos (Caixas)</strong>';
+      } else if (engineKey === 'clients') {
+        lbl.innerHTML = 'Classificação ordenada por: <strong>Quantidade de Clientes Alcançados (Positivações)</strong>';
+      } else {
+        lbl.innerHTML = 'Classificação ordenada por: <strong>% de Clientes Atingidos (Alcançados / Base)</strong>';
+      }
+
+      renderTable();
+    }
+
+    function setScope(scopeKey) {
+      currentScope = scopeKey;
+      document.getElementById('scope-all').classList.toggle('active', scopeKey === 'all');
+      document.getElementById('scope-top15').classList.toggle('active', scopeKey === 'top15');
+      document.getElementById('scope-small').classList.toggle('active', scopeKey === 'small');
+      renderTable();
+    }
+
+    function setDensity(densKey) {
+      currentDensity = densKey;
+      document.getElementById('dens-compact').classList.toggle('active', densKey === 'compact');
+      document.getElementById('dens-ultra').classList.toggle('active', densKey === 'ultra');
+      document.getElementById('app-screen').classList.toggle('density-ultra', densKey === 'ultra');
+    }
+
+    function getActiveDataset() {
+      let raw;
+      if (currentScope === 'top15') raw = JSON.parse(JSON.stringify(top15Sellers));
+      else if (currentScope === 'small') raw = JSON.parse(JSON.stringify(smallTeamSellers));
+      else raw = JSON.parse(JSON.stringify(allSellers));
+
+      // Regra de Negócio: Exclui pedidos feitos pelo próprio supervisor (Vendedor == Supervisor)
+      return raw.filter(s => !s.sup || !s.name || s.name.trim().toLowerCase() !== s.sup.trim().toLowerCase());
+    }
+
+    function calculateZones(total) {
+      if (total < 5) return null;
+      const cut1 = Math.min(4, Math.max(1, total - 4));
+      const cut2 = Math.max(cut1 + 1, Math.round(total * 0.25));
+      const cut3 = Math.max(cut2 + 1, Math.round(total * 0.50));
+      const cut4 = Math.max(cut3 + 1, Math.round(total * 0.75));
+
+      return { cut1, cut2, cut3, cut4, total };
+    }
+
+    function renderTable() {
+      const dataset = getActiveDataset();
+
+      if (currentEngine === 'sales') {
+        dataset.sort((a, b) => b.sales - a.sales || b.clients - a.clients || a.name.localeCompare(b.name));
+      } else if (currentEngine === 'clients') {
+        dataset.sort((a, b) => b.clients - a.clients || b.sales - a.sales || a.name.localeCompare(b.name));
+      } else if (currentEngine === 'pct') {
+        dataset.sort((a, b) => b.pct - a.pct || b.clients - a.clients || b.sales - a.sales);
+      }
+
+      dataset.forEach((s, idx) => s.pos = idx + 1);
+
+      const total = dataset.length;
+      const zones = calculateZones(total);
+
+      const sumBoxes = dataset.reduce((acc, s) => acc + s.sales, 0);
+      const sumClients = dataset.reduce((acc, s) => acc + s.clients, 0);
+      const avgPct = (dataset.reduce((acc, s) => acc + s.pct, 0) / total).toFixed(1);
+      const maxSales = Math.max(...dataset.map(s => s.sales));
+
+      document.getElementById('kpi-sellers-val').innerText = total;
+      document.getElementById('kpi-boxes-val').innerText = sumBoxes.toLocaleString('pt-BR');
+      document.getElementById('kpi-posit-val').innerText = sumClients.toLocaleString('pt-BR');
+      document.getElementById('kpi-cov-val').innerText = avgPct + '%';
+
+      const avgSales = sumBoxes / total;
+      const isCongrats = (avgSales >= 50 || maxSales >= 50);
+      document.getElementById('congrats-text').innerText = isCongrats ? "PARABÉNS A TODOS OS VENDEDORES!" : "VAMOS ACELERAR!";
+
+      document.getElementById('th-sales').style.color = currentEngine === 'sales' ? '#047857' : '#475569';
+      document.getElementById('th-clients').style.color = currentEngine === 'clients' ? '#047857' : '#475569';
+      document.getElementById('th-pct').style.color = currentEngine === 'pct' ? '#047857' : '#475569';
+
+      const tbody = document.getElementById('table-body');
+      tbody.innerHTML = '';
+
+      dataset.forEach(s => {
+        const pos = s.pos;
+
+        if (zones) {
+          if (pos === 1) {
+            const b = document.createElement('div');
+            b.className = 'zone-banner zone-libertadores';
+            b.innerHTML = `<span>🏆 G4 • LIBERTADORES</span><span class="zone-subtitle">1º ao ${zones.cut1}º • Vaga Direta para a Fase de Grupos</span>`;
+            tbody.appendChild(b);
+          } else if (pos === zones.cut1 + 1) {
+            const b = document.createElement('div');
+            b.className = 'zone-banner zone-pre';
+            b.innerHTML = `<span>🥈 G${zones.cut2} • PRÉ-LIBERTADORES</span><span class="zone-subtitle">${zones.cut1 + 1}º ao ${zones.cut2}º • Vaga na Fase Preliminar</span>`;
+            tbody.appendChild(b);
+          } else if (pos === zones.cut2 + 1) {
+            const b = document.createElement('div');
+            b.className = 'zone-banner zone-sula';
+            b.innerHTML = `<span>⚽ G${zones.cut3} • SUL-AMERICANA</span><span class="zone-subtitle">${zones.cut2 + 1}º ao ${zones.cut3}º • Classificação Continental</span>`;
+            tbody.appendChild(b);
+          } else if (pos === zones.cut3 + 1) {
+            const b = document.createElement('div');
+            b.className = 'zone-banner zone-z4';
+            b.innerHTML = `<span>⚠️ ZONA DE REBAIXAMENTO</span><span class="zone-subtitle">${zones.cut3 + 1}º ao ${zones.cut4}º • Alerta de Degola / Z4</span>`;
+            tbody.appendChild(b);
+          } else if (pos === zones.cut4 + 1) {
+            const b = document.createElement('div');
+            b.className = 'zone-banner zone-serieb';
+            b.innerHTML = `<span>🔻 SÉRIE B • REBAIXADOS</span><span class="zone-subtitle">${zones.cut4 + 1}º ao ${zones.total}º • Precisa Reagir!</span>`;
+            tbody.appendChild(b);
+          }
+        }
+
+        const row = document.createElement('div');
+        row.className = `table-row ${pos <= 3 ? 'top-' + pos : ''}`;
+
+        let badgeClass = 'regular';
+        if (pos === 1) badgeClass = 'gold';
+        else if (pos === 2) badgeClass = 'silver';
+        else if (pos === 3) badgeClass = 'bronze';
+
+        let zoneTagHtml = '<span style="color:#94a3b8; font-size:0.75rem;">—</span>';
+        if (zones) {
+          if (pos <= zones.cut1) {
+            zoneTagHtml = '<span class="zone-tag tag-libertadores">🏆 Libertadores</span>';
+          } else if (pos <= zones.cut2) {
+            zoneTagHtml = '<span class="zone-tag tag-pre">🥈 Pré-Libertadores</span>';
+          } else if (pos <= zones.cut3) {
+            zoneTagHtml = '<span class="zone-tag tag-sula">⚽ Sul-Americana</span>';
+          } else if (pos <= zones.cut4) {
+            zoneTagHtml = '<span class="zone-tag tag-z4">⚠️ Rebaixamento</span>';
+          } else {
+            zoneTagHtml = '<span class="zone-tag tag-serieb">🔻 Série B</span>';
+          }
+        }
+
+        const salesPct = maxSales > 0 ? ((s.sales / maxSales) * 100).toFixed(1) : 0;
+        
+        let pctColorClass = 'pct-low';
+        let barColor = '#ef4444';
+        if (s.pct >= 40) {
+          pctColorClass = 'pct-high';
+          barColor = '#10b981';
+        } else if (s.pct >= 25) {
+          pctColorClass = 'pct-mid';
+          barColor = '#f59e0b';
+        }
+
+        let tagText = "🛡️ EM JOGO";
+        let tagClass = "tag-jogo";
+        let tagTitle = "Em disputa";
+
+        if (pos === 1 && s.sales === maxSales) {
+          tagText = "🏆 INVICTO";
+          tagClass = "tag-invicto";
+          tagTitle = "Líder isolado e maior volume";
+        } else if (s.sales === maxSales && pos > 1) {
+          tagText = "⚡ MELHOR NO VOL";
+          tagClass = "tag-melhor-vol";
+          tagTitle = "Maior volume de caixas da ação";
+        } else if (s.pct >= 40 && pos <= 4) {
+          tagText = "🎯 CAMISA 10";
+          tagClass = "tag-camisa10";
+          tagTitle = "Alta cobertura da carteira no G4";
+        } else if (pos <= 4) {
+          tagText = "🔥 NO ATAQUE";
+          tagClass = "tag-ataque";
+          tagTitle = "Classificação G4 Libertadores";
+        } else if (zones && pos <= zones.cut2) {
+          tagText = "⚽ NO ATAQUE";
+          tagClass = "tag-ataque";
+          tagTitle = "Na briga pelo G4 / Pré-Libertadores";
+        } else if (zones && pos <= zones.cut3) {
+          tagText = "🛡️ EM JOGO";
+          tagClass = "tag-jogo";
+          tagTitle = "Zona Sul-Americana";
+        } else if (zones && pos <= zones.cut4) {
+          tagText = "🏠 PERDENDO EM CASA";
+          tagClass = "tag-perdendo-casa";
+          tagTitle = "Alerta de Rebaixamento / Z4";
+        } else if (zones && pos > zones.cut4) {
+          tagText = "❓ CADÊ O TÉCNICO?";
+          tagClass = "tag-cade-tecnico";
+          tagTitle = "Cadê o técnico desse jogador? Precisa reagir!";
+        }
+
+        row.innerHTML = `
+          <div class="col-center">
+            <div class="pos-number ${badgeClass}">${pos}º</div>
+          </div>
+          <div>${zoneTagHtml}</div>
+          <div class="seller-fullname" title="${s.name}">${s.name}</div>
+          <div>
+            <span class="sup-tag" title="Supervisor: ${s.sup}">👔 ${s.sup}</span>
+          </div>
+          <div class="volume-box-wrap">
+            <span class="metric-cell ${currentEngine === 'sales' ? 'active-motor' : ''}">${s.sales.toLocaleString('pt-BR')} <span class="metric-sub">cx</span></span>
+            <div class="metric-bar-track">
+              <div class="metric-bar-fill" style="width: ${salesPct}%"></div>
+            </div>
+          </div>
+          <div class="col-right">
+            <span class="metric-cell ${currentEngine === 'clients' ? 'active-motor' : ''}">${s.clients} <span class="metric-sub">cli</span></span>
+          </div>
+          <div class="col-right">
+            <span class="metric-cell">${s.base_clients} <span class="metric-sub">base</span></span>
+          </div>
+          <div class="pct-box-wrap">
+            <span class="pct-badge ${pctColorClass} ${currentEngine === 'pct' ? 'active-motor' : ''}">${s.pct}%</span>
+            <div class="pct-bar-track">
+              <div class="pct-bar-fill" style="width: ${Math.min(100, s.pct)}%; background: ${barColor};"></div>
+            </div>
+          </div>
+          <div class="col-center">
+            <span class="status-chip ${tagClass}" title="${tagTitle}">${tagText}</span>
+          </div>
+        `;
+
+        tbody.appendChild(row);
+      });
+    }
+
+    renderTable();
+  </script>
+</body>
+</html>

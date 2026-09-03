@@ -86,8 +86,6 @@ table Fato_Balancete
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column VLREALIZADO
 		dataType: double
 		lineageTag: c797178f-7a13-4a6a-9f64-9304e677fc58
@@ -98,8 +96,6 @@ table Fato_Balancete
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column REALIZPREVISTO
 		dataType: double
 		lineageTag: 8e7253af-f666-47ea-870f-153f59639d48
@@ -109,8 +105,6 @@ table Fato_Balancete
 		sourceColumn: REALIZPREVISTO
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column NUMNOTA
 		dataType: int64
@@ -185,8 +179,6 @@ table Fato_Balancete
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column GRUPO_ATIVO
 		dataType: int64
 		formatString: 0
@@ -218,8 +210,6 @@ table Fato_Balancete
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column DTVENC
 		dataType: dateTime
 		formatString: General Number
@@ -246,8 +236,6 @@ table Fato_Balancete
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column VPAGO
 		dataType: double
 		lineageTag: 70b63417-aa79-4bd8-a009-0475cf2badaa
@@ -257,8 +245,6 @@ table Fato_Balancete
 		sourceColumn: VPAGO
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column FILTRO
 		dataType: int64

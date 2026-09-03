@@ -54,8 +54,6 @@ table Dim_Comissao
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column 'A PRAZO'
 		dataType: double
 		lineageTag: b82b0cd7-2203-437e-b29d-4e99189533dc
@@ -65,8 +63,6 @@ table Dim_Comissao
 		sourceColumn: A PRAZO
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	partition Dim_Comissao = entity
 		mode: directQuery

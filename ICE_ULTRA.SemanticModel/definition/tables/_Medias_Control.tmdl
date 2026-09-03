@@ -13,8 +13,6 @@ table _Medias_Control
 		sourceLineageTag: 2af13120-b597-49db-b597-a57bf4c85c6e
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure VolDev_Ctr_Hist = EXTERNALMEASURE("VolDev_Ctr_Hist", INTEGER, "DirectQuery para AS – RSL-BI")
 		formatString: 0
 		lineageTag: 025280a4-50ae-40b0-9440-75e760db02b7
@@ -25,8 +23,6 @@ table _Medias_Control
 		lineageTag: 52147991-7d68-4132-ba9e-353afbc76253
 		sourceLineageTag: 70c7d15a-a788-40e8-aea9-93713917b4db
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure HL_Ctr_Hist = EXTERNALMEASURE("HL_Ctr_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
 		formatString: 0
@@ -44,8 +40,6 @@ table _Medias_Control
 		lineageTag: db011644-0419-4380-98db-553bd58339ac
 		sourceLineageTag: b7f12ed0-c740-4c66-900d-7d51b908d541
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure Qtd_Ped_Ctr_Hist = EXTERNALMEASURE("Qtd_Ped_Ctr_Hist", INTEGER, "DirectQuery para AS – RSL-BI")
 		formatString: 0

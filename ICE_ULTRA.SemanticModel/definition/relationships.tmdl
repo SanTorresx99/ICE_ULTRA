@@ -751,10 +751,6 @@ relationship 6dfd25eb-7efe-4885-9cad-0d7813dc37f1
 	fromColumn: Fato_Custo_Atual.CODPROD
 	toColumn: Dim_Produtos.prd_Produto_int_PK
 
-relationship e550e7e2-7e87-4512-8c4e-0555f0ee55e4
-	fromColumn: Fato_Custo_Atual.DTULTENT
-	toColumn: LocalDateTable_dce39179-00bf-48bd-aa83-805d5f21482b.Date
-
 relationship 09b40409-f1d5-4a4a-ac9a-f5a9e401e6dd
 	fromColumn: Fato_Direct_XM.vis_Inicio_dtm
 	toColumn: LocalDateTable_aa64ad85-f3b6-4da3-b636-2258fcc6c802.Date
@@ -877,4 +873,8 @@ relationship dbb8d907-9c37-454d-a667-8fca5ae5072f
 	isActive: false
 	fromColumn: Fato_Rank_VD.ven_Vendedor_int_PK
 	toColumn: Dim_Vendedor.ven_Vendedor_int_PK
+
+relationship 9fa257b3-4e91-4297-b12a-4b23bfabee3f
+	fromColumn: Fato_Custo_Atual.ANO_MES
+	toColumn: Dim_Calendario.Date
 

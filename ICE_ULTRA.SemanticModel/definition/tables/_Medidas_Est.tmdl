@@ -15,13 +15,11 @@ table _Medidas_Est
 		dataCategory: Uncategorized
 
 	measure Mapa_Fechado = EXTERNALMEASURE("Mapa_Fechado", INTEGER, "DirectQuery para AS – RSL-BI")
-		formatString: 0
 		lineageTag: 4bc7875c-d9a0-4cf1-9a7e-09edcb3a3871
 		sourceLineageTag: a43720dc-9b52-4d97-be5b-bd156ae5d352
 		dataCategory: Uncategorized
 
 	measure Mapa_Cancelado = EXTERNALMEASURE("Mapa_Cancelado", INTEGER, "DirectQuery para AS – RSL-BI")
-		formatString: 0
 		lineageTag: c8b868f8-84d2-4952-a912-cf0258847d2a
 		sourceLineageTag: 326da0af-186e-4088-a50b-25effb15fb59
 		dataCategory: Uncategorized
@@ -37,14 +35,10 @@ table _Medidas_Est
 		sourceLineageTag: 22d8f1ff-4027-4e2b-b63f-ec56fdb6ba67
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure Qtde_Ped_Mapa = EXTERNALMEASURE("Qtde_Ped_Mapa", DOUBLE, "DirectQuery para AS – RSL-BI")
 		lineageTag: c6476344-98cb-4d02-9b49-93baa559f6df
 		sourceLineageTag: dd78f821-4f1b-4607-b9a0-e8ae74354256
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure _Disponivel = EXTERNALMEASURE("_Disponivel", INTEGER, "DirectQuery para AS – RSL-BI")
 		formatString: #,0
@@ -95,7 +89,6 @@ table _Medidas_Est
 		dataCategory: Uncategorized
 
 	measure Qtde_FIFO = EXTERNALMEASURE("Qtde_FIFO", INTEGER, "DirectQuery para AS – RSL-BI")
-		formatString: 0
 		lineageTag: 184e7273-63e9-42c7-80db-7b800b687592
 		sourceLineageTag: 8c6b883f-ac45-4b23-a388-a5e9268e095a
 		dataCategory: Uncategorized
@@ -104,8 +97,6 @@ table _Medidas_Est
 		lineageTag: 0508242b-d9e3-47c6-bd9a-6342a3c6c32c
 		sourceLineageTag: 92372f49-856c-40bb-a398-14ca8a9fd90f
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure _Porto = EXTERNALMEASURE("_Porto", INTEGER, "DirectQuery para AS – RSL-BI")
 		formatString: #,0

@@ -153,7 +153,6 @@ ref table LocalDateTable_f426d9b5-0ffd-47fb-b97e-2363e6a674f7
 ref table LocalDateTable_0a888a6f-d95b-4f97-aee7-ec822038fa34
 ref table LocalDateTable_6c8e3d52-25a9-49e9-a203-9566e3654b06
 ref table LocalDateTable_ec2671e4-7803-4664-bad9-a0767c949df8
-ref table LocalDateTable_dce39179-00bf-48bd-aa83-805d5f21482b
 ref table LocalDateTable_aa64ad85-f3b6-4da3-b636-2258fcc6c802
 ref table LocalDateTable_12f391c5-642d-4bf2-aba1-6088bbd61525
 ref table LocalDateTable_10c8bf3f-d86b-41f3-b451-1e89ca72f435
@@ -171,6 +170,7 @@ ref table LocalDateTable_2ec4e090-ca52-460c-a6ae-bdba346d8d46
 ref table LocalDateTable_99b8b062-dbf0-4c6a-a58b-7d57169b750b
 ref table LocalDateTable_c3c516f1-7d9d-4a38-8060-6fd735ca9cfe
 ref table Filtro_Acao
+ref table Filtro_Ranking_Motor
 
 ref cultureInfo pt-BR
 

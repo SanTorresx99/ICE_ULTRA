@@ -83,8 +83,6 @@ table Fato_Custo_FAB
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column Preço2
 		dataType: double
 		lineageTag: 31571211-056a-4268-8077-34a65034db1f
@@ -94,8 +92,6 @@ table Fato_Custo_FAB
 		sourceColumn: Preço2
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column 'ICMS ST'
 		dataType: double
@@ -107,8 +103,6 @@ table Fato_Custo_FAB
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column 'FECP s/ST'
 		dataType: double
 		lineageTag: bd33c6d7-3c67-4f89-9935-172e75390bf6
@@ -118,8 +112,6 @@ table Fato_Custo_FAB
 		sourceColumn: FECP s/ST
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column 'Frete IDA'
 		dataType: double
@@ -131,8 +123,6 @@ table Fato_Custo_FAB
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column 'Frete VOLTA'
 		dataType: double
 		lineageTag: dd2b21a7-6928-4e7b-96cf-38afb1c07712
@@ -142,8 +132,6 @@ table Fato_Custo_FAB
 		sourceColumn: Frete VOLTA
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column 'Frete TT'
 		dataType: double
@@ -155,8 +143,6 @@ table Fato_Custo_FAB
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column Custo_Preço
 		dataType: double
 		lineageTag: 477f9464-c69c-4b43-aab7-3bb3c3373a54
@@ -167,8 +153,6 @@ table Fato_Custo_FAB
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column Custo_Preço2
 		dataType: double
 		lineageTag: f1348699-8f91-4104-9c8d-5c2db8037175
@@ -178,8 +162,6 @@ table Fato_Custo_FAB
 		sourceColumn: Custo_Preço2
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column TIPO
 		dataType: string

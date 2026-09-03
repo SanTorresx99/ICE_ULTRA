@@ -87,8 +87,6 @@ table Fato_Metas_WTR
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column IMP_META_WTR_1
 		dataType: string
 		lineageTag: d6221e79-316d-434a-86fd-9d5f72deb242

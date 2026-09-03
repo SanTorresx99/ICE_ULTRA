@@ -174,8 +174,6 @@ table Fato_Direct_XM
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column ped_Longitude_num
 		dataType: double
 		lineageTag: c832d45c-bf4e-4d23-903e-50733820d237
@@ -185,8 +183,6 @@ table Fato_Direct_XM
 		sourceColumn: ped_Longitude_num
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column tpp_TipoPedido_int_FK
 		dataType: double
@@ -274,8 +270,6 @@ table Fato_Direct_XM
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column itp_PrecoBase_cur
 		dataType: double
 		lineageTag: 0f3f40c5-cfa1-4192-9441-58f8874e6845
@@ -285,8 +279,6 @@ table Fato_Direct_XM
 		sourceColumn: itp_PrecoBase_cur
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column itp_TipoItem_ind
 		dataType: double
@@ -353,8 +345,6 @@ table Fato_Direct_XM
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column vis_LongitudeInicio_num
 		dataType: double
 		lineageTag: 952f5a62-aece-4541-bf52-98b34eb45683
@@ -364,8 +354,6 @@ table Fato_Direct_XM
 		sourceColumn: vis_LongitudeInicio_num
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column vis_LatitudeFinal_num
 		dataType: double
@@ -377,8 +365,6 @@ table Fato_Direct_XM
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column vis_LongitudeFinal_num
 		dataType: double
 		lineageTag: 829d3686-8b54-4054-85cc-3f58f84bcc9b
@@ -388,8 +374,6 @@ table Fato_Direct_XM
 		sourceColumn: vis_LongitudeFinal_num
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column Status_Ped
 		dataType: string

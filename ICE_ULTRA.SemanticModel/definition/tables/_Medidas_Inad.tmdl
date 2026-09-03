@@ -13,8 +13,6 @@ table _Medidas_Inad
 		sourceLineageTag: 8934d32b-4cbc-4355-a105-f13ed4952843
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure Valor_Titulo = EXTERNALMEASURE("Valor_Titulo", DOUBLE, "DirectQuery para AS – RSL-BI")
 		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
 		lineageTag: 6ec10794-afe9-4550-a869-9ff172e0843e
@@ -44,8 +42,6 @@ table _Medidas_Inad
 		sourceLineageTag: be6202c5-180e-48cf-ae98-251aba60cbf6
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure Var_Vlr_Titulo = EXTERNALMEASURE("Var_Vlr_Titulo", DOUBLE, "DirectQuery para AS – RSL-BI")
 		formatString: #,0.00
 		lineageTag: 0d8f2991-bf2e-4701-bedc-152ce833554a
@@ -59,7 +55,6 @@ table _Medidas_Inad
 		dataCategory: Uncategorized
 
 	measure Var_Qtde_Tit = EXTERNALMEASURE("Var_Qtde_Tit", INTEGER, "DirectQuery para AS – RSL-BI")
-		formatString: 0
 		lineageTag: 1cd7df63-fc67-4611-8d68-584a10d88cbe
 		sourceLineageTag: 534c8570-1aa8-46dc-a375-8282cb999b2e
 		dataCategory: Uncategorized
@@ -69,21 +64,15 @@ table _Medidas_Inad
 		sourceLineageTag: 6633471d-4654-4dba-ac7a-a53031dfc138
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure 'Valor_Inadimplencia <365' = EXTERNALMEASURE("Valor_Inadimplencia <365", DOUBLE, "DirectQuery para AS – RSL-BI")
 		lineageTag: ba0aa25f-2ae8-49db-be91-88bd75b86a08
 		sourceLineageTag: 874e4a2f-5f34-4dee-9494-80692e278543
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure Valor_Inadimplencia = EXTERNALMEASURE("Valor_Inadimplencia", DOUBLE, "DirectQuery para AS – RSL-BI")
 		lineageTag: c7ad762e-a5de-4b8e-a7e5-f00795b621c9
 		sourceLineageTag: 0ca44450-56b6-4f00-b175-d75f28a688cd
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure Tit_Inadimplencia = EXTERNALMEASURE("Tit_Inadimplencia", INTEGER, "DirectQuery para AS – RSL-BI")
 		formatString: 0

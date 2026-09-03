@@ -1,0 +1,30 @@
+table Filtro_Ranking_Motor
+	lineageTag: b3c855ba-411a-4d7a-8b6b-4f7f83a54d90
+
+	column Motor
+		dataType: string
+		lineageTag: d3a855ab-1234-4567-890a-dfec34e5a013
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Motor]
+
+	column Codigo
+		dataType: int64
+		lineageTag: e2a855ab-3456-7890-abcd-ef0123456790
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Codigo]
+
+	partition Filtro_Ranking_Motor = calculated
+		mode: import
+		source =
+				DATATABLE(
+					"Motor", STRING,
+					"Codigo", INTEGER,
+					{
+						{"Volume de Vendas (Caixas)", 1},
+						{"Quantidade de Clientes Positivados", 2},
+						{"% de Clientes da Base", 3}
+					}
+				)
+

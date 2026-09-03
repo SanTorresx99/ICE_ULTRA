@@ -34,18 +34,6 @@ table Fato_Custo_Atual
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column DESCRICAO
-		dataType: string
-		lineageTag: bbf66433-c21a-4a88-859a-b76a97403983
-		sourceLineageTag: 9ace36f9-5d4e-4be9-bb7b-740f60040d06
-		dataCategory: Uncategorized
-		summarizeBy: none
-		sourceColumn: DESCRICAO
-
-		annotation SummarizationSetBy = User
-
 	column EMBALAGEM
 		dataType: string
 		lineageTag: aab67d0f-2f4f-4e68-bb1e-beb62dedbf24
@@ -55,30 +43,6 @@ table Fato_Custo_Atual
 		sourceColumn: EMBALAGEM
 
 		annotation SummarizationSetBy = User
-
-	column CUSTOFIN
-		dataType: double
-		lineageTag: a8fd61f6-cd5b-4d61-9c94-b238c6e494c3
-		sourceLineageTag: 9389d62d-531a-42e5-86be-6d674db0ff5c
-		dataCategory: Uncategorized
-		summarizeBy: sum
-		sourceColumn: CUSTOFIN
-
-		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column CUSTOCONT
-		dataType: double
-		lineageTag: fe0346bd-25f5-4374-8293-4fbbe495692a
-		sourceLineageTag: f1c49e08-3784-461d-83ad-703eae0f2316
-		dataCategory: Uncategorized
-		summarizeBy: sum
-		sourceColumn: CUSTOCONT
-
-		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column CUSTOREAL
 		dataType: double
@@ -90,32 +54,6 @@ table Fato_Custo_Atual
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column VALORULTENT
-		dataType: double
-		lineageTag: bb6aa564-1a88-4bce-956b-e465d4a52a48
-		sourceLineageTag: 4cbedf34-a62f-4c10-96a8-e271a8dd02de
-		dataCategory: Uncategorized
-		summarizeBy: sum
-		sourceColumn: VALORULTENT
-
-		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column VLULTENTCONTSEMST
-		dataType: double
-		lineageTag: 23cb69be-fa23-42af-9956-0293a1207c6b
-		sourceLineageTag: e4da2abf-655f-4f64-8058-b3c974d1291d
-		dataCategory: Uncategorized
-		summarizeBy: sum
-		sourceColumn: VLULTENTCONTSEMST
-
-		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column STBCR
 		dataType: double
 		lineageTag: f761d120-885d-4253-8add-1bebfb29d5e1
@@ -126,8 +64,6 @@ table Fato_Custo_Atual
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column BASEBCR
 		dataType: double
 		lineageTag: e8f8ec70-74cc-4cf9-8259-66cacf402854
@@ -137,36 +73,6 @@ table Fato_Custo_Atual
 		sourceColumn: BASEBCR
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column DTULTENT
-		dataType: dateTime
-		formatString: General Number
-		lineageTag: ab3da2c5-ec7d-4007-97ed-26d0b571b8b0
-		sourceLineageTag: 64e9e035-a2e5-4345-8dab-6b05c59417ca
-		dataCategory: Uncategorized
-		summarizeBy: none
-		sourceColumn: DTULTENT
-
-		variation Variation
-			isDefault
-			relationship: e550e7e2-7e87-4512-8c4e-0555f0ee55e4
-			defaultHierarchy: LocalDateTable_dce39179-00bf-48bd-aa83-805d5f21482b.'Hierarquia de datas'
-
-		annotation SummarizationSetBy = User
-
-	column CUSTOULTENTSEMST
-		dataType: double
-		lineageTag: 59b918ea-96d4-4ffe-a080-d96533d6b351
-		sourceLineageTag: d8567664-090f-42b0-89a7-74d07a106ee6
-		dataCategory: Uncategorized
-		summarizeBy: sum
-		sourceColumn: CUSTOULTENTSEMST
-
-		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column PAUTA
 		dataType: string
@@ -188,8 +94,6 @@ table Fato_Custo_Atual
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column PREÇO
 		dataType: double
 		lineageTag: 55fb0f23-507e-4d47-80dc-f2ce5d053040
@@ -199,8 +103,6 @@ table Fato_Custo_Atual
 		sourceColumn: PREÇO
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column CMV
 		dataType: double
@@ -212,12 +114,43 @@ table Fato_Custo_Atual
 
 		annotation SummarizationSetBy = User
 
+	column ANO_MES
+		dataType: dateTime
+		formatString: General Number
+		lineageTag: 9b43e975-9e20-45fa-b18b-34b4a39e412e
+		sourceLineageTag: 9a3ee843-7922-4758-a9d3-c8a50fd049dc
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: ANO_MES
+
+		annotation SummarizationSetBy = User
+
+	column PRECO
+		dataType: double
+		lineageTag: 12d76ab0-239b-4715-a34b-f067377cafd4
+		sourceLineageTag: 01063888-fee5-4280-b73d-c03b3e2b204c
+		dataCategory: Uncategorized
+		summarizeBy: sum
+		sourceColumn: PRECO
+
+		annotation SummarizationSetBy = User
+
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Nome da Origem'
+		dataType: string
+		lineageTag: 55f6d86d-dc9e-4123-b1da-baef3cbbc1b8
+		sourceLineageTag: 34c72df9-7eb2-49cd-9513-ed72255f8ece
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Nome da Origem
+
+		annotation SummarizationSetBy = User
 
 	column CONC
 		dataType: string
-		lineageTag: a43f3b51-50e3-4490-a577-70bf9e10881e
-		sourceLineageTag: ce39273c-281b-4b73-a74e-d7dfeb34782d
+		lineageTag: b56cb56d-6f23-4af1-a086-6814283054fe
+		sourceLineageTag: a5324a38-d0e4-4e0c-966e-ed4b2a075c25
 		dataCategory: Uncategorized
 		summarizeBy: none
 		sourceColumn: CONC

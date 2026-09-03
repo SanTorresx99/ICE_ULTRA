@@ -31,8 +31,6 @@ table _Medidas_Fabrica
 		sourceLineageTag: 90905c40-b3fe-40ea-a029-bfcda8b2eeb5
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure Posit_Fab_Hist = EXTERNALMEASURE("Posit_Fab_Hist", INTEGER, "DirectQuery para AS – RSL-BI")
 		formatString: 0
 		lineageTag: 42a8dba0-de25-40ae-85c1-b0a03edc96f7

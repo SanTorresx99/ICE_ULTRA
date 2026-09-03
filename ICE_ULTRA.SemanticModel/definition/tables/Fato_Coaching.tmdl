@@ -114,7 +114,6 @@ table Fato_Coaching
 
 	column coda_coach_finish
 		dataType: int64
-		formatString: 0
 		lineageTag: d7d0b6d4-c1b4-45b9-92c0-1e523d34792a
 		sourceLineageTag: 9825572f-6bf3-431e-ba93-dcee76041904
 		dataCategory: Uncategorized
@@ -125,7 +124,6 @@ table Fato_Coaching
 
 	column coda_valida
 		dataType: int64
-		formatString: 0
 		lineageTag: f838cbf6-3184-4cae-ad61-2984bd811116
 		sourceLineageTag: a58a0fcb-cf06-4a67-af08-65f1a87beedb
 		dataCategory: Uncategorized
@@ -158,7 +156,6 @@ table Fato_Coaching
 
 	column coda_valida_finish
 		dataType: int64
-		formatString: 0
 		lineageTag: ce6ef3a0-aa36-443a-83e3-19891ec1b8df
 		sourceLineageTag: 7592c299-4f45-4edc-85bf-9529accae2d5
 		dataCategory: Uncategorized

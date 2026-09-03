@@ -107,8 +107,6 @@ table Fato_Orcamento
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column Data
 		dataType: dateTime
 		formatString: Long Date

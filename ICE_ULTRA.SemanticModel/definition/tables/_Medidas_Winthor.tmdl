@@ -7,8 +7,6 @@ table _Medidas_Winthor
 		sourceLineageTag: 61f4bdd4-423c-4be3-812d-758f3297d22f
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure Fat_Liq_WTH_Hist = EXTERNALMEASURE("Fat_Liq_WTH_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
 		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
 		lineageTag: b9254195-ddf4-4c7f-b727-70cc356c4669
@@ -20,10 +18,7 @@ table _Medidas_Winthor
 		sourceLineageTag: 330fdc07-6a21-453b-89ee-af7abadf473b
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure Vol_Dev_WTH_Hist = EXTERNALMEASURE("Vol_Dev_WTH_Hist", INTEGER, "DirectQuery para AS – RSL-BI")
-		formatString: 0
 		lineageTag: 4acf6e13-fe60-47ff-9f0a-da1834d42b8f
 		sourceLineageTag: a0345d30-346a-4fc2-88a1-321b178150e5
 		dataCategory: Uncategorized
@@ -33,17 +28,12 @@ table _Medidas_Winthor
 		sourceLineageTag: c4069b1a-1740-4d08-b93a-4a7f9f7446ea
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure HL_s/BNF_WTH_Hist = EXTERNALMEASURE("HL_s/BNF_WTH_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
 		lineageTag: 7cf72ae9-3ede-4d10-b219-f86492e96f79
 		sourceLineageTag: db3a41c0-d17d-4621-9818-3593a8ad601d
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure Vol_BNF_WTH_Hist = EXTERNALMEASURE("Vol_BNF_WTH_Hist", INTEGER, "DirectQuery para AS – RSL-BI")
-		formatString: 0
 		lineageTag: 71926de5-4a4c-423b-8b00-708eef028745
 		sourceLineageTag: a9b54a53-8ff6-4dc3-b27f-77b7e9f74681
 		dataCategory: Uncategorized
@@ -77,8 +67,6 @@ table _Medidas_Winthor
 		sourceLineageTag: 7137ac60-8a50-4b86-ba63-6347e6833466
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure %Meta_PMHL_Hist = EXTERNALMEASURE("%Meta_PMHL_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: b7f96318-5457-476e-abfe-afa5a1e83cdd
@@ -90,21 +78,15 @@ table _Medidas_Winthor
 		sourceLineageTag: c50ebe9c-7f52-4efa-9d59-2e02a51b66f6
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure Tend_Fat_WTH_Hist = EXTERNALMEASURE("Tend_Fat_WTH_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
 		lineageTag: 138585bf-bc47-4b22-ba58-ee742682005e
 		sourceLineageTag: fe47c6af-5895-4bae-9906-4cd15167d5ab
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure Tend_HL_WTH_Hist = EXTERNALMEASURE("Tend_HL_WTH_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
 		lineageTag: c7d7a951-fe02-4ce0-b7b0-7a795a5ba064
 		sourceLineageTag: 46fd1fb8-ea32-42fb-a899-e5f1190a29eb
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure %Tend_Meta_Vol_Hist = EXTERNALMEASURE("%Tend_Meta_Vol_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
 		formatString: 0.00%;-0.00%;0.00%
@@ -125,19 +107,16 @@ table _Medidas_Winthor
 		dataCategory: Uncategorized
 
 	measure Qtde_Ped_WTH_Hist = EXTERNALMEASURE("Qtde_Ped_WTH_Hist", INTEGER, "DirectQuery para AS – RSL-BI")
-		formatString: 0
 		lineageTag: 1e5737da-ed2e-4937-bc87-7cd526344204
 		sourceLineageTag: bf1328cd-2437-484d-bcac-9144fc24d670
 		dataCategory: Uncategorized
 
 	measure Qtde_PedDev_WTH_Hist = EXTERNALMEASURE("Qtde_PedDev_WTH_Hist", INTEGER, "DirectQuery para AS – RSL-BI")
-		formatString: 0
 		lineageTag: 060dc7cd-e483-442d-a0e2-de433eaa2dbf
 		sourceLineageTag: e931749f-1c48-4e3b-9321-de6b38388885
 		dataCategory: Uncategorized
 
 	measure Positivacao_WTH_Hist = EXTERNALMEASURE("Positivacao_WTH_Hist", INTEGER, "DirectQuery para AS – RSL-BI")
-		formatString: 0
 		lineageTag: c8de206c-42f6-4a39-86c1-fef803bfe6c5
 		sourceLineageTag: fc26d979-e297-4ce6-90ff-6014f2622522
 		dataCategory: Uncategorized
@@ -179,7 +158,6 @@ table _Medidas_Winthor
 		dataCategory: Uncategorized
 
 	measure Vol_Bruto_WTH_Hist = EXTERNALMEASURE("Vol_Bruto_WTH_Hist", INTEGER, "DirectQuery para AS – RSL-BI")
-		formatString: 0
 		lineageTag: 0cec6ac4-3fbc-4844-ad6c-df67f1fb807a
 		sourceLineageTag: 5b42dd76-ca8f-427e-8aa8-d82a0bb8bf6b
 		dataCategory: Uncategorized
@@ -207,14 +185,10 @@ table _Medidas_Winthor
 		sourceLineageTag: 51c0894b-26b5-414f-b039-246d410dd2fb
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure Gap_Meta_Fat_Hist = EXTERNALMEASURE("Gap_Meta_Fat_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
 		lineageTag: 86ee43ff-2970-4c48-9afa-44f4cc478deb
 		sourceLineageTag: 744ac68b-7352-4164-91f6-8a256c66a765
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure Rank_Pos_VD = EXTERNALMEASURE("Rank_Pos_VD", INTEGER, "DirectQuery para AS – RSL-BI")
 		formatString: 0
@@ -223,7 +197,6 @@ table _Medidas_Winthor
 		dataCategory: Uncategorized
 
 	measure Rank_Vol_VD = EXTERNALMEASURE("Rank_Vol_VD", INTEGER, "DirectQuery para AS – RSL-BI")
-		formatString: 0
 		lineageTag: 47d5740c-71c0-4749-b196-3c6fca50397d
 		sourceLineageTag: d67a2be5-30d1-43c8-802c-79ad77f69795
 		dataCategory: Uncategorized
@@ -311,8 +284,6 @@ table _Medidas_Winthor
 		sourceLineageTag: 569dbf0c-5c94-4e46-bb68-9ffa5e5600f8
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure Qtde_Ped_Vda_WTH_Hist = EXTERNALMEASURE("Qtde_Ped_Vda_WTH_Hist", INTEGER, "DirectQuery para AS – RSL-BI")
 		formatString: 0
 		lineageTag: 71954870-1455-4a18-9987-e0e29d860c41
@@ -330,8 +301,6 @@ table _Medidas_Winthor
 		sourceLineageTag: ea10ab7a-b41d-4b51-9339-06dfbf630363
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure Real_Vol_Hoje = EXTERNALMEASURE("Real_Vol_Hoje", INTEGER, "DirectQuery para AS – RSL-BI")
 		formatString: 0
 		lineageTag: f10ffc2e-34d2-4b44-a851-1a432ce19bd3
@@ -348,8 +317,6 @@ table _Medidas_Winthor
 		lineageTag: 0e05e401-e81c-4088-bd25-4a8c2baf1086
 		sourceLineageTag: dd300424-2eb4-485d-bf2e-d6da1da56d7d
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'DT.Ult.Compra_Hist' = EXTERNALMEASURE("DT.Ult.Compra_Hist", DATETIME, "DirectQuery para AS – RSL-BI")
 		formatString: General Number
@@ -376,7 +343,6 @@ table _Medidas_Winthor
 		dataCategory: Uncategorized
 
 	measure Qtde_Ped_BNF_WTH_Hist = EXTERNALMEASURE("Qtde_Ped_BNF_WTH_Hist", INTEGER, "DirectQuery para AS – RSL-BI")
-		formatString: 0
 		lineageTag: 6a1b885d-aaa3-4937-a7af-54dbf231f3e5
 		sourceLineageTag: 2325f3cf-7fc5-4a2e-aed4-127bebc19dc6
 		dataCategory: Uncategorized
@@ -392,16 +358,12 @@ table _Medidas_Winthor
 		sourceLineageTag: 52ecdfd9-5fbb-4072-a28a-d28799532ce7
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure Vol_Consig_WTH_Hist = EXTERNALMEASURE("Vol_Consig_WTH_Hist", INTEGER, "DirectQuery para AS – RSL-BI")
-		formatString: 0
 		lineageTag: 83912df2-3bb5-41dd-959c-53ed6b09a01e
 		sourceLineageTag: d365e361-3594-405c-bcb8-56214358b537
 		dataCategory: Uncategorized
 
 	measure Qtde_PedConsig_WTH_Hist = EXTERNALMEASURE("Qtde_PedConsig_WTH_Hist", INTEGER, "DirectQuery para AS – RSL-BI")
-		formatString: 0
 		lineageTag: 0c055223-aec3-44ef-958b-9019b1378556
 		sourceLineageTag: 3de8e6cf-0536-45ea-9d88-2e085e4dc7dd
 		dataCategory: Uncategorized
@@ -411,56 +373,40 @@ table _Medidas_Winthor
 		sourceLineageTag: 9a1bab29-e0df-4a83-99fd-a53bb449fdec
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure %Dir_Meta_PMHL_Hist = EXTERNALMEASURE("%Dir_Meta_PMHL_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
 		lineageTag: b560e240-557f-4f09-9c69-79a67972c740
 		sourceLineageTag: ddbaf089-6400-49a6-b983-4021966a195f
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure %MetaDir_PM_Hist = EXTERNALMEASURE("%MetaDir_PM_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
 		lineageTag: da7e7995-0be6-48fb-a80d-161faec5dabe
 		sourceLineageTag: 2eec08f5-bbcf-44bb-af94-3751895295b5
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure %Dir_Real_Meta_HL_Hist = EXTERNALMEASURE("%Dir_Real_Meta_HL_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
 		lineageTag: fcaee262-45ed-48f3-a7c3-17d2a352a7fd
 		sourceLineageTag: 0df959b3-680a-4e62-a625-efb3891efd73
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure %Dir_Real_Meta_Vol_Hist = EXTERNALMEASURE("%Dir_Real_Meta_Vol_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
 		lineageTag: 457034de-f13f-42bc-9e50-25184bb000de
 		sourceLineageTag: 00b294fe-a0b9-4ac9-8b1a-b3271244f083
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure %Dir_Tend_Meta_Fat_Hist = EXTERNALMEASURE("%Dir_Tend_Meta_Fat_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
 		lineageTag: 80d248fd-9268-42de-9c3a-72d365d39485
 		sourceLineageTag: cd472fe9-189d-4c70-95c3-43186ea6478a
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure %Dir_Tend_Meta_HL_Hist = EXTERNALMEASURE("%Dir_Tend_Meta_HL_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
 		lineageTag: 99ab3a0a-074b-4ccf-9972-adf172c7f38d
 		sourceLineageTag: 2b57eaac-6cd0-4b34-953b-c8ee74e5bc7b
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure %Dir_Tend_Meta_Vol_Hist = EXTERNALMEASURE("%Dir_Tend_Meta_Vol_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
 		lineageTag: 5e3fa52f-c5b0-49ed-81cc-f4fed268fd4f
 		sourceLineageTag: 21d10f02-ac33-466a-8914-6231632da17c
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure _Base_Cli_Inat = EXTERNALMEASURE("_Base_Cli_Inat", INTEGER, "DirectQuery para AS – RSL-BI")
 		formatString: #,0
@@ -505,7 +451,6 @@ table _Medidas_Winthor
 		dataCategory: Uncategorized
 
 	measure Qtd_Itens_vz = EXTERNALMEASURE("Qtd_Itens_vz", INTEGER, "DirectQuery para AS – RSL-BI")
-		formatString: 0
 		lineageTag: 058894a4-d2db-4ac7-a9f6-43b985b9bcf2
 		sourceLineageTag: b58be71d-f03b-4ddd-882c-4635d5609c29
 		dataCategory: Uncategorized
@@ -539,21 +484,15 @@ table _Medidas_Winthor
 		sourceLineageTag: 9f2a107b-bbc2-4409-bc3c-d5a1d24cee66
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure Tend_15 = EXTERNALMEASURE("Tend_15", DOUBLE, "DirectQuery para AS – RSL-BI")
 		lineageTag: 296a0e5f-49bd-4054-8ca5-d8d57f7ccc7e
 		sourceLineageTag: da1c42be-2a41-43a0-98ea-0435e00f61b5
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure %Inad_Fat_Hist = EXTERNALMEASURE("%Inad_Fat_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
 		lineageTag: ec56bcef-794c-4423-bd95-7f7540005053
 		sourceLineageTag: 39347027-dd59-4249-8842-f65718da943c
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure QTD_ACAO_HIST = [QTD_ICE_HIST] + [QTD_P_ULTRA_HIST]
 		lineageTag: 2ce343bd-1f28-4cb6-a7b2-a9381f2bac0d

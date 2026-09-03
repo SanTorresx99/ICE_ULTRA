@@ -13,14 +13,10 @@ table _Medidas_Hist
 		sourceLineageTag: be8e0f93-9b77-4584-af90-0eed5a4b468c
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure Real_HL_Hist = EXTERNALMEASURE("Real_HL_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
 		lineageTag: 5c0cce95-c1d1-4d77-b5de-dd2e8eb50bb4
 		sourceLineageTag: 8638eabe-5e00-40b4-89e1-bac71dbe4d78
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure Pos_Hist = EXTERNALMEASURE("Pos_Hist", INTEGER, "DirectQuery para AS – RSL-BI")
 		formatString: #,0
@@ -32,8 +28,6 @@ table _Medidas_Hist
 		lineageTag: 7d0277cd-1340-42f6-b4b3-20bb7059cdb6
 		sourceLineageTag: 07e79c97-2f6b-4f20-a9ec-2382238c3e7d
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure IPC_Hist = EXTERNALMEASURE("IPC_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
 		formatString: 0.00
@@ -52,14 +46,10 @@ table _Medidas_Hist
 		sourceLineageTag: 3aa5478b-6973-4d17-919e-7b7a25e9f191
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure Gap_Fat_MetaDir_Hist = EXTERNALMEASURE("Gap_Fat_MetaDir_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
 		lineageTag: 259b9287-3654-432c-b51f-6b922897d6da
 		sourceLineageTag: 37926643-3ac2-4bb7-ba30-40ebcd3fcb65
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure Gap_Vol_MetaDir_Hist = EXTERNALMEASURE("Gap_Vol_MetaDir_Hist", INTEGER, "DirectQuery para AS – RSL-BI")
 		formatString: #,0
@@ -71,8 +61,6 @@ table _Medidas_Hist
 		lineageTag: 30c58004-f77d-4132-bd41-ed6a62c2da8d
 		sourceLineageTag: a71c2918-f509-41f4-9ed2-f5355e930782
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure %Real_Meta_Fat_Hist = EXTERNALMEASURE("%Real_Meta_Fat_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
 		formatString: 0.00%;-0.00%;0.00%
@@ -109,14 +97,10 @@ table _Medidas_Hist
 		sourceLineageTag: 1d071bd3-d07a-4623-900c-6df937c01f73
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure Tend_HL_Hist = EXTERNALMEASURE("Tend_HL_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
 		lineageTag: e20289f3-fc11-4b0b-8748-e61ea51352e7
 		sourceLineageTag: 5f79b2bf-bf61-4b59-9e8f-1c909e5e146d
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure %Tnd_Meta_Vol_Hist = EXTERNALMEASURE("%Tnd_Meta_Vol_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
 		formatString: 0.00%;-0.00%;0.00%
@@ -134,8 +118,6 @@ table _Medidas_Hist
 		lineageTag: df4f805c-d824-47ab-b43b-e56933ea421f
 		sourceLineageTag: 70813b31-4f60-49b9-a93a-eb65ce813c8a
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure %PMHL_Hist = EXTERNALMEASURE("%PMHL_Hist", DOUBLE, "DirectQuery para AS – RSL-BI")
 		formatString: 0.00%;-0.00%;0.00%
@@ -214,14 +196,10 @@ table _Medidas_Hist
 		sourceLineageTag: 2cb881d9-f17b-438c-9d64-95848d921fb5
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure 'ipc Assai' = EXTERNALMEASURE("ipc Assai", DOUBLE, "DirectQuery para AS – RSL-BI")
 		lineageTag: bcdfbd51-4059-4ceb-8114-424d888fbc60
 		sourceLineageTag: d8358739-bfea-471c-b61e-ec26d56398d9
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'pos Assai' = EXTERNALMEASURE("pos Assai", INTEGER, "DirectQuery para AS – RSL-BI")
 		formatString: 0

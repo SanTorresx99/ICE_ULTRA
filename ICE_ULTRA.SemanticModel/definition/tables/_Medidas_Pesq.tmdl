@@ -9,19 +9,16 @@ table _Medidas_Pesq
 		dataCategory: Uncategorized
 
 	measure Potencial_Venda = EXTERNALMEASURE("Potencial_Venda", INTEGER, "DirectQuery para AS – RSL-BI")
-		formatString: 0
 		lineageTag: f4f0972f-fb07-4234-bb8e-0b7e5131b23f
 		sourceLineageTag: 6a6f6302-006c-46a5-992f-30a5ca5028cd
 		dataCategory: Uncategorized
 
 	measure Potencial_Compra = EXTERNALMEASURE("Potencial_Compra", INTEGER, "DirectQuery para AS – RSL-BI")
-		formatString: 0
 		lineageTag: 8d0dd595-91b0-4871-968f-bd0231f69a3b
 		sourceLineageTag: d3297bf8-75ef-48e8-bfd5-60172490c3c0
 		dataCategory: Uncategorized
 
 	measure Lucro_bruto = EXTERNALMEASURE("Lucro_bruto", INTEGER, "DirectQuery para AS – RSL-BI")
-		formatString: 0
 		lineageTag: 4388305f-c601-4c8a-af94-54fe3b0732e2
 		sourceLineageTag: 659a5d7c-9139-4693-8a73-9388097dd905
 		dataCategory: Uncategorized
@@ -63,13 +60,11 @@ table _Medidas_Pesq
 		dataCategory: Uncategorized
 
 	measure PM_Compra = EXTERNALMEASURE("PM_Compra", INTEGER, "DirectQuery para AS – RSL-BI")
-		formatString: 0
 		lineageTag: 5728f309-dc5e-44d5-9aa5-12043fe155dc
 		sourceLineageTag: 5104c41a-cb4c-4bc7-909c-2513bedd3327
 		dataCategory: Uncategorized
 
 	measure PM_Venda = EXTERNALMEASURE("PM_Venda", INTEGER, "DirectQuery para AS – RSL-BI")
-		formatString: 0
 		lineageTag: 69e8d066-1872-4f77-8636-9481423afa3a
 		sourceLineageTag: ac7fb7f1-4398-4e1c-baf8-a4f3849f4d7b
 		dataCategory: Uncategorized
@@ -79,10 +74,7 @@ table _Medidas_Pesq
 		sourceLineageTag: 997b459c-e234-4af7-93d7-a09ee30ec864
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure Lucro_Und = EXTERNALMEASURE("Lucro_Und", INTEGER, "DirectQuery para AS – RSL-BI")
-		formatString: 0
 		lineageTag: cc2c5d0f-38bc-43f2-9397-78bbd7d38f2c
 		sourceLineageTag: 6703b80d-fc2c-435c-953a-b90ce3a891de
 		dataCategory: Uncategorized
@@ -91,8 +83,6 @@ table _Medidas_Pesq
 		lineageTag: aa6bdf8a-15e9-43c6-9a75-ab27aaeb1651
 		sourceLineageTag: 1787c35e-e6a3-44a9-b397-e6088b9ee06c
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure %Ind_coleta = EXTERNALMEASURE("%Ind_coleta", DOUBLE, "DirectQuery para AS – RSL-BI")
 		formatString: 0.00%;-0.00%;0.00%

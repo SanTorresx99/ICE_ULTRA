@@ -13,14 +13,10 @@ table Medidas_Site
 		sourceLineageTag: 8410151b-b1d5-4c8e-b5b7-972b111340b1
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure HL_Site = EXTERNALMEASURE("HL_Site", DOUBLE, "DirectQuery para AS – RSL-BI")
 		lineageTag: 032dd397-0dd0-4c7c-a2ee-72a5bc1f6113
 		sourceLineageTag: 03cda50c-7c9c-43eb-8cfa-9baba476a226
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure Qtde_Ped_Site = EXTERNALMEASURE("Qtde_Ped_Site", INTEGER, "DirectQuery para AS – RSL-BI")
 		formatString: 0
@@ -45,14 +41,10 @@ table Medidas_Site
 		sourceLineageTag: 8db655c9-3a47-4325-8ee7-40ef946f065c
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure Tkt_Med_Site = EXTERNALMEASURE("Tkt_Med_Site", DOUBLE, "DirectQuery para AS – RSL-BI")
 		lineageTag: db474239-7258-4f47-a9d2-0a8a54e9ed7f
 		sourceLineageTag: af63e5f7-2d56-4f46-9786-bff9c036944c
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	partition Medidas_Site = entity
 		mode: directQuery

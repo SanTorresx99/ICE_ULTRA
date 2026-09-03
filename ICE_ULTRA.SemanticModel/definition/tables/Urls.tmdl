@@ -7,21 +7,15 @@ table Urls
 		sourceLineageTag: 8dda44e8-aa6d-4c4c-bb26-737ffdedc215
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isText":true}
-
 	measure Cli_Justifique = EXTERNALMEASURE("Cli_Justifique", STRING, "DirectQuery para AS – RSL-BI")
 		lineageTag: 2e0a228e-abb4-4b73-92b6-1d01b4d3542e
 		sourceLineageTag: 8c8d79f9-b788-4219-b7d9-6d740d308195
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isText":true}
-
 	measure Cli_Justifique_hist = EXTERNALMEASURE("Cli_Justifique_hist", STRING, "DirectQuery para AS – RSL-BI")
 		lineageTag: 78fbb155-388f-4780-8a53-9113c1707371
 		sourceLineageTag: 7e1e41d4-3345-4fe2-9c3d-9e4b9adeacf1
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isText":true}
 
 	partition Urls = entity
 		mode: directQuery

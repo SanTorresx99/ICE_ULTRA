@@ -148,8 +148,6 @@ table Tipo_Produto
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column 'Frete RR'
 		dataType: double
 		lineageTag: d1ca00a3-eb67-4455-880f-f09b3d2e8e3d
@@ -159,8 +157,6 @@ table Tipo_Produto
 		sourceColumn: Frete RR
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column 'FRETE ITA'
 		dataType: double
@@ -172,8 +168,6 @@ table Tipo_Produto
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column 'FRETE PAR'
 		dataType: double
 		lineageTag: ea5b571f-b59f-418f-b6a0-ae3e243d7eb8
@@ -183,8 +177,6 @@ table Tipo_Produto
 		sourceColumn: FRETE PAR
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column 'FRETE TAB'
 		dataType: double
@@ -196,8 +188,6 @@ table Tipo_Produto
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column 'Volta AM'
 		dataType: double
 		lineageTag: 7be56ee6-0a39-43e9-b983-937ab9722fbb
@@ -208,8 +198,6 @@ table Tipo_Produto
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column 'Volta RR'
 		dataType: double
 		lineageTag: 6e7ff249-d532-4709-9958-2df15594be79
@@ -219,8 +207,6 @@ table Tipo_Produto
 		sourceColumn: Volta RR
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	partition Tipo_Produto = entity
 		mode: directQuery

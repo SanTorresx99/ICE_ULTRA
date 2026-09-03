@@ -93,8 +93,6 @@ table Fato_NF_Perda_Atual
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column CODFISCAL
 		dataType: int64
 		formatString: 0
@@ -115,8 +113,6 @@ table Fato_NF_Perda_Atual
 		sourceColumn: VLR
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	partition Fato_NF_Perda_Atual = entity
 		mode: directQuery

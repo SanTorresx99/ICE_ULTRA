@@ -73,56 +73,40 @@ table _Medidas_AA
 		sourceLineageTag: 2bc6b27e-fa8a-43f6-b595-b2b258cb3956
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure PM_2018 = EXTERNALMEASURE("PM_2018", DOUBLE, "DirectQuery para AS – RSL-BI")
 		lineageTag: 775c7036-2f0a-4279-a520-471ee2add734
 		sourceLineageTag: 100c10f4-4b37-45cb-9040-5ff07cb55970
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure PM_2019 = EXTERNALMEASURE("PM_2019", DOUBLE, "DirectQuery para AS – RSL-BI")
 		lineageTag: bb08b275-e74c-4799-b19f-5eb99a9f67f8
 		sourceLineageTag: 8024a9fb-4d82-4a92-aca9-fcde0f5479c4
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure PM_2020 = EXTERNALMEASURE("PM_2020", DOUBLE, "DirectQuery para AS – RSL-BI")
 		lineageTag: 23567313-7250-4f86-9ea5-9cd7942cb197
 		sourceLineageTag: 3ca88d53-4ead-4e28-8f1f-30c9b6d4e124
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure PM_2021 = EXTERNALMEASURE("PM_2021", DOUBLE, "DirectQuery para AS – RSL-BI")
 		lineageTag: 957dae56-cfb8-46ae-943d-cf5976ac38e8
 		sourceLineageTag: 2b50dea0-ffed-4090-acab-6b99ada7de4a
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure Qtd_PM_MA = EXTERNALMEASURE("Qtd_PM_MA", DOUBLE, "DirectQuery para AS – RSL-BI")
 		lineageTag: 47fcaa2e-bffb-4b18-a29d-a870f9019951
 		sourceLineageTag: 82fde130-91aa-45aa-b11c-659b9b8d0c34
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure Fat_Med_3M = EXTERNALMEASURE("Fat_Med_3M", DOUBLE, "DirectQuery para AS – RSL-BI")
 		lineageTag: 8feda306-03c9-48ee-ba72-7efe9817aab7
 		sourceLineageTag: 17f707cd-31db-4c7f-88ce-f56663f7b7e8
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure PM_Med_3M = EXTERNALMEASURE("PM_Med_3M", DOUBLE, "DirectQuery para AS – RSL-BI")
 		lineageTag: f2f2b680-c4b2-4d4b-aa5b-23a6e26ac89c
 		sourceLineageTag: ec6cbb34-03f5-4d4e-86a4-2f2d8b131331
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure %2017 = EXTERNALMEASURE("%2017", DOUBLE, "DirectQuery para AS – RSL-BI")
 		formatString: 0.00%;-0.00%;0.00%
@@ -159,14 +143,10 @@ table _Medidas_AA
 		sourceLineageTag: d5364306-bd3d-400d-8bab-4d546010c646
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure HL_Med_3M = EXTERNALMEASURE("HL_Med_3M", DOUBLE, "DirectQuery para AS – RSL-BI")
 		lineageTag: 2ad7c242-82e4-42ba-a834-43ef32927b94
 		sourceLineageTag: 98935612-e307-491a-8383-5cde73abdc60
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure %2022 = EXTERNALMEASURE("%2022", DOUBLE, "DirectQuery para AS – RSL-BI")
 		formatString: 0.00%;-0.00%;0.00%
@@ -178,8 +158,6 @@ table _Medidas_AA
 		lineageTag: 0aaaa69a-92d9-4128-a735-9e603e8ac0de
 		sourceLineageTag: 8eae9202-d102-4882-8568-30ac7f2bf441
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure Var_2022 = EXTERNALMEASURE("Var_2022", DOUBLE, "DirectQuery para AS – RSL-BI")
 		formatString: #,0
@@ -198,14 +176,10 @@ table _Medidas_AA
 		sourceLineageTag: 3e68e628-a59b-41c3-a54a-785914aaf9d0
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure Var_2024 = EXTERNALMEASURE("Var_2024", DOUBLE, "DirectQuery para AS – RSL-BI")
 		lineageTag: 51676226-b477-446a-a37d-af382779ab0c
 		sourceLineageTag: f865568b-7f09-4b79-ae2c-3b2146acac48
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure PM_2024 = EXTERNALMEASURE("PM_2024", DOUBLE, "DirectQuery para AS – RSL-BI")
 		formatString: 0
@@ -230,8 +204,6 @@ table _Medidas_AA
 		sourceLineageTag: 2c0aa146-b2fa-41d2-8d52-d50d7ef055ba
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure %2024 = EXTERNALMEASURE("%2024", DOUBLE, "DirectQuery para AS – RSL-BI")
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: d44ceef3-9fa9-4f1a-9daf-e738f65d007e
@@ -242,8 +214,6 @@ table _Medidas_AA
 		lineageTag: e96028e6-02fe-4d68-bd84-871dcf0a19c1
 		sourceLineageTag: 941cf082-24ca-47cb-bf55-b97b92e72e05
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	partition _Medidas_AA = entity
 		mode: directQuery

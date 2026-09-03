@@ -19,35 +19,25 @@ table _Medidas_Cont
 		sourceLineageTag: 3a3a035f-b686-4e5b-9dcb-c1bbf109525b
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure Resultado = EXTERNALMEASURE("Resultado", DOUBLE, "DirectQuery para AS – RSL-BI")
 		lineageTag: e18743f1-e127-40d1-9f61-2708fec46b67
 		sourceLineageTag: 55dcc802-7d61-4f1e-b1f1-8339bc33c731
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure CustoADF = EXTERNALMEASURE("CustoADF", DOUBLE, "DirectQuery para AS – RSL-BI")
 		lineageTag: 36f92f7a-a6ec-49fb-aa2c-593f578375ce
 		sourceLineageTag: c81e01f4-074d-4ae9-9953-f06e15a3ba7d
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure DevADF = EXTERNALMEASURE("DevADF", DOUBLE, "DirectQuery para AS – RSL-BI")
 		lineageTag: 8808a4b6-dab6-47a7-be28-1b46f08bf96f
 		sourceLineageTag: b9ed5e33-eaa8-4f6b-95c0-9fed1e5a8aa7
 		dataCategory: Uncategorized
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure FatADF = EXTERNALMEASURE("FatADF", DOUBLE, "DirectQuery para AS – RSL-BI")
 		lineageTag: 759283fc-ffe1-4d7b-8956-475c6d7932f0
 		sourceLineageTag: c93c6f19-4990-4c0b-91da-6f3e799905a2
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure VLR_Real+Prev = EXTERNALMEASURE("VLR_Real+Prev", DOUBLE, "DirectQuery para AS – RSL-BI")
 		formatString: #,0.00
@@ -77,8 +67,6 @@ table _Medidas_Cont
 		lineageTag: 805e2c16-2a61-4242-ba81-dadff18b01f4
 		sourceLineageTag: 29a776f8-68a5-473b-91a4-13fb3aff6737
 		dataCategory: Uncategorized
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	partition _Medidas_Cont = entity
 		mode: directQuery

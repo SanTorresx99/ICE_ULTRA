@@ -88,8 +88,6 @@ table Fato_NF_Perda_Hist
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column CODFISCAL
 		dataType: int64
 		formatString: 0
@@ -110,8 +108,6 @@ table Fato_NF_Perda_Hist
 		sourceColumn: VLR
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	partition Fato_NF_Perda_Hist = entity
 		mode: directQuery

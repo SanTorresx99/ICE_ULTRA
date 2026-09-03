@@ -110,8 +110,6 @@ table Dim_Estoque
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column 'VALOR ESTOQUE CHÃO'
 		dataType: double
 		lineageTag: 3b2bfcd7-3650-4876-a12d-6aec2bfe92e0
@@ -122,8 +120,6 @@ table Dim_Estoque
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column 'VALOR TOTAL'
 		dataType: double
 		lineageTag: f5bdaf77-b933-47c6-b6e6-8fdda95f0027
@@ -133,8 +129,6 @@ table Dim_Estoque
 		sourceColumn: VALOR TOTAL
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column Sheet
 		dataType: string
@@ -178,8 +172,6 @@ table Dim_Estoque
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column FRETE
 		dataType: double
 		lineageTag: 3638a692-600b-4268-b07a-43d2ede7fd16
@@ -189,8 +181,6 @@ table Dim_Estoque
 		sourceColumn: FRETE
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column PALETIZAÇÃO
 		dataType: string

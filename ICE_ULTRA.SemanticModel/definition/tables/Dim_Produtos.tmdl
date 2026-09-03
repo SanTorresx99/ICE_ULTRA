@@ -116,8 +116,6 @@ table Dim_Produtos
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column prd_Litragem_num
 		dataType: double
 		lineageTag: 6a80c74a-a97c-4faa-8b8c-83ff6401c73d
@@ -128,8 +126,6 @@ table Dim_Produtos
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column prd_Fatorhecto_num
 		dataType: double
 		lineageTag: 3d86ff36-dabf-422d-9db9-5c009c60ba46
@@ -139,8 +135,6 @@ table Dim_Produtos
 		sourceColumn: prd_Fatorhecto_num
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column mrp_MarcaProduto_chr
 		dataType: string
@@ -232,8 +226,6 @@ table Dim_Produtos
 		sourceColumn: Meta_Margem
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column prod_Criado_dtm
 		dataType: dateTime
@@ -332,8 +324,6 @@ table Dim_Produtos
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column PRD_PESOLIQUIDO_NUM
 		dataType: double
 		lineageTag: 0e4e956f-109d-4769-b262-e13f890f315f
@@ -344,8 +334,6 @@ table Dim_Produtos
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column PRD_PESOBRUTO_NUM
 		dataType: double
 		lineageTag: 3961acf1-dfa9-4fe9-813e-21f9f67d25e7
@@ -355,8 +343,6 @@ table Dim_Produtos
 		sourceColumn: PRD_PESOBRUTO_NUM
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	partition Dim_Produtos = entity
 		mode: directQuery

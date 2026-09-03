@@ -12,8 +12,6 @@ table Dim_Comodato
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column Status
 		dataType: string
 		lineageTag: 520e570f-19a2-428e-8b1d-ba4960e9c7e8
@@ -229,8 +227,6 @@ table Dim_Comodato
 		sourceColumn: cit_ValorItem_cur
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column Cmd_Descricao
 		dataType: string

@@ -813,8 +813,6 @@ table Fato_Rank_SV
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column REAL_DEV
 		dataType: double
 		lineageTag: 4e5830ec-a5d5-4b11-8dc1-611b01d6da52
@@ -824,8 +822,6 @@ table Fato_Rank_SV
 		sourceColumn: REAL_DEV
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column %DEV
 		dataType: double
@@ -881,8 +877,6 @@ table Fato_Rank_SV
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column %INAD
 		dataType: double
 		formatString: 0.00%;-0.00%;0.00%
@@ -903,8 +897,6 @@ table Fato_Rank_SV
 		sourceColumn: GAP INAD
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column PTS_INAD
 		dataType: int64

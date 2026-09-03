@@ -399,7 +399,6 @@ table Fato_Rank_VD
 
 	column 'GAP 269ML_C15'
 		dataType: int64
-		formatString: 0
 		lineageTag: 89c5ab30-4b37-4dec-9c92-7b01b8bac37f
 		sourceLineageTag: a418ce0b-3a85-4470-b2de-9a34903c7e8b
 		dataCategory: Uncategorized
@@ -531,7 +530,6 @@ table Fato_Rank_VD
 
 	column 'POS ICE275ML'
 		dataType: int64
-		formatString: 0
 		lineageTag: 9417a819-7652-429a-bf21-7fc6dd4e9791
 		sourceLineageTag: f4c5a0eb-eea7-4aab-9ad7-135784387a36
 		dataCategory: Uncategorized
@@ -575,7 +573,6 @@ table Fato_Rank_VD
 
 	column 'POS ITA_PREM'
 		dataType: int64
-		formatString: 0
 		lineageTag: a1fc03f1-6b0f-4485-9cfe-f1912a7165e9
 		sourceLineageTag: 3c5adc08-9767-4626-b3c3-b90dcb5fce14
 		dataCategory: Uncategorized
@@ -619,7 +616,6 @@ table Fato_Rank_VD
 
 	column 'POS BLKPRIN'
 		dataType: int64
-		formatString: 0
 		lineageTag: 6ec0f1d1-4062-4837-a46e-7b03fe773717
 		sourceLineageTag: 9fe96a66-f776-4154-9a33-f63b906bff92
 		dataCategory: Uncategorized
@@ -781,8 +777,6 @@ table Fato_Rank_VD
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column REAL_DEV
 		dataType: double
 		lineageTag: 52b89c59-f62c-4070-8355-b0dbf6dc1310
@@ -792,8 +786,6 @@ table Fato_Rank_VD
 		sourceColumn: REAL_DEV
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column %DEV
 		dataType: double
@@ -838,8 +830,6 @@ table Fato_Rank_VD
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column REAL_INAD
 		dataType: double
 		lineageTag: ab322a43-4aa7-4e1d-95b3-fa81c833e761
@@ -849,8 +839,6 @@ table Fato_Rank_VD
 		sourceColumn: REAL_INAD
 
 		annotation SummarizationSetBy = User
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column %INAD
 		dataType: double

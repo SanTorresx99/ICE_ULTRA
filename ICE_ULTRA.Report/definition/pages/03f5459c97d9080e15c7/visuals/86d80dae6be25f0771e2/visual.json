@@ -1,0 +1,71 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "86d80dae6be25f0771e2",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 0,
+    "height": 750.09122500591309,
+    "width": 1304.3084256681768,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "htmlContent443BE3AD55E043BF878BED274D3A6865",
+    "query": {
+      "queryState": {
+        "content": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas_Ranking"
+                    }
+                  },
+                  "Property": "Ranking_Brasileirao_HTML"
+                }
+              },
+              "queryRef": "Medidas_Ranking.Ranking_Brasileirao_HTML",
+              "nativeQueryRef": "Ranking_Brasileirao_HTML"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "padding": [
+        {
+          "properties": {
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "cbfbf89b8e4910e3b622",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas_Ranking"
+              }
+            },
+            "Property": "Ranking_Brasileirao_HTML"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

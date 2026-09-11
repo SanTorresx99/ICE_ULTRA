@@ -931,8 +931,8 @@
       else if (currentScope === 'small') raw = JSON.parse(JSON.stringify(smallTeamSellers));
       else raw = JSON.parse(JSON.stringify(allSellers));
 
-      // Regra de Negócio: Exclui pedidos feitos pelo próprio supervisor (Vendedor == Supervisor)
-      return raw.filter(s => !s.sup || !s.name || s.name.trim().toLowerCase() !== s.sup.trim().toLowerCase());
+      // Todos os vendedores com vendas faturadas no período
+      return raw.filter(s => s.sales > 0);
     }
 
     function calculateZones(total) {

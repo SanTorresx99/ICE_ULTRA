@@ -1114,11 +1114,8 @@
         list = rawData.top15_ultra;
       }
 
-      // Regra de Negócio: Exclui pedidos feitos pelo próprio supervisor (Vendedor == Supervisor)
-      return list.filter(s => {
-        if (!s.sup || !s.name) return true;
-        return s.name.trim().toLowerCase() !== s.sup.trim().toLowerCase();
-      });
+      // Todos os vendedores com vendas faturadas no período
+      return list.filter(s => s.sales > 0);
     }
 
     // Lógica Dinâmica de Cálculo de Zonas de Futebol

@@ -172,14 +172,13 @@ Para atender a demanda de acompanhamento pelas equipes de supervisores em tela c
      * ⚽ **G-Nº • Sul-Americana**: Até $\approx 2/4$ do total (Ex: G27 em 54 vendedores).
      * ⚠️ **Zona de Rebaixamento**: Até $\approx 3/4$ do total (Ex: Z41 em 54 vendedores).
      * 🔻 **Série B • Rebaixados**: Últimos colocados (restante).
-5. **Regra de Exclusão de Supervisores (Vendedor == Supervisor)**:
-   * **Objetivo**: Garantir que apenas vendedores legítimos de linha de frente componham o ranking e as estatísticas.
-   * **Critério de Exclusão**: Se o nome do vendedor for idêntico ao nome do supervisor (`[@Name] = [@Supervisor]`), indicando vendas diretas do supervisor ou pedidos de apoio:
-     * O registro é **completamente excluído do ranking** (não recebe colocação e não é renderizado no HTML).
-     * Os totais de caixas (`TotalSales`), contagem de participantes (`CountSellers`) e positivações (`TotalClients`) são recalculados desconsiderando esse volume.
+5. **Alinhamento do Critério Oficial VEND-PED (RCA do Pedido)**:
+   * **Objetivo**: Garantir que todo RCA que emitiu pedido faturado participe legitimamente do ranking oficial e das estatísticas apuradas.
+   * **Critério de Inclusão**: O filtro considera todos os vendedores com vendas faturadas no período (`[@Sales] > 0`). Supervisores que também atuam comercialmente emitindo pedidos sob sua própria matrícula (como Ermeson Barbosa de Souza, 1º lugar geral com 169 caixas) são plenamente reconhecidos no ranking.
    * **Implementação**:
-     * DAX: `FILTER(RawSellers, [@Sales] > 0 && (ISBLANK([@Supervisor]) || TRIM([@Name]) <> TRIM([@Supervisor])))` aplicado em `[Ranking_Brasileirao_HTML]`, `[Ranking_Mobile_HTML]` e `[Ranking_Sellers_HTML]`.
-     * Mockups JS: `.filter(s => !s.sup || !s.name || s.name.trim().toLowerCase() !== s.sup.trim().toLowerCase())`.
+     * DAX: `FILTER(RawSellers, [@Sales] > 0)` aplicado em `[Ranking_Brasileirao_HTML]`, `[Ranking_Mobile_HTML]` e `[Ranking_Sellers_HTML]`.
+     * Mockups JS: `.filter(s => s.sales > 0)`.
+     * Suporte nos 3 visuais HTML à alternância dinâmica entre **Volume de Vendas (Caixas)** e **Quantidade de Clientes Positivados** via `Filtro_Ranking_Motor`.
 
 6. **Arquitetura Responsiva e Alta Densidade de Visualização**:
    * **Responsividade Fluida 100% x 100%**:

@@ -3,7 +3,7 @@
   "name": "03f5459c97d9080e15c7",
   "displayName": "Ranking Geral",
   "displayOption": "FitToPage",
-  "height": 750,
+  "height": 1150,
   "width": 1304,
   "filterConfig": {
     "filters": [
@@ -73,7 +73,7 @@
             "Property": "Date"
           }
         },
-        "type": "Advanced",
+        "type": "RelativeDate",
         "filter": {
           "Version": 2,
           "From": [
@@ -86,55 +86,24 @@
           "Where": [
             {
               "Condition": {
-                "And": {
+                "Comparison": {
+                  "ComparisonKind": 0,
                   "Left": {
-                    "Comparison": {
-                      "ComparisonKind": 0,
-                      "Left": {
-                        "Column": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Source": "d"
-                            }
-                          },
-                          "Property": "Date"
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "d"
                         }
                       },
-                      "Right": {
-                        "DateSpan": {
-                          "Expression": {
-                            "Literal": {
-                              "Value": "datetime'2026-08-01T00:00:00'"
-                            }
-                          },
-                          "TimeUnit": 5
-                        }
-                      }
+                      "Property": "Date"
                     }
                   },
                   "Right": {
-                    "Comparison": {
-                      "ComparisonKind": 4,
-                      "Left": {
-                        "Column": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Source": "d"
-                            }
-                          },
-                          "Property": "Date"
-                        }
+                    "DateSpan": {
+                      "Expression": {
+                        "Now": {}
                       },
-                      "Right": {
-                        "DateSpan": {
-                          "Expression": {
-                            "Literal": {
-                              "Value": "datetime'2026-08-31T23:59:00'"
-                            }
-                          },
-                          "TimeUnit": 5
-                        }
-                      }
+                      "TimeUnit": 2
                     }
                   }
                 }

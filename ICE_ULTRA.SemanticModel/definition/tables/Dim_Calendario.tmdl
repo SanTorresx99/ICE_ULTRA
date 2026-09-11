@@ -2,12 +2,12 @@ table Dim_Calendario
 	lineageTag: 7a536123-4045-4681-8fb3-4a477ad43684
 	sourceLineageTag: 1e48468a-a764-41dd-a472-32bba716f2f4
 
-	measure QTD_ICE_HIST = CALCULATE([Vol_Liq_WTH_Hist], Dim_Produtos[prd_Produto_int_PK] IN { 201670, 200168, 201681, 201910 }, Fato_Vendas_Hist_Winthor[VLRUNITARIO] >= 53.0)
+	measure QTD_ICE_HIST = CALCULATE([Vol_Liq_WTH_Hist], Dim_Produtos[prd_Produto_int_PK] IN { 201670, 200168, 201681, 201910 }, Fato_Vendas_Hist_Winthor[VLRUNITARIO] >= 53.0, USERELATIONSHIP(Fato_Vendas_Hist_Winthor[IDRCA_PED], Dim_Vendedor[ven_Vendedor_int_PK]))
 		lineageTag: 7ad9f458-3446-447d-939b-e71413b2d12c
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure QTD_ICE_ATUAL = CALCULATE([Real_Vol_Hoje], Dim_Produtos[prd_Produto_int_PK] IN { 201670, 200168, 201681, 201910 }, Fato_Vendas_Atual_Winthor[VLRUNITARIO] >= 53.0)
+	measure QTD_ICE_ATUAL = CALCULATE([Real_Vol_Hoje], Dim_Produtos[prd_Produto_int_PK] IN { 201670, 200168, 201681, 201910 }, Fato_Vendas_Atual_Winthor[VLRUNITARIO] >= 53.0, USERELATIONSHIP(Fato_Vendas_Atual_Winthor[IDRCA], Dim_Vendedor[ven_Vendedor_int_PK]))
 		lineageTag: e54a5fb6-5017-403c-869b-ffce7d64276a
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -17,12 +17,12 @@ table Dim_Calendario
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure QTD_P_ULTRA_HIST = CALCULATE([Vol_Liq_WTH_Hist], Dim_Produtos[prd_Produto_int_PK] = 16395, Fato_Vendas_Hist_Winthor[VLRUNITARIO] >= 73.00)
+	measure QTD_P_ULTRA_HIST = CALCULATE([Vol_Liq_WTH_Hist], Dim_Produtos[prd_Produto_int_PK] = 16395, Fato_Vendas_Hist_Winthor[VLRUNITARIO] >= 73.00, USERELATIONSHIP(Fato_Vendas_Hist_Winthor[IDRCA_PED], Dim_Vendedor[ven_Vendedor_int_PK]))
 		lineageTag: 9d8a555c-9c61-40ae-8b39-6d7d24bada55
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure QTD_P_ULTRA_ATUAL = CALCULATE([Real_Vol_Hoje], Dim_Produtos[prd_Produto_int_PK] = 16395, Fato_Vendas_Atual_Winthor[VLRUNITARIO] >= 73.0)
+	measure QTD_P_ULTRA_ATUAL = CALCULATE([Real_Vol_Hoje], Dim_Produtos[prd_Produto_int_PK] = 16395, Fato_Vendas_Atual_Winthor[VLRUNITARIO] >= 73.0, USERELATIONSHIP(Fato_Vendas_Atual_Winthor[IDRCA], Dim_Vendedor[ven_Vendedor_int_PK]))
 		lineageTag: 2f8420de-f25a-41bb-b61e-d9139a38cfce
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}

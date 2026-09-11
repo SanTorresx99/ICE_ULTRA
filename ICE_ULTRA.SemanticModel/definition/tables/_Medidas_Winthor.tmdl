@@ -509,25 +509,25 @@ table _Medidas_Winthor
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'QTD CLI ICE ATUAL' = CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(VALUES(Dim_Clientes[cli_Cliente_int_PK]), [QTD_ICE_ATUAL] > 0))
+	measure 'QTD CLI ICE ATUAL' = CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(ALL(Dim_Clientes[cli_Cliente_int_PK]), [QTD_ICE_ATUAL] > 0))
 		lineageTag: 3f9cd9fc-3954-4f53-a703-1a419cb8918b
 
-	measure 'QTD CLI ICE HIST' = CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(VALUES(Dim_Clientes[cli_Cliente_int_PK]), [QTD_ICE_HIST] > 0))
+	measure 'QTD CLI ICE HIST' = CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(ALL(Dim_Clientes[cli_Cliente_int_PK]), [QTD_ICE_HIST] > 0))
 		lineageTag: 4985f513-7f4d-49c8-9dfd-d64ea15b7697
 
-	measure 'TOTAL CLI ICE' = CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(VALUES(Dim_Clientes[cli_Cliente_int_PK]), [QTD_ICE_PRECO] > 0))
+	measure 'TOTAL CLI ICE' = CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(ALL(Dim_Clientes[cli_Cliente_int_PK]), [QTD_ICE_PRECO] > 0))
 		lineageTag: 56b3321a-c1cc-4885-9cdd-7458074340ea
 
-	measure 'QTD CLI PETRA ULTRA ATUAL' = CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(VALUES(Dim_Clientes[cli_Cliente_int_PK]), [QTD_P_ULTRA_ATUAL] > 0))
+	measure 'QTD CLI PETRA ULTRA ATUAL' = CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(ALL(Dim_Clientes[cli_Cliente_int_PK]), [QTD_P_ULTRA_ATUAL] > 0))
 		lineageTag: 9815dc22-b320-4560-b19e-64b7405c20f3
 
-	measure 'QTD CLI PETRA ULTRA HIST' = CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(VALUES(Dim_Clientes[cli_Cliente_int_PK]), [QTD_P_ULTRA_HIST] > 0))
+	measure 'QTD CLI PETRA ULTRA HIST' = CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(ALL(Dim_Clientes[cli_Cliente_int_PK]), [QTD_P_ULTRA_HIST] > 0))
 		lineageTag: eb321cbd-f55c-4140-8948-1d198c09ce00
 
-	measure 'TOTAL PETRA ULTRA' = CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(VALUES(Dim_Clientes[cli_Cliente_int_PK]), [QTD_P_ULTRA_PRECO] > 0))
+	measure 'TOTAL PETRA ULTRA' = CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(ALL(Dim_Clientes[cli_Cliente_int_PK]), [QTD_P_ULTRA_PRECO] > 0))
 		lineageTag: c83d25fe-e173-4fb4-9183-c243b1e75a52
 
-	measure 'QTD CLI TOTAL ACAO' = CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(VALUES(Dim_Clientes[cli_Cliente_int_PK]), [QTD_ACAO_ULTRACRYSTAL] > 0))
+	measure 'QTD CLI TOTAL ACAO' = CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(ALL(Dim_Clientes[cli_Cliente_int_PK]), [QTD_ACAO_ULTRACRYSTAL] > 0))
 		lineageTag: 5e241a90-e137-45a2-820b-1286ce9175fa
 
 	partition _Medidas_Winthor = entity

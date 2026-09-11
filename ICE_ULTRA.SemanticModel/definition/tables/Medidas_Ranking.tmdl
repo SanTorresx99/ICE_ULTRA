@@ -403,21 +403,28 @@ table Medidas_Ranking
 			VAR FilteredSellers =
 			    FILTER(
 			        RawSellers,
-			        [@Sales] > 0 &&
-			        (ISBLANK([@Supervisor]) || TRIM([@Name]) <> TRIM([@Supervisor]))
+			        [@Sales] > 0
 			    )
+			
+			VAR MotorSel = SELECTEDVALUE(Filtro_Ranking_Motor[Codigo], 1)
 			
 			VAR RankedSellers =
 			    ADDCOLUMNS(
 			        FilteredSellers,
 			        "@Rank",
 			        VAR CurrentSales = [@Sales]
+			        VAR CurrentClients = [@Clients]
 			        VAR CurrentName = [@Name]
 			        RETURN
 			            COUNTROWS(
 			                FILTER(
 			                    FilteredSellers,
-			                    [@Sales] > CurrentSales || ([@Sales] = CurrentSales && [@Name] < CurrentName)
+			                    SWITCH(
+			                        MotorSel,
+			                        1, [@Sales] > CurrentSales || ([@Sales] = CurrentSales && [@Clients] > CurrentClients) || ([@Sales] = CurrentSales && [@Clients] = CurrentClients && [@Name] < CurrentName),
+			                        2, [@Clients] > CurrentClients || ([@Clients] = CurrentClients && [@Sales] > CurrentSales) || ([@Clients] = CurrentClients && [@Sales] = CurrentSales && [@Name] < CurrentName),
+			                        [@Sales] > CurrentSales || ([@Sales] = CurrentSales && [@Name] < CurrentName)
+			                    )
 			                )
 			            ) + 1
 			    )
@@ -1076,21 +1083,28 @@ table Medidas_Ranking
 			VAR FilteredSellers =
 			    FILTER(
 			        RawSellers,
-			        [@Sales] > 0 &&
-			        (ISBLANK([@Supervisor]) || TRIM([@Name]) <> TRIM([@Supervisor]))
+			        [@Sales] > 0
 			    )
+			
+			VAR MotorSel = SELECTEDVALUE(Filtro_Ranking_Motor[Codigo], 1)
 			
 			VAR RankedSellers =
 			    ADDCOLUMNS(
 			        FilteredSellers,
 			        "@Rank",
 			        VAR CurrentSales = [@Sales]
+			        VAR CurrentClients = [@Clients]
 			        VAR CurrentName = [@Name]
 			        RETURN
 			            COUNTROWS(
 			                FILTER(
 			                    FilteredSellers,
-			                    [@Sales] > CurrentSales || ([@Sales] = CurrentSales && [@Name] < CurrentName)
+			                    SWITCH(
+			                        MotorSel,
+			                        1, [@Sales] > CurrentSales || ([@Sales] = CurrentSales && [@Clients] > CurrentClients) || ([@Sales] = CurrentSales && [@Clients] = CurrentClients && [@Name] < CurrentName),
+			                        2, [@Clients] > CurrentClients || ([@Clients] = CurrentClients && [@Sales] > CurrentSales) || ([@Clients] = CurrentClients && [@Sales] = CurrentSales && [@Name] < CurrentName),
+			                        [@Sales] > CurrentSales || ([@Sales] = CurrentSales && [@Name] < CurrentName)
+			                    )
 			                )
 			            ) + 1
 			    )
@@ -1640,8 +1654,7 @@ table Medidas_Ranking
 			VAR FilteredSellers =
 			    FILTER(
 			        RawSellers,
-			        [@Sales] > 0 &&
-			        (ISBLANK([@Supervisor]) || TRIM([@Name]) <> TRIM([@Supervisor]))
+			        [@Sales] > 0
 			    )
 			
 			VAR SellersWithPct =

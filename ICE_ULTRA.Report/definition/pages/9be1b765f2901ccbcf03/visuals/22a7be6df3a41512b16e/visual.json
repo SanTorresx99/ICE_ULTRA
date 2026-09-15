@@ -1,0 +1,322 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "22a7be6df3a41512b16e",
+  "position": {
+    "x": 10.009775171065494,
+    "y": 0,
+    "z": 0,
+    "height": 719.4525904203324,
+    "width": 1024.75073313783,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Calendario"
+                    }
+                  },
+                  "Property": "Date"
+                }
+              },
+              "queryRef": "Dim_Calendario.Date",
+              "nativeQueryRef": "Date"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fato_Vendas_Hist_Winthor"
+                    }
+                  },
+                  "Property": "IDPEDIDO"
+                }
+              },
+              "queryRef": "Sum(Fato_Vendas_Hist_Winthor.IDPEDIDO)",
+              "nativeQueryRef": "IDPEDIDO"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim_Produtos"
+                    }
+                  },
+                  "Property": "prd_Produto_int_PK"
+                }
+              },
+              "queryRef": "Dim_Produtos.prd_Produto_int_PK",
+              "nativeQueryRef": "prd_Produto_int_PK"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Fato_Vendas_Hist_Winthor"
+                        }
+                      },
+                      "Property": "QUANTIDADE"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Fato_Vendas_Hist_Winthor.QUANTIDADE)",
+              "nativeQueryRef": "Soma de QUANTIDADE"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas_Winthor"
+                    }
+                  },
+                  "Property": "Vol_Dev_WTH_Hist"
+                }
+              },
+              "queryRef": "_Medidas_Winthor.Vol_Dev_WTH_Hist",
+              "nativeQueryRef": "Vol_Dev_WTH_Hist"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas_Winthor"
+                    }
+                  },
+                  "Property": "Vol_Liq_WTH_Hist"
+                }
+              },
+              "queryRef": "_Medidas_Winthor.Vol_Liq_WTH_Hist",
+              "nativeQueryRef": "Vol_Liq_WTH_Hist"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fato_Vendas_Hist_Winthor"
+                    }
+                  },
+                  "Property": "VLRUNITARIO"
+                }
+              },
+              "queryRef": "Sum(Fato_Vendas_Hist_Winthor.VLRUNITARIO)",
+              "nativeQueryRef": "VLRUNITARIO"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "8969b22b7794ac81271e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Produtos"
+              }
+            },
+            "Property": "prd_Produto_int_PK"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "Dim_Produtos",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "d"
+                          }
+                        },
+                        "Property": "prd_Produto_int_PK"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "16000L"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "16001L"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "15143L"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "16395L"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "200168L"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "201670L"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "201681L"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "201910L"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "12e9ba51d9225e54394b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim_Calendario"
+              }
+            },
+            "Property": "Date"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "9ab251e7640df0205128",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fato_Vendas_Hist_Winthor"
+              }
+            },
+            "Property": "IDPEDIDO"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "835502efd769b23fd092",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Fato_Vendas_Hist_Winthor"
+                  }
+                },
+                "Property": "QUANTIDADE"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "119028ab35f140f4abf3",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas_Winthor"
+              }
+            },
+            "Property": "Vol_Dev_WTH_Hist"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "dfa4c125a6a78c593571",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas_Winthor"
+              }
+            },
+            "Property": "Vol_Liq_WTH_Hist"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e51b1e7d6b7bc3b34b12",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Fato_Vendas_Hist_Winthor"
+              }
+            },
+            "Property": "VLRUNITARIO"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

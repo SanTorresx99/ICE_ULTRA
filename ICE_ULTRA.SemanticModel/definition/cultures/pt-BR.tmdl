@@ -15,17 +15,7 @@ cultureInfo pt-BR
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "ICE": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        },
-			        {
-			          "CRYSTAL ICE": {
+			          "QTD Ice": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -46,17 +36,7 @@ cultureInfo pt-BR
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "ULTRA": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        },
-			        {
-			          "PETRA ULTRA": {
+			          "QTD Ultra": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -77,7 +57,7 @@ cultureInfo pt-BR
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "ACAO": {
+			          "QTD Ação": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -95,7 +75,19 @@ cultureInfo pt-BR
 			          "ConceptualProperty": "sup_Supervisor_chr"
 			        }
 			      },
-			      "State": "Generated"
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Supervisor": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
 			    },
 			    "dim_vendedor.ven_vendedor_chr": {
 			      "Definition": {
@@ -128,7 +120,7 @@ cultureInfo pt-BR
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "CLI ULTRA": {
+			          "CLI Ultra": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -149,7 +141,7 @@ cultureInfo pt-BR
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "CLI ICE": {
+			          "CLI Ice": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -170,7 +162,28 @@ cultureInfo pt-BR
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "CLI ACAO": {
+			          "CLI Ação": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dim_empresa.emp_empresa_chr": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Empresa",
+			          "ConceptualProperty": "emp_Empresa_chr"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Empresa": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",

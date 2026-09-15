@@ -1,79 +1,68 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
-  "name": "5f6ac7e6bfb9150f2672",
-  "displayName": "Rankin",
+  "name": "c056bb45b93e2858ad91",
+  "displayName": "Ranking Geral (Novo)",
   "displayOption": "FitToPage",
-  "height": 720,
-  "width": 1280,
+  "height": 1150,
+  "width": 1304,
   "filterConfig": {
     "filters": [
       {
-        "name": "f227aabe6e4cb3c49493",
-        "ordinal": 0,
+        "name": "566ae182947a0c1636bc",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "Dim_Vendedor"
+                "Entity": "Filtro_Ranking_Motor"
               }
             },
-            "Property": "empresa_desc_"
+            "Property": "Motor"
           }
         },
         "type": "Categorical",
-        "howCreated": "User"
-      },
-      {
-        "name": "88e6a5539e6ffbbaf241",
-        "ordinal": 1,
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Filtro_Acao"
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "f",
+              "Entity": "Filtro_Ranking_Motor",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "f"
+                          }
+                        },
+                        "Property": "Motor"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Volume de Vendas (Caixas)'"
+                        }
+                      }
+                    ]
+                  ]
+                }
               }
-            },
-            "Property": "Opcao"
-          }
+            }
+          ]
         },
-        "type": "Categorical",
         "howCreated": "User"
       },
       {
-        "name": "1cc63740b0e90c048810",
-        "ordinal": 2,
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim_Vendedor"
-              }
-            },
-            "Property": "ven_Vendedor_chr"
-          }
-        },
-        "type": "Categorical",
-        "howCreated": "User"
-      },
-      {
-        "name": "f7b9ea7f3bd115b30f06",
-        "ordinal": 3,
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim_Vendedor"
-              }
-            },
-            "Property": "sup_Supervisor_chr"
-          }
-        },
-        "type": "Categorical",
-        "howCreated": "User"
-      },
-      {
-        "name": "45799604a3680bdaabdf",
-        "ordinal": 4,
+        "name": "d3289dcb227f36cdeb14",
         "field": {
           "Column": {
             "Expression": {
@@ -124,7 +113,6 @@
         },
         "howCreated": "User"
       }
-    ],
-    "filterSortOrder": "Custom"
+    ]
   }
 }

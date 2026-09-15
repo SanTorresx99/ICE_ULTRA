@@ -205,12 +205,44 @@ Para atender a demanda de acompanhamento pelas equipes de supervisores em tela c
 
 ---
 
+## 🚀 Nova Campanha Comercial (Regras a partir de 01/09/2026)
+
+Para a nova fase da campanha comercial, foi implementada uma arquitetura modular de isolamento histórico, preservando integralmente o fechamento oficial de Agosto/2026 e adicionando novas medidas e páginas dedicadas:
+
+### 📦 Novos Produtos e Preços Mínimos de Corte:
+1. **Crystal Ice**:
+   * **Produtos Incluídos**: `16000`, `16001`, `200168`, `201670`, `201681`, `201910`.
+   * **Preço Mínimo**: Preços a partir de **R$ 45,00** (`VLRUNITARIO >= 45.00`) entram no cálculo do volume (redução do corte anterior de R$ 53,00).
+2. **Petra Ultra & Linha Especial**:
+   * **Produto 16395 (Petra Ultra)**: Preço a partir de **R$ 65,40** (`VLRUNITARIO >= 65.40`) entra no volume (redução do corte anterior de R$ 73,00).
+   * **Produto 15143**: Incluído no grupo com preço a partir de **R$ 51,08** (`VLRUNITARIO >= 51.08`).
+
+### 🏛️ Preservação Histórica e Snapshot CSV de Agosto/2026:
+* **Snapshot Oficial**: [`SNAPSHOT_FECHAMENTO_AGOSTO_2026.csv`](file:///C:/Users/a.alves/Downloads/ICE_ULTRA/SNAPSHOT_FECHAMENTO_AGOSTO_2026.csv) gerado previamente em UTF-8 com BOM e ponto-e-vírgula contendo o extrato auditado de todos os 64 vendedores, volumes e clientes de Agosto/2026 (2.320 caixas, 875 clientes únicos alcançados).
+* **Páginas e Medidas de Agosto**: Mantidas inalteradas (`Ranking Geral`, `Mobile`, `Rankin`, `Audit`, `Info`), garantindo fidelidade aos bônus do RH e à apresentação executiva.
+
+### ⚙️ Novas Medidas Modulares V2:
+* `[QTD_ICE_PRECO_V2]`: Volume faturado dos 6 códigos de Ice com preço unitário $\ge$ R$ 45,00.
+* `[QTD_P_ULTRA_PRECO_V2]`: Volume faturado do código 16395 ($\ge$ R$ 65,40) somado ao código 15143 ($\ge$ R$ 51,08).
+* `[QTD_ACAO_ULTRACRYSTAL_V2]`: Volume consolidado da nova ação (`[QTD_ICE_PRECO_V2] + [QTD_P_ULTRA_PRECO_V2]`).
+* `[TOTAL CLI ICE V2]`, `[TOTAL PETRA ULTRA V2]`, `[QTD CLI TOTAL ACAO V2]`: Contagem distinta de clientes positivados com as novas regras.
+* `[Ranking_Brasileirao_HTML_V2]`, `[Ranking_Mobile_HTML_V2]`, `[Ranking_Sellers_HTML_V2]`: Visuais dinâmicos HTML atualizados apontando para as novas medidas e com período padrão a partir de 01/09/2026.
+
+### 📑 Novas Páginas no Power BI PBIP:
+1. **`Ranking Geral (Novo)`** (`1304 x 1150`): Tabela completa responsiva do Brasileirão com as regras V2 e 3 motores de cálculo.
+2. **`Rankin (Novo)`** (`1280 x 720`): Visão desktop clássica com showcase 3D de garrafas e ranking horizontal proporcional com as novas regras V2.
+3. **`Mobile (Novo)`** (`720 x 1280`): Painel verticalizado light screen para smartphones com divisões de zonas esportivas sob as regras V2.
+4. **`Audit (Novo)`** (`1280 x 720`): Matriz de conferência analítica contendo os 8 códigos de produto e faixas de preço unitário faturadas a partir de 01/09/2026.
+
+---
+
 ## 🛠️ Arquivos e Entregáveis
-* [`tabela_brasileirao.html`](file:///C:/Users/a.alves/Downloads/ICE_ULTRA/Mockup/tabela_brasileirao.html): Visual em página cheia **100% responsivo**, com alta densidade (17+ a 28+ vendedores simultâneos), alternador interativo entre os 3 motores de cálculo, filtros de escopo, densidade, marcas d'água e tabela completa do Brasileirão.
-* [`ranking_mobile.html`](file:///C:/Users/a.alves/Downloads/ICE_ULTRA/Mockup/ranking_mobile.html): Arquivo mobile autônomo verticalizado (modo light screen) com divisões de futebol e marcas d'água.
-* [`Medidas_Ranking.tmdl`](file:///C:/Users/a.alves/Downloads/ICE_ULTRA/ICE_ULTRA.SemanticModel/definition/tables/Medidas_Ranking.tmdl): Contém as medidas Base64, `[Ranking_Sellers_HTML]`, `[Ranking_Mobile_HTML]` e a nova medida `[Ranking_Brasileirao_HTML]` responsiva e compacta para exibição em qualquer tamanho de tela no Power BI.
-* [`Filtro_Ranking_Motor.tmdl`](file:///C:/Users/a.alves/Downloads/ICE_ULTRA/ICE_ULTRA.SemanticModel/definition/tables/Filtro_Ranking_Motor.tmdl): Tabela de parâmetros com os 3 motores de ordenação do ranking (Volume, Clientes Positivados e % Base).
-* [`DOCUMENTACAO.md`](file:///C:/Users/a.alves/Downloads/ICE_ULTRA/DOCUMENTACAO.md): Atualizado com a arquitetura completa das soluções visuais, alta densidade e os 3 motores de classificação.
+* [`SNAPSHOT_FECHAMENTO_AGOSTO_2026.csv`](file:///C:/Users/a.alves/Downloads/ICE_ULTRA/SNAPSHOT_FECHAMENTO_AGOSTO_2026.csv): Snapshot oficial auditado de fechamento de Agosto/2026.
+* [`Dim_Calendario.tmdl`](file:///C:/Users/a.alves/Downloads/ICE_ULTRA/ICE_ULTRA.SemanticModel/definition/tables/Dim_Calendario.tmdl): Novas medidas de corte de volume V2.
+* [`_Medidas_Winthor.tmdl`](file:///C:/Users/a.alves/Downloads/ICE_ULTRA/ICE_ULTRA.SemanticModel/definition/tables/_Medidas_Winthor.tmdl): Novas medidas de clientes e volume total V2.
+* [`Medidas_Ranking.tmdl`](file:///C:/Users/a.alves/Downloads/ICE_ULTRA/ICE_ULTRA.SemanticModel/definition/tables/Medidas_Ranking.tmdl): Medidas HTML V2 para Desktop, Mobile e Brasileirão.
+* [`pages.json`](file:///C:/Users/a.alves/Downloads/ICE_ULTRA/ICE_ULTRA.Report/definition/pages/pages.json): Registro e ordenação das páginas com destaque para as novas visualizações.
+
 
 
 

@@ -32,6 +32,66 @@ table Dim_Calendario
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure QTD_ICE_HIST_V2 = CALCULATE([Vol_Liq_WTH_Hist], Dim_Produtos[prd_Produto_int_PK] IN { 16000, 16001, 200168, 201670, 201681, 201910 }, Fato_Vendas_Hist_Winthor[VLRUNITARIO] >= 45.0, USERELATIONSHIP(Fato_Vendas_Hist_Winthor[IDRCA_PED], Dim_Vendedor[ven_Vendedor_int_PK]))
+		lineageTag: 39af682e-b49d-4366-a532-f06ae2a45678
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure QTD_ICE_ATUAL_V2 = CALCULATE([Real_Vol_Hoje], Dim_Produtos[prd_Produto_int_PK] IN { 16000, 16001, 200168, 201670, 201681, 201910 }, Fato_Vendas_Atual_Winthor[VLRUNITARIO] >= 45.0, USERELATIONSHIP(Fato_Vendas_Atual_Winthor[IDRCA], Dim_Vendedor[ven_Vendedor_int_PK]))
+		lineageTag: 68d2c723-25c4-4566-a6de-fa3e87158755
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure QTD_ICE_PRECO_V2 = [QTD_ICE_HIST_V2] + [QTD_ICE_ATUAL_V2]
+		lineageTag: 695163f4-de21-415d-973f-a9625ce68493
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure QTD_P_ULTRA_16395_HIST_V2 = CALCULATE([Vol_Liq_WTH_Hist], Dim_Produtos[prd_Produto_int_PK] = 16395, Fato_Vendas_Hist_Winthor[VLRUNITARIO] >= 65.40, USERELATIONSHIP(Fato_Vendas_Hist_Winthor[IDRCA_PED], Dim_Vendedor[ven_Vendedor_int_PK]))
+		lineageTag: 61e074ee-1a00-4491-ae3e-d45775666c39
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure QTD_P_ULTRA_16395_ATUAL_V2 = CALCULATE([Real_Vol_Hoje], Dim_Produtos[prd_Produto_int_PK] = 16395, Fato_Vendas_Atual_Winthor[VLRUNITARIO] >= 65.40, USERELATIONSHIP(Fato_Vendas_Atual_Winthor[IDRCA], Dim_Vendedor[ven_Vendedor_int_PK]))
+		lineageTag: 5eca4164-41cf-4d9d-9e9e-e19424404eb5
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure QTD_P_ULTRA_16395_PRECO_V2 = [QTD_P_ULTRA_16395_HIST_V2] + [QTD_P_ULTRA_16395_ATUAL_V2]
+		lineageTag: 81f10c96-4f0d-4ba5-b966-426b09732e7a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure QTD_PROD_15143_HIST_V2 = CALCULATE([Vol_Liq_WTH_Hist], Dim_Produtos[prd_Produto_int_PK] = 15143, Fato_Vendas_Hist_Winthor[VLRUNITARIO] >= 51.08, USERELATIONSHIP(Fato_Vendas_Hist_Winthor[IDRCA_PED], Dim_Vendedor[ven_Vendedor_int_PK]))
+		lineageTag: 7eade9aa-114d-4553-8b87-49258a5a1671
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure QTD_PROD_15143_ATUAL_V2 = CALCULATE([Real_Vol_Hoje], Dim_Produtos[prd_Produto_int_PK] = 15143, Fato_Vendas_Atual_Winthor[VLRUNITARIO] >= 51.08, USERELATIONSHIP(Fato_Vendas_Atual_Winthor[IDRCA], Dim_Vendedor[ven_Vendedor_int_PK]))
+		lineageTag: 1031571e-dcde-428c-b0a8-ef793052d523
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure QTD_PROD_15143_PRECO_V2 = [QTD_PROD_15143_HIST_V2] + [QTD_PROD_15143_ATUAL_V2]
+		lineageTag: 08d0d4cc-1aff-478e-bde7-e28af66715f5
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure QTD_P_ULTRA_HIST_V2 = [QTD_P_ULTRA_16395_HIST_V2] + [QTD_PROD_15143_HIST_V2]
+		lineageTag: a853c7ab-1a67-4ce5-82b5-0467a689567b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure QTD_P_ULTRA_ATUAL_V2 = [QTD_P_ULTRA_16395_ATUAL_V2] + [QTD_PROD_15143_ATUAL_V2]
+		lineageTag: d812518e-9627-4ba1-aa0c-afba16c573fa
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure QTD_P_ULTRA_PRECO_V2 = [QTD_P_ULTRA_16395_PRECO_V2] + [QTD_PROD_15143_PRECO_V2]
+		lineageTag: 35bcd2e7-9090-4579-8e30-0a7cea837f31
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column Date
 		dataType: dateTime
 		isNullable: false

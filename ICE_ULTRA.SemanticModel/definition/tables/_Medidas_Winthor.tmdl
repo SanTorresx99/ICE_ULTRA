@@ -530,6 +530,42 @@ table _Medidas_Winthor
 	measure 'QTD CLI TOTAL ACAO' = CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(ALL(Dim_Clientes[cli_Cliente_int_PK]), [QTD_ACAO_ULTRACRYSTAL] > 0))
 		lineageTag: 5e241a90-e137-45a2-820b-1286ce9175fa
 
+	measure QTD_ACAO_HIST_V2 = [QTD_ICE_HIST_V2] + [QTD_P_ULTRA_HIST_V2]
+		lineageTag: ef7ccc29-4706-47a7-aca2-6978e8ff4cf0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure QTD_ACAO_ATUAL_V2 = [QTD_ICE_ATUAL_V2] + [QTD_P_ULTRA_ATUAL_V2]
+		lineageTag: b8ccc92f-ee57-408b-8fd7-dccfe86649e3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure QTD_ACAO_ULTRACRYSTAL_V2 = [QTD_ICE_PRECO_V2] + [QTD_P_ULTRA_PRECO_V2]
+		lineageTag: 6fa04a95-fb93-4578-afbe-3b03fb67e657
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'QTD CLI ICE ATUAL V2' = CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(ALL(Dim_Clientes[cli_Cliente_int_PK]), [QTD_ICE_ATUAL_V2] > 0))
+		lineageTag: f064127c-eea1-4f7d-9a90-886fd73cd5c5
+
+	measure 'QTD CLI ICE HIST V2' = CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(ALL(Dim_Clientes[cli_Cliente_int_PK]), [QTD_ICE_HIST_V2] > 0))
+		lineageTag: c2c4a3bb-446a-43df-bfc0-63bfa7cb7ef9
+
+	measure 'TOTAL CLI ICE V2' = CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(ALL(Dim_Clientes[cli_Cliente_int_PK]), [QTD_ICE_PRECO_V2] > 0))
+		lineageTag: 5961e3ac-d930-4005-83c1-8c46ffabbb49
+
+	measure 'QTD CLI PETRA ULTRA ATUAL V2' = CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(ALL(Dim_Clientes[cli_Cliente_int_PK]), [QTD_P_ULTRA_ATUAL_V2] > 0))
+		lineageTag: 9feaaaa4-3045-42e1-b770-d59a8e6384f9
+
+	measure 'QTD CLI PETRA ULTRA HIST V2' = CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(ALL(Dim_Clientes[cli_Cliente_int_PK]), [QTD_P_ULTRA_HIST_V2] > 0))
+		lineageTag: a0e189ae-47e5-4014-860e-4f5f2c2ac535
+
+	measure 'TOTAL PETRA ULTRA V2' = CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(ALL(Dim_Clientes[cli_Cliente_int_PK]), [QTD_P_ULTRA_PRECO_V2] > 0))
+		lineageTag: 0a32cd5f-42fa-4ca6-a845-46141e419f60
+
+	measure 'QTD CLI TOTAL ACAO V2' = CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(ALL(Dim_Clientes[cli_Cliente_int_PK]), [QTD_ACAO_ULTRACRYSTAL_V2] > 0))
+		lineageTag: 80627344-516d-4d86-b07b-b31177f54453
+
 	partition _Medidas_Winthor = entity
 		mode: directQuery
 		source

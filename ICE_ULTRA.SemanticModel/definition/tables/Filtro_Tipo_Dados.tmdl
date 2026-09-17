@@ -1,0 +1,30 @@
+table Filtro_Tipo_Dados
+	lineageTag: e3a855ba-411a-4d7a-8b6b-4f7f83a54d99
+
+	column Tipo_Dados
+		dataType: string
+		lineageTag: a2a855ab-1234-4567-890a-dfec34e5a019
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Tipo_Dados]
+
+	column Codigo
+		dataType: int64
+		lineageTag: b1a855ab-3456-7890-abcd-ef0123456799
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Codigo]
+
+	partition Filtro_Tipo_Dados = calculated
+		mode: import
+		source =
+				DATATABLE(
+					"Tipo_Dados", STRING,
+					"Codigo", INTEGER,
+					{
+						{"Total Acumulado (HIST + ATUAL)", 1},
+						{"Somente Histórico (HIST)", 2},
+						{"Somente Hoje (ATUAL)", 3}
+					}
+				)
+

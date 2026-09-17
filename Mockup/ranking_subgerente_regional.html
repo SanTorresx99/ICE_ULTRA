@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ranking Sub-Gerente Regional - Supervisores (AM)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Oswald:wght@500;600;700&family=Roboto+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset e Variáveis de Tema */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #020712;
+      color: #ffffff;
+      font-family: 'Roboto Condensed', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      overflow-x: hidden;
+    }
+
+    /* Container Principal 1536px */
+    .dashboard-wrapper {
+      width: 100%;
+      max-width: 1536px;
+      margin: 0 auto;
+      background: #020b18;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
+      overflow: hidden;
+    }
+
+    /* Banner Superior com Troféu e Título RANKING */
+    .header-banner {
+      width: 100%;
+      position: relative;
+      line-height: 0;
+      user-select: none;
+    }
+
+    .header-banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Seção Intermediária */
+    .main-content {
+      position: relative;
+      background: radial-gradient(circle at 50% 30%, #061933 0%, #020c1a 70%, #010813 100%);
+      padding: 8px 24px 12px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 2;
+    }
+
+    /* Barra de Controles e Filtros */
+    .controls-bar {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      padding: 0 4px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .badge-visao {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(10, 34, 69, 0.92);
+      border: 1px solid #1e4976;
+      border-radius: 4px;
+      padding: 6px 14px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+      color: #e2e8f0 !important;
+    }
+
+    .badge-visao .destaque {
+      color: #fbbf24 !important;
+      font-weight: 700;
+    }
+
+    .badge-pracas {
+      font-size: 0.85rem;
+      color: #93c5fd !important;
+      font-weight: 600;
+      margin-left: 6px;
+      padding-left: 8px;
+      border-left: 1px solid #205081;
+    }
+
+    .filters-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .filter-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.85rem;
+      color: #94a3b8;
+      text-transform: uppercase;
+      margin-right: 2px;
+    }
+
+    .pill {
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid #334155;
+      color: #ffffff !important;
+      padding: 4px 12px;
+      border-radius: 14px;
+      font-size: 0.82rem;
+      font-family: 'Oswald', sans-serif;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    .pill:hover {
+      background: #1e3a8a;
+      border-color: #3b82f6;
+      color: #ffffff !important;
+    }
+
+    .pill.active {
+      background: #f59e0b !important;
+      color: #020b18 !important;
+      font-weight: 700;
+      border-color: #f59e0b;
+      box-shadow: 0 0 12px rgba(245, 158, 11, 0.4);
+    }
+
+    .pill.modalidade-active {
+      background: #1e3a8a !important;
+      color: #fbbf24 !important;
+      font-weight: 700;
+      border-color: #3b82f6;
+      box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
+    }
+
+    .pill-link {
+      background: rgba(15, 35, 65, 0.9);
+      border-color: #1e4976;
+      color: #60a5fa !important;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      font-weight: 600;
+    }
+
+    .pill-link:hover {
+      background: #1d4ed8;
+      color: #ffffff !important;
+      border-color: #60a5fa;
+    }
+
+    /* Container da Tabela */
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      border: 1.5px solid #205081;
+      border-radius: 4px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+      background: #04142a;
+    }
+
+    .ranking-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+      font-family: 'Oswald', sans-serif;
+      user-select: none;
+    }
+
+    /* Cabeçalho da Tabela */
+    .ranking-table thead th {
+      background-color: #081d3a;
+      color: #ffffff !important;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 10px 6px;
+      border: 1px solid #1a3d68;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .ranking-table thead th.col-sup {
+      text-align: left;
+      padding-left: 14px;
+    }
+
+    /* Células da Tabela */
+    .ranking-table tbody td {
+      padding: 8px 6px;
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      border: 1px solid #1b3d68;
+      vertical-align: middle;
+      color: #ffffff !important;
+      background-color: #07152b;
+      transition: filter 0.15s ease;
+    }
+
+    .ranking-table tbody tr:hover td {
+      filter: brightness(1.15);
+    }
+
+    /* Coluna Posição (#) */
+    .col-rank {
+      width: 50px;
+      background-color: #07152b;
+      color: #ffffff !important;
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    .rank-podium {
+      background-color: #d97706 !important;
+      color: #ffffff !important;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+    }
+
+    .rank-sulamericana {
+      background-color: #1e3a8a !important;
+      color: #ffffff !important;
+    }
+
+    /* Coluna Supervisor e Filial */
+    .col-sup {
+      background-color: #07152b;
+      color: #ffffff !important;
+      text-align: left !important;
+      padding-left: 14px !important;
+      min-width: 240px;
+    }
+
+    .sup-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #ffffff !important;
+      letter-spacing: 0.5px;
+    }
+
+    .sup-filial {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #fbbf24 !important;
+      margin-top: 1px;
+    }
+
+    /* Colunas Numéricas com Cores LUMINOSAS (Branco e Amarelo) */
+    .col-vol {
+      color: #fbbf24 !important;
+      font-size: 1.18rem;
+      font-weight: 700;
+    }
+
+    .col-cli {
+      color: #ffffff !important;
+      font-size: 1.12rem;
+    }
+
+    .col-base {
+      color: #e2e8f0 !important;
+      font-size: 1.12rem;
+    }
+
+    .col-media {
+      color: #fef08a !important;
+      font-size: 1.12rem;
+      font-weight: 700;
+    }
+
+    /* Semáforo % Cobertura */
+    .cell-pct {
+      font-size: 1.18rem;
+      font-weight: 700;
+      border: 1px solid rgba(0, 0, 0, 0.4);
+    }
+
+    .cell-green {
+      background-color: #008a38 !important;
+      color: #ffffff !important;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    .cell-yellow {
+      background-color: #f5a623 !important;
+      color: #020b18 !important;
+      font-weight: 700 !important;
+    }
+
+    .cell-red {
+      background-color: #cc1818 !important;
+      color: #ffffff !important;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Coluna Categoria */
+    .col-categoria {
+      background-color: #07152b;
+      text-align: left !important;
+      padding-left: 12px !important;
+      white-space: nowrap;
+      font-size: 0.96rem;
+      font-weight: 600;
+    }
+
+    .cat-libertadores {
+      color: #fbbf24 !important;
+      font-weight: 700;
+    }
+
+    .cat-sulamericana {
+      color: #e2e8f0 !important;
+      font-weight: 700;
+    }
+
+    .cat-evolucao {
+      color: #f59e0b !important;
+      font-weight: 600;
+    }
+
+    .cat-desenvolvimento {
+      color: #ef4444 !important;
+      font-weight: 600;
+    }
+
+    /* Colunas Especiais de Comparativo */
+    .col-vol-fora {
+      color: #f97316 !important; /* Laranja de alerta para fora da ação */
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    .col-adherence {
+      font-weight: 700;
+      font-size: 1.12rem;
+    }
+
+    .adh-high { color: #4ade80 !important; }
+    .adh-mid { color: #facc15 !important; }
+    .adh-low { color: #f87171 !important; }
+
+    /* Linha de Total Consolidado */
+    .row-total td {
+      background-color: #041630 !important;
+      color: #ffffff !important;
+      font-size: 1.2rem !important;
+      font-weight: 700 !important;
+      border-top: 2.5px solid #205081;
+      padding: 10px 6px;
+    }
+
+    .row-total td.tot-label {
+      text-align: center;
+      letter-spacing: 1.5px;
+    }
+
+    .row-total td.tot-vol {
+      color: #fbbf24 !important;
+    }
+
+    .row-total td.tot-media {
+      color: #fef08a !important;
+    }
+
+    /* Banner Inferior (Footer Mockup) */
+    .footer-banner {
+      width: 100%;
+      position: relative;
+      line-height: 0;
+      user-select: none;
+    }
+
+    .footer-banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Box de Destaque Comparativo / Insights */
+    .insight-box {
+      width: 100%;
+      background: rgba(10, 30, 60, 0.85);
+      border: 1px solid #1e4976;
+      border-radius: 4px;
+      padding: 8px 16px;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .insight-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .insight-item strong {
+      color: #fbbf24;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.05rem;
+    }
+
+    .insight-item span {
+      color: #94a3b8;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="dashboard-wrapper">
+    
+    <!-- 1. Header Banner Oficial com Título RANKING e Troféu Libertadores -->
+    <header class="header-banner">
+      <img src="header_tendencia.jpg" alt="Ranking - Libertadores" />
+    </header>
+
+    <!-- 2. Área Central com Controles e Tabela Oficial -->
+    <main class="main-content">
+      
+      <!-- Barra Superior de Navegação e Controles -->
+      <div class="controls-bar">
+        <div class="badge-visao">
+          <span>VISÃO:</span> <strong class="destaque">SUB GERENTE REGIONAL</strong>
+          <span class="badge-pracas">📍 MANAUS • ITACOATIARA • PARINTINS • TABATINGA</span>
+        </div>
+
+        <!-- Grupo de Filtros Dinâmicos -->
+        <div class="filters-group">
+          <span class="filter-label">MODO:</span>
+          <button class="pill modalidade-active" id="btn-na-acao" onclick="setModalidade('na_acao')">🏷️ NA AÇÃO (PREÇO MÍNIMO)</button>
+          <button class="pill" id="btn-geral" onclick="setModalidade('geral')">🏷️ GERAL (TODOS OS PREÇOS / BONIF. / COMBOS)</button>
+          <button class="pill" id="btn-comp" onclick="setModalidade('comparativo')">📊 COMPARATIVO (AÇÃO vs. FORA)</button>
+        </div>
+
+        <div class="filters-group">
+          <a href="ranking_tendencia_filiais.html" class="pill pill-link">🏢 TODAS AS FILIAIS ➔</a>
+          <a href="ranking_tendencia_supervisores.html" class="pill pill-link">👥 TODOS SUPERVISORES ➔</a>
+        </div>
+      </div>
+
+      <!-- Barra de Filtros de Ação e Calendário -->
+      <div class="controls-bar" style="margin-bottom: 6px;">
+        <div class="filters-group">
+          <span class="filter-label">CAMPANHA:</span>
+          <span class="pill active">🎯 AÇÃO TOTAL (ICE + ULTRA)</span>
+          <span class="pill">⏱️ TOTAL ACUMULADO</span>
+          <span class="pill">📶 ORDENADO POR VOLUME (CX)</span>
+        </div>
+        
+        <div id="insight-summary" class="insight-item" style="font-family: 'Oswald', sans-serif;">
+          <!-- Resumo dinâmico injetado via JS -->
+        </div>
+      </div>
+
+      <!-- Container da Tabela Grid -->
+      <div class="table-container">
+        <table class="ranking-table" id="ranking-table">
+          <!-- Conteúdo dinâmico da tabela inserido via JS -->
+        </table>
+      </div>
+
+    </main>
+
+    <!-- 3. Footer Banner Oficial com Torcida e Holofotes -->
+    <footer class="footer-banner">
+      <img src="footer_tendencia.jpg" alt="Libertadores - Glória Eterna" />
+    </footer>
+
+  </div>
+
+  <script>
+    // Dados dos 11 Supervisores da Regional Amazonas
+    // Base real extraída do snapshot oficial + volumetria de vendas fora da ação (bonificações/combos abaixo do preço mínimo)
+    const supervisoresData = [
+      {
+        id: 1,
+        nome: "RAFAEL DA SILVA OLIVEIRA",
+        filial: "CD-MANAUS",
+        volAcao: 254,
+        cliAcao: 153,
+        volGeral: 312,
+        cliGeral: 172,
+        base: 180
+      },
+      {
+        id: 2,
+        nome: "JARLISON JUNIOR SOUZA AUZIER",
+        filial: "CD-MANAUS",
+        volAcao: 195,
+        cliAcao: 73,
+        volGeral: 230,
+        cliGeral: 85,
+        base: 95
+      },
+      {
+        id: 3,
+        nome: "CADMIEL AQUINO DE SOUZA",
+        filial: "CD-ITACOATIARA",
+        volAcao: 192,
+        cliAcao: 42,
+        volGeral: 245,
+        cliGeral: 54,
+        base: 70
+      },
+      {
+        id: 4,
+        nome: "ERMESON BARBOSA DE SOUZA",
+        filial: "CD-MANAUS",
+        volAcao: 169,
+        cliAcao: 10,
+        volGeral: 210,
+        cliGeral: 18,
+        base: 30
+      },
+      {
+        id: 5,
+        nome: "EDIOMAR GRIJO",
+        filial: "CD-MANAUS",
+        volAcao: 138,
+        cliAcao: 91,
+        volGeral: 175,
+        cliGeral: 104,
+        base: 120
+      },
+      {
+        id: 6,
+        nome: "MARCONE CARVALHO",
+        filial: "CD-MANAUS",
+        volAcao: 133,
+        cliAcao: 41,
+        volGeral: 160,
+        cliGeral: 52,
+        base: 65
+      },
+      {
+        id: 7,
+        nome: "THIAGO LUIZ NEGREIROS",
+        filial: "CD-MANAUS",
+        volAcao: 125,
+        cliAcao: 35,
+        volGeral: 158,
+        cliGeral: 44,
+        base: 55
+      },
+      {
+        id: 8,
+        nome: "JHONISON DE SOUZA SERRAO",
+        filial: "CD-MANAUS",
+        volAcao: 106,
+        cliAcao: 82,
+        volGeral: 142,
+        cliGeral: 96,
+        base: 110
+      },
+      {
+        id: 9,
+        nome: "BRUNO RENAN BADEIRA GOMES",
+        filial: "CD-MANAUS",
+        volAcao: 79,
+        cliAcao: 35,
+        volGeral: 98,
+        cliGeral: 42,
+        base: 45
+      },
+      {
+        id: 10,
+        nome: "ADSON BINDA GOMES",
+        filial: "CD-PARINTINS",
+        volAcao: 33,
+        cliAcao: 13,
+        volGeral: 48,
+        cliGeral: 19,
+        base: 35
+      },
+      {
+        id: 11,
+        nome: "PEDRO PAULO SILVA DOS SANTOS",
+        filial: "CD-TABATINGA",
+        volAcao: 2,
+        cliAcao: 2,
+        volGeral: 8,
+        cliGeral: 5,
+        base: 15
+      }
+    ];
+
+    let currentModalidade = 'na_acao';
+
+    function setModalidade(mod) {
+      currentModalidade = mod;
+      
+      document.getElementById('btn-na-acao').className = (mod === 'na_acao') ? 'pill modalidade-active' : 'pill';
+      document.getElementById('btn-geral').className = (mod === 'geral') ? 'pill modalidade-active' : 'pill';
+      document.getElementById('btn-comp').className = (mod === 'comparativo') ? 'pill modalidade-active' : 'pill';
+
+      renderTable();
+    }
+
+    function getPctClass(pct) {
+      if (pct >= 60.0) return 'cell-green';
+      if (pct >= 40.0) return 'cell-yellow';
+      return 'cell-red';
+    }
+
+    function getCategoryBadge(rank) {
+      if (rank <= 4) return '<span class="cat-libertadores">🏆 G4 LIBERTADORES</span>';
+      if (rank <= 7) return '<span class="cat-sulamericana">🥈 SUL-AMERICANA</span>';
+      if (rank <= 9) return '<span class="cat-evolucao">⚡ EM EVOLUÇÃO</span>';
+      return '<span class="cat-desenvolvimento">🚀 DESENVOLVIMENTO</span>';
+    }
+
+    function renderTable() {
+      const table = document.getElementById('ranking-table');
+      const insight = document.getElementById('insight-summary');
+
+      // Ordenação
+      let sortedData = [...supervisoresData];
+      if (currentModalidade === 'na_acao') {
+        sortedData.sort((a, b) => b.volAcao - a.volAcao);
+      } else if (currentModalidade === 'geral') {
+        sortedData.sort((a, b) => b.volGeral - a.volGeral);
+      } else {
+        sortedData.sort((a, b) => b.volGeral - a.volGeral);
+      }
+
+      // Totais Consolidados
+      let totVolAcao = 0, totCliAcao = 0, totVolGeral = 0, totCliGeral = 0, totBase = 0;
+      supervisoresData.forEach(d => {
+        totVolAcao += d.volAcao;
+        totCliAcao += d.cliAcao;
+        totVolGeral += d.volGeral;
+        totCliGeral += d.cliGeral;
+        totBase += d.base;
+      });
+
+      const totVolFora = totVolGeral - totVolAcao;
+      const totAdherence = ((totVolAcao / totVolGeral) * 100).toFixed(1);
+
+      if (currentModalidade === 'na_acao') {
+        insight.innerHTML = `
+          <span>VOLUME NA AÇÃO:</span> <strong style="color:#fbbf24;">${totVolAcao.toLocaleString('pt-BR')} cx</strong>
+          <span style="margin-left: 12px;">POSITIVAÇÃO NA AÇÃO:</span> <strong style="color:#ffffff;">${totCliAcao.toLocaleString('pt-BR')} cli</strong>
+          <span style="margin-left: 12px;">COBERTURA REGIONAL:</span> <strong style="color:#4ade80;">${((totCliAcao/totBase)*100).toFixed(1)}%</strong>
+        `;
+
+        let html = `
+          <thead>
+            <tr>
+              <th style="width: 5%;">#</th>
+              <th class="col-sup" style="width: 27%;">SUPERVISOR / FILIAL</th>
+              <th style="width: 13%;">VOLUME NA AÇÃO (CX)</th>
+              <th style="width: 11%;">CLIENTES NA AÇÃO</th>
+              <th style="width: 11%;">BASE CLIENTES</th>
+              <th style="width: 12%;">% COBERTURA BASE</th>
+              <th style="width: 9%;">CX/CLI</th>
+              <th style="width: 12%; text-align: left; padding-left: 12px;">CATEGORIA</th>
+            </tr>
+          </thead>
+          <tbody>
+        `;
+
+        sortedData.forEach((d, idx) => {
+          const rank = idx + 1;
+          const pct = ((d.cliAcao / d.base) * 100).toFixed(1);
+          const media = (d.volAcao / (d.cliAcao || 1)).toFixed(1);
+          const rankClass = rank <= 4 ? 'col-rank rank-podium' : (rank <= 7 ? 'col-rank rank-sulamericana' : 'col-rank');
+
+          html += `
+            <tr>
+              <td class="${rankClass}">${rank}</td>
+              <td class="col-sup">
+                <div class="sup-name">👤 ${d.nome}</div>
+                <div class="sup-filial">📍 ${d.filial}</div>
+              </td>
+              <td class="col-vol">${d.volAcao.toLocaleString('pt-BR')} cx</td>
+              <td class="col-cli">${d.cliAcao.toLocaleString('pt-BR')}</td>
+              <td class="col-base">${d.base.toLocaleString('pt-BR')}</td>
+              <td class="cell-pct ${getPctClass(pct)}">${pct}%</td>
+              <td class="col-media">${media}</td>
+              <td class="col-categoria">${getCategoryBadge(rank)}</td>
+            </tr>
+          `;
+        });
+
+        const totPct = ((totCliAcao / totBase) * 100).toFixed(1);
+        const totMedia = (totVolAcao / totCliAcao).toFixed(1);
+
+        html += `
+            <tr class="row-total">
+              <td colspan="2" class="tot-label">TOTAL REGIONAL (${sortedData.length} SUPERVISORES - AM)</td>
+              <td class="tot-vol">${totVolAcao.toLocaleString('pt-BR')} cx</td>
+              <td>${totCliAcao.toLocaleString('pt-BR')}</td>
+              <td>${totBase.toLocaleString('pt-BR')}</td>
+              <td class="cell-pct ${getPctClass(totPct)}">${totPct}%</td>
+              <td class="tot-media">${totMedia}</td>
+              <td style="text-align: center;">—</td>
+            </tr>
+          </tbody>
+        `;
+
+        table.innerHTML = html;
+
+      } else if (currentModalidade === 'geral') {
+        insight.innerHTML = `
+          <span>VOLUME TOTAL GERAL:</span> <strong style="color:#fbbf24;">${totVolGeral.toLocaleString('pt-BR')} cx</strong>
+          <span style="margin-left: 12px;">POSITIVAÇÃO GERAL:</span> <strong style="color:#ffffff;">${totCliGeral.toLocaleString('pt-BR')} cli</strong>
+          <span style="margin-left: 12px;">FORA DA AÇÃO (BONIF/COMBOS):</span> <strong style="color:#f97316;">${totVolFora.toLocaleString('pt-BR')} cx</strong>
+        `;
+
+        let html = `
+          <thead>
+            <tr>
+              <th style="width: 5%;">#</th>
+              <th class="col-sup" style="width: 27%;">SUPERVISOR / FILIAL</th>
+              <th style="width: 13%;">VOLUME GERAL (CX)</th>
+              <th style="width: 11%;">CLIENTES POS. GERAL</th>
+              <th style="width: 11%;">BASE CLIENTES</th>
+              <th style="width: 12%;">% COBERTURA GERAL</th>
+              <th style="width: 9%;">CX/CLI GERAL</th>
+              <th style="width: 12%; text-align: left; padding-left: 12px;">CATEGORIA</th>
+            </tr>
+          </thead>
+          <tbody>
+        `;
+
+        sortedData.forEach((d, idx) => {
+          const rank = idx + 1;
+          const pct = ((d.cliGeral / d.base) * 100).toFixed(1);
+          const media = (d.volGeral / (d.cliGeral || 1)).toFixed(1);
+          const rankClass = rank <= 4 ? 'col-rank rank-podium' : (rank <= 7 ? 'col-rank rank-sulamericana' : 'col-rank');
+
+          html += `
+            <tr>
+              <td class="${rankClass}">${rank}</td>
+              <td class="col-sup">
+                <div class="sup-name">👤 ${d.nome}</div>
+                <div class="sup-filial">📍 ${d.filial}</div>
+              </td>
+              <td class="col-vol">${d.volGeral.toLocaleString('pt-BR')} cx</td>
+              <td class="col-cli">${d.cliGeral.toLocaleString('pt-BR')}</td>
+              <td class="col-base">${d.base.toLocaleString('pt-BR')}</td>
+              <td class="cell-pct ${getPctClass(pct)}">${pct}%</td>
+              <td class="col-media">${media}</td>
+              <td class="col-categoria">${getCategoryBadge(rank)}</td>
+            </tr>
+          `;
+        });
+
+        const totPct = ((totCliGeral / totBase) * 100).toFixed(1);
+        const totMedia = (totVolGeral / totCliGeral).toFixed(1);
+
+        html += `
+            <tr class="row-total">
+              <td colspan="2" class="tot-label">TOTAL REGIONAL (${sortedData.length} SUPERVISORES - AM)</td>
+              <td class="tot-vol">${totVolGeral.toLocaleString('pt-BR')} cx</td>
+              <td>${totCliGeral.toLocaleString('pt-BR')}</td>
+              <td>${totBase.toLocaleString('pt-BR')}</td>
+              <td class="cell-pct ${getPctClass(totPct)}">${totPct}%</td>
+              <td class="tot-media">${totMedia}</td>
+              <td style="text-align: center;">—</td>
+            </tr>
+          </tbody>
+        `;
+
+        table.innerHTML = html;
+
+      } else if (currentModalidade === 'comparativo') {
+        insight.innerHTML = `
+          <span>VOL. NA AÇÃO:</span> <strong style="color:#fbbf24;">${totVolAcao.toLocaleString('pt-BR')} cx</strong>
+          <span style="margin-left: 12px;">VOL. FORA DA AÇÃO (COMBOS/BONIF):</span> <strong style="color:#f97316;">${totVolFora.toLocaleString('pt-BR')} cx</strong>
+          <span style="margin-left: 12px;">% ADERÊNCIA À AÇÃO:</span> <strong style="color:#4ade80;">${totAdherence}%</strong>
+        `;
+
+        let html = `
+          <thead>
+            <tr>
+              <th style="width: 4%;">#</th>
+              <th class="col-sup" style="width: 25%;">SUPERVISOR / FILIAL</th>
+              <th style="width: 12%;">VOL NA AÇÃO</th>
+              <th style="width: 13%; color:#f97316 !important;">FORA AÇÃO (COMBOS/BONIF)</th>
+              <th style="width: 12%;">TOTAL GERAL (CX)</th>
+              <th style="width: 11%;">% ADERÊNCIA AÇÃO</th>
+              <th style="width: 11%;">CLI. AÇÃO</th>
+              <th style="width: 12%;">CLI. GERAL</th>
+            </tr>
+          </thead>
+          <tbody>
+        `;
+
+        sortedData.forEach((d, idx) => {
+          const rank = idx + 1;
+          const fora = d.volGeral - d.volAcao;
+          const adh = ((d.volAcao / d.volGeral) * 100).toFixed(1);
+          const adhClass = adh >= 80.0 ? 'adh-high' : (adh >= 65.0 ? 'adh-mid' : 'adh-low');
+          const rankClass = rank <= 4 ? 'col-rank rank-podium' : (rank <= 7 ? 'col-rank rank-sulamericana' : 'col-rank');
+
+          html += `
+            <tr>
+              <td class="${rankClass}">${rank}</td>
+              <td class="col-sup">
+                <div class="sup-name">👤 ${d.nome}</div>
+                <div class="sup-filial">📍 ${d.filial}</div>
+              </td>
+              <td class="col-vol">${d.volAcao.toLocaleString('pt-BR')} cx</td>
+              <td class="col-vol-fora">+${fora.toLocaleString('pt-BR')} cx</td>
+              <td style="color:#ffffff !important; font-weight:700;">${d.volGeral.toLocaleString('pt-BR')} cx</td>
+              <td class="col-adherence ${adhClass}">${adh}%</td>
+              <td class="col-cli">${d.cliAcao.toLocaleString('pt-BR')}</td>
+              <td class="col-base">${d.cliGeral.toLocaleString('pt-BR')}</td>
+            </tr>
+          `;
+        });
+
+        html += `
+            <tr class="row-total">
+              <td colspan="2" class="tot-label">CONSOLIDADO REGIONAL (AM)</td>
+              <td class="tot-vol">${totVolAcao.toLocaleString('pt-BR')} cx</td>
+              <td style="color:#f97316 !important;">+${totVolFora.toLocaleString('pt-BR')} cx</td>
+              <td style="color:#ffffff !important;">${totVolGeral.toLocaleString('pt-BR')} cx</td>
+              <td style="color:#4ade80 !important;">${totAdherence}%</td>
+              <td>${totCliAcao.toLocaleString('pt-BR')}</td>
+              <td>${totCliGeral.toLocaleString('pt-BR')}</td>
+            </tr>
+          </tbody>
+        `;
+
+        table.innerHTML = html;
+      }
+    }
+
+    // Renderizar ao carregar
+    renderTable();
+  </script>
+</body>
+</html>

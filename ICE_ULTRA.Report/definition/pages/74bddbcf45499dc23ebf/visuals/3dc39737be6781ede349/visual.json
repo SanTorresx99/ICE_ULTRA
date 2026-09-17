@@ -66,14 +66,14 @@
             "relativeRange": {
               "expr": {
                 "Literal": {
-                  "Value": "'Last'"
+                  "Value": "'This'"
                 }
               }
             },
             "relativeDuration": {
               "expr": {
                 "Literal": {
-                  "Value": "1D"
+                  "Value": "0D"
                 }
               }
             },
@@ -103,8 +103,9 @@
                 "Where": [
                   {
                     "Condition": {
-                      "Between": {
-                        "Expression": {
+                      "Comparison": {
+                        "ComparisonKind": 0,
+                        "Left": {
                           "Column": {
                             "Expression": {
                               "SourceRef": {
@@ -114,32 +115,12 @@
                             "Property": "Date"
                           }
                         },
-                        "LowerBound": {
-                          "DateSpan": {
-                            "Expression": {
-                              "DateAdd": {
-                                "Expression": {
-                                  "DateAdd": {
-                                    "Expression": {
-                                      "Now": {}
-                                    },
-                                    "Amount": 1,
-                                    "TimeUnit": 0
-                                  }
-                                },
-                                "Amount": -1,
-                                "TimeUnit": 2
-                              }
-                            },
-                            "TimeUnit": 0
-                          }
-                        },
-                        "UpperBound": {
+                        "Right": {
                           "DateSpan": {
                             "Expression": {
                               "Now": {}
                             },
-                            "TimeUnit": 0
+                            "TimeUnit": 2
                           }
                         }
                       }

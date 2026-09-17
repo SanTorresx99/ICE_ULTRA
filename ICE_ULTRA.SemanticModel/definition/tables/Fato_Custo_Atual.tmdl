@@ -135,8 +135,6 @@ table Fato_Custo_Atual
 
 		annotation SummarizationSetBy = User
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column 'Nome da Origem'
 		dataType: string
 		lineageTag: 55f6d86d-dc9e-4123-b1da-baef3cbbc1b8

@@ -1,0 +1,28 @@
+table Filtro_Modalidade_Preco
+	lineageTag: 7b89d412-45e0-4a81-9871-331289abcdef
+
+	column Modalidade
+		dataType: string
+		lineageTag: 9a7812bc-1234-4567-890a-112233445566
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Modalidade]
+
+	column Codigo
+		dataType: int64
+		lineageTag: e89012cd-5678-4321-ba09-667788990011
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Codigo]
+
+	partition Filtro_Modalidade_Preco = calculated
+		mode: import
+		source =
+				DATATABLE(
+					"Modalidade", STRING,
+					"Codigo", INTEGER,
+					{
+						{"Na Ação (Preço Mínimo)", 1},
+						{"Geral (Todos os Preços / Bonif. / Combos)", 2}
+					}
+				)

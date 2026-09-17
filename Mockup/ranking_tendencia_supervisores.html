@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ranking - Supervisores</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Oswald:wght@500;600;700&family=Roboto+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      background-color: #010814;
+      font-family: 'Roboto Condensed', sans-serif;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    .dashboard-wrapper {
+      width: 100%;
+      max-width: 1536px;
+      margin: 0 auto;
+      background: #020b18;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
+      overflow: hidden;
+    }
+
+    .header-banner {
+      width: 100%;
+      position: relative;
+      line-height: 0;
+      user-select: none;
+    }
+
+    .header-banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .main-content {
+      position: relative;
+      background: radial-gradient(circle at 50% 30%, #061933 0%, #020c1a 70%, #010813 100%);
+      padding: 10px 32px 14px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 2;
+    }
+
+    .controls-bar {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      padding: 0 4px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .view-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(10, 34, 69, 0.9);
+      border: 1px solid #1e4976;
+      border-radius: 6px;
+      padding: 5px 14px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.8px;
+      color: #e2e8f0 !important;
+      text-transform: uppercase;
+    }
+
+    .view-badge strong {
+      color: #fbbf24 !important;
+    }
+
+    .filter-pills {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid #334155;
+      color: #ffffff !important;
+      padding: 4px 12px;
+      border-radius: 14px;
+      font-size: 0.82rem;
+      font-family: 'Oswald', sans-serif;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .pill.active {
+      background: #f59e0b !important;
+      color: #020b18 !important;
+      border-color: #f59e0b;
+      font-weight: 700;
+    }
+
+    .pill-link:hover {
+      background: #1e3a8a;
+      border-color: #3b82f6;
+      color: #ffffff;
+    }
+
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      max-height: 520px;
+      overflow-y: auto;
+      border: 1.5px solid #205081;
+      border-radius: 4px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+      background: #04142a;
+    }
+
+    .ranking-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+      font-family: 'Oswald', sans-serif;
+      user-select: none;
+    }
+
+    .ranking-table thead th {
+      background-color: #081d3a;
+      color: #ffffff !important;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 10px 6px;
+      border: 1px solid #1a3d68;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .ranking-table thead th.col-sup-head {
+      text-align: left;
+      padding-left: 14px;
+    }
+
+    .ranking-table tbody td {
+      padding: 8px 6px;
+      font-size: 1.12rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      border: 1px solid #1b3d68;
+      vertical-align: middle;
+      color: #ffffff !important;
+      background-color: #07152b;
+      transition: filter 0.15s ease;
+    }
+
+    .ranking-table tbody tr:hover td {
+      filter: brightness(1.1);
+    }
+
+    .col-rank {
+      width: 45px;
+      background-color: #07152b;
+      color: #ffffff !important;
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .rank-podium {
+      background-color: #d97706 !important;
+      color: #ffffff !important;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+    }
+
+    .rank-sulamericana {
+      background-color: #1e3a8a !important;
+      color: #ffffff !important;
+    }
+
+    .col-sup {
+      background-color: #07152b;
+      color: #ffffff !important;
+      text-align: left !important;
+      padding-left: 14px !important;
+    }
+
+    .sup-name {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: #ffffff !important;
+    }
+
+    .sup-filial {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #fbbf24 !important; /* Dourado / Amarelo da Filial para excelente contraste */
+    }
+
+    /* Colunas Numéricas com Cores LUMINOSAS (Branco e Amarelo) */
+    .col-vol {
+      color: #fbbf24 !important; /* Dourado / Amarelo vibrante */
+      font-size: 1.18rem;
+      font-weight: 700;
+    }
+
+    .col-cli {
+      color: #ffffff !important; /* Branco puro */
+      font-size: 1.1rem;
+    }
+
+    .col-base {
+      color: #e2e8f0 !important; /* Branco suave / Slate claro */
+      font-size: 1.1rem;
+    }
+
+    .col-media {
+      color: #fef08a !important; /* Amarelo luminoso suave */
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .cell-green {
+      background-color: #008a38 !important;
+      color: #ffffff !important;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    }
+
+    .cell-yellow {
+      background-color: #f5a623 !important;
+      color: #020b18 !important;
+      font-weight: 700 !important;
+    }
+
+    .cell-red {
+      background-color: #cc1818 !important;
+      color: #ffffff !important;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    }
+
+    .col-categoria {
+      background-color: #07152b;
+      text-align: left !important;
+      padding-left: 12px !important;
+      font-size: 1.02rem;
+      letter-spacing: 0.8px;
+      white-space: nowrap;
+    }
+
+    .cat-libertadores {
+      color: #fbbf24 !important;
+      font-weight: 700;
+    }
+
+    .cat-sulamericana {
+      color: #e2e8f0 !important;
+      font-weight: 700;
+    }
+
+    .cat-evolucao {
+      color: #f59e0b !important;
+      font-weight: 600;
+    }
+
+    .cat-desenvolvimento {
+      color: #ef4444 !important;
+      font-weight: 600;
+    }
+
+    .row-total td {
+      background-color: #041630 !important;
+      color: #ffffff !important;
+      font-size: 1.2rem !important;
+      font-weight: 700 !important;
+      padding: 10px 6px !important;
+      border-top: 2px solid #205081 !important;
+      position: sticky;
+      bottom: 0;
+      z-index: 5;
+    }
+
+    .row-total td.tot-vol {
+      color: #fbbf24 !important;
+    }
+
+    .row-total td.tot-media {
+      color: #fef08a !important;
+    }
+
+    .footer-banner {
+      width: 100%;
+      position: relative;
+      line-height: 0;
+      user-select: none;
+      z-index: 1;
+    }
+
+    .footer-banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="dashboard-wrapper">
+    
+    <header class="header-banner">
+      <img src="header_tendencia.jpg" alt="Ranking - Libertadores" />
+    </header>
+
+    <main class="main-content">
+      
+      <div class="controls-bar">
+        <div class="view-badge">
+          <span>VISÃO:</span> <strong>SUPERVISORES</strong>
+        </div>
+        <div class="filter-pills">
+          <span class="pill active">🎯 AÇÃO TOTAL (ICE + ULTRA)</span>
+          <span class="pill">⏱️ TOTAL (HIST + ATUAL)</span>
+          <span class="pill">📶 VOLUME (CX)</span>
+          <a href="ranking_tendencia_filiais.html" class="pill pill-link">🏢 VER FILIAIS ➔</a>
+        </div>
+      </div>
+
+      <div class="table-container">
+        <table class="ranking-table">
+          <thead>
+            <tr>
+              <th style="width: 5%;">#</th>
+              <th class="col-sup-head" style="width: 27%;">SUPERVISOR / FILIAL</th>
+              <th style="width: 13%;">VOLUME (CX)</th>
+              <th style="width: 11%;">CLIENTES POS.</th>
+              <th style="width: 11%;">BASE CLIENTES</th>
+              <th style="width: 12%;">% COBERTURA BASE</th>
+              <th style="width: 9%;">CX/CLI</th>
+              <th style="width: 12%; text-align: left; padding-left: 12px;">CATEGORIA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- 1. GILDEAN -->
+            <tr>
+              <td class="col-rank rank-podium">1</td>
+              <td class="col-sup">
+                <div class="sup-name">👤 GILDEAN DA SILVA SANTOS</div>
+                <div class="sup-filial">📍 CD-BOA VISTA</div>
+              </td>
+              <td class="col-vol">1.140 cx</td>
+              <td class="col-cli">88</td>
+              <td class="col-base">110</td>
+              <td class="cell-green">80,0%</td>
+              <td class="col-media">13,0</td>
+              <td class="col-categoria"><span class="cat-libertadores">🏆 G4 LIBERTADORES</span></td>
+            </tr>
+
+            <!-- 2. RAFAEL -->
+            <tr>
+              <td class="col-rank rank-podium">2</td>
+              <td class="col-sup">
+                <div class="sup-name">👤 RAFAEL DA SILVA OLIVEIRA</div>
+                <div class="sup-filial">📍 CD-MANAUS</div>
+              </td>
+              <td class="col-vol">1.080 cx</td>
+              <td class="col-cli">82</td>
+              <td class="col-base">115</td>
+              <td class="cell-green">71,3%</td>
+              <td class="col-media">13,2</td>
+              <td class="col-categoria"><span class="cat-libertadores">🏆 G4 LIBERTADORES</span></td>
+            </tr>
+
+            <!-- 3. MAURICIO BRUNO -->
+            <tr>
+              <td class="col-rank rank-podium">3</td>
+              <td class="col-sup">
+                <div class="sup-name">👤 MAURICIO BRUNO NUNES LEMOS</div>
+                <div class="sup-filial">📍 CD-MACAPA</div>
+              </td>
+              <td class="col-vol">980 cx</td>
+              <td class="col-cli">76</td>
+              <td class="col-base">112</td>
+              <td class="cell-green">67,9%</td>
+              <td class="col-media">12,9</td>
+              <td class="col-categoria"><span class="cat-libertadores">🏆 G4 LIBERTADORES</span></td>
+            </tr>
+
+            <!-- 4. JARLISON JUNIOR -->
+            <tr>
+              <td class="col-rank rank-podium">4</td>
+              <td class="col-sup">
+                <div class="sup-name">👤 JARLISON JUNIOR SOUZA AUZIER</div>
+                <div class="sup-filial">📍 CD-MANAUS</div>
+              </td>
+              <td class="col-vol">920 cx</td>
+              <td class="col-cli">71</td>
+              <td class="col-base">118</td>
+              <td class="cell-green">60,2%</td>
+              <td class="col-media">13,0</td>
+              <td class="col-categoria"><span class="cat-libertadores">🏆 G4 LIBERTADORES</span></td>
+            </tr>
+
+            <!-- 5. CADMIEL -->
+            <tr>
+              <td class="col-rank rank-sulamericana">5</td>
+              <td class="col-sup">
+                <div class="sup-name">👤 CADMIEL AQUINO DE SOUZA</div>
+                <div class="sup-filial">📍 CD-ITACOATIARA</div>
+              </td>
+              <td class="col-vol">870 cx</td>
+              <td class="col-cli">69</td>
+              <td class="col-base">120</td>
+              <td class="cell-yellow">57,5%</td>
+              <td class="col-media">12,6</td>
+              <td class="col-categoria"><span class="cat-sulamericana">🥈 SUL-AMERICANA</span></td>
+            </tr>
+
+            <!-- 6. ERMESON -->
+            <tr>
+              <td class="col-rank rank-sulamericana">6</td>
+              <td class="col-sup">
+                <div class="sup-name">👤 ERMESON BARBOSA DE SOUZA</div>
+                <div class="sup-filial">📍 CD-MANAUS</div>
+              </td>
+              <td class="col-vol">810 cx</td>
+              <td class="col-cli">64</td>
+              <td class="col-base">122</td>
+              <td class="cell-yellow">52,5%</td>
+              <td class="col-media">12,7</td>
+              <td class="col-categoria"><span class="cat-sulamericana">🥈 SUL-AMERICANA</span></td>
+            </tr>
+
+            <!-- 7. EWERTON -->
+            <tr>
+              <td class="col-rank rank-sulamericana">7</td>
+              <td class="col-sup">
+                <div class="sup-name">👤 EWERTON SOUZA DE SA PEREIRA</div>
+                <div class="sup-filial">📍 CD-MACAPA</div>
+              </td>
+              <td class="col-vol">790 cx</td>
+              <td class="col-cli">60</td>
+              <td class="col-base">125</td>
+              <td class="cell-yellow">48,0%</td>
+              <td class="col-media">13,2</td>
+              <td class="col-categoria"><span class="cat-sulamericana">🥈 SUL-AMERICANA</span></td>
+            </tr>
+
+            <!-- 8. SUPERVISOR AS MACAPA -->
+            <tr>
+              <td class="col-rank rank-sulamericana">8</td>
+              <td class="col-sup">
+                <div class="sup-name">👤 SUPERVISOR AS MACAPA</div>
+                <div class="sup-filial">📍 CD-MACAPA</div>
+              </td>
+              <td class="col-vol">750 cx</td>
+              <td class="col-cli">58</td>
+              <td class="col-base">124</td>
+              <td class="cell-yellow">46,8%</td>
+              <td class="col-media">12,9</td>
+              <td class="col-categoria"><span class="cat-sulamericana">🥈 SUL-AMERICANA</span></td>
+            </tr>
+
+            <!-- 9. EDIOMAR -->
+            <tr>
+              <td class="col-rank">9</td>
+              <td class="col-sup">
+                <div class="sup-name">👤 EDIOMAR GRIJO</div>
+                <div class="sup-filial">📍 CD-MANAUS</div>
+              </td>
+              <td class="col-vol">720 cx</td>
+              <td class="col-cli">56</td>
+              <td class="col-base">126</td>
+              <td class="cell-yellow">44,4%</td>
+              <td class="col-media">12,9</td>
+              <td class="col-categoria"><span class="cat-evolucao">⚡ EM EVOLUÇÃO</span></td>
+            </tr>
+
+            <!-- 10. MARCONE -->
+            <tr>
+              <td class="col-rank">10</td>
+              <td class="col-sup">
+                <div class="sup-name">👤 MARCONE CARVALHO</div>
+                <div class="sup-filial">📍 CD-MANAUS</div>
+              </td>
+              <td class="col-vol">680 cx</td>
+              <td class="col-cli">53</td>
+              <td class="col-base">125</td>
+              <td class="cell-yellow">42,4%</td>
+              <td class="col-media">12,8</td>
+              <td class="col-categoria"><span class="cat-evolucao">⚡ EM EVOLUÇÃO</span></td>
+            </tr>
+
+            <!-- 11. THIAGO LUIZ -->
+            <tr>
+              <td class="col-rank">11</td>
+              <td class="col-sup">
+                <div class="sup-name">👤 THIAGO LUIZ NEGREIROS</div>
+                <div class="sup-filial">📍 CD-MANAUS</div>
+              </td>
+              <td class="col-vol">650 cx</td>
+              <td class="col-cli">50</td>
+              <td class="col-base">122</td>
+              <td class="cell-yellow">41,0%</td>
+              <td class="col-media">13,0</td>
+              <td class="col-categoria"><span class="cat-evolucao">⚡ EM EVOLUÇÃO</span></td>
+            </tr>
+
+            <!-- 12. JHONISON -->
+            <tr>
+              <td class="col-rank">12</td>
+              <td class="col-sup">
+                <div class="sup-name">👤 JHONISON DE SOUZA SERRAO</div>
+                <div class="sup-filial">📍 CD-MANAUS</div>
+              </td>
+              <td class="col-vol">610 cx</td>
+              <td class="col-cli">48</td>
+              <td class="col-base">120</td>
+              <td class="cell-yellow">40,0%</td>
+              <td class="col-media">12,7</td>
+              <td class="col-categoria"><span class="cat-evolucao">⚡ EM EVOLUÇÃO</span></td>
+            </tr>
+
+            <!-- 13. BRUNO RENAN -->
+            <tr>
+              <td class="col-rank">13</td>
+              <td class="col-sup">
+                <div class="sup-name">👤 BRUNO RENAN BADEIRA GOMES</div>
+                <div class="sup-filial">📍 CD-MANAUS</div>
+              </td>
+              <td class="col-vol">580 cx</td>
+              <td class="col-cli">45</td>
+              <td class="col-base">120</td>
+              <td class="cell-red">37,5%</td>
+              <td class="col-media">12,9</td>
+              <td class="col-categoria"><span class="cat-desenvolvimento">🚀 DESENVOLVIMENTO</span></td>
+            </tr>
+
+            <!-- 14. ADSON -->
+            <tr>
+              <td class="col-rank">14</td>
+              <td class="col-sup">
+                <div class="sup-name">👤 ADSON BINDA GOMES</div>
+                <div class="sup-filial">📍 CD-PARINTINS</div>
+              </td>
+              <td class="col-vol">540 cx</td>
+              <td class="col-cli">42</td>
+              <td class="col-base">120</td>
+              <td class="cell-red">35,0%</td>
+              <td class="col-media">12,9</td>
+              <td class="col-categoria"><span class="cat-desenvolvimento">🚀 DESENVOLVIMENTO</span></td>
+            </tr>
+
+            <!-- 15. WALDEMARINO -->
+            <tr>
+              <td class="col-rank">15</td>
+              <td class="col-sup">
+                <div class="sup-name">👤 WALDEMARINO GAMA FILHO</div>
+                <div class="sup-filial">📍 CD-BOA VISTA</div>
+              </td>
+              <td class="col-vol">490 cx</td>
+              <td class="col-cli">38</td>
+              <td class="col-base">118</td>
+              <td class="cell-red">32,2%</td>
+              <td class="col-media">12,9</td>
+              <td class="col-categoria"><span class="cat-desenvolvimento">🚀 DESENVOLVIMENTO</span></td>
+            </tr>
+
+            <!-- 16. PEDRO PAULO -->
+            <tr>
+              <td class="col-rank">16</td>
+              <td class="col-sup">
+                <div class="sup-name">👤 PEDRO PAULO SILVA DOS SANTOS</div>
+                <div class="sup-filial">📍 CD-TABATINGA</div>
+              </td>
+              <td class="col-vol">440 cx</td>
+              <td class="col-cli">34</td>
+              <td class="col-base">115</td>
+              <td class="cell-red">29,6%</td>
+              <td class="col-media">12,9</td>
+              <td class="col-categoria"><span class="cat-desenvolvimento">🚀 DESENVOLVIMENTO</span></td>
+            </tr>
+
+            <!-- TOTAL CONSOLIDADO -->
+            <tr class="row-total">
+              <td colspan="2" style="text-align: center; letter-spacing: 1.5px;">TOTAL CONSOLIDADO (16 SUPERVISORES)</td>
+              <td class="tot-vol">11.050 cx</td>
+              <td>885</td>
+              <td>1.927</td>
+              <td class="cell-yellow">45,9%</td>
+              <td class="tot-media">12,5</td>
+              <td style="text-align: center;">—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </main>
+
+    <footer class="footer-banner">
+      <img src="footer_tendencia.jpg" alt="Libertadores - Glória Eterna" />
+    </footer>
+
+  </div>
+
+</body>
+</html>

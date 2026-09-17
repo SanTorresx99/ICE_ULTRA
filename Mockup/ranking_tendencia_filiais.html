@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ranking - Revendas / Empresa / Filial</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Oswald:wght@500;600;700&family=Roboto+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      background-color: #010814;
+      font-family: 'Roboto Condensed', sans-serif;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* Container Principal 1536 x 1024 proporcional e responsivo */
+    .dashboard-wrapper {
+      width: 100%;
+      max-width: 1536px;
+      margin: 0 auto;
+      background: #020b18;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
+      overflow: hidden;
+    }
+
+    /* Banner Superior (Header Mockup) */
+    .header-banner {
+      width: 100%;
+      position: relative;
+      line-height: 0;
+      user-select: none;
+    }
+
+    .header-banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Seção Intermediária com Tabela */
+    .main-content {
+      position: relative;
+      background: radial-gradient(circle at 50% 30%, #061933 0%, #020c1a 70%, #010813 100%);
+      padding: 10px 32px 14px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 2;
+    }
+
+    /* Barra de Ações Rápidas / Filtros Dinâmicos */
+    .controls-bar {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      padding: 0 4px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .view-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(10, 34, 69, 0.9);
+      border: 1px solid #1e4976;
+      border-radius: 6px;
+      padding: 5px 14px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.8px;
+      color: #e2e8f0 !important;
+      text-transform: uppercase;
+    }
+
+    .view-badge strong {
+      color: #fbbf24 !important;
+    }
+
+    .filter-pills {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid #334155;
+      color: #ffffff !important;
+      padding: 4px 12px;
+      border-radius: 14px;
+      font-size: 0.82rem;
+      font-family: 'Oswald', sans-serif;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .pill.active {
+      background: #f59e0b !important;
+      color: #020b18 !important;
+      border-color: #f59e0b;
+      font-weight: 700;
+    }
+
+    .pill-link:hover {
+      background: #1e3a8a;
+      border-color: #3b82f6;
+      color: #ffffff;
+    }
+
+    /* Container da Tabela Estilo Grid */
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      border: 1.5px solid #205081;
+      border-radius: 4px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+      background: #04142a;
+    }
+
+    .ranking-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+      font-family: 'Oswald', sans-serif;
+      user-select: none;
+    }
+
+    /* Linha de Cabeçalho da Tabela */
+    .ranking-table thead th {
+      background-color: #081d3a;
+      color: #ffffff !important;
+      font-size: 1.12rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 11px 8px;
+      border: 1px solid #1a3d68;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .ranking-table thead th.col-empresa {
+      text-align: left;
+      padding-left: 18px;
+    }
+
+    /* Células da Tabela */
+    .ranking-table tbody td {
+      padding: 10px 8px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      border: 1px solid #1b3d68;
+      vertical-align: middle;
+      color: #ffffff !important;
+      background-color: #07152b;
+      transition: filter 0.15s ease;
+    }
+
+    .ranking-table tbody tr:hover td {
+      filter: brightness(1.1);
+    }
+
+    /* Coluna Posição (#) */
+    .col-rank {
+      width: 50px;
+      background-color: #07152b;
+      color: #ffffff !important;
+      font-size: 1.35rem;
+      font-weight: 700;
+    }
+
+    .rank-podium {
+      background-color: #d97706 !important;
+      color: #ffffff !important;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+    }
+
+    .rank-sulamericana {
+      background-color: #1e3a8a !important;
+      color: #ffffff !important;
+    }
+
+    /* Coluna Nome Empresa / Filial */
+    .col-name {
+      background-color: #07152b;
+      color: #ffffff !important;
+      text-align: left !important;
+      padding-left: 18px !important;
+      font-size: 1.15rem;
+      letter-spacing: 0.5px;
+    }
+
+    .col-name .pin-icon {
+      margin-right: 6px;
+    }
+
+    /* Colunas Numéricas com Cores LUMINOSAS (Branco e Amarelo) */
+    .col-vol {
+      color: #fbbf24 !important; /* Dourado / Amarelo vibrante */
+      font-size: 1.22rem;
+      font-weight: 700;
+    }
+
+    .col-cli {
+      color: #ffffff !important; /* Branco puro */
+      font-size: 1.15rem;
+    }
+
+    .col-base {
+      color: #e2e8f0 !important; /* Branco suave / Slate claro */
+      font-size: 1.15rem;
+    }
+
+    .col-media {
+      color: #fef08a !important; /* Amarelo luminoso suave */
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    /* Células com Formatação Condicional de Performance */
+    .cell-green {
+      background-color: #008a38 !important;
+      color: #ffffff !important;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    }
+
+    .cell-yellow {
+      background-color: #f5a623 !important;
+      color: #020b18 !important;
+      font-weight: 700 !important;
+    }
+
+    .cell-red {
+      background-color: #cc1818 !important;
+      color: #ffffff !important;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    }
+
+    /* Coluna Categoria */
+    .col-categoria {
+      background-color: #07152b;
+      text-align: left !important;
+      padding-left: 14px !important;
+      font-size: 1.1rem;
+      letter-spacing: 0.8px;
+      white-space: nowrap;
+    }
+
+    .cat-libertadores {
+      color: #fbbf24 !important;
+      font-weight: 700;
+    }
+
+    .cat-sulamericana {
+      color: #e2e8f0 !important;
+      font-weight: 700;
+    }
+
+    .cat-evolucao {
+      color: #f59e0b !important;
+      font-weight: 600;
+    }
+
+    .cat-desenvolvimento {
+      color: #ef4444 !important;
+      font-weight: 600;
+    }
+
+    /* Linha de TOTAL */
+    .row-total td {
+      background-color: #041630 !important;
+      color: #ffffff !important;
+      font-size: 1.25rem !important;
+      font-weight: 700 !important;
+      padding: 12px 8px !important;
+      border-top: 2px solid #205081 !important;
+    }
+
+    .row-total td.tot-vol {
+      color: #fbbf24 !important;
+    }
+
+    .row-total td.tot-media {
+      color: #fef08a !important;
+    }
+
+    /* Banner Inferior (Footer Mockup) */
+    .footer-banner {
+      width: 100%;
+      position: relative;
+      line-height: 0;
+      user-select: none;
+      z-index: 1;
+    }
+
+    .footer-banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="dashboard-wrapper">
+    
+    <!-- 1. Header Banner Oficial com Troféu Libertadores e Título 3D -->
+    <header class="header-banner">
+      <img src="header_tendencia.jpg" alt="Ranking - Libertadores" />
+    </header>
+
+    <!-- 2. Área Central com Controles e Tabela Oficial -->
+    <main class="main-content">
+      
+      <div class="controls-bar">
+        <div class="view-badge">
+          <span>VISÃO:</span> <strong>REVENDA / FILIAL</strong>
+        </div>
+        <div class="filter-pills">
+          <span class="pill active">🎯 AÇÃO TOTAL (ICE + ULTRA)</span>
+          <span class="pill">⏱️ TOTAL (HIST + ATUAL)</span>
+          <span class="pill">📶 VOLUME (CX)</span>
+          <a href="ranking_tendencia_supervisores.html" class="pill pill-link">👥 VER SUPERVISORES ➔</a>
+        </div>
+      </div>
+
+      <!-- Tabela de Tendência -->
+      <div class="table-container">
+        <table class="ranking-table">
+          <thead>
+            <tr>
+              <th style="width: 5%;">#</th>
+              <th class="col-empresa" style="width: 25%;">REVENDA / FILIAL</th>
+              <th style="width: 14%;">VOLUME (CX)</th>
+              <th style="width: 11%;">CLIENTES POS.</th>
+              <th style="width: 11%;">BASE CLIENTES</th>
+              <th style="width: 12%;">% COBERTURA BASE</th>
+              <th style="width: 9%;">CX/CLI</th>
+              <th style="width: 13%; text-align: left; padding-left: 14px;">CATEGORIA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- 1. CD-TABATINGA -->
+            <tr>
+              <td class="col-rank rank-podium">1</td>
+              <td class="col-name"><span class="pin-icon">📍</span>CD-TABATINGA</td>
+              <td class="col-vol">1.840 cx</td>
+              <td class="col-cli">142</td>
+              <td class="col-base">198</td>
+              <td class="cell-green">71,7%</td>
+              <td class="col-media">13,0</td>
+              <td class="col-categoria"><span class="cat-libertadores">🏆 G4 LIBERTADORES</span></td>
+            </tr>
+
+            <!-- 2. CD-ITACOATIARA -->
+            <tr>
+              <td class="col-rank rank-podium">2</td>
+              <td class="col-name"><span class="pin-icon">📍</span>CD-ITACOATIARA</td>
+              <td class="col-vol">1.620 cx</td>
+              <td class="col-cli">138</td>
+              <td class="col-base">210</td>
+              <td class="cell-green">65,7%</td>
+              <td class="col-media">11,7</td>
+              <td class="col-categoria"><span class="cat-libertadores">🏆 G4 LIBERTADORES</span></td>
+            </tr>
+
+            <!-- 3. CD-PARINTINS -->
+            <tr>
+              <td class="col-rank rank-sulamericana">3</td>
+              <td class="col-name"><span class="pin-icon">📍</span>CD-PARINTINS</td>
+              <td class="col-vol">1.410 cx</td>
+              <td class="col-cli">115</td>
+              <td class="col-base">215</td>
+              <td class="cell-yellow">53,5%</td>
+              <td class="col-media">12,3</td>
+              <td class="col-categoria"><span class="cat-sulamericana">🥈 SUL-AMERICANA</span></td>
+            </tr>
+
+            <!-- 4. CD-MANAUS -->
+            <tr>
+              <td class="col-rank rank-sulamericana">4</td>
+              <td class="col-name"><span class="pin-icon">📍</span>CD-MANAUS</td>
+              <td class="col-vol">4.950 cx</td>
+              <td class="col-cli">430</td>
+              <td class="col-base">880</td>
+              <td class="cell-yellow">48,9%</td>
+              <td class="col-media">11,5</td>
+              <td class="col-categoria"><span class="cat-sulamericana">🥈 SUL-AMERICANA</span></td>
+            </tr>
+
+            <!-- 5. CD-MACAPA -->
+            <tr>
+              <td class="col-rank">5</td>
+              <td class="col-name"><span class="pin-icon">📍</span>CD-MACAPA</td>
+              <td class="col-vol">1.250 cx</td>
+              <td class="col-cli">112</td>
+              <td class="col-base">260</td>
+              <td class="cell-yellow">43,1%</td>
+              <td class="col-media">11,2</td>
+              <td class="col-categoria"><span class="cat-evolucao">⚡ EM EVOLUÇÃO</span></td>
+            </tr>
+
+            <!-- 6. CD-BOA VISTA -->
+            <tr>
+              <td class="col-rank">6</td>
+              <td class="col-name"><span class="pin-icon">📍</span>CD-BOA VISTA</td>
+              <td class="col-vol">890 cx</td>
+              <td class="col-cli">76</td>
+              <td class="col-base">240</td>
+              <td class="cell-red">31,7%</td>
+              <td class="col-media">11,7</td>
+              <td class="col-categoria"><span class="cat-desenvolvimento">🚀 DESENVOLVIMENTO</span></td>
+            </tr>
+
+            <!-- TOTAL CONSOLIDADO -->
+            <tr class="row-total">
+              <td colspan="2" style="text-align: center; letter-spacing: 1.5px;">TOTAL CONSOLIDADO (6 FILIAIS)</td>
+              <td class="tot-vol">11.960 cx</td>
+              <td>1.013</td>
+              <td>2.003</td>
+              <td class="cell-yellow">50,6%</td>
+              <td class="tot-media">11,8</td>
+              <td style="text-align: center;">—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </main>
+
+    <!-- 3. Footer Banner Oficial com Torcida e Holofotes -->
+    <footer class="footer-banner">
+      <img src="footer_tendencia.jpg" alt="Libertadores - Glória Eterna" />
+    </footer>
+
+  </div>
+
+</body>
+</html>

@@ -236,12 +236,105 @@ Para a nova fase da campanha comercial, foi implementada uma arquitetura modular
 
 ---
 
+## 🏆 Novos Visuais HTML de Ranking de Tendência (Nível Libertadores)
+
+Conforme a especificação do novo mockup (`WhatsApp Image 2026-09-17 at 09.59.55.jpeg`), foram desenvolvidos dois novos visuais HTML responsivos de transmissão esportiva de alto impacto, trazendo identidade visual inspirada na Copa Libertadores com iluminação de estádio, taça dourada em 3D, mapa regional da Amazônia e os 4 pilares estratégicos da companhia.
+
+---
+
+### 🎨 1. Identidade Visual e Elementos de Broadcast Esportivo
+* **Header de Estádio Noturno**:
+  * **Tipografia 3D Metálica**: Efeito cromado em *"RANKING"* e acabamento em ouro chanfrado em *"DE TENDÊNCIA"*, com subtítulo *"FOCO EM EXECUÇÃO, RESULTADOS E CRESCIMENTO"*.
+  * **Slogan e Nível de Corte**: *"ACIMA DE 80% É NÍVEL LIBERTADORES — DISCIPLINA HOJE, RESULTADOS SEMPRE."*
+  * **Troféu Oficial Libertadores**: Imagem de alta definição da taça dourada com acabamento brilhante e o lema manuscrito em lettering dourado: *"Gigantes fazem história!"*.
+* **Grid de Performance e Formatação Condicional (Dinâmica em Tempo Real)**:
+  * **Colunas Oficiais**: `#` | `REVENDA / FILIAL` (ou `SUPERVISOR / FILIAL`) | `VOLUME (CX)` | `CLIENTES POS.` | `BASE CLIENTES` | `% COBERTURA BASE` | `CX/CLI` | `CATEGORIA`.
+  * **Podium Dourado**: As primeiras colocações recebem badge âmbar dourado (`#d97706`) e azul Libertadores (`#1e3a8a`).
+  * **Cores de Performance Operacional (% Cobertura)**:
+    * **Verde Vibrante (`#008a38`)**: Cobertura da Base $\ge$ 60,0%.
+    * **Amarelo / Âmbar (`#f5a623`)**: Cobertura da Base entre 40,0% e 59,9%.
+    * **Vermelho Intenso (`#cc1818`)**: Cobertura da Base < 40,0%.
+  * **Classificação por Tiers / Categorias Libertadores**:
+    * 🏆 **G4 - LIBERTADORES** (Dourado `#fbbf24`): Posições de liderança.
+    * 🥈 **SUL-AMERICANA** (Prata/Azul `#e2e8f0`): Zona intermediária alta.
+    * ⚡ **EM EVOLUÇÃO** (Laranja/Amarelo `#f59e0b`): Zona de transição.
+    * 🚀 **DESENVOLVIMENTO** (Vermelho `#ef4444`): Zona de atenção / aceleração.
+
+---
+
+### ⏱️ 2. Novo Filtro de Período Temporal: ATUAL / HIST / TOTAL (`Filtro_Tipo_Dados`)
+Para atender à necessidade de comparar o histórico consolidado com as vendas em tempo real do dia, foi adicionada a tabela calculada `Filtro_Tipo_Dados` no modelo semântico:
+* **Código 1**: `Total Acumulado (HIST + ATUAL)` — *Padrão* (utiliza as métricas `_PRECO_V2` da campanha).
+* **Código 2**: `Somente Histórico (HIST)` (utiliza `_HIST_V2`, faturamento consolidado até D-1).
+* **Código 3**: `Somente Hoje (ATUAL)` (utiliza `_ATUAL_V2`, pedidos em tempo real de hoje).
+
+As medidas de ranking identificam dinamicamente a opção ativa via `SELECTEDVALUE(Filtro_Tipo_Dados[Codigo], 1)` e calculam o Volume e os Clientes Positivados correspondentes.
+
+---
+
+### 🏢 3. Página PBIP 1: REVENDAS / EMPRESA / FILIAL
+* **Página PBIP**: **`Tendência Filiais`** (`1536 x 1024`, ID: `5da0d243bd2b47029575`).
+* **Medida DAX**: `[Ranking_Tendencia_Filiais_HTML]`.
+* **Agrupamento**: `ALLSELECTED(Dim_Empresa[emp_Empresa_chr])`.
+* **Métricas Apuradas**:
+  * Volume realizado em caixas no período conforme a ação (`Filtro_Acao`) e período (`Filtro_Tipo_Dados`).
+  * Quantidade de clientes distintos positivados.
+  * Base total de clientes ativos (`[_Base_Cli_WTH]`).
+  * Percentual de cobertura da base (`Clientes / Base`).
+  * Média de caixas por cliente positivado (`Volume / Clientes`).
+  * Linha de total consolidado com soma de volumes, clientes, base e média ponderada de cobertura.
+
+---
+
+### 👥 4. Página PBIP 2: SUPERVISORES
+* **Página PBIP**: **`Tendência Supervisores`** (`1536 x 1024`, ID: `f659040bebe240a29fdf`).
+* **Medida DAX**: `[Ranking_Tendencia_Supervisores_HTML]`.
+* **Agrupamento**: `ALLSELECTED(Dim_Vendedor[sup_Supervisor_chr])`.
+* **Identificação Completa**: Nome do supervisor acompanhado do badge com a Filial de origem (`CD-MANAUS`, `CD-BOA VISTA`, etc.).
+* **Scroll Suave & Cabeçalho Fixo**: O container da tabela possui rolagem vertical interna (`overflow-y: auto`) com cabeçalho fixo (`position: sticky; top: 0`), acomodando perfeitamente todos os supervisores ativos sem quebrar o layout da página.
+
+---
+
+### 📦 5. Otimização Base64 e Independência Offline
+* As imagens de cabeçalho (`header_tendencia.jpg`) e rodapé (`footer_tendencia.jpg`) foram compactadas e inseridas no modelo semântico como medidas nativas:
+  * `[HeaderTendenciaBase64]`: ~79 KB em Base64, contendo o estádio, taça Libertadores e tipografia 3D.
+  * `[FooterTendenciaBase64]`: ~59 KB em Base64, contendo a torcida e os holofotes do estádio.
+* Isso garante que os visuais carreguem de forma instantânea tanto no Power BI Desktop quanto no Power BI Service (nuvem) e em dispositivos móveis, sem depender de conexões externas ou políticas de CORS.
+
+---
+
+---
+
+### 👑 6. Visão Sub-Gerente Regional (Gerência MAO: Manaus, Itacoatiara, Parintins, Tabatinga)
+* **Página PBIP**: **`Ranking Sub-Gerente Regional`** (`1536 x 1080`, ID: `b48d19bc2e104f7c89a1`).
+* **Medida DAX**: `[Ranking_Supervisores_SubGerente_HTML]`.
+* **Agrupamento Regional Virtual**:
+  * **`GERENCIA MAO` (Amazonas - Ativa)**:
+    * `CD-MANAUS` (8 supervisores: Rafael Oliveira, Jarlison Junior, Ermeson Barbosa, Ediomar Grijo, Marcone Carvalho, Thiago Negreiros, Jhonison Serrão, Bruno Bandeira)
+    * `CD-ITACOATIARA` (1 supervisor: Cadmiel Aquino)
+    * `CD-PARINTINS` (1 supervisor: Adson Binda)
+    * `CD-TABATINGA` (1 supervisor: Pedro Paulo)
+    * Total: 11 Supervisores.
+  * **Roadmap de Gerências Subsequentes**:
+    * **`GERENCIA BOV`**: Abrangência exclusiva de `CD-BOA VISTA` (Roraima).
+    * **`GERENCIA MCP`**: Abrangência exclusiva de `CD-MACAPA` (Amapá).
+* **Motores de Preço / Modalidade (`Filtro_Modalidade_Preco`)**:
+  * **NA AÇÃO (Preço Mínimo)**: Contabiliza apenas pedidos que atendem os pisos de preço da campanha (Ice >= R$ 45,00; Ultra >= R$ 65,40 e R$ 51,08).
+  * **GERAL (Todos os Preços / Bonificados / Combos)**: Contabiliza todas as saídas dos produtos da campanha independente do preço unitário aplicado (incluindo bonificações com preço R$ 0,00 e combos agressivos).
+* **Propósito de Gestão**: Acompanhar o cumprimento das metas oficiais da campanha e simultaneamente diagnosticar supervisores que estão disseminando volume fora da ação (combos promocionais, bonificações excessivas).
+
+---
+
 ## 🛠️ Arquivos e Entregáveis
-* [`SNAPSHOT_FECHAMENTO_AGOSTO_2026.csv`](file:///C:/Users/a.alves/Downloads/ICE_ULTRA/SNAPSHOT_FECHAMENTO_AGOSTO_2026.csv): Snapshot oficial auditado de fechamento de Agosto/2026.
-* [`Dim_Calendario.tmdl`](file:///C:/Users/a.alves/Downloads/ICE_ULTRA/ICE_ULTRA.SemanticModel/definition/tables/Dim_Calendario.tmdl): Novas medidas de corte de volume V2.
-* [`_Medidas_Winthor.tmdl`](file:///C:/Users/a.alves/Downloads/ICE_ULTRA/ICE_ULTRA.SemanticModel/definition/tables/_Medidas_Winthor.tmdl): Novas medidas de clientes e volume total V2.
-* [`Medidas_Ranking.tmdl`](file:///C:/Users/a.alves/Downloads/ICE_ULTRA/ICE_ULTRA.SemanticModel/definition/tables/Medidas_Ranking.tmdl): Medidas HTML V2 para Desktop, Mobile e Brasileirão.
-* [`pages.json`](file:///C:/Users/a.alves/Downloads/ICE_ULTRA/ICE_ULTRA.Report/definition/pages/pages.json): Registro e ordenação das páginas com destaque para as novas visualizações.
+* [`Mockup/ranking_subgerente_regional.html`](file:///C:/Users/a.alves/Downloads/ICE_ULTRA/Mockup/ranking_subgerente_regional.html): Protótipo interativo com alternador entre NA AÇÃO, GERAL e COMPARATIVO DETALHADO.
+* [`Mockup/ranking_tendencia_filiais.html`](file:///C:/Users/a.alves/Downloads/ICE_ULTRA/Mockup/ranking_tendencia_filiais.html): Protótipo HTML com dados de Filiais.
+* [`Mockup/ranking_tendencia_supervisores.html`](file:///C:/Users/a.alves/Downloads/ICE_ULTRA/Mockup/ranking_tendencia_supervisores.html): Protótipo HTML com dados de Supervisores.
+* [`Filtro_Modalidade_Preco.tmdl`](file:///C:/Users/a.alves/Downloads/ICE_ULTRA/ICE_ULTRA.SemanticModel/definition/tables/Filtro_Modalidade_Preco.tmdl): Tabela de filtro para alternar entre Na Ação e Geral.
+* [`Filtro_Tipo_Dados.tmdl`](file:///C:/Users/a.alves/Downloads/ICE_ULTRA/ICE_ULTRA.SemanticModel/definition/tables/Filtro_Tipo_Dados.tmdl): Tabela de filtro para alternar entre Total, Histórico e Atual.
+* [`Medidas_Ranking.tmdl`](file:///C:/Users/a.alves/Downloads/ICE_ULTRA/ICE_ULTRA.SemanticModel/definition/tables/Medidas_Ranking.tmdl): Medidas `[Ranking_Supervisores_SubGerente_HTML]`, `[QTD_TOTAL_GERAL]`, `[QTD_ICE_GERAL]`, `[QTD_P_ULTRA_GERAL]`, etc.
+* [`pages.json`](file:///C:/Users/a.alves/Downloads/ICE_ULTRA/ICE_ULTRA.Report/definition/pages/pages.json): Páginas `Ranking Filiais`, `Ranking Supervisores` e `Ranking Sub-Gerente Regional` ativadas no topo.
+* [`PLAN_RANKING_REVENDAS_SUPERVISORES.md`](file:///C:/Users/a.alves/Downloads/ICE_ULTRA/PLAN_RANKING_REVENDAS_SUPERVISORES.md): Plano de arquitetura e implementação.
+
 
 
 

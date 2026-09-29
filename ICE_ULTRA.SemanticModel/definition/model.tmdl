@@ -173,6 +173,7 @@ ref table Filtro_Acao
 ref table Filtro_Ranking_Motor
 ref table Filtro_Tipo_Dados
 ref table Filtro_Modalidade_Preco
+ref table Filtro_Status_Rota
 
 ref cultureInfo pt-BR
 

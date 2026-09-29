@@ -1,12 +1,12 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "e72a4412bf8942e6a914",
+  "name": "f41866eaea494627bf30",
   "position": {
     "x": 0,
     "y": 0,
     "z": 0,
-    "height": 1080,
-    "width": 1536,
+    "height": 1150,
+    "width": 1304,
     "tabOrder": 0
   },
   "visual": {
@@ -23,11 +23,11 @@
                       "Entity": "Medidas_Ranking"
                     }
                   },
-                  "Property": "Ranking_Supervisores_SubGerente_HTML"
+                  "Property": "Rota_Do_Dia_HTML"
                 }
               },
-              "queryRef": "Medidas_Ranking.Ranking_Supervisores_SubGerente_HTML",
-              "nativeQueryRef": "Ranking_Supervisores_SubGerente_HTML"
+              "queryRef": "Medidas_Ranking.Rota_Do_Dia_HTML",
+              "nativeQueryRef": "Rota_Do_Dia_HTML"
             }
           ]
         }

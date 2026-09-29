@@ -366,12 +366,31 @@ table Medidas_Ranking
 
 	measure Ranking_Sellers_HTML =
 			VAR OpcaoSel = SELECTEDVALUE(Filtro_Acao[Codigo], 1)
+			VAR MotorSel = SELECTEDVALUE(Filtro_Ranking_Motor[Codigo], 1)
+			VAR TipoDados = SELECTEDVALUE(Filtro_Tipo_Dados[Codigo], 1)
+			VAR ModalidadeSel = SELECTEDVALUE(Filtro_Modalidade_Preco[Codigo], 1)
 			
 			VAR HasDateFilter = ISFILTERED(Dim_Calendario[Date]) || ISFILTERED(Dim_Calendario[Ano/Mes]) || ISFILTERED(Dim_Calendario[Mes/Ano])
 			VAR StartDate = IF(HasDateFilter, MIN(Dim_Calendario[Date]), DATE(2026, 8, 14))
 			VAR EndDate = IF(HasDateFilter, MAX(Dim_Calendario[Date]), DATE(2026, 8, 31))
-			
 			VAR PeriodoContexto = DATESBETWEEN(Dim_Calendario[Date], StartDate, EndDate)
+			
+			VAR ModalidadeNome =
+			    SWITCH(
+			        ModalidadeSel,
+			        1, "NA AÇÃO (PREÇO MÍNIMO)",
+			        2, "GERAL (TODOS OS PREÇOS)",
+			        "NA AÇÃO (PREÇO MÍNIMO)"
+			    )
+			
+			VAR TipoDadosNome =
+			    SWITCH(
+			        TipoDados,
+			        1, "TOTAL (HIST + ATUAL)",
+			        2, "SOMENTE HISTÓRICO",
+			        3, "SOMENTE HOJE",
+			        "TOTAL"
+			    )
 			
 			VAR RawSellers =
 			    ADDCOLUMNS(
@@ -379,20 +398,60 @@ table Medidas_Ranking
 			        "@Sales",
 			            CALCULATE(
 			                SWITCH(
-			                    OpcaoSel,
-			                    1, [QTD_ACAO_ULTRACRYSTAL],
-			                    2, [QTD_ICE_PRECO],
-			                    3, [QTD_P_ULTRA_PRECO]
+			                    TRUE(),
+			                    -- Modalidade 1: NA AÇÃO
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoSel = 1, [QTD_ACAO_ULTRACRYSTAL],
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoSel = 2, [QTD_ICE_PRECO],
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoSel = 3, [QTD_P_ULTRA_PRECO],
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoSel = 1, [QTD_ACAO_HIST],
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoSel = 2, [QTD_ICE_HIST],
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoSel = 3, [QTD_P_ULTRA_HIST],
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoSel = 1, [QTD_ACAO_ATUAL],
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoSel = 2, [QTD_ICE_ATUAL],
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoSel = 3, [QTD_P_ULTRA_ATUAL],
+			
+			                    -- Modalidade 2: GERAL
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoSel = 1, [QTD_TOTAL_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoSel = 2, [QTD_ICE_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoSel = 3, [QTD_P_ULTRA_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoSel = 1, [QTD_TOTAL_HIST_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoSel = 2, [QTD_ICE_HIST_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoSel = 3, [QTD_P_ULTRA_HIST_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoSel = 1, [QTD_TOTAL_ATUAL_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoSel = 2, [QTD_ICE_ATUAL_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoSel = 3, [QTD_P_ULTRA_ATUAL_GERAL],
+			
+			                    [QTD_ACAO_ULTRACRYSTAL]
 			                ),
 			                PeriodoContexto
 			            ),
 			        "@Clients",
 			            CALCULATE(
 			                SWITCH(
-			                    OpcaoSel,
-			                    1, [QTD CLI TOTAL ACAO],
-			                    2, [TOTAL CLI ICE],
-			                    3, [TOTAL PETRA ULTRA]
+			                    TRUE(),
+			                    -- Modalidade 1: NA AÇÃO
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoSel = 1, [QTD CLI TOTAL ACAO],
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoSel = 2, [TOTAL CLI ICE],
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoSel = 3, [TOTAL PETRA ULTRA],
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoSel = 1, CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(ALL(Dim_Clientes[cli_Cliente_int_PK]), [QTD_ACAO_HIST] > 0)),
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoSel = 2, [QTD CLI ICE HIST],
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoSel = 3, [QTD CLI PETRA ULTRA HIST],
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoSel = 1, CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(ALL(Dim_Clientes[cli_Cliente_int_PK]), [QTD_ACAO_ATUAL] > 0)),
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoSel = 2, [QTD CLI ICE ATUAL],
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoSel = 3, [QTD CLI PETRA ULTRA ATUAL],
+			
+			                    -- Modalidade 2: GERAL
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoSel = 1, [QTD CLI TOTAL GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoSel = 2, [TOTAL CLI ICE GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoSel = 3, [TOTAL PETRA ULTRA GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoSel = 1, [QTD CLI TOTAL GERAL HIST V2],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoSel = 2, [QTD CLI ICE HIST GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoSel = 3, [QTD CLI PETRA ULTRA HIST GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoSel = 1, [QTD CLI TOTAL GERAL ATUAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoSel = 2, [QTD CLI ICE ATUAL GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoSel = 3, [QTD CLI PETRA ULTRA ATUAL GERAL V2],
+			
+			                    [QTD CLI TOTAL ACAO]
 			                ),
 			                PeriodoContexto
 			            ),
@@ -405,8 +464,6 @@ table Medidas_Ranking
 			        RawSellers,
 			        [@Sales] > 0
 			    )
-			
-			VAR MotorSel = SELECTEDVALUE(Filtro_Ranking_Motor[Codigo], 1)
 			
 			VAR RankedSellers =
 			    ADDCOLUMNS(
@@ -927,7 +984,7 @@ table Medidas_Ranking
 			    <header class=""header-bar"">
 			      <div class=""title-area"">
 			        <h1>" & ActionTitle & "</h1>
-			        <p>" & PeriodoText & "</p>
+			        <p>" & PeriodoText & " • " & ModalidadeNome & "</p>
 			      </div>
 			      <div class=""navigation-bar"">
 			        <div class=""" & Tab1Class & """>&#127942; Ação Total</div>
@@ -936,6 +993,8 @@ table Medidas_Ranking
 			      </div>
 			    </header>
 			    <div class=""filter-summary"">
+			      <span class=""filter-badge"">&#127991; Modalidade: <strong>" & ModalidadeNome & "</strong></span>
+			      <span class=""filter-badge"">&#128197; Dados: <strong>" & TipoDadosNome & "</strong></span>
 			      <span class=""filter-badge"">&#127970; Filiais: <strong>" & FilialText & "</strong></span>
 			      <span class=""filter-badge"">&#128084; Supervisores: <strong>" & SupText & "</strong></span>
 			      <span class=""filter-badge"">&#128100; Vendedores: <strong>" & VendText & "</strong></span>
@@ -1047,11 +1106,31 @@ table Medidas_Ranking
 
 	measure Ranking_Mobile_HTML =
 			VAR OpcaoSel = SELECTEDVALUE(Filtro_Acao[Codigo], 1)
+			VAR MotorSel = SELECTEDVALUE(Filtro_Ranking_Motor[Codigo], 1)
+			VAR TipoDados = SELECTEDVALUE(Filtro_Tipo_Dados[Codigo], 1)
+			VAR ModalidadeSel = SELECTEDVALUE(Filtro_Modalidade_Preco[Codigo], 1)
 			
 			VAR HasDateFilter = ISFILTERED(Dim_Calendario[Date]) || ISFILTERED(Dim_Calendario[Ano/Mes]) || ISFILTERED(Dim_Calendario[Mes/Ano])
 			VAR StartDate = IF(HasDateFilter, MIN(Dim_Calendario[Date]), DATE(2026, 8, 14))
 			VAR EndDate = IF(HasDateFilter, MAX(Dim_Calendario[Date]), DATE(2026, 8, 31))
 			VAR PeriodoContexto = DATESBETWEEN(Dim_Calendario[Date], StartDate, EndDate)
+			
+			VAR ModalidadeNome =
+			    SWITCH(
+			        ModalidadeSel,
+			        1, "NA AÇÃO (PREÇO MÍNIMO)",
+			        2, "GERAL (TODOS OS PREÇOS)",
+			        "NA AÇÃO (PREÇO MÍNIMO)"
+			    )
+			
+			VAR TipoDadosNome =
+			    SWITCH(
+			        TipoDados,
+			        1, "TOTAL (HIST + ATUAL)",
+			        2, "SOMENTE HISTÓRICO",
+			        3, "SOMENTE HOJE",
+			        "TOTAL"
+			    )
 			
 			VAR RawSellers =
 			    ADDCOLUMNS(
@@ -1059,20 +1138,60 @@ table Medidas_Ranking
 			        "@Sales",
 			            CALCULATE(
 			                SWITCH(
-			                    OpcaoSel,
-			                    1, [QTD_ACAO_ULTRACRYSTAL],
-			                    2, [QTD_ICE_PRECO],
-			                    3, [QTD_P_ULTRA_PRECO]
+			                    TRUE(),
+			                    -- Modalidade 1: NA AÇÃO
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoSel = 1, [QTD_ACAO_ULTRACRYSTAL],
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoSel = 2, [QTD_ICE_PRECO],
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoSel = 3, [QTD_P_ULTRA_PRECO],
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoSel = 1, [QTD_ACAO_HIST],
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoSel = 2, [QTD_ICE_HIST],
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoSel = 3, [QTD_P_ULTRA_HIST],
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoSel = 1, [QTD_ACAO_ATUAL],
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoSel = 2, [QTD_ICE_ATUAL],
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoSel = 3, [QTD_P_ULTRA_ATUAL],
+			
+			                    -- Modalidade 2: GERAL
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoSel = 1, [QTD_TOTAL_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoSel = 2, [QTD_ICE_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoSel = 3, [QTD_P_ULTRA_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoSel = 1, [QTD_TOTAL_HIST_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoSel = 2, [QTD_ICE_HIST_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoSel = 3, [QTD_P_ULTRA_HIST_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoSel = 1, [QTD_TOTAL_ATUAL_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoSel = 2, [QTD_ICE_ATUAL_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoSel = 3, [QTD_P_ULTRA_ATUAL_GERAL],
+			
+			                    [QTD_ACAO_ULTRACRYSTAL]
 			                ),
 			                PeriodoContexto
 			            ),
 			        "@Clients",
 			            CALCULATE(
 			                SWITCH(
-			                    OpcaoSel,
-			                    1, [QTD CLI TOTAL ACAO],
-			                    2, [TOTAL CLI ICE],
-			                    3, [TOTAL PETRA ULTRA]
+			                    TRUE(),
+			                    -- Modalidade 1: NA AÇÃO
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoSel = 1, [QTD CLI TOTAL ACAO],
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoSel = 2, [TOTAL CLI ICE],
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoSel = 3, [TOTAL PETRA ULTRA],
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoSel = 1, CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(ALL(Dim_Clientes[cli_Cliente_int_PK]), [QTD_ACAO_HIST] > 0)),
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoSel = 2, [QTD CLI ICE HIST],
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoSel = 3, [QTD CLI PETRA ULTRA HIST],
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoSel = 1, CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(ALL(Dim_Clientes[cli_Cliente_int_PK]), [QTD_ACAO_ATUAL] > 0)),
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoSel = 2, [QTD CLI ICE ATUAL],
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoSel = 3, [QTD CLI PETRA ULTRA ATUAL],
+			
+			                    -- Modalidade 2: GERAL
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoSel = 1, [QTD CLI TOTAL GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoSel = 2, [TOTAL CLI ICE GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoSel = 3, [TOTAL PETRA ULTRA GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoSel = 1, [QTD CLI TOTAL GERAL HIST V2],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoSel = 2, [QTD CLI ICE HIST GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoSel = 3, [QTD CLI PETRA ULTRA HIST GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoSel = 1, [QTD CLI TOTAL GERAL ATUAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoSel = 2, [QTD CLI ICE ATUAL GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoSel = 3, [QTD CLI PETRA ULTRA ATUAL GERAL V2],
+			
+			                    [QTD CLI TOTAL ACAO]
 			                ),
 			                PeriodoContexto
 			            ),
@@ -1085,8 +1204,6 @@ table Medidas_Ranking
 			        RawSellers,
 			        [@Sales] > 0
 			    )
-			
-			VAR MotorSel = SELECTEDVALUE(Filtro_Ranking_Motor[Codigo], 1)
 			
 			VAR RankedSellers =
 			    ADDCOLUMNS(
@@ -1483,7 +1600,7 @@ table Medidas_Ranking
 			      <section class=""mobile-header"">
 			        <span class=""header-tag"">" & ActionTitle & "</span>
 			        <h1 class=""product-title"">" & ProdTitle & "</h1>
-			        <div class=""period-badge"">✦ " & PeriodoText & " ✦</div>
+			        <div class=""period-badge"">✦ " & PeriodoText & " • " & ModalidadeNome & " • " & TipoDadosNome & " ✦</div>
 			      </section>
 			      <section class=""showcase-hero"">
 			        <div class=""hero-info"">
@@ -1612,11 +1729,30 @@ table Medidas_Ranking
 	measure Ranking_Brasileirao_HTML =
 			VAR OpcaoSel = SELECTEDVALUE(Filtro_Acao[Codigo], 1)
 			VAR MotorSel = SELECTEDVALUE(Filtro_Ranking_Motor[Codigo], 1)
+			VAR TipoDados = SELECTEDVALUE(Filtro_Tipo_Dados[Codigo], 1)
+			VAR ModalidadeSel = SELECTEDVALUE(Filtro_Modalidade_Preco[Codigo], 1)
 			
 			VAR HasDateFilter = ISFILTERED(Dim_Calendario[Date]) || ISFILTERED(Dim_Calendario[Ano/Mes]) || ISFILTERED(Dim_Calendario[Mes/Ano])
 			VAR StartDate = IF(HasDateFilter, MIN(Dim_Calendario[Date]), DATE(2026, 8, 14))
 			VAR EndDate = IF(HasDateFilter, MAX(Dim_Calendario[Date]), DATE(2026, 8, 31))
 			VAR PeriodoContexto = DATESBETWEEN(Dim_Calendario[Date], StartDate, EndDate)
+			
+			VAR ModalidadeNome =
+			    SWITCH(
+			        ModalidadeSel,
+			        1, "NA AÇÃO (PREÇO MÍNIMO)",
+			        2, "GERAL (TODOS OS PREÇOS)",
+			        "NA AÇÃO (PREÇO MÍNIMO)"
+			    )
+			
+			VAR TipoDadosNome =
+			    SWITCH(
+			        TipoDados,
+			        1, "TOTAL (HIST + ATUAL)",
+			        2, "SOMENTE HISTÓRICO",
+			        3, "SOMENTE HOJE",
+			        "TOTAL"
+			    )
 			
 			VAR RawSellers =
 			    ADDCOLUMNS(
@@ -1625,20 +1761,60 @@ table Medidas_Ranking
 			        "@Sales",
 			            CALCULATE(
 			                SWITCH(
-			                    OpcaoSel,
-			                    1, [QTD_ACAO_ULTRACRYSTAL],
-			                    2, [QTD_ICE_PRECO],
-			                    3, [QTD_P_ULTRA_PRECO]
+			                    TRUE(),
+			                    -- Modalidade 1: NA AÇÃO
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoSel = 1, [QTD_ACAO_ULTRACRYSTAL],
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoSel = 2, [QTD_ICE_PRECO],
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoSel = 3, [QTD_P_ULTRA_PRECO],
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoSel = 1, [QTD_ACAO_HIST],
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoSel = 2, [QTD_ICE_HIST],
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoSel = 3, [QTD_P_ULTRA_HIST],
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoSel = 1, [QTD_ACAO_ATUAL],
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoSel = 2, [QTD_ICE_ATUAL],
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoSel = 3, [QTD_P_ULTRA_ATUAL],
+			
+			                    -- Modalidade 2: GERAL
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoSel = 1, [QTD_TOTAL_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoSel = 2, [QTD_ICE_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoSel = 3, [QTD_P_ULTRA_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoSel = 1, [QTD_TOTAL_HIST_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoSel = 2, [QTD_ICE_HIST_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoSel = 3, [QTD_P_ULTRA_HIST_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoSel = 1, [QTD_TOTAL_ATUAL_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoSel = 2, [QTD_ICE_ATUAL_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoSel = 3, [QTD_P_ULTRA_ATUAL_GERAL],
+			
+			                    [QTD_ACAO_ULTRACRYSTAL]
 			                ),
 			                PeriodoContexto
 			            ),
 			        "@Clients",
 			            CALCULATE(
 			                SWITCH(
-			                    OpcaoSel,
-			                    1, [QTD CLI TOTAL ACAO],
-			                    2, [TOTAL CLI ICE],
-			                    3, [TOTAL PETRA ULTRA]
+			                    TRUE(),
+			                    -- Modalidade 1: NA AÇÃO
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoSel = 1, [QTD CLI TOTAL ACAO],
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoSel = 2, [TOTAL CLI ICE],
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoSel = 3, [TOTAL PETRA ULTRA],
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoSel = 1, CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(ALL(Dim_Clientes[cli_Cliente_int_PK]), [QTD_ACAO_HIST] > 0)),
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoSel = 2, [QTD CLI ICE HIST],
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoSel = 3, [QTD CLI PETRA ULTRA HIST],
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoSel = 1, CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(ALL(Dim_Clientes[cli_Cliente_int_PK]), [QTD_ACAO_ATUAL] > 0)),
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoSel = 2, [QTD CLI ICE ATUAL],
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoSel = 3, [QTD CLI PETRA ULTRA ATUAL],
+			
+			                    -- Modalidade 2: GERAL
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoSel = 1, [QTD CLI TOTAL GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoSel = 2, [TOTAL CLI ICE GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoSel = 3, [TOTAL PETRA ULTRA GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoSel = 1, [QTD CLI TOTAL GERAL HIST V2],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoSel = 2, [QTD CLI ICE HIST GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoSel = 3, [QTD CLI PETRA ULTRA HIST GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoSel = 1, [QTD CLI TOTAL GERAL ATUAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoSel = 2, [QTD CLI ICE ATUAL GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoSel = 3, [QTD CLI PETRA ULTRA ATUAL GERAL V2],
+			
+			                    [QTD CLI TOTAL ACAO]
 			                ),
 			                PeriodoContexto
 			            ),
@@ -2029,7 +2205,7 @@ table Medidas_Ranking
 			          <div class=""trophy-icon-wrap"">🏆</div>
 			          <div>
 			            <h1 class=""brand-title"">Brasileirão de Vendas</h1>
-			            <span class=""brand-sub"">" & ProdTitle & "</span>
+			            <span class=""brand-sub"">" & ProdTitle & " • " & ModalidadeNome & " • " & TipoDadosNome & "</span>
 			          </div>
 			        </div>
 			        <div class=""engine-selector-box"">
@@ -2213,7 +2389,7 @@ table Medidas_Ranking
 			        </div>
 			        <div class=""footer-right"">
 			          <span class=""engine-indicator-text"">
-			            Classificação ordenada por: <strong>" & MotorDesc & "</strong>
+			            🏷️ <strong>" & ModalidadeNome & "</strong> | 📅 <strong>" & TipoDadosNome & "</strong> | 📶 Ordenado por: <strong>" & MotorDesc & "</strong>
 			          </span>
 			          <span>✦ " & PeriodoText & " ✦</span>
 			        </div>
@@ -2228,12 +2404,45 @@ table Medidas_Ranking
 
 	measure Ranking_Sellers_HTML_V2 =
 			VAR OpcaoSel = SELECTEDVALUE(Filtro_Acao[Codigo], 1)
+			VAR MotorSel = SELECTEDVALUE(Filtro_Ranking_Motor[Codigo], 1)
+			VAR TipoDados = SELECTEDVALUE(Filtro_Tipo_Dados[Codigo], 1)
+			VAR ModalidadeSel = SELECTEDVALUE(Filtro_Modalidade_Preco[Codigo], 1)
 			
 			VAR HasDateFilter = ISFILTERED(Dim_Calendario[Date]) || ISFILTERED(Dim_Calendario[Ano/Mes]) || ISFILTERED(Dim_Calendario[Mes/Ano])
-			VAR StartDate = IF(HasDateFilter, MIN(Dim_Calendario[Date]), DATE(2026, 9, 1))
+			VAR SalesSetembro =
+			    CALCULATE(
+			        [Vol_Liq_WTH_Hist] + [Real_Vol_Hoje],
+			        DATESBETWEEN(Dim_Calendario[Date], DATE(2026, 9, 1), TODAY())
+			    )
+			VAR DefaultStartDate = IF(SalesSetembro > 0, DATE(2026, 9, 1), DATE(2026, 8, 14))
+			VAR StartDate = IF(HasDateFilter, MIN(Dim_Calendario[Date]), DefaultStartDate)
 			VAR EndDate = IF(HasDateFilter, MAX(Dim_Calendario[Date]), TODAY())
-			
 			VAR PeriodoContexto = DATESBETWEEN(Dim_Calendario[Date], StartDate, EndDate)
+			
+			VAR ModalidadeNome =
+			    SWITCH(
+			        ModalidadeSel,
+			        1, "NA AÇÃO (PREÇO MÍNIMO)",
+			        2, "GERAL (TODOS OS PREÇOS)",
+			        "NA AÇÃO (PREÇO MÍNIMO)"
+			    )
+			
+			VAR TipoDadosNome =
+			    SWITCH(
+			        TipoDados,
+			        1, "TOTAL (HIST + ATUAL)",
+			        2, "SOMENTE HISTÓRICO",
+			        3, "SOMENTE HOJE",
+			        "TOTAL"
+			    )
+			
+			VAR MotorNome =
+			    SWITCH(
+			        MotorSel,
+			        1, "VOLUME (CAIXAS)",
+			        2, "CLIENTES POSITIVADOS",
+			        "VOLUME (CAIXAS)"
+			    )
 			
 			VAR RawSellers =
 			    ADDCOLUMNS(
@@ -2241,20 +2450,60 @@ table Medidas_Ranking
 			        "@Sales",
 			            CALCULATE(
 			                SWITCH(
-			                    OpcaoSel,
-			                    1, [QTD_ACAO_ULTRACRYSTAL_V2],
-			                    2, [QTD_ICE_PRECO_V2],
-			                    3, [QTD_P_ULTRA_PRECO_V2]
+			                    TRUE(),
+			                    -- Modalidade 1: NA AÇÃO (preço mínimo)
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoSel = 1, [QTD_ACAO_ULTRACRYSTAL_V2],
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoSel = 2, [QTD_ICE_PRECO_V2],
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoSel = 3, [QTD_P_ULTRA_PRECO_V2],
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoSel = 1, [QTD_ACAO_HIST_V2],
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoSel = 2, [QTD_ICE_HIST_V2],
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoSel = 3, [QTD_P_ULTRA_HIST_V2],
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoSel = 1, [QTD_ACAO_ATUAL_V2],
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoSel = 2, [QTD_ICE_ATUAL_V2],
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoSel = 3, [QTD_P_ULTRA_ATUAL_V2],
+			
+			                    -- Modalidade 2: GERAL (todos os preços, bonificações, combos)
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoSel = 1, [QTD_TOTAL_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoSel = 2, [QTD_ICE_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoSel = 3, [QTD_P_ULTRA_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoSel = 1, [QTD_TOTAL_HIST_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoSel = 2, [QTD_ICE_HIST_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoSel = 3, [QTD_P_ULTRA_HIST_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoSel = 1, [QTD_TOTAL_ATUAL_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoSel = 2, [QTD_ICE_ATUAL_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoSel = 3, [QTD_P_ULTRA_ATUAL_GERAL],
+			
+			                    [QTD_ACAO_ULTRACRYSTAL_V2]
 			                ),
 			                PeriodoContexto
 			            ),
 			        "@Clients",
 			            CALCULATE(
 			                SWITCH(
-			                    OpcaoSel,
-			                    1, [QTD CLI TOTAL ACAO V2],
-			                    2, [TOTAL CLI ICE V2],
-			                    3, [TOTAL PETRA ULTRA V2]
+			                    TRUE(),
+			                    -- Modalidade 1: NA AÇÃO
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoSel = 1, [QTD CLI TOTAL ACAO V2],
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoSel = 2, [TOTAL CLI ICE V2],
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoSel = 3, [TOTAL PETRA ULTRA V2],
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoSel = 1, CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(ALL(Dim_Clientes[cli_Cliente_int_PK]), [QTD_ACAO_HIST_V2] > 0)),
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoSel = 2, [QTD CLI ICE HIST V2],
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoSel = 3, [QTD CLI PETRA ULTRA HIST V2],
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoSel = 1, CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(ALL(Dim_Clientes[cli_Cliente_int_PK]), [QTD_ACAO_ATUAL_V2] > 0)),
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoSel = 2, [QTD CLI ICE ATUAL V2],
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoSel = 3, [QTD CLI PETRA ULTRA ATUAL V2],
+			
+			                    -- Modalidade 2: GERAL
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoSel = 1, [QTD CLI TOTAL GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoSel = 2, [TOTAL CLI ICE GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoSel = 3, [TOTAL PETRA ULTRA GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoSel = 1, [QTD CLI TOTAL GERAL HIST V2],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoSel = 2, [QTD CLI ICE HIST GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoSel = 3, [QTD CLI PETRA ULTRA HIST GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoSel = 1, [QTD CLI TOTAL GERAL ATUAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoSel = 2, [QTD CLI ICE ATUAL GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoSel = 3, [QTD CLI PETRA ULTRA ATUAL GERAL V2],
+			
+			                    [QTD CLI TOTAL ACAO V2]
 			                ),
 			                PeriodoContexto
 			            ),
@@ -2265,10 +2514,8 @@ table Medidas_Ranking
 			VAR FilteredSellers =
 			    FILTER(
 			        RawSellers,
-			        [@Sales] > 0
+			        [@Sales] > 0 || [@Clients] > 0
 			    )
-			
-			VAR MotorSel = SELECTEDVALUE(Filtro_Ranking_Motor[Codigo], 1)
 			
 			VAR RankedSellers =
 			    ADDCOLUMNS(
@@ -2292,6 +2539,7 @@ table Medidas_Ranking
 			    )
 			
 			VAR MaxSales = MAXX(RankedSellers, [@Sales])
+			VAR MaxClients = MAXX(RankedSellers, [@Clients])
 			VAR TotalSales = SUMX(RankedSellers, [@Sales])
 			VAR AvgSales = AVERAGEX(RankedSellers, [@Sales])
 			VAR MsgParabens = IF(AvgSales >= 50 || MaxSales >= 50, "PARABENS", "Vamos acelerar!")
@@ -2789,7 +3037,7 @@ table Medidas_Ranking
 			    <header class=""header-bar"">
 			      <div class=""title-area"">
 			        <h1>" & ActionTitle & "</h1>
-			        <p>" & PeriodoText & "</p>
+			        <p>" & PeriodoText & " • " & ModalidadeNome & "</p>
 			      </div>
 			      <div class=""navigation-bar"">
 			        <div class=""" & Tab1Class & """>&#127942; Ação Total</div>
@@ -2798,6 +3046,9 @@ table Medidas_Ranking
 			      </div>
 			    </header>
 			    <div class=""filter-summary"">
+			      <span class=""filter-badge"">&#9881;&#65039; Motor: <strong>" & MotorNome & "</strong></span>
+			      <span class=""filter-badge"">&#127991; Modalidade: <strong>" & ModalidadeNome & "</strong></span>
+			      <span class=""filter-badge"">&#128197; Dados: <strong>" & TipoDadosNome & "</strong></span>
 			      <span class=""filter-badge"">&#127970; Filiais: <strong>" & FilialText & "</strong></span>
 			      <span class=""filter-badge"">&#128084; Supervisores: <strong>" & SupText & "</strong></span>
 			      <span class=""filter-badge"">&#128100; Vendedores: <strong>" & VendText & "</strong></span>
@@ -2812,7 +3063,13 @@ table Medidas_Ranking
 			        RankedSellers,
 			        VAR Rnk = [@Rank]
 			        VAR SalesVal = [@Sales]
-			        VAR Pct = IF(MaxSales > 0, (SalesVal / MaxSales) * 100, 0)
+			        VAR ClientsVal = [@Clients]
+			        VAR Pct =
+			            IF(
+			                MotorSel = 2,
+			                IF(MaxClients > 0, (ClientsVal / MaxClients) * 100, 0),
+			                IF(MaxSales > 0, (SalesVal / MaxSales) * 100, 0)
+			            )
 			        VAR BadgeClass =
 			            SWITCH(
 			                Rnk,
@@ -2829,8 +3086,18 @@ table Medidas_Ranking
 			                3, "<span class=""medal-icon"">&#129353;</span>",
 			                ""
 			            )
-			        VAR QtdFormatted = FORMAT(SalesVal, "#,##0")
-			        VAR ClientsVal = [@Clients]
+			        VAR ScoreDisplay =
+			            IF(
+			                MotorSel = 2,
+			                FORMAT(ClientsVal, "#,##0") & " <span>clis</span>",
+			                FORMAT(SalesVal, "#,##0") & " <span>caixas</span>"
+			            )
+			        VAR SubBadgeDisplay =
+			            IF(
+			                MotorSel = 2,
+			                "&#128230; " & FORMAT(SalesVal, "#,##0") & " cx",
+			                "&#128101; " & ClientsVal & " clis"
+			            )
 			        RETURN
 			            "
 			        <li class=""ranking-item"">
@@ -2844,10 +3111,10 @@ table Medidas_Ranking
 			            </div>
 			            <div class=""info-row"">
 			              <span class=""name"">" & [@Name] & "</span>
-			              <span class=""clients-count"">&#128101; " & ClientsVal & " clis</span>
+			              <span class=""clients-count"">" & SubBadgeDisplay & "</span>
 			            </div>
 			          </div>
-			          <span class=""score"">" & QtdFormatted & " <span>caixas</span></span>
+			          <span class=""score"">" & ScoreDisplay & "</span>
 			        </li>",
 			        "",
 			        [@Rank],
@@ -2871,11 +3138,37 @@ table Medidas_Ranking
 
 	measure Ranking_Mobile_HTML_V2 =
 			VAR OpcaoSel = SELECTEDVALUE(Filtro_Acao[Codigo], 1)
+			VAR MotorSel = SELECTEDVALUE(Filtro_Ranking_Motor[Codigo], 1)
+			VAR TipoDados = SELECTEDVALUE(Filtro_Tipo_Dados[Codigo], 1)
+			VAR ModalidadeSel = SELECTEDVALUE(Filtro_Modalidade_Preco[Codigo], 1)
 			
 			VAR HasDateFilter = ISFILTERED(Dim_Calendario[Date]) || ISFILTERED(Dim_Calendario[Ano/Mes]) || ISFILTERED(Dim_Calendario[Mes/Ano])
-			VAR StartDate = IF(HasDateFilter, MIN(Dim_Calendario[Date]), DATE(2026, 9, 1))
+			VAR SalesSetembro =
+			    CALCULATE(
+			        [Vol_Liq_WTH_Hist] + [Real_Vol_Hoje],
+			        DATESBETWEEN(Dim_Calendario[Date], DATE(2026, 9, 1), TODAY())
+			    )
+			VAR DefaultStartDate = IF(SalesSetembro > 0, DATE(2026, 9, 1), DATE(2026, 8, 14))
+			VAR StartDate = IF(HasDateFilter, MIN(Dim_Calendario[Date]), DefaultStartDate)
 			VAR EndDate = IF(HasDateFilter, MAX(Dim_Calendario[Date]), TODAY())
 			VAR PeriodoContexto = DATESBETWEEN(Dim_Calendario[Date], StartDate, EndDate)
+			
+			VAR ModalidadeNome =
+			    SWITCH(
+			        ModalidadeSel,
+			        1, "NA AÇÃO (PREÇO MÍNIMO)",
+			        2, "GERAL (TODOS OS PREÇOS)",
+			        "NA AÇÃO (PREÇO MÍNIMO)"
+			    )
+			
+			VAR TipoDadosNome =
+			    SWITCH(
+			        TipoDados,
+			        1, "TOTAL (HIST + ATUAL)",
+			        2, "SOMENTE HISTÓRICO",
+			        3, "SOMENTE HOJE",
+			        "TOTAL"
+			    )
 			
 			VAR RawSellers =
 			    ADDCOLUMNS(
@@ -2883,20 +3176,60 @@ table Medidas_Ranking
 			        "@Sales",
 			            CALCULATE(
 			                SWITCH(
-			                    OpcaoSel,
-			                    1, [QTD_ACAO_ULTRACRYSTAL_V2],
-			                    2, [QTD_ICE_PRECO_V2],
-			                    3, [QTD_P_ULTRA_PRECO_V2]
+			                    TRUE(),
+			                    -- Modalidade 1: NA AÇÃO (preço mínimo)
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoSel = 1, [QTD_ACAO_ULTRACRYSTAL_V2],
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoSel = 2, [QTD_ICE_PRECO_V2],
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoSel = 3, [QTD_P_ULTRA_PRECO_V2],
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoSel = 1, [QTD_ACAO_HIST_V2],
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoSel = 2, [QTD_ICE_HIST_V2],
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoSel = 3, [QTD_P_ULTRA_HIST_V2],
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoSel = 1, [QTD_ACAO_ATUAL_V2],
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoSel = 2, [QTD_ICE_ATUAL_V2],
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoSel = 3, [QTD_P_ULTRA_ATUAL_V2],
+			
+			                    -- Modalidade 2: GERAL (todos os preços, bonificações, combos)
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoSel = 1, [QTD_TOTAL_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoSel = 2, [QTD_ICE_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoSel = 3, [QTD_P_ULTRA_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoSel = 1, [QTD_TOTAL_HIST_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoSel = 2, [QTD_ICE_HIST_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoSel = 3, [QTD_P_ULTRA_HIST_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoSel = 1, [QTD_TOTAL_ATUAL_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoSel = 2, [QTD_ICE_ATUAL_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoSel = 3, [QTD_P_ULTRA_ATUAL_GERAL],
+			
+			                    [QTD_ACAO_ULTRACRYSTAL_V2]
 			                ),
 			                PeriodoContexto
 			            ),
 			        "@Clients",
 			            CALCULATE(
 			                SWITCH(
-			                    OpcaoSel,
-			                    1, [QTD CLI TOTAL ACAO V2],
-			                    2, [TOTAL CLI ICE V2],
-			                    3, [TOTAL PETRA ULTRA V2]
+			                    TRUE(),
+			                    -- Modalidade 1: NA AÇÃO
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoSel = 1, [QTD CLI TOTAL ACAO V2],
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoSel = 2, [TOTAL CLI ICE V2],
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoSel = 3, [TOTAL PETRA ULTRA V2],
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoSel = 1, CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(ALL(Dim_Clientes[cli_Cliente_int_PK]), [QTD_ACAO_HIST_V2] > 0)),
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoSel = 2, [QTD CLI ICE HIST V2],
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoSel = 3, [QTD CLI PETRA ULTRA HIST V2],
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoSel = 1, CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(ALL(Dim_Clientes[cli_Cliente_int_PK]), [QTD_ACAO_ATUAL_V2] > 0)),
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoSel = 2, [QTD CLI ICE ATUAL V2],
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoSel = 3, [QTD CLI PETRA ULTRA ATUAL V2],
+			
+			                    -- Modalidade 2: GERAL
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoSel = 1, [QTD CLI TOTAL GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoSel = 2, [TOTAL CLI ICE GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoSel = 3, [TOTAL PETRA ULTRA GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoSel = 1, [QTD CLI TOTAL GERAL HIST V2],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoSel = 2, [QTD CLI ICE HIST GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoSel = 3, [QTD CLI PETRA ULTRA HIST GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoSel = 1, [QTD CLI TOTAL GERAL ATUAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoSel = 2, [QTD CLI ICE ATUAL GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoSel = 3, [QTD CLI PETRA ULTRA ATUAL GERAL V2],
+			
+			                    [QTD CLI TOTAL ACAO V2]
 			                ),
 			                PeriodoContexto
 			            ),
@@ -2909,8 +3242,6 @@ table Medidas_Ranking
 			        RawSellers,
 			        [@Sales] > 0
 			    )
-			
-			VAR MotorSel = SELECTEDVALUE(Filtro_Ranking_Motor[Codigo], 1)
 			
 			VAR RankedSellers =
 			    ADDCOLUMNS(
@@ -3307,7 +3638,7 @@ table Medidas_Ranking
 			      <section class=""mobile-header"">
 			        <span class=""header-tag"">" & ActionTitle & "</span>
 			        <h1 class=""product-title"">" & ProdTitle & "</h1>
-			        <div class=""period-badge"">✦ " & PeriodoText & " ✦</div>
+			        <div class=""period-badge"">✦ " & PeriodoText & " • " & ModalidadeNome & " • " & TipoDadosNome & " ✦</div>
 			      </section>
 			      <section class=""showcase-hero"">
 			        <div class=""hero-info"">
@@ -3436,11 +3767,36 @@ table Medidas_Ranking
 	measure Ranking_Brasileirao_HTML_V2 =
 			VAR OpcaoSel = SELECTEDVALUE(Filtro_Acao[Codigo], 1)
 			VAR MotorSel = SELECTEDVALUE(Filtro_Ranking_Motor[Codigo], 1)
+			VAR TipoDados = SELECTEDVALUE(Filtro_Tipo_Dados[Codigo], 1)
+			VAR ModalidadeSel = SELECTEDVALUE(Filtro_Modalidade_Preco[Codigo], 1)
 			
 			VAR HasDateFilter = ISFILTERED(Dim_Calendario[Date]) || ISFILTERED(Dim_Calendario[Ano/Mes]) || ISFILTERED(Dim_Calendario[Mes/Ano])
-			VAR StartDate = IF(HasDateFilter, MIN(Dim_Calendario[Date]), DATE(2026, 9, 1))
+			VAR SalesSetembro =
+			    CALCULATE(
+			        [Vol_Liq_WTH_Hist] + [Real_Vol_Hoje],
+			        DATESBETWEEN(Dim_Calendario[Date], DATE(2026, 9, 1), TODAY())
+			    )
+			VAR DefaultStartDate = IF(SalesSetembro > 0, DATE(2026, 9, 1), DATE(2026, 8, 14))
+			VAR StartDate = IF(HasDateFilter, MIN(Dim_Calendario[Date]), DefaultStartDate)
 			VAR EndDate = IF(HasDateFilter, MAX(Dim_Calendario[Date]), TODAY())
 			VAR PeriodoContexto = DATESBETWEEN(Dim_Calendario[Date], StartDate, EndDate)
+			
+			VAR ModalidadeNome =
+			    SWITCH(
+			        ModalidadeSel,
+			        1, "NA AÇÃO (PREÇO MÍNIMO)",
+			        2, "GERAL (TODOS OS PREÇOS)",
+			        "NA AÇÃO (PREÇO MÍNIMO)"
+			    )
+			
+			VAR TipoDadosNome =
+			    SWITCH(
+			        TipoDados,
+			        1, "TOTAL (HIST + ATUAL)",
+			        2, "SOMENTE HISTÓRICO",
+			        3, "SOMENTE HOJE",
+			        "TOTAL"
+			    )
 			
 			VAR RawSellers =
 			    ADDCOLUMNS(
@@ -3449,20 +3805,60 @@ table Medidas_Ranking
 			        "@Sales",
 			            CALCULATE(
 			                SWITCH(
-			                    OpcaoSel,
-			                    1, [QTD_ACAO_ULTRACRYSTAL_V2],
-			                    2, [QTD_ICE_PRECO_V2],
-			                    3, [QTD_P_ULTRA_PRECO_V2]
+			                    TRUE(),
+			                    -- Modalidade 1: NA AÇÃO (preço mínimo)
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoSel = 1, [QTD_ACAO_ULTRACRYSTAL_V2],
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoSel = 2, [QTD_ICE_PRECO_V2],
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoSel = 3, [QTD_P_ULTRA_PRECO_V2],
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoSel = 1, [QTD_ACAO_HIST_V2],
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoSel = 2, [QTD_ICE_HIST_V2],
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoSel = 3, [QTD_P_ULTRA_HIST_V2],
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoSel = 1, [QTD_ACAO_ATUAL_V2],
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoSel = 2, [QTD_ICE_ATUAL_V2],
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoSel = 3, [QTD_P_ULTRA_ATUAL_V2],
+			
+			                    -- Modalidade 2: GERAL (todos os preços, bonificações, combos)
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoSel = 1, [QTD_TOTAL_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoSel = 2, [QTD_ICE_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoSel = 3, [QTD_P_ULTRA_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoSel = 1, [QTD_TOTAL_HIST_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoSel = 2, [QTD_ICE_HIST_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoSel = 3, [QTD_P_ULTRA_HIST_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoSel = 1, [QTD_TOTAL_ATUAL_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoSel = 2, [QTD_ICE_ATUAL_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoSel = 3, [QTD_P_ULTRA_ATUAL_GERAL],
+			
+			                    [QTD_ACAO_ULTRACRYSTAL_V2]
 			                ),
 			                PeriodoContexto
 			            ),
 			        "@Clients",
 			            CALCULATE(
 			                SWITCH(
-			                    OpcaoSel,
-			                    1, [QTD CLI TOTAL ACAO V2],
-			                    2, [TOTAL CLI ICE V2],
-			                    3, [TOTAL PETRA ULTRA V2]
+			                    TRUE(),
+			                    -- Modalidade 1: NA AÇÃO
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoSel = 1, [QTD CLI TOTAL ACAO V2],
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoSel = 2, [TOTAL CLI ICE V2],
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoSel = 3, [TOTAL PETRA ULTRA V2],
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoSel = 1, CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(ALL(Dim_Clientes[cli_Cliente_int_PK]), [QTD_ACAO_HIST_V2] > 0)),
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoSel = 2, [QTD CLI ICE HIST V2],
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoSel = 3, [QTD CLI PETRA ULTRA HIST V2],
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoSel = 1, CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(ALL(Dim_Clientes[cli_Cliente_int_PK]), [QTD_ACAO_ATUAL_V2] > 0)),
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoSel = 2, [QTD CLI ICE ATUAL V2],
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoSel = 3, [QTD CLI PETRA ULTRA ATUAL V2],
+			
+			                    -- Modalidade 2: GERAL
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoSel = 1, [QTD CLI TOTAL GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoSel = 2, [TOTAL CLI ICE GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoSel = 3, [TOTAL PETRA ULTRA GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoSel = 1, [QTD CLI TOTAL GERAL HIST V2],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoSel = 2, [QTD CLI ICE HIST GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoSel = 3, [QTD CLI PETRA ULTRA HIST GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoSel = 1, [QTD CLI TOTAL GERAL ATUAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoSel = 2, [QTD CLI ICE ATUAL GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoSel = 3, [QTD CLI PETRA ULTRA ATUAL GERAL V2],
+			
+			                    [QTD CLI TOTAL ACAO V2]
 			                ),
 			                PeriodoContexto
 			            ),
@@ -3853,7 +4249,7 @@ table Medidas_Ranking
 			          <div class=""trophy-icon-wrap"">🏆</div>
 			          <div>
 			            <h1 class=""brand-title"">Brasileirão de Vendas</h1>
-			            <span class=""brand-sub"">" & ProdTitle & "</span>
+			            <span class=""brand-sub"">" & ProdTitle & " • " & ModalidadeNome & " • " & TipoDadosNome & "</span>
 			          </div>
 			        </div>
 			        <div class=""engine-selector-box"">
@@ -4037,7 +4433,7 @@ table Medidas_Ranking
 			        </div>
 			        <div class=""footer-right"">
 			          <span class=""engine-indicator-text"">
-			            Classificação ordenada por: <strong>" & MotorDesc & "</strong>
+			            🏷️ <strong>" & ModalidadeNome & "</strong> | 📅 <strong>" & TipoDadosNome & "</strong> | 📶 Ordenado por: <strong>" & MotorDesc & "</strong>
 			          </span>
 			          <span>✦ " & PeriodoText & " ✦</span>
 			        </div>
@@ -4065,9 +4461,19 @@ table Medidas_Ranking
 			VAR OpcaoAcao = SELECTEDVALUE(Filtro_Acao[Codigo], 1)
 			VAR TipoDados = SELECTEDVALUE(Filtro_Tipo_Dados[Codigo], 1)
 			VAR MotorSel = SELECTEDVALUE(Filtro_Ranking_Motor[Codigo], 1)
+			VAR ModalidadeSel = SELECTEDVALUE(Filtro_Modalidade_Preco[Codigo], 1)
 			
 			VAR HasDateFilter = ISFILTERED(Dim_Calendario[Date]) || ISFILTERED(Dim_Calendario[Ano/Mes]) || ISFILTERED(Dim_Calendario[Mes/Ano])
-			VAR StartDate = IF(HasDateFilter, MIN(Dim_Calendario[Date]), DATE(2026, 9, 1))
+			
+			-- Deteccao inteligente de periodo: se ja houver vendas faturadas em Setembro/2026, inicia em 01/09/2026.
+			-- Caso a base de Setembro ainda nao tenha registros, utiliza desde o inicio da campanha (14/08/2026).
+			VAR SalesSetembro =
+			    CALCULATE(
+			        [Vol_Liq_WTH_Hist] + [Real_Vol_Hoje],
+			        DATESBETWEEN(Dim_Calendario[Date], DATE(2026, 9, 1), TODAY())
+			    )
+			VAR DefaultStartDate = IF(SalesSetembro > 0, DATE(2026, 9, 1), DATE(2026, 8, 14))
+			VAR StartDate = IF(HasDateFilter, MIN(Dim_Calendario[Date]), DefaultStartDate)
 			VAR EndDate = IF(HasDateFilter, MAX(Dim_Calendario[Date]), TODAY())
 			VAR PeriodoContexto = DATESBETWEEN(Dim_Calendario[Date], StartDate, EndDate)
 			
@@ -4098,6 +4504,14 @@ table Medidas_Ranking
 			        "VOLUME (CX)"
 			    )
 			
+			VAR ModalidadeNome =
+			    SWITCH(
+			        ModalidadeSel,
+			        1, "NA AÇÃO (PREÇO MÍNIMO)",
+			        2, "GERAL (TODOS OS PREÇOS / BONIF. / COMBOS)",
+			        "NA AÇÃO (PREÇO MÍNIMO)"
+			    )
+			
 			VAR RawFiliais =
 			    ADDCOLUMNS(
 			        ALLSELECTED(Dim_Empresa[emp_Empresa_chr]),
@@ -4106,15 +4520,28 @@ table Medidas_Ranking
 			            CALCULATE(
 			                SWITCH(
 			                    TRUE(),
-			                    TipoDados = 1 && OpcaoAcao = 1, [QTD_ACAO_ULTRACRYSTAL_V2],
-			                    TipoDados = 1 && OpcaoAcao = 2, [QTD_ICE_PRECO_V2],
-			                    TipoDados = 1 && OpcaoAcao = 3, [QTD_P_ULTRA_PRECO_V2],
-			                    TipoDados = 2 && OpcaoAcao = 1, [QTD_ACAO_HIST_V2],
-			                    TipoDados = 2 && OpcaoAcao = 2, [QTD_ICE_HIST_V2],
-			                    TipoDados = 2 && OpcaoAcao = 3, [QTD_P_ULTRA_HIST_V2],
-			                    TipoDados = 3 && OpcaoAcao = 1, [QTD_ACAO_ATUAL_V2],
-			                    TipoDados = 3 && OpcaoAcao = 2, [QTD_ICE_ATUAL_V2],
-			                    TipoDados = 3 && OpcaoAcao = 3, [QTD_P_ULTRA_ATUAL_V2],
+			                    -- Modalidade 1: NA AÇÃO (preço mínimo)
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoAcao = 1, [QTD_ACAO_ULTRACRYSTAL_V2],
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoAcao = 2, [QTD_ICE_PRECO_V2],
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoAcao = 3, [QTD_P_ULTRA_PRECO_V2],
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoAcao = 1, [QTD_ACAO_HIST_V2],
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoAcao = 2, [QTD_ICE_HIST_V2],
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoAcao = 3, [QTD_P_ULTRA_HIST_V2],
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoAcao = 1, [QTD_ACAO_ATUAL_V2],
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoAcao = 2, [QTD_ICE_ATUAL_V2],
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoAcao = 3, [QTD_P_ULTRA_ATUAL_V2],
+			
+			                    -- Modalidade 2: GERAL (todos os preços, bonificações, combos)
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoAcao = 1, [QTD_TOTAL_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoAcao = 2, [QTD_ICE_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoAcao = 3, [QTD_P_ULTRA_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoAcao = 1, [QTD_TOTAL_HIST_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoAcao = 2, [QTD_ICE_HIST_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoAcao = 3, [QTD_P_ULTRA_HIST_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoAcao = 1, [QTD_TOTAL_ATUAL_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoAcao = 2, [QTD_ICE_ATUAL_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoAcao = 3, [QTD_P_ULTRA_ATUAL_GERAL],
+			
 			                    [QTD_ACAO_ULTRACRYSTAL_V2]
 			                ),
 			                PeriodoContexto
@@ -4123,15 +4550,28 @@ table Medidas_Ranking
 			            CALCULATE(
 			                SWITCH(
 			                    TRUE(),
-			                    TipoDados = 1 && OpcaoAcao = 1, [QTD CLI TOTAL ACAO V2],
-			                    TipoDados = 1 && OpcaoAcao = 2, [TOTAL CLI ICE V2],
-			                    TipoDados = 1 && OpcaoAcao = 3, [TOTAL PETRA ULTRA V2],
-			                    TipoDados = 2 && OpcaoAcao = 1, CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(ALL(Dim_Clientes[cli_Cliente_int_PK]), [QTD_ACAO_HIST_V2] > 0)),
-			                    TipoDados = 2 && OpcaoAcao = 2, [QTD CLI ICE HIST V2],
-			                    TipoDados = 2 && OpcaoAcao = 3, [QTD CLI PETRA ULTRA HIST V2],
-			                    TipoDados = 3 && OpcaoAcao = 1, CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(ALL(Dim_Clientes[cli_Cliente_int_PK]), [QTD_ACAO_ATUAL_V2] > 0)),
-			                    TipoDados = 3 && OpcaoAcao = 2, [QTD CLI ICE ATUAL V2],
-			                    TipoDados = 3 && OpcaoAcao = 3, [QTD CLI PETRA ULTRA ATUAL V2],
+			                    -- Modalidade 1: NA AÇÃO
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoAcao = 1, [QTD CLI TOTAL ACAO V2],
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoAcao = 2, [TOTAL CLI ICE V2],
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoAcao = 3, [TOTAL PETRA ULTRA V2],
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoAcao = 1, CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(ALL(Dim_Clientes[cli_Cliente_int_PK]), [QTD_ACAO_HIST_V2] > 0)),
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoAcao = 2, [QTD CLI ICE HIST V2],
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoAcao = 3, [QTD CLI PETRA ULTRA HIST V2],
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoAcao = 1, CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(ALL(Dim_Clientes[cli_Cliente_int_PK]), [QTD_ACAO_ATUAL_V2] > 0)),
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoAcao = 2, [QTD CLI ICE ATUAL V2],
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoAcao = 3, [QTD CLI PETRA ULTRA ATUAL V2],
+			
+			                    -- Modalidade 2: GERAL
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoAcao = 1, [QTD CLI TOTAL GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoAcao = 2, [TOTAL CLI ICE GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoAcao = 3, [TOTAL PETRA ULTRA GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoAcao = 1, [QTD CLI TOTAL GERAL HIST V2],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoAcao = 2, [QTD CLI ICE HIST GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoAcao = 3, [QTD CLI PETRA ULTRA HIST GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoAcao = 1, [QTD CLI TOTAL GERAL ATUAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoAcao = 2, [QTD CLI ICE ATUAL GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoAcao = 3, [QTD CLI PETRA ULTRA ATUAL GERAL V2],
+			
 			                    [QTD CLI TOTAL ACAO V2]
 			                ),
 			                PeriodoContexto
@@ -4147,7 +4587,7 @@ table Medidas_Ranking
 			VAR FilteredFiliais =
 			    FILTER(
 			        RawFiliais,
-			        [@Sales] > 0 || [@Clients] > 0
+			        NOT(ISBLANK([@Empresa]))
 			    )
 			
 			VAR FiliaisWithPct =
@@ -4186,6 +4626,14 @@ table Medidas_Ranking
 			VAR TotalPct = IF(TotalBase > 0, (TotalClients / TotalBase) * 100, 0)
 			VAR TotalMedia = IF(TotalClients > 0, TotalSales / TotalClients, 0)
 			VAR CountFiliais = COUNTROWS(RankedFiliais)
+			
+			VAR ThVolStyle = IF(MotorSel = 1, "background: #103863; color: #fbbf24 !important; border-bottom: 3px solid #fbbf24;", "")
+			VAR ThCliStyle = IF(MotorSel = 2, "background: #103863; color: #fbbf24 !important; border-bottom: 3px solid #fbbf24;", "")
+			VAR ThPctStyle = IF(MotorSel = 3, "background: #103863; color: #fbbf24 !important; border-bottom: 3px solid #fbbf24;", "")
+			
+			VAR ThVolIcon = IF(MotorSel = 1, " ⬇️", "")
+			VAR ThCliIcon = IF(MotorSel = 2, " ⬇️", "")
+			VAR ThPctIcon = IF(MotorSel = 3, " ⬇️", "")
 			
 			VAR HTML_Header = "
 			<!DOCTYPE html>
@@ -4243,9 +4691,10 @@ table Medidas_Ranking
 			          <span>VISÃO:</span> <strong>REVENDA / FILIAL</strong>
 			        </div>
 			        <div class=""pills"">
-			          <span class=""pill active"">🎯 " & AcaoNome & "</span>
+			          <span class=""pill active"">🏷️ " & ModalidadeNome & "</span>
+			          <span class=""pill"">🎯 " & AcaoNome & "</span>
 			          <span class=""pill"">⏱️ " & TipoDadosNome & "</span>
-			          <span class=""pill"">📶 " & MotorNome & "</span>
+			          <span class=""pill active"" style=""background: #0284c7 !important; border-color: #38bdf8 !important;"">📶 " & MotorNome & "</span>
 			        </div>
 			      </div>
 			      <div class=""table-box"">
@@ -4254,10 +4703,10 @@ table Medidas_Ranking
 			            <tr>
 			              <th style=""width: 5%;"">#</th>
 			              <th style=""width: 25%; text-align: left; padding-left: 16px;"">REVENDA / FILIAL</th>
-			              <th style=""width: 14%;"">VOLUME (CX)</th>
-			              <th style=""width: 11%;"">CLIENTES POS.</th>
+			              <th style=""width: 14%; " & ThVolStyle & """>VOLUME (CX)" & ThVolIcon & "</th>
+			              <th style=""width: 11%; " & ThCliStyle & """>CLIENTES POS." & ThCliIcon & "</th>
 			              <th style=""width: 11%;"">BASE CLIENTES</th>
-			              <th style=""width: 12%;"">% COBERTURA BASE</th>
+			              <th style=""width: 12%; " & ThPctStyle & """>% COBERTURA BASE" & ThPctIcon & "</th>
 			              <th style=""width: 9%;"">CX/CLI</th>
 			              <th style=""width: 13%; text-align: left; padding-left: 14px;"">CATEGORIA</th>
 			            </tr>
@@ -4332,9 +4781,19 @@ table Medidas_Ranking
 			VAR OpcaoAcao = SELECTEDVALUE(Filtro_Acao[Codigo], 1)
 			VAR TipoDados = SELECTEDVALUE(Filtro_Tipo_Dados[Codigo], 1)
 			VAR MotorSel = SELECTEDVALUE(Filtro_Ranking_Motor[Codigo], 1)
+			VAR ModalidadeSel = SELECTEDVALUE(Filtro_Modalidade_Preco[Codigo], 1)
 			
 			VAR HasDateFilter = ISFILTERED(Dim_Calendario[Date]) || ISFILTERED(Dim_Calendario[Ano/Mes]) || ISFILTERED(Dim_Calendario[Mes/Ano])
-			VAR StartDate = IF(HasDateFilter, MIN(Dim_Calendario[Date]), DATE(2026, 9, 1))
+			
+			-- Deteccao inteligente de periodo: se ja houver vendas faturadas em Setembro/2026, inicia em 01/09/2026.
+			-- Caso a base de Setembro ainda nao tenha registros, utiliza desde o inicio da campanha (14/08/2026).
+			VAR SalesSetembro =
+			    CALCULATE(
+			        [Vol_Liq_WTH_Hist] + [Real_Vol_Hoje],
+			        DATESBETWEEN(Dim_Calendario[Date], DATE(2026, 9, 1), TODAY())
+			    )
+			VAR DefaultStartDate = IF(SalesSetembro > 0, DATE(2026, 9, 1), DATE(2026, 8, 14))
+			VAR StartDate = IF(HasDateFilter, MIN(Dim_Calendario[Date]), DefaultStartDate)
 			VAR EndDate = IF(HasDateFilter, MAX(Dim_Calendario[Date]), TODAY())
 			VAR PeriodoContexto = DATESBETWEEN(Dim_Calendario[Date], StartDate, EndDate)
 			
@@ -4365,24 +4824,64 @@ table Medidas_Ranking
 			        "VOLUME (CX)"
 			    )
 			
+			VAR ModalidadeNome =
+			    SWITCH(
+			        ModalidadeSel,
+			        1, "NA AÇÃO (PREÇO MÍNIMO)",
+			        2, "GERAL (TODOS OS PREÇOS / BONIF. / COMBOS)",
+			        "NA AÇÃO (PREÇO MÍNIMO)"
+			    )
+			
 			VAR RawSupervisores =
 			    ADDCOLUMNS(
 			        ALLSELECTED(Dim_Vendedor[sup_Supervisor_chr]),
 			        "@Supervisor", Dim_Vendedor[sup_Supervisor_chr],
-			        "@Empresa", CALCULATE(SELECTEDVALUE(Dim_Empresa[emp_Empresa_chr])),
+			        "@Empresa",
+			            VAR FilialCross =
+			                CALCULATE(
+			                    SELECTEDVALUE(Dim_Empresa[emp_Empresa_chr]),
+			                    CROSSFILTER(Dim_Vendedor[emp_Empresa_int_FK], Dim_Empresa[emp_Empresa_int_PK], Both)
+			                )
+			            VAR FilialDesc = CALCULATE(SELECTEDVALUE(Dim_Vendedor[empresa_desc_]))
+			            VAR SupName = Dim_Vendedor[sup_Supervisor_chr]
+			            VAR FilialByName =
+			                SWITCH(
+			                    TRUE(),
+			                    SupName = "CADMIEL AQUINO DE SOUZA", "CD-ITACOATIARA",
+			                    SupName = "ADSON BINDA GOMES", "CD-PARINTINS",
+			                    SupName = "PEDRO PAULO SILVA DOS SANTOS", "CD-TABATINGA",
+			                    SupName = "GILDEAN DA SILVA SANTOS" || SupName = "WALDEMARINO GAMA FILHO", "CD-BOA VISTA",
+			                    SupName = "SUPERVISOR AS MACAPA" || SupName = "EWERTON SOUZA DE SA PEREIRA" || SupName = "MAURICIO BRUNO NUNES LEMOS", "CD-MACAPA",
+			                    "CD-MANAUS"
+			                )
+			            RETURN
+			                COALESCE(FilialCross, FilialDesc, FilialByName),
 			        "@Sales",
 			            CALCULATE(
 			                SWITCH(
 			                    TRUE(),
-			                    TipoDados = 1 && OpcaoAcao = 1, [QTD_ACAO_ULTRACRYSTAL_V2],
-			                    TipoDados = 1 && OpcaoAcao = 2, [QTD_ICE_PRECO_V2],
-			                    TipoDados = 1 && OpcaoAcao = 3, [QTD_P_ULTRA_PRECO_V2],
-			                    TipoDados = 2 && OpcaoAcao = 1, [QTD_ACAO_HIST_V2],
-			                    TipoDados = 2 && OpcaoAcao = 2, [QTD_ICE_HIST_V2],
-			                    TipoDados = 2 && OpcaoAcao = 3, [QTD_P_ULTRA_HIST_V2],
-			                    TipoDados = 3 && OpcaoAcao = 1, [QTD_ACAO_ATUAL_V2],
-			                    TipoDados = 3 && OpcaoAcao = 2, [QTD_ICE_ATUAL_V2],
-			                    TipoDados = 3 && OpcaoAcao = 3, [QTD_P_ULTRA_ATUAL_V2],
+			                    -- Modalidade 1: NA AÇÃO (preço mínimo)
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoAcao = 1, [QTD_ACAO_ULTRACRYSTAL_V2],
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoAcao = 2, [QTD_ICE_PRECO_V2],
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoAcao = 3, [QTD_P_ULTRA_PRECO_V2],
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoAcao = 1, [QTD_ACAO_HIST_V2],
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoAcao = 2, [QTD_ICE_HIST_V2],
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoAcao = 3, [QTD_P_ULTRA_HIST_V2],
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoAcao = 1, [QTD_ACAO_ATUAL_V2],
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoAcao = 2, [QTD_ICE_ATUAL_V2],
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoAcao = 3, [QTD_P_ULTRA_ATUAL_V2],
+			
+			                    -- Modalidade 2: GERAL (todos os preços, bonificações, combos)
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoAcao = 1, [QTD_TOTAL_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoAcao = 2, [QTD_ICE_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoAcao = 3, [QTD_P_ULTRA_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoAcao = 1, [QTD_TOTAL_HIST_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoAcao = 2, [QTD_ICE_HIST_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoAcao = 3, [QTD_P_ULTRA_HIST_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoAcao = 1, [QTD_TOTAL_ATUAL_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoAcao = 2, [QTD_ICE_ATUAL_GERAL],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoAcao = 3, [QTD_P_ULTRA_ATUAL_GERAL],
+			
 			                    [QTD_ACAO_ULTRACRYSTAL_V2]
 			                ),
 			                PeriodoContexto
@@ -4391,15 +4890,28 @@ table Medidas_Ranking
 			            CALCULATE(
 			                SWITCH(
 			                    TRUE(),
-			                    TipoDados = 1 && OpcaoAcao = 1, [QTD CLI TOTAL ACAO V2],
-			                    TipoDados = 1 && OpcaoAcao = 2, [TOTAL CLI ICE V2],
-			                    TipoDados = 1 && OpcaoAcao = 3, [TOTAL PETRA ULTRA V2],
-			                    TipoDados = 2 && OpcaoAcao = 1, CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(ALL(Dim_Clientes[cli_Cliente_int_PK]), [QTD_ACAO_HIST_V2] > 0)),
-			                    TipoDados = 2 && OpcaoAcao = 2, [QTD CLI ICE HIST V2],
-			                    TipoDados = 2 && OpcaoAcao = 3, [QTD CLI PETRA ULTRA HIST V2],
-			                    TipoDados = 3 && OpcaoAcao = 1, CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(ALL(Dim_Clientes[cli_Cliente_int_PK]), [QTD_ACAO_ATUAL_V2] > 0)),
-			                    TipoDados = 3 && OpcaoAcao = 2, [QTD CLI ICE ATUAL V2],
-			                    TipoDados = 3 && OpcaoAcao = 3, [QTD CLI PETRA ULTRA ATUAL V2],
+			                    -- Modalidade 1: NA AÇÃO
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoAcao = 1, [QTD CLI TOTAL ACAO V2],
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoAcao = 2, [TOTAL CLI ICE V2],
+			                    ModalidadeSel = 1 && TipoDados = 1 && OpcaoAcao = 3, [TOTAL PETRA ULTRA V2],
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoAcao = 1, CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(ALL(Dim_Clientes[cli_Cliente_int_PK]), [QTD_ACAO_HIST_V2] > 0)),
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoAcao = 2, [QTD CLI ICE HIST V2],
+			                    ModalidadeSel = 1 && TipoDados = 2 && OpcaoAcao = 3, [QTD CLI PETRA ULTRA HIST V2],
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoAcao = 1, CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(ALL(Dim_Clientes[cli_Cliente_int_PK]), [QTD_ACAO_ATUAL_V2] > 0)),
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoAcao = 2, [QTD CLI ICE ATUAL V2],
+			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoAcao = 3, [QTD CLI PETRA ULTRA ATUAL V2],
+			
+			                    -- Modalidade 2: GERAL
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoAcao = 1, [QTD CLI TOTAL GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoAcao = 2, [TOTAL CLI ICE GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoAcao = 3, [TOTAL PETRA ULTRA GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoAcao = 1, [QTD CLI TOTAL GERAL HIST V2],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoAcao = 2, [QTD CLI ICE HIST GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 2 && OpcaoAcao = 3, [QTD CLI PETRA ULTRA HIST GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoAcao = 1, [QTD CLI TOTAL GERAL ATUAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoAcao = 2, [QTD CLI ICE ATUAL GERAL V2],
+			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoAcao = 3, [QTD CLI PETRA ULTRA ATUAL GERAL V2],
+			
 			                    [QTD CLI TOTAL ACAO V2]
 			                ),
 			                PeriodoContexto
@@ -4415,7 +4927,11 @@ table Medidas_Ranking
 			VAR FilteredSupervisores =
 			    FILTER(
 			        RawSupervisores,
-			        [@Sales] > 0 || [@Clients] > 0
+			        NOT(ISBLANK([@Supervisor])) &&
+			        (
+			            NOT(ISFILTERED(Dim_Empresa[emp_Empresa_chr])) ||
+			            [@Empresa] IN VALUES(Dim_Empresa[emp_Empresa_chr])
+			        )
 			    )
 			
 			VAR SupervisoresWithPct =
@@ -4458,6 +4974,14 @@ table Medidas_Ranking
 			VAR TotalBase = SUMX(RankedSupervisores, [@BaseClients])
 			VAR TotalPct = IF(TotalBase > 0, (TotalClients / TotalBase) * 100, 0)
 			VAR TotalMedia = IF(TotalClients > 0, TotalSales / TotalClients, 0)
+			
+			VAR ThVolStyle = IF(MotorSel = 1, "background: #103863; color: #fbbf24 !important; border-bottom: 3px solid #fbbf24;", "")
+			VAR ThCliStyle = IF(MotorSel = 2, "background: #103863; color: #fbbf24 !important; border-bottom: 3px solid #fbbf24;", "")
+			VAR ThPctStyle = IF(MotorSel = 3, "background: #103863; color: #fbbf24 !important; border-bottom: 3px solid #fbbf24;", "")
+			
+			VAR ThVolIcon = IF(MotorSel = 1, " ⬇️", "")
+			VAR ThCliIcon = IF(MotorSel = 2, " ⬇️", "")
+			VAR ThPctIcon = IF(MotorSel = 3, " ⬇️", "")
 			
 			VAR HTML_Header = "
 			<!DOCTYPE html>
@@ -4516,9 +5040,10 @@ table Medidas_Ranking
 			          <span>VISÃO:</span> <strong>SUPERVISORES</strong>
 			        </div>
 			        <div class=""pills"">
-			          <span class=""pill active"">🎯 " & AcaoNome & "</span>
+			          <span class=""pill active"">🏷️ " & ModalidadeNome & "</span>
+			          <span class=""pill"">🎯 " & AcaoNome & "</span>
 			          <span class=""pill"">⏱️ " & TipoDadosNome & "</span>
-			          <span class=""pill"">📶 " & MotorNome & "</span>
+			          <span class=""pill active"" style=""background: #0284c7 !important; border-color: #38bdf8 !important;"">📶 " & MotorNome & "</span>
 			        </div>
 			      </div>
 			      <div class=""table-box"">
@@ -4527,10 +5052,10 @@ table Medidas_Ranking
 			            <tr>
 			              <th style=""width: 5%;"">#</th>
 			              <th style=""width: 27%; text-align: left; padding-left: 12px;"">SUPERVISOR / FILIAL</th>
-			              <th style=""width: 13%;"">VOLUME (CX)</th>
-			              <th style=""width: 11%;"">CLIENTES POS.</th>
+			              <th style=""width: 13%; " & ThVolStyle & """>VOLUME (CX)" & ThVolIcon & "</th>
+			              <th style=""width: 11%; " & ThCliStyle & """>CLIENTES POS." & ThCliIcon & "</th>
 			              <th style=""width: 11%;"">BASE CLIENTES</th>
-			              <th style=""width: 12%;"">% COBERTURA BASE</th>
+			              <th style=""width: 12%; " & ThPctStyle & """>% COBERTURA BASE" & ThPctIcon & "</th>
 			              <th style=""width: 9%;"">CX/CLI</th>
 			              <th style=""width: 12%; text-align: left; padding-left: 10px;"">CATEGORIA</th>
 			            </tr>
@@ -4602,7 +5127,6 @@ table Medidas_Ranking
 			    HTML_Header & HTML_Rows & HTML_Footer
 		lineageTag: a6b4446d-8437-47dd-a239-fbcdef42bc41
 
-
 	measure QTD_ICE_HIST_GERAL = CALCULATE([Vol_Liq_WTH_Hist], Dim_Produtos[prd_Produto_int_PK] IN { 16000, 16001, 200168, 201670, 201681, 201910 }, USERELATIONSHIP(Fato_Vendas_Hist_Winthor[IDRCA_PED], Dim_Vendedor[ven_Vendedor_int_PK]))
 		lineageTag: 18b76101-8899-4c22-92bb-bcf431000001
 
@@ -4667,7 +5191,16 @@ table Medidas_Ranking
 			VAR ModalidadeSel = SELECTEDVALUE(Filtro_Modalidade_Preco[Codigo], 1)
 			
 			VAR HasDateFilter = ISFILTERED(Dim_Calendario[Date]) || ISFILTERED(Dim_Calendario[Ano/Mes]) || ISFILTERED(Dim_Calendario[Mes/Ano])
-			VAR StartDate = IF(HasDateFilter, MIN(Dim_Calendario[Date]), DATE(2026, 9, 1))
+			
+			-- Deteccao inteligente de periodo: se ja houver vendas faturadas em Setembro/2026, inicia em 01/09/2026.
+			-- Caso a base de Setembro ainda nao tenha registros, utiliza desde o inicio da campanha (14/08/2026).
+			VAR SalesSetembro =
+			    CALCULATE(
+			        [Vol_Liq_WTH_Hist] + [Real_Vol_Hoje],
+			        DATESBETWEEN(Dim_Calendario[Date], DATE(2026, 9, 1), TODAY())
+			    )
+			VAR DefaultStartDate = IF(SalesSetembro > 0, DATE(2026, 9, 1), DATE(2026, 8, 14))
+			VAR StartDate = IF(HasDateFilter, MIN(Dim_Calendario[Date]), DefaultStartDate)
 			VAR EndDate = IF(HasDateFilter, MAX(Dim_Calendario[Date]), TODAY())
 			VAR PeriodoContexto = DATESBETWEEN(Dim_Calendario[Date], StartDate, EndDate)
 			
@@ -4707,19 +5240,58 @@ table Medidas_Ranking
 			    )
 			
 			-- Escopo Regional Exclusivo do Sub Gerente: TABATINGA, MANAUS, PARINTINS, ITACOATIARA
+			VAR RegionalEmpresas = { "CD-TABATINGA", "CD-MANAUS", "CD-PARINTINS", "CD-ITACOATIARA" }
+			
+			VAR SupervisoresPorEmpresa =
+			    CALCULATETABLE(
+			        VALUES(Dim_Vendedor[sup_Supervisor_chr]),
+			        Dim_Empresa[emp_Empresa_chr] IN RegionalEmpresas
+			    )
+			
+			VAR SupervisoresFallback = {
+			    "RAFAEL DA SILVA OLIVEIRA",
+			    "JARLISON JUNIOR SOUZA AUZIER",
+			    "CADMIEL AQUINO DE SOUZA",
+			    "ERMESON BARBOSA DE SOUZA",
+			    "EDIOMAR GRIJO",
+			    "MARCONE CARVALHO",
+			    "THIAGO LUIZ NEGREIROS",
+			    "JHONISON DE SOUZA SERRAO",
+			    "BRUNO RENAN BADEIRA GOMES",
+			    "BRUNO RENAN BANDEIRA GOMES",
+			    "ADSON BINDA GOMES",
+			    "PEDRO PAULO SILVA DOS SANTOS"
+			}
+			
 			VAR SupervisoresRegional =
 			    FILTER(
 			        ALLSELECTED(Dim_Vendedor[sup_Supervisor_chr]),
-			        VAR Empresa = CALCULATE(SELECTEDVALUE(Dim_Empresa[emp_Empresa_chr]))
-			        RETURN
-			            Empresa IN { "CD-TABATINGA", "CD-MANAUS", "CD-PARINTINS", "CD-ITACOATIARA" }
+			        Dim_Vendedor[sup_Supervisor_chr] IN SupervisoresPorEmpresa ||
+			        Dim_Vendedor[sup_Supervisor_chr] IN SupervisoresFallback
 			    )
 			
 			VAR RawSupervisores =
 			    ADDCOLUMNS(
 			        SupervisoresRegional,
 			        "@Supervisor", Dim_Vendedor[sup_Supervisor_chr],
-			        "@Empresa", CALCULATE(SELECTEDVALUE(Dim_Empresa[emp_Empresa_chr])),
+			        "@Empresa",
+			            VAR FilialCross =
+			                CALCULATE(
+			                    SELECTEDVALUE(Dim_Empresa[emp_Empresa_chr]),
+			                    CROSSFILTER(Dim_Vendedor[emp_Empresa_int_FK], Dim_Empresa[emp_Empresa_int_PK], Both)
+			                )
+			            VAR FilialDesc = CALCULATE(SELECTEDVALUE(Dim_Vendedor[empresa_desc_]))
+			            VAR SupName = Dim_Vendedor[sup_Supervisor_chr]
+			            VAR FilialByName =
+			                SWITCH(
+			                    TRUE(),
+			                    SupName = "CADMIEL AQUINO DE SOUZA", "CD-ITACOATIARA",
+			                    SupName = "ADSON BINDA GOMES", "CD-PARINTINS",
+			                    SupName = "PEDRO PAULO SILVA DOS SANTOS", "CD-TABATINGA",
+			                    "CD-MANAUS"
+			                )
+			            RETURN
+			                COALESCE(FilialCross, FilialDesc, FilialByName),
 			        "@Sales",
 			            CALCULATE(
 			                SWITCH(
@@ -4734,7 +5306,7 @@ table Medidas_Ranking
 			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoAcao = 1, [QTD_ACAO_ATUAL_V2],
 			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoAcao = 2, [QTD_ICE_ATUAL_V2],
 			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoAcao = 3, [QTD_P_ULTRA_ATUAL_V2],
-			                    
+			
 			                    -- Modalidade 2: GERAL (todos os preços, bonificações, combos)
 			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoAcao = 1, [QTD_TOTAL_GERAL],
 			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoAcao = 2, [QTD_ICE_GERAL],
@@ -4745,7 +5317,7 @@ table Medidas_Ranking
 			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoAcao = 1, [QTD_TOTAL_ATUAL_GERAL],
 			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoAcao = 2, [QTD_ICE_ATUAL_GERAL],
 			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoAcao = 3, [QTD_P_ULTRA_ATUAL_GERAL],
-			                    
+			
 			                    [QTD_ACAO_ULTRACRYSTAL_V2]
 			                ),
 			                PeriodoContexto
@@ -4764,7 +5336,7 @@ table Medidas_Ranking
 			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoAcao = 1, CALCULATE(DISTINCTCOUNT(Dim_Clientes[cli_Cliente_int_PK]), FILTER(ALL(Dim_Clientes[cli_Cliente_int_PK]), [QTD_ACAO_ATUAL_V2] > 0)),
 			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoAcao = 2, [QTD CLI ICE ATUAL V2],
 			                    ModalidadeSel = 1 && TipoDados = 3 && OpcaoAcao = 3, [QTD CLI PETRA ULTRA ATUAL V2],
-			                    
+			
 			                    -- Modalidade 2: GERAL
 			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoAcao = 1, [QTD CLI TOTAL GERAL V2],
 			                    ModalidadeSel = 2 && TipoDados = 1 && OpcaoAcao = 2, [TOTAL CLI ICE GERAL V2],
@@ -4775,7 +5347,7 @@ table Medidas_Ranking
 			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoAcao = 1, [QTD CLI TOTAL GERAL ATUAL V2],
 			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoAcao = 2, [QTD CLI ICE ATUAL GERAL V2],
 			                    ModalidadeSel = 2 && TipoDados = 3 && OpcaoAcao = 3, [QTD CLI PETRA ULTRA ATUAL GERAL V2],
-			                    
+			
 			                    [QTD CLI TOTAL ACAO V2]
 			                ),
 			                PeriodoContexto
@@ -4791,7 +5363,7 @@ table Medidas_Ranking
 			VAR FilteredSupervisores =
 			    FILTER(
 			        RawSupervisores,
-			        [@Sales] > 0 || [@Clients] > 0
+			        NOT(ISBLANK([@Supervisor]))
 			    )
 			
 			VAR EvaluatedSupervisores =
@@ -4838,6 +5410,14 @@ table Medidas_Ranking
 			VAR CutLib = 4
 			VAR CutSul = 7
 			VAR CutEvo = 9
+			
+			VAR ThVolStyle = IF(MotorSel = 1, "background: #103863; color: #fbbf24 !important; border-bottom: 3px solid #fbbf24;", "")
+			VAR ThCliStyle = IF(MotorSel = 2, "background: #103863; color: #fbbf24 !important; border-bottom: 3px solid #fbbf24;", "")
+			VAR ThPctStyle = IF(MotorSel = 3, "background: #103863; color: #fbbf24 !important; border-bottom: 3px solid #fbbf24;", "")
+			
+			VAR ThVolIcon = IF(MotorSel = 1, " ⬇️", "")
+			VAR ThCliIcon = IF(MotorSel = 2, " ⬇️", "")
+			VAR ThPctIcon = IF(MotorSel = 3, " ⬇️", "")
 			
 			VAR HTML_Header = "
 			<!DOCTYPE html>
@@ -4899,10 +5479,10 @@ table Medidas_Ranking
 			          <span class=""badge-pracas"">📍 MANAUS • ITACOATIARA • PARINTINS • TABATINGA</span>
 			        </div>
 			        <div class=""pills"">
-			          <span class=""pill highlight"">🏷️ " & ModalidadeNome & "</span>
-			          <span class=""pill active"">🎯 " & AcaoNome & "</span>
+			          <span class=""pill active"">🏷️ " & ModalidadeNome & "</span>
+			          <span class=""pill"">🎯 " & AcaoNome & "</span>
 			          <span class=""pill"">⏱️ " & TipoDadosNome & "</span>
-			          <span class=""pill"">📶 " & MotorNome & "</span>
+			          <span class=""pill active"" style=""background: #0284c7 !important; border-color: #38bdf8 !important;"">📶 " & MotorNome & "</span>
 			        </div>
 			      </div>
 			      <div class=""table-box"">
@@ -4911,10 +5491,10 @@ table Medidas_Ranking
 			            <tr>
 			              <th style=""width: 5%;"">#</th>
 			              <th style=""width: 27%; text-align: left; padding-left: 12px;"">SUPERVISOR / FILIAL</th>
-			              <th style=""width: 13%;"">VOLUME (CX)</th>
-			              <th style=""width: 11%;"">CLIENTES POS.</th>
+			              <th style=""width: 13%; " & ThVolStyle & """>VOLUME (CX)" & ThVolIcon & "</th>
+			              <th style=""width: 11%; " & ThCliStyle & """>CLIENTES POS." & ThCliIcon & "</th>
 			              <th style=""width: 11%;"">BASE CLIENTES</th>
-			              <th style=""width: 12%;"">% COBERTURA BASE</th>
+			              <th style=""width: 12%; " & ThPctStyle & """>% COBERTURA BASE" & ThPctIcon & "</th>
 			              <th style=""width: 9%;"">CX/CLI</th>
 			              <th style=""width: 12%; text-align: left; padding-left: 10px;"">CATEGORIA</th>
 			            </tr>
@@ -4932,10 +5512,10 @@ table Medidas_Ranking
 			        VAR base = [@BaseClients]
 			        VAR pct = [@Pct]
 			        VAR media = [@MediaCli]
-			        
+			
 			        VAR RankClass = IF(r <= CutLib, "col-rank rank-podium", IF(r <= CutSul, "col-rank rank-sulamericana", "col-rank"))
 			        VAR Class_pct = IF(pct >= 60.0, "cell-green", IF(pct >= 40.0, "cell-yellow", "cell-red"))
-			        
+			
 			        VAR CatHtml =
 			            SWITCH(
 			                TRUE(),
@@ -4986,6 +5566,1018 @@ table Medidas_Ranking
 			    HTML_Header & HTML_Rows & HTML_Footer
 		lineageTag: 18b76119-8899-4c22-92bb-bcf431000019
 
+	measure Cliente_Vol_Petra_Mes =
+			VAR HasDateFilter = ISFILTERED(Dim_Calendario[Date]) || ISFILTERED(Dim_Calendario[Ano/Mes]) || ISFILTERED(Dim_Calendario[Mes/Ano])
+			VAR SalesSetembro =
+			    CALCULATE(
+			        [Vol_Liq_WTH_Hist] + [Real_Vol_Hoje],
+			        DATESBETWEEN(Dim_Calendario[Date], DATE(2026, 9, 1), TODAY())
+			    )
+			VAR DefaultStartDate = IF(SalesSetembro > 0, DATE(2026, 9, 1), DATE(2026, 8, 14))
+			VAR StartDate = IF(HasDateFilter, MIN(Dim_Calendario[Date]), DefaultStartDate)
+			VAR EndDate = IF(HasDateFilter, MAX(Dim_Calendario[Date]), TODAY())
+			VAR PeriodoContexto = DATESBETWEEN(Dim_Calendario[Date], StartDate, EndDate)
+			RETURN
+			    CALCULATE([QTD_P_ULTRA_PRECO_V2], PeriodoContexto)
+		formatString: #,##0
+		lineageTag: 0d86ef33-7810-4457-9776-7cc430277084
+
+	measure Cliente_Vol_Ice_Mes =
+			VAR HasDateFilter = ISFILTERED(Dim_Calendario[Date]) || ISFILTERED(Dim_Calendario[Ano/Mes]) || ISFILTERED(Dim_Calendario[Mes/Ano])
+			VAR SalesSetembro =
+			    CALCULATE(
+			        [Vol_Liq_WTH_Hist] + [Real_Vol_Hoje],
+			        DATESBETWEEN(Dim_Calendario[Date], DATE(2026, 9, 1), TODAY())
+			    )
+			VAR DefaultStartDate = IF(SalesSetembro > 0, DATE(2026, 9, 1), DATE(2026, 8, 14))
+			VAR StartDate = IF(HasDateFilter, MIN(Dim_Calendario[Date]), DefaultStartDate)
+			VAR EndDate = IF(HasDateFilter, MAX(Dim_Calendario[Date]), TODAY())
+			VAR PeriodoContexto = DATESBETWEEN(Dim_Calendario[Date], StartDate, EndDate)
+			RETURN
+			    CALCULATE([QTD_ICE_PRECO_V2], PeriodoContexto)
+		formatString: #,##0
+		lineageTag: b9d1a11b-229d-40cd-b190-a177df2a306a
+
+	measure Cliente_Vol_Acao_Mes = [Cliente_Vol_Petra_Mes] + [Cliente_Vol_Ice_Mes]
+		formatString: #,##0
+		lineageTag: 0c9e3c68-f86e-4a14-92d1-4f302d2e6a6e
+
+	measure Cliente_Status_Petra =
+			VAR Vol = [Cliente_Vol_Petra_Mes]
+			RETURN
+			    IF(Vol > 0, "✅ " & FORMAT(Vol, "#,##0") & " cx", "❌ Não comprou")
+		lineageTag: 73e52eda-0a50-444e-a99b-b98cf17181fc
+
+	measure Cliente_Status_Ice =
+			VAR Vol = [Cliente_Vol_Ice_Mes]
+			RETURN
+			    IF(Vol > 0, "✅ " & FORMAT(Vol, "#,##0") & " cx", "❌ Não comprou")
+		lineageTag: 38af2374-08ca-4ead-80c7-c2fb9fcc6ed0
+
+	measure Cliente_Status_Acao =
+			VAR VolPetra = [Cliente_Vol_Petra_Mes]
+			VAR VolIce = [Cliente_Vol_Ice_Mes]
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        VolPetra > 0 && VolIce > 0, "🌟 Combo (Petra + Ice)",
+			        VolPetra > 0, "🟡 Somente Petra",
+			        VolIce > 0, "🔵 Somente Ice",
+			        "🎯 Oportunidade (Pendente)"
+			    )
+		lineageTag: aafa9d61-0ec7-4e2f-bf3c-de29b144e51b
+
+	measure Rota_Do_Dia_HTML =
+			-- Modalidade de Preco (1 = Na Acao / Preco Minimo | 2 = Geral / Inclui Bonificacoes R$ 0,00 e Combos)
+			VAR ModalidadeSel = SELECTEDVALUE(Filtro_Modalidade_Preco[Codigo], 1)
+			VAR ModalidadeNome =
+			    SWITCH(
+			        ModalidadeSel,
+			        1, "NA AÇÃO (PREÇO MÍNIMO)",
+			        2, "GERAL (INCLUI BONIF. R$ 0,00)",
+			        "NA AÇÃO (PREÇO MÍNIMO)"
+			    )
+			
+			-- Periodo inteligente de acompanhamento
+			VAR HasDateFilter = ISFILTERED(Dim_Calendario[Date]) || ISFILTERED(Dim_Calendario[Ano/Mes]) || ISFILTERED(Dim_Calendario[Mes/Ano])
+			VAR SalesSetembro =
+			    CALCULATE(
+			        [Vol_Liq_WTH_Hist] + [Real_Vol_Hoje],
+			        DATESBETWEEN(Dim_Calendario[Date], DATE(2026, 9, 1), TODAY())
+			    )
+			VAR DefaultStartDate = IF(SalesSetembro > 0, DATE(2026, 9, 1), DATE(2026, 8, 14))
+			VAR RawStartDate = IF(HasDateFilter, MIN(Dim_Calendario[Date]), DefaultStartDate)
+			VAR RawEndDate = IF(HasDateFilter, MAX(Dim_Calendario[Date]), TODAY())
+			VAR StartDate = MIN(RawStartDate, RawEndDate)
+			VAR EndDate = MAX(RawStartDate, RawEndDate)
+			VAR PeriodoContexto = DATESBETWEEN(Dim_Calendario[Date], StartDate, EndDate)
+			VAR PeriodoTexto = FORMAT(StartDate, "dd/MM") & " a " & FORMAT(EndDate, "dd/MM")
+			
+			-- Deteccao automatica do dia da semana
+			VAR DiaHojeNum = WEEKDAY(TODAY(), 2)
+			VAR DiaHojeNome =
+			    SWITCH(
+			        DiaHojeNum,
+			        1, "SEGUNDA",
+			        2, "TERCA",
+			        3, "QUARTA",
+			        4, "QUINTA",
+			        5, "SEXTA",
+			        "SEGUNDA"
+			    )
+			VAR DiaFiltrado = ISFILTERED(Dim_Pasta[pas_Descricao_chr])
+			VAR DiaAtivo = IF(DiaFiltrado, SELECTEDVALUE(Dim_Pasta[pas_Descricao_chr], DiaHojeNome), DiaHojeNome)
+			VAR DiaDisplay =
+			    SWITCH(
+			        DiaAtivo,
+			        "SEGUNDA", "SEGUNDA-FEIRA",
+			        "TERCA", "TERÇA-FEIRA",
+			        "QUARTA", "QUARTA-FEIRA",
+			        "QUINTA", "QUINTA-FEIRA",
+			        "SEXTA", "SEXTA-FEIRA",
+			        DiaAtivo
+			    )
+			
+			VAR VendedorFiltrado = ISFILTERED(Dim_Vendedor[ven_Vendedor_chr])
+			VAR VendedorNome = IF(VendedorFiltrado, SELECTEDVALUE(Dim_Vendedor[ven_Vendedor_chr], "MÚLTIPLOS VENDEDORES"), "TODOS OS VENDEDORES")
+			VAR SupervisorFiltrado = ISFILTERED(Dim_Vendedor[sup_Supervisor_chr])
+			VAR SupervisorNome = IF(SupervisorFiltrado, SELECTEDVALUE(Dim_Vendedor[sup_Supervisor_chr], ""), "")
+			
+			-- Clientes Base da Rota
+			VAR ClientesBase =
+			    CALCULATETABLE(
+			        SUMMARIZE(
+			            Dim_Clientes,
+			            Dim_Clientes[cli_Cliente_int_PK],
+			            Dim_Clientes[cli_Cliente_chr],
+			            Dim_Clientes[cli_Fantasia_chr],
+			            Dim_Clientes[cli_Bairro_chr],
+			            Dim_Clientes[cli_Cidade_chr],
+			            Dim_Clientes[cli_Vendedor_int]
+			        ),
+			        Dim_Pasta[pas_Descricao_chr] = DiaAtivo
+			    )
+			
+			VAR ClientesCalculados =
+			    ADDCOLUMNS(
+			        ClientesBase,
+			        "@Id", Dim_Clientes[cli_Cliente_int_PK],
+			        "@Nome", Dim_Clientes[cli_Cliente_chr],
+			        "@Fantasia", Dim_Clientes[cli_Fantasia_chr],
+			        "@Bairro", Dim_Clientes[cli_Bairro_chr],
+			        "@Cidade", Dim_Clientes[cli_Cidade_chr],
+			        "@Vendedor",
+			            IF(
+			                VendedorFiltrado,
+			                VendedorNome,
+			                VAR CodVend = Dim_Clientes[cli_Vendedor_int]
+			                RETURN
+			                    IF(
+			                        ISBLANK(CodVend) || CodVend = 0,
+			                        "",
+			                        COALESCE(
+			                            LOOKUPVALUE(
+			                                Dim_Vendedor[ven_Vendedor_chr],
+			                                Dim_Vendedor[ven_Vendedor_int_PK],
+			                                CodVend
+			                            ),
+			                            ""
+			                        )
+			                    )
+			            ),
+			        "@VolPetra",
+			            IF(
+			                ModalidadeSel = 1,
+			                CALCULATE([QTD_P_ULTRA_PRECO_V2], PeriodoContexto) + 0,
+			                CALCULATE([QTD_P_ULTRA_GERAL], PeriodoContexto) + 0
+			            ),
+			        "@VolIce",
+			            IF(
+			                ModalidadeSel = 1,
+			                CALCULATE([QTD_ICE_PRECO_V2], PeriodoContexto) + 0,
+			                CALCULATE([QTD_ICE_GERAL], PeriodoContexto) + 0
+			            )
+			    )
+			
+			-- Totais e Indicadores de Positivacao Gerais da Rota
+			VAR TotalClientes = COUNTROWS(ClientesCalculados) + 0
+			VAR TotalVolPetra = SUMX(ClientesCalculados, [@VolPetra]) + 0
+			VAR TotalVolIce = SUMX(ClientesCalculados, [@VolIce]) + 0
+			VAR TotalVolAcao = TotalVolPetra + TotalVolIce
+			
+			VAR TotalPositivados = COUNTROWS(FILTER(ClientesCalculados, [@VolPetra] > 0 || [@VolIce] > 0)) + 0
+			VAR TotalPendentes = TotalClientes - TotalPositivados
+			VAR TotalCombo = COUNTROWS(FILTER(ClientesCalculados, [@VolPetra] > 0 && [@VolIce] > 0)) + 0
+			VAR TotalSoPetra = COUNTROWS(FILTER(ClientesCalculados, [@VolPetra] > 0 && [@VolIce] = 0)) + 0
+			VAR TotalSoIce = COUNTROWS(FILTER(ClientesCalculados, [@VolPetra] = 0 && [@VolIce] > 0)) + 0
+			
+			VAR PctPositivacao = IF(TotalClientes > 0, (TotalPositivados / TotalClientes) * 100, 0)
+			
+			-- Filtro nativo de Status (se filtrado via Painel de Filtros / Slicer)
+			VAR HasStatusFilter = ISFILTERED(Filtro_Status_Rota[Status])
+			VAR ClientesAposFiltroStatus =
+			    FILTER(
+			        ClientesCalculados,
+			        (NOT HasStatusFilter)
+			            || (
+			                SWITCH(
+			                    TRUE(),
+			                    [@VolPetra] > 0 && [@VolIce] > 0, "COMBO AMBOS",
+			                    [@VolPetra] > 0, "SÓ PETRA",
+			                    [@VolIce] > 0, "SÓ CRYSTAL",
+			                    "PENDENTE"
+			                ) IN VALUES(Filtro_Status_Rota[Status])
+			            )
+			    )
+			
+			-- Limite expandido para exibir todos os clientes da rota (ate 2.000 clientes)
+			VAR LimiteExibicao = 2000
+			VAR ClientesExibicao =
+			    TOPN(
+			        LimiteExibicao,
+			        ClientesAposFiltroStatus,
+			        [@Nome],
+			        ASC
+			    )
+			
+			VAR SubtitleModo =
+			    IF(
+			        ModalidadeSel = 1,
+			        "Preço da Ação (Piso Mínimo) • Período: " & PeriodoTexto,
+			        "Geral (Inclui Bonificações R$ 0,00 e Combos) • Período: " & PeriodoTexto
+			    )
+			
+			VAR HTML_Header = "
+			<!DOCTYPE html>
+			<html lang=""pt-BR"">
+			<head>
+			  <meta charset=""UTF-8"">
+			  <link rel=""preconnect"" href=""https://fonts.googleapis.com"">
+			  <link rel=""preconnect"" href=""https://fonts.gstatic.com"" crossorigin>
+			  <link href=""https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Roboto+Condensed:wght@400;600;700&display=swap"" rel=""stylesheet"">
+			  <style>
+			    * { box-sizing: border-box; margin: 0; padding: 0; }
+			    html, body { width: 100%; height: 100vh; max-height: 100vh; overflow: hidden !important; background: #010814; font-family: 'Roboto Condensed', sans-serif; color: #ffffff; }
+			    .app-container { width: 100%; height: 100vh; max-height: 100vh; display: flex; flex-direction: column; padding: 8px 12px 6px 12px; gap: 6px; box-sizing: border-box; overflow: hidden !important; background: radial-gradient(circle at 50% 0%, #082142 0%, #031024 50%, #010813 100%); }
+			
+			    /* SECAO SUPERIOR 100% FIXA */
+			    .fixed-header-section { display: flex; flex-direction: column; gap: 6px; flex-shrink: 0; width: 100%; }
+			
+			    /* Barra Superior Compacta */
+			    .top-bar { display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; padding-bottom: 5px; border-bottom: 1px solid #1a3d68; }
+			    .title-wrap { display: flex; align-items: center; gap: 10px; }
+			    .main-title { font-family: 'Oswald', sans-serif; font-size: 1.3rem; font-weight: 700; color: #ffffff; letter-spacing: 0.5px; display: flex; align-items: center; gap: 6px; }
+			    .main-title .gold { color: #fbbf24; }
+			    .sub-title { font-size: 0.76rem; color: #94a3b8; }
+			
+			    .tags-wrap { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+			    .tag-pill { font-family: 'Oswald', sans-serif; font-size: 0.78rem; padding: 2px 8px; border-radius: 4px; border: 1px solid #205081; background: rgba(15,34,64,0.85); color: #e2e8f0; display: inline-flex; align-items: center; gap: 4px; }
+			    .tag-pill.tag-mode { border-color: " & IF(ModalidadeSel = 1, "#f59e0b", "#10b981") & "; background: " & IF(ModalidadeSel = 1, "rgba(245,158,11,0.15)", "rgba(16,185,129,0.15)") & "; color: " & IF(ModalidadeSel = 1, "#fbbf24", "#34d399") & "; }
+			    .tag-pill.tag-seller { border-color: #38bdf8; color: #38bdf8; }
+			
+			    /* Faixa de KPIs Inline */
+			    .kpi-bar { display: flex; align-items: center; justify-content: space-between; gap: 10px; background: #071933; border: 1px solid #1b3d68; border-radius: 5px; padding: 5px 12px; font-size: 0.82rem; flex-shrink: 0; }
+			    .kpi-group { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+			    .kpi-item { display: inline-flex; align-items: center; gap: 5px; color: #94a3b8; font-size: 0.8rem; }
+			    .kpi-item strong { font-family: 'Oswald', sans-serif; font-size: 1.05rem; font-weight: 700; color: #ffffff; }
+			    .kpi-item .c-green { color: #10b981; }
+			    .kpi-item .c-red { color: #f87171; }
+			    .kpi-item .c-gold { color: #fbbf24; }
+			    .kpi-item .c-ice { color: #38bdf8; }
+			
+			    /* Toolbar com Multi-Selecao (e ou) */
+			    .toolbar { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-shrink: 0; }
+			    .filters-chips { display: flex; gap: 5px; align-items: center; flex-wrap: wrap; }
+			    .btn-chip { background: #0a1f3d; border: 1px solid #205081; color: #cbd5e1; border-radius: 12px; padding: 2px 10px; font-size: 0.77rem; font-family: 'Oswald', sans-serif; cursor: pointer; transition: all 0.15s; outline: none; user-select: none; }
+			    .btn-chip:hover { background: #16365f; color: #ffffff; }
+			
+			    .btn-chip#btnFilterAll.active { background: #38bdf8; color: #020b18; font-weight: 700; border-color: #38bdf8; box-shadow: 0 0 8px rgba(56,189,248,0.4); }
+			    .btn-chip.btn-red { border-color: rgba(239,68,68,0.5); color: #fca5a5; }
+			    .btn-chip.btn-blue { border-color: rgba(14,165,233,0.5); color: #7dd3fc; }
+			    .btn-chip.btn-gold { border-color: rgba(251,191,36,0.5); color: #fde047; }
+			    .btn-chip.btn-green { border-color: rgba(16,185,129,0.5); color: #6ee7b7; }
+			
+			    .btn-chip.btn-toggle.btn-red.active { background: #ef4444 !important; color: #ffffff !important; font-weight: 700; border-color: #f87171 !important; box-shadow: 0 0 10px rgba(239,68,68,0.6); }
+			    .btn-chip.btn-toggle.btn-blue.active { background: #0284c7 !important; color: #ffffff !important; font-weight: 700; border-color: #38bdf8 !important; box-shadow: 0 0 10px rgba(2,132,199,0.6); }
+			    .btn-chip.btn-toggle.btn-gold.active { background: #d97706 !important; color: #ffffff !important; font-weight: 700; border-color: #fbbf24 !important; box-shadow: 0 0 10px rgba(217,119,6,0.6); }
+			    .btn-chip.btn-toggle.btn-green.active { background: #059669 !important; color: #ffffff !important; font-weight: 700; border-color: #34d399 !important; box-shadow: 0 0 10px rgba(5,150,105,0.6); }
+			
+			    .search-wrap { position: relative; width: 250px; flex-shrink: 0; }
+			    .search-input { width: 100%; background: #081a33; border: 1px solid #205081; border-radius: 4px; padding: 4px 8px; color: #ffffff; font-size: 0.78rem; outline: none; }
+			    .search-input::placeholder { color: #64748b; }
+			    .search-input:focus { border-color: #38bdf8; }
+			
+			    /* CONTAINER DA TABELA (SCROLL DOWN EXCLUSIVO DOS DADOS) */
+			    .table-container { flex: 1 1 0; min-height: 0; height: 100%; overflow-y: auto !important; overflow-x: hidden; border: 1.5px solid #205081; border-radius: 6px; background: #04142a; box-shadow: 0 4px 15px rgba(0,0,0,0.5); scrollbar-width: thin; scrollbar-color: #38bdf8 #081d3a; }
+			    .table-container::-webkit-scrollbar { width: 8px; }
+			    .table-container::-webkit-scrollbar-track { background: #081d3a; }
+			    .table-container::-webkit-scrollbar-thumb { background: #205081; border-radius: 4px; }
+			    .table-container::-webkit-scrollbar-thumb:hover { background: #38bdf8; }
+			
+			    /* TABELA COM CABECALHO RIGIDAMENTE FIXO */
+			    table { width: 100%; border-collapse: separate !important; border-spacing: 0 !important; text-align: left; table-layout: fixed; }
+			    thead { position: sticky !important; top: 0 !important; z-index: 100 !important; }
+			    thead th { position: sticky !important; top: 0 !important; z-index: 100 !important; background: #081d3a !important; color: #ffffff !important; font-family: 'Oswald', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 8px 10px; border-top: none; border-left: none; border-right: none; border-bottom: 2px solid #38bdf8 !important; box-shadow: 0 3px 6px rgba(0,0,0,0.5); }
+			
+			    /* LINHAS DE DADOS (ROLAGEM SUAVE) */
+			    tbody tr { height: 34px; transition: background 0.1s; }
+			    tbody tr:nth-child(odd) { background: #04142a; }
+			    tbody tr:nth-child(even) { background: #071c38; }
+			    tbody tr:hover { background: #0d2c56 !important; }
+			    td { padding: 3px 10px; font-size: 0.83rem; vertical-align: middle; border-bottom: 1px solid #0e2545; }
+			
+			    /* Colunas */
+			    .col-cod { width: 75px; text-align: center; }
+			    .col-cliente { width: 40%; }
+			    .col-local { width: 22%; font-size: 0.78rem; color: #94a3b8; }
+			    .col-petra { width: 12%; text-align: center; }
+			    .col-ice { width: 12%; text-align: center; }
+			    .col-status { width: 14%; text-align: center; }
+			
+			    .pill-id { background: #1e3a8a; color: #93c5fd; font-family: 'Oswald', sans-serif; font-size: 0.74rem; padding: 1px 5px; border-radius: 3px; font-weight: 600; display: inline-block; }
+			    .cli-nome { font-weight: 700; color: #ffffff; font-size: 0.88rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; }
+			    .cli-razao-sub { font-size: 0.72rem; color: #64748b; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; margin-top: -1px; }
+			
+			    .vol-badge { display: inline-flex; align-items: center; justify-content: center; font-family: 'Oswald', sans-serif; font-size: 0.84rem; font-weight: 700; padding: 1px 6px; border-radius: 3px; min-width: 60px; }
+			    .vol-petra { background: rgba(251,191,36,0.18); color: #fbbf24; border: 1px solid #d97706; }
+			    .vol-ice { background: rgba(14,165,233,0.18); color: #38bdf8; border: 1px solid #0284c7; }
+			    .vol-zero { color: #475569; font-size: 0.78rem; font-weight: 400; }
+			
+			    .status-tag { display: inline-block; font-family: 'Oswald', sans-serif; font-size: 0.75rem; font-weight: 700; padding: 1px 7px; border-radius: 3px; letter-spacing: 0.3px; }
+			    .tag-combo { background: rgba(16,185,129,0.2); color: #34d399; border: 1px solid #10b981; }
+			    .tag-petra { background: rgba(251,191,36,0.18); color: #fbbf24; border: 1px solid #f59e0b; }
+			    .tag-ice { background: rgba(14,165,233,0.18); color: #38bdf8; border: 1px solid #0284c7; }
+			    .tag-pendente { background: rgba(239,68,68,0.15); color: #f87171; border: 1px solid #ef4444; }
+			
+			    /* Rodape Fixo */
+			    .footer-info { display: flex; justify-content: space-between; align-items: center; font-size: 0.74rem; color: #64748b; flex-shrink: 0; padding-top: 2px; }
+			    .footer-info strong { color: #94a3b8; }
+			  </style>
+			</head>
+			<body>
+			  <div class=""app-container"">
+			
+			    <!-- SECAO CABECALHO FIXO -->
+			    <div class=""fixed-header-section"">
+			      <!-- Top Bar -->
+			      <div class=""top-bar"">
+			        <div class=""title-wrap"">
+			          <div class=""main-title"">🚚 ROTA DO DIA • <span class=""gold"">VISITAS & AÇÃO</span></div>
+			          <div class=""sub-title"">" & SubtitleModo & "</div>
+			        </div>
+			        <div class=""tags-wrap"">
+			          <div class=""tag-pill tag-mode"">🏷️ <strong>" & ModalidadeNome & "</strong></div>
+			          <div class=""tag-pill"">📅 ROTA: <strong>" & DiaDisplay & "</strong></div>
+			          <div class=""tag-pill tag-seller"">👤 <strong>" & VendedorNome & "</strong>" & IF(LEN(SupervisorNome) > 0, " <span style=""color:#94a3b8; font-size:0.75rem;"">(Sup: " & SupervisorNome & ")</span>", "") & "</div>
+			        </div>
+			      </div>
+			
+			      <!-- Faixa de KPIs Inline -->
+			      <div class=""kpi-bar"">
+			        <div class=""kpi-group"">
+			          <div class=""kpi-item""><span>📋 Clientes na Rota:</span> <strong>" & FORMAT(TotalClientes, "#,##0") & "</strong></div>
+			          <div class=""kpi-item""><span>🌟 Positivados:</span> <strong class=""c-green"">" & FORMAT(TotalPositivados, "#,##0") & " <span style=""font-size:0.78rem;"">(" & FORMAT(PctPositivacao, "0.0") & "%)</span></strong></div>
+			          <div class=""kpi-item""><span>🎯 Pendentes:</span> <strong class=""c-red"">" & FORMAT(TotalPendentes, "#,##0") & "</strong></div>
+			        </div>
+			        <div class=""kpi-group"">
+			          <div class=""kpi-item""><span>📦 Total:</span> <strong class=""c-gold"">" & FORMAT(TotalVolAcao, "#,##0") & " cx</strong></div>
+			          <div class=""kpi-item""><span>🟡 Petra:</span> <strong class=""c-gold"">" & FORMAT(TotalVolPetra, "#,##0") & " cx</strong></div>
+			          <div class=""kpi-item""><span>🔵 Crystal:</span> <strong class=""c-ice"">" & FORMAT(TotalVolIce, "#,##0") & " cx</strong></div>
+			        </div>
+			      </div>
+			
+			      <!-- Toolbar com Multi-Selecao (e ou) -->
+			      <div class=""toolbar"">
+			        <div class=""filters-chips"">
+			          <button class=""btn-chip active"" id=""btnFilterAll"" onclick=""resetStatusFilter()"">Todos (" & FORMAT(TotalClientes, "#,##0") & ")</button>
+			          <button class=""btn-chip btn-toggle btn-red"" data-status=""tag-pendente"" onclick=""toggleStatusFilter('tag-pendente', this)"">🎯 PENDENTE (" & FORMAT(TotalPendentes, "#,##0") & ")</button>
+			          <button class=""btn-chip btn-toggle btn-blue"" data-status=""tag-ice"" onclick=""toggleStatusFilter('tag-ice', this)"">🔵 SÓ CRYSTAL (" & FORMAT(TotalSoIce, "#,##0") & ")</button>
+			          <button class=""btn-chip btn-toggle btn-gold"" data-status=""tag-petra"" onclick=""toggleStatusFilter('tag-petra', this)"">🟡 SÓ PETRA (" & FORMAT(TotalSoPetra, "#,##0") & ")</button>
+			          <button class=""btn-chip btn-toggle btn-green"" data-status=""tag-combo"" onclick=""toggleStatusFilter('tag-combo', this)"">🌟 COMBO AMBOS (" & FORMAT(TotalCombo, "#,##0") & ")</button>
+			        </div>
+			        <div class=""search-wrap"">
+			          <input type=""text"" id=""searchCli"" class=""search-input"" placeholder=""🔍 Filtrar cliente, código, bairro..."" oninput=""filterBySearch()"" />
+			        </div>
+			      </div>
+			    </div>
+			
+			    <!-- TABELA COM SCROLL DOWN EXCLUSIVO DOS DADOS -->
+			    <div class=""table-container"">
+			      <table>
+			        <thead>
+			          <tr>
+			            <th class=""col-cod""># CÓD</th>
+			            <th class=""col-cliente"">CLIENTE</th>
+			            <th class=""col-local"">BAIRRO / CIDADE</th>
+			            <th class=""col-petra"">PETRA ULTRA</th>
+			            <th class=""col-ice"">CRYSTAL ICE</th>
+			            <th class=""col-status"">STATUS DA AÇÃO</th>
+			          </tr>
+			        </thead>
+			        <tbody>"
+			
+			VAR HTML_Rows =
+			    IF(
+			        TotalClientes = 0,
+			        "<tr><td colspan=""6"" style=""text-align:center; padding: 40px 20px; font-size: 1.05rem; color: #94a3b8;"">
+			          <div style=""font-size: 2rem; margin-bottom: 6px;"">🚚</div>
+			          <div style=""font-weight: 700; color: #ffffff; font-size: 1.1rem;"">Nenhum cliente agendado para esta rota ou seleção de filtros.</div>
+			          <div style=""font-size: 0.8rem; color: #64748b; margin-top: 4px;"">Verifique a seleção do dia da semana (Dim_Pasta[pas_Descricao_chr]) ou do vendedor.</div>
+			        </td></tr>",
+			        CONCATENATEX(
+			            ClientesExibicao,
+			            VAR cid = [@Id]
+			            VAR nome = [@Nome]
+			            VAR fant = [@Fantasia]
+			            VAR bairro = [@Bairro]
+			            VAR cidade = [@Cidade]
+			            VAR vend = [@Vendedor]
+			            VAR volPetra = [@VolPetra]
+			            VAR volIce = [@VolIce]
+			
+			            VAR tagClass =
+			                SWITCH(
+			                    TRUE(),
+			                    volPetra > 0 && volIce > 0, "tag-combo",
+			                    volPetra > 0, "tag-petra",
+			                    volIce > 0, "tag-ice",
+			                    "tag-pendente"
+			                )
+			            VAR tagTexto =
+			                SWITCH(
+			                    TRUE(),
+			                    volPetra > 0 && volIce > 0, "🌟 COMBO AMBOS",
+			                    volPetra > 0, "🟡 SÓ PETRA",
+			                    volIce > 0, "🔵 SÓ CRYSTAL",
+			                    "🎯 PENDENTE"
+			                )
+			
+			            VAR NomePrincipal = IF(ISBLANK(fant) || LEN(TRIM(fant)) = 0, nome, fant)
+			            VAR RazaoSocial = IF(NOT ISBLANK(fant) && fant <> nome && LEN(TRIM(nome)) > 0, nome, "")
+			            VAR LocalTexto = TRIM(bairro & IF(LEN(TRIM(bairro)) > 0 && LEN(TRIM(cidade)) > 0, " • ", "") & cidade)
+			
+			            VAR PetraCell =
+			                IF(
+			                    volPetra > 0,
+			                    "<span class=""vol-badge vol-petra"">✅ " & FORMAT(volPetra, "#,##0") & " cx</span>",
+			                    "<span class=""vol-zero"">-</span>"
+			                )
+			
+			            VAR IceCell =
+			                IF(
+			                    volIce > 0,
+			                    "<span class=""vol-badge vol-ice"">✅ " & FORMAT(volIce, "#,##0") & " cx</span>",
+			                    "<span class=""vol-zero"">-</span>"
+			                )
+			
+			            VAR AcaoCell = "<span class=""status-tag " & tagClass & """>" & tagTexto & "</span>"
+			
+			            RETURN
+			                "<tr class=""client-row"" data-status=""" & tagClass & """ data-name=""" & LOWER(NomePrincipal & " " & RazaoSocial & " " & cid & " " & LocalTexto & " " & vend) & """>" &
+			                  "<td class=""col-cod""><span class=""pill-id"">#" & cid & "</span></td>" &
+			                  "<td class=""col-cliente"">" &
+			                    "<span class=""cli-nome"" title=""" & NomePrincipal & IF(LEN(RazaoSocial) > 0, " (" & RazaoSocial & ")", "") & """>" & NomePrincipal & "</span>" &
+			                    IF(LEN(RazaoSocial) > 0, "<span class=""cli-razao-sub"">" & RazaoSocial & "</span>", "") &
+			                  "</td>" &
+			                  "<td class=""col-local"">" &
+			                    IF(LEN(LocalTexto) > 0, "<span>📍 " & LocalTexto & "</span>", "-") &
+			                    IF(NOT VendedorFiltrado && LEN(vend) > 0, "<div style=""color:#38bdf8; font-size:0.74rem;"">👤 " & vend & "</div>", "") &
+			                  "</td>" &
+			                  "<td class=""col-petra"">" & PetraCell & "</td>" &
+			                  "<td class=""col-ice"">" & IceCell & "</td>" &
+			                  "<td class=""col-status"">" & AcaoCell & "</td>" &
+			                "</tr>",
+			            "",
+			            [@Nome],
+			            ASC
+			        )
+			    )
+			
+			VAR HTML_Footer = "
+			        </tbody>
+			      </table>
+			    </div>
+			
+			    <!-- Rodape Fixo -->
+			    <div class=""footer-info"">
+			      <div>Rota: <strong>" & DiaDisplay & "</strong> | Modalidade: <strong>" & ModalidadeNome & "</strong> | Mostrando: <strong id=""countDisplay"">" & FORMAT(TotalClientes, "#,##0") & "</strong> de <strong>" & FORMAT(TotalClientes, "#,##0") & "</strong> clientes</div>
+			      <div>✦ Campanha Petra Ultra & Crystal Ice ✦</div>
+			    </div>
+			  </div>
+			  <script>
+			    function toggleStatusFilter(statusClass, btn) {
+			      var btnAll = document.getElementById('btnFilterAll');
+			      btnAll.classList.remove('active');
+			      btn.classList.toggle('active');
+			      var activeToggles = document.querySelectorAll('.btn-toggle.active');
+			      if (activeToggles.length === 0) {
+			        btnAll.classList.add('active');
+			      }
+			      applyFilters();
+			    }
+			    function resetStatusFilter() {
+			      var toggles = document.querySelectorAll('.btn-toggle');
+			      toggles.forEach(function(b) { b.classList.remove('active'); });
+			      document.getElementById('btnFilterAll').classList.add('active');
+			      applyFilters();
+			    }
+			    function applyFilters() {
+			      var isAll = document.getElementById('btnFilterAll').classList.contains('active');
+			      var activeStatuses = [];
+			      if (!isAll) {
+			        var activeBtns = document.querySelectorAll('.btn-toggle.active');
+			        activeBtns.forEach(function(b) {
+			          activeStatuses.push(b.getAttribute('data-status'));
+			        });
+			      }
+			      var searchVal = document.getElementById('searchCli').value.toLowerCase().trim();
+			      var rows = document.querySelectorAll('.client-row');
+			      var countVisible = 0;
+			      rows.forEach(function(r) {
+			        var rStatus = r.getAttribute('data-status');
+			        var matchStatus = isAll || (activeStatuses.indexOf(rStatus) !== -1);
+			        var matchSearch = (searchVal === '') || (r.getAttribute('data-name').indexOf(searchVal) !== -1);
+			        if (matchStatus && matchSearch) {
+			          r.style.display = '';
+			          countVisible++;
+			        } else {
+			          r.style.display = 'none';
+			        }
+			      });
+			      var counter = document.getElementById('countDisplay');
+			      if (counter) counter.innerText = countVisible;
+			    }
+			    function filterBySearch() {
+			      applyFilters();
+			    }
+			  </script>
+			</body>
+			</html>"
+			RETURN
+			    HTML_Header & HTML_Rows & HTML_Footer
+		lineageTag: 6b6a46fb-1bd6-49fb-a853-14495c9890fb
+
+	measure Rota_Do_Dia_Print_HTML =
+			-- Modalidade de Preco (1 = Na Acao / Preco Minimo | 2 = Geral / Inclui Bonificacoes R$ 0,00 e Combos)
+			VAR ModalidadeSel = SELECTEDVALUE(Filtro_Modalidade_Preco[Codigo], 1)
+			VAR ModalidadeNome =
+			    SWITCH(
+			        ModalidadeSel,
+			        1, "NA AÇÃO (PREÇO MÍNIMO)",
+			        2, "GERAL (INCLUI BONIF. R$ 0,00)",
+			        "NA AÇÃO (PREÇO MÍNIMO)"
+			    )
+			
+			-- Periodo inteligente de acompanhamento
+			VAR HasDateFilter = ISFILTERED(Dim_Calendario[Date]) || ISFILTERED(Dim_Calendario[Ano/Mes]) || ISFILTERED(Dim_Calendario[Mes/Ano])
+			VAR SalesSetembro =
+			    CALCULATE(
+			        [Vol_Liq_WTH_Hist] + [Real_Vol_Hoje],
+			        DATESBETWEEN(Dim_Calendario[Date], DATE(2026, 9, 1), TODAY())
+			    )
+			VAR DefaultStartDate = IF(SalesSetembro > 0, DATE(2026, 9, 1), DATE(2026, 8, 14))
+			VAR RawStartDate = IF(HasDateFilter, MIN(Dim_Calendario[Date]), DefaultStartDate)
+			VAR RawEndDate = IF(HasDateFilter, MAX(Dim_Calendario[Date]), TODAY())
+			VAR StartDate = MIN(RawStartDate, RawEndDate)
+			VAR EndDate = MAX(RawStartDate, RawEndDate)
+			VAR PeriodoContexto = DATESBETWEEN(Dim_Calendario[Date], StartDate, EndDate)
+			VAR PeriodoTexto = FORMAT(StartDate, "dd/MM") & " a " & FORMAT(EndDate, "dd/MM")
+			
+			-- Deteccao automatica do dia da semana
+			VAR DiaHojeNum = WEEKDAY(TODAY(), 2)
+			VAR DiaHojeNome =
+			    SWITCH(
+			        DiaHojeNum,
+			        1, "SEGUNDA",
+			        2, "TERCA",
+			        3, "QUARTA",
+			        4, "QUINTA",
+			        5, "SEXTA",
+			        "SEGUNDA"
+			    )
+			VAR DiaFiltrado = ISFILTERED(Dim_Pasta[pas_Descricao_chr])
+			VAR DiaAtivo = IF(DiaFiltrado, SELECTEDVALUE(Dim_Pasta[pas_Descricao_chr], DiaHojeNome), DiaHojeNome)
+			VAR DiaDisplay =
+			    SWITCH(
+			        DiaAtivo,
+			        "SEGUNDA", "SEGUNDA-FEIRA",
+			        "TERCA", "TERÇA-FEIRA",
+			        "QUARTA", "QUARTA-FEIRA",
+			        "QUINTA", "QUINTA-FEIRA",
+			        "SEXTA", "SEXTA-FEIRA",
+			        DiaAtivo
+			    )
+			
+			VAR VendedorFiltrado = ISFILTERED(Dim_Vendedor[ven_Vendedor_chr])
+			VAR VendedorNome = IF(VendedorFiltrado, SELECTEDVALUE(Dim_Vendedor[ven_Vendedor_chr], "MÚLTIPLOS VENDEDORES"), "TODOS OS VENDEDORES")
+			VAR SupervisorFiltrado = ISFILTERED(Dim_Vendedor[sup_Supervisor_chr])
+			VAR SupervisorNome = IF(SupervisorFiltrado, SELECTEDVALUE(Dim_Vendedor[sup_Supervisor_chr], ""), "")
+			
+			-- Clientes Base da Rota
+			VAR ClientesBase =
+			    CALCULATETABLE(
+			        SUMMARIZE(
+			            Dim_Clientes,
+			            Dim_Clientes[cli_Cliente_int_PK],
+			            Dim_Clientes[cli_Cliente_chr],
+			            Dim_Clientes[cli_Fantasia_chr],
+			            Dim_Clientes[cli_Bairro_chr],
+			            Dim_Clientes[cli_Cidade_chr],
+			            Dim_Clientes[cli_Vendedor_int]
+			        ),
+			        Dim_Pasta[pas_Descricao_chr] = DiaAtivo
+			    )
+			
+			VAR ClientesCalculados =
+			    ADDCOLUMNS(
+			        ClientesBase,
+			        "@Id", Dim_Clientes[cli_Cliente_int_PK],
+			        "@Nome", Dim_Clientes[cli_Cliente_chr],
+			        "@Fantasia", Dim_Clientes[cli_Fantasia_chr],
+			        "@Bairro", Dim_Clientes[cli_Bairro_chr],
+			        "@Cidade", Dim_Clientes[cli_Cidade_chr],
+			        "@Vendedor",
+			            IF(
+			                VendedorFiltrado,
+			                VendedorNome,
+			                VAR CodVend = Dim_Clientes[cli_Vendedor_int]
+			                RETURN
+			                    IF(
+			                        ISBLANK(CodVend) || CodVend = 0,
+			                        "",
+			                        COALESCE(
+			                            LOOKUPVALUE(
+			                                Dim_Vendedor[ven_Vendedor_chr],
+			                                Dim_Vendedor[ven_Vendedor_int_PK],
+			                                CodVend
+			                            ),
+			                            ""
+			                        )
+			                    )
+			            ),
+			        "@VolPetra",
+			            IF(
+			                ModalidadeSel = 1,
+			                CALCULATE([QTD_P_ULTRA_PRECO_V2], PeriodoContexto) + 0,
+			                CALCULATE([QTD_P_ULTRA_GERAL], PeriodoContexto) + 0
+			            ),
+			        "@VolIce",
+			            IF(
+			                ModalidadeSel = 1,
+			                CALCULATE([QTD_ICE_PRECO_V2], PeriodoContexto) + 0,
+			                CALCULATE([QTD_ICE_GERAL], PeriodoContexto) + 0
+			            )
+			    )
+			
+			-- Totais da Rota
+			VAR TotalClientes = COUNTROWS(ClientesCalculados) + 0
+			VAR TotalVolPetra = SUMX(ClientesCalculados, [@VolPetra]) + 0
+			VAR TotalVolIce = SUMX(ClientesCalculados, [@VolIce]) + 0
+			VAR TotalVolAcao = TotalVolPetra + TotalVolIce
+			
+			VAR TotalPositivados = COUNTROWS(FILTER(ClientesCalculados, [@VolPetra] > 0 || [@VolIce] > 0)) + 0
+			VAR TotalPendentes = TotalClientes - TotalPositivados
+			VAR TotalCombo = COUNTROWS(FILTER(ClientesCalculados, [@VolPetra] > 0 && [@VolIce] > 0)) + 0
+			VAR TotalSoPetra = COUNTROWS(FILTER(ClientesCalculados, [@VolPetra] > 0 && [@VolIce] = 0)) + 0
+			VAR TotalSoIce = COUNTROWS(FILTER(ClientesCalculados, [@VolPetra] = 0 && [@VolIce] > 0)) + 0
+			
+			VAR PctPositivacao = IF(TotalClientes > 0, (TotalPositivados / TotalClientes) * 100, 0)
+			
+			-- Filtro nativo de Status (se filtrado via Painel / Slicer)
+			VAR HasStatusFilter = ISFILTERED(Filtro_Status_Rota[Status])
+			VAR ClientesAposFiltroStatus =
+			    FILTER(
+			        ClientesCalculados,
+			        (NOT HasStatusFilter)
+			            || (
+			                SWITCH(
+			                    TRUE(),
+			                    [@VolPetra] > 0 && [@VolIce] > 0, "COMBO AMBOS",
+			                    [@VolPetra] > 0, "SÓ PETRA",
+			                    [@VolIce] > 0, "SÓ CRYSTAL",
+			                    "PENDENTE"
+			                ) IN VALUES(Filtro_Status_Rota[Status])
+			            )
+			    )
+			
+			VAR LimiteExibicao = 2000
+			VAR ClientesExibicao =
+			    TOPN(
+			        LimiteExibicao,
+			        ClientesAposFiltroStatus,
+			        [@Nome],
+			        ASC
+			    )
+			
+			VAR SubtitleModo =
+			    IF(
+			        ModalidadeSel = 1,
+			        "Preço da Ação (Piso Mínimo) • Período: " & PeriodoTexto,
+			        "Geral (Inclui Bonificações R$ 0,00 e Combos) • Período: " & PeriodoTexto
+			    )
+			
+			VAR HTML_Header = "
+			<!DOCTYPE html>
+			<html lang=""pt-BR"">
+			<head>
+			  <meta charset=""UTF-8"">
+			  <link rel=""preconnect"" href=""https://fonts.googleapis.com"">
+			  <link rel=""preconnect"" href=""https://fonts.gstatic.com"" crossorigin>
+			  <link href=""https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Roboto+Condensed:wght@400;600;700&display=swap"" rel=""stylesheet"">
+			  <style>
+			    * { box-sizing: border-box; margin: 0; padding: 0; }
+			    html, body { width: 100%; height: 100vh; max-height: 100vh; overflow: hidden !important; background: #ffffff; font-family: 'Roboto Condensed', sans-serif; color: #0f172a; }
+			    .print-container { width: 100%; height: 100vh; max-height: 100vh; display: flex; flex-direction: column; padding: 8px 14px 6px 14px; gap: 6px; box-sizing: border-box; overflow: hidden !important; background: #ffffff; }
+			
+			    /* Cabecalho de Impressao (Fixo no topo da tela) */
+			    .print-header { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid #0f172a; padding-bottom: 6px; flex-shrink: 0; }
+			    .title-box { display: flex; flex-direction: column; gap: 2px; }
+			    .company-title { font-family: 'Oswald', sans-serif; font-size: 1.3rem; font-weight: 700; color: #0f172a; letter-spacing: 0.5px; }
+			    .company-sub { font-size: 0.76rem; color: #475569; }
+			
+			    .meta-box { display: flex; flex-direction: column; align-items: flex-end; gap: 3px; font-size: 0.78rem; color: #334155; }
+			    .badge-meta { background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 4px; padding: 2px 8px; font-weight: 600; }
+			    .badge-mode { background: #fef3c7; border: 1px solid #f59e0b; color: #92400e; font-weight: 700; }
+			
+			    /* Faixa de KPIs Light (Fixa) */
+			    .summary-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; flex-shrink: 0; }
+			    .summary-card { border: 1px solid #cbd5e1; border-radius: 5px; padding: 5px 10px; background: #f8fafc; display: flex; flex-direction: column; gap: 2px; }
+			    .card-label { font-size: 0.7rem; text-transform: uppercase; color: #64748b; font-weight: 700; }
+			    .card-val { font-family: 'Oswald', sans-serif; font-size: 1.2rem; font-weight: 700; color: #0f172a; line-height: 1.1; }
+			    .card-sub { font-size: 0.72rem; color: #475569; }
+			
+			    /* Barra Interativa de Filtro e Impressao (Fixa na tela, oculta na impressao) */
+			    .interactive-bar { display: flex; justify-content: space-between; align-items: center; gap: 10px; background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 6px; padding: 5px 10px; flex-shrink: 0; }
+			    .filter-chips { display: flex; gap: 5px; align-items: center; flex-wrap: wrap; }
+			    .btn-light-chip { background: #ffffff; border: 1px solid #cbd5e1; color: #334155; border-radius: 12px; padding: 2px 10px; font-size: 0.76rem; font-family: 'Oswald', sans-serif; cursor: pointer; transition: all 0.15s; outline: none; }
+			    .btn-light-chip:hover { background: #e2e8f0; }
+			    .btn-light-chip#btnPrintFilterAll.active { background: #0f172a; color: #ffffff; border-color: #0f172a; font-weight: 700; }
+			    .btn-light-chip.btn-toggle.active.b-red { background: #dc2626 !important; color: #ffffff !important; border-color: #b91c1c !important; }
+			    .btn-light-chip.btn-toggle.active.b-blue { background: #0284c7 !important; color: #ffffff !important; border-color: #0369a1 !important; }
+			    .btn-light-chip.btn-toggle.active.b-gold { background: #d97706 !important; color: #ffffff !important; border-color: #b45309 !important; }
+			    .btn-light-chip.btn-toggle.active.b-green { background: #059669 !important; color: #ffffff !important; border-color: #047857 !important; }
+			
+			    .search-light { background: #ffffff; border: 1px solid #cbd5e1; border-radius: 4px; padding: 4px 8px; font-size: 0.78rem; color: #0f172a; width: 220px; outline: none; }
+			    .search-light:focus { border-color: #0f172a; }
+			
+			    .btn-print { background: #0f172a; color: #ffffff; border: none; border-radius: 4px; padding: 5px 12px; font-family: 'Oswald', sans-serif; font-size: 0.82rem; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 5px; }
+			    .btn-print:hover { background: #334155; }
+			
+			    /* CONTAINER DA TABELA (SCROLL DOWN EXCLUSIVO DOS DADOS) */
+			    .table-light-wrap { flex: 1 1 0; min-height: 0; height: 100%; overflow-y: auto !important; overflow-x: hidden; border: 1px solid #94a3b8; border-radius: 4px; background: #ffffff; box-shadow: 0 2px 6px rgba(0,0,0,0.05); scrollbar-width: thin; scrollbar-color: #94a3b8 #f1f5f9; }
+			    .table-light-wrap::-webkit-scrollbar { width: 8px; }
+			    .table-light-wrap::-webkit-scrollbar-track { background: #f1f5f9; }
+			    .table-light-wrap::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+			    .table-light-wrap::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+			
+			    /* TABELA COM CABECALHO RIGIDAMENTE FIXO */
+			    table { width: 100%; border-collapse: separate !important; border-spacing: 0 !important; text-align: left; table-layout: fixed; }
+			    thead { position: sticky !important; top: 0 !important; z-index: 50 !important; }
+			    thead th { position: sticky !important; top: 0 !important; z-index: 50 !important; background: #e2e8f0 !important; color: #0f172a !important; font-family: 'Oswald', sans-serif; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; padding: 7px 8px; border-top: none; border-left: none; border-bottom: 2px solid #64748b !important; border-right: 1px solid #cbd5e1; box-shadow: 0 2px 4px rgba(0,0,0,0.06); }
+			    thead th:last-child { border-right: none; }
+			
+			    tbody tr { height: 32px; border-bottom: 1px solid #cbd5e1; }
+			    tbody tr:nth-child(even) { background: #f8fafc; }
+			    tbody tr:hover { background: #f1f5f9; }
+			    td { padding: 3px 8px; font-size: 0.81rem; vertical-align: middle; border-right: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; }
+			    td:last-child { border-right: none; }
+			
+			    /* Colunas */
+			    .col-chk { width: 42px; text-align: center; }
+			    .col-id { width: 68px; text-align: center; font-weight: 700; font-family: 'Oswald', sans-serif; }
+			    .col-cli { width: 33%; }
+			    .col-loc { width: 22%; font-size: 0.76rem; color: #475569; }
+			    .col-petra { width: 10%; text-align: center; font-weight: 700; }
+			    .col-ice { width: 10%; text-align: center; font-weight: 700; }
+			    .col-status { width: 12%; text-align: center; }
+			    .col-obs { width: 11%; }
+			
+			    .box-chk { width: 14px; height: 14px; border: 1.5px solid #475569; border-radius: 3px; display: inline-block; vertical-align: middle; }
+			    .cli-nome-light { font-weight: 700; color: #0f172a; font-size: 0.85rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; }
+			    .cli-razao-light { font-size: 0.72rem; color: #64748b; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; }
+			
+			    .badge-v-petra { background: #fef3c7; color: #92400e; border: 1px solid #f59e0b; padding: 1px 6px; border-radius: 3px; font-size: 0.78rem; display: inline-block; }
+			    .badge-v-ice { background: #e0f2fe; color: #075985; border: 1px solid #0284c7; padding: 1px 6px; border-radius: 3px; font-size: 0.78rem; display: inline-block; }
+			    .badge-v-zero { color: #94a3b8; font-size: 0.76rem; font-weight: 400; }
+			
+			    .tag-st { display: inline-block; font-family: 'Oswald', sans-serif; font-size: 0.74rem; font-weight: 700; padding: 1px 6px; border-radius: 3px; }
+			    .tag-st-combo { background: #d1fae5; color: #065f46; border: 1px solid #10b981; }
+			    .tag-st-petra { background: #fef3c7; color: #92400e; border: 1px solid #f59e0b; }
+			    .tag-st-ice { background: #e0f2fe; color: #075985; border: 1px solid #0284c7; }
+			    .tag-st-pendente { background: #fee2e2; color: #991b1b; border: 1px solid #ef4444; }
+			
+			    .obs-line { border-bottom: 1px dashed #cbd5e1; height: 16px; width: 100%; }
+			
+			    .footer-light { display: flex; justify-content: space-between; align-items: center; font-size: 0.74rem; color: #64748b; border-top: 1px solid #cbd5e1; padding-top: 4px; flex-shrink: 0; }
+			
+			    /* Regras de Impressao (Papel A4 / PDF): Desativa scrolls e formata paginacao limpa */
+			    @media print {
+			      @page { size: landscape; margin: 8mm; }
+			      html, body { width: 100% !important; height: auto !important; max-height: none !important; overflow: visible !important; background: #ffffff !important; color: #000000 !important; }
+			      .print-container { width: 100% !important; height: auto !important; max-height: none !important; overflow: visible !important; padding: 0 !important; gap: 6px !important; }
+			      .no-print { display: none !important; }
+			      .table-light-wrap { border: 1px solid #000000 !important; height: auto !important; max-height: none !important; overflow: visible !important; box-shadow: none !important; }
+			      table { border-collapse: collapse !important; }
+			      thead { display: table-header-group !important; position: static !important; }
+			      thead th { position: static !important; background: #f1f5f9 !important; color: #000000 !important; border-bottom: 2px solid #000000 !important; box-shadow: none !important; }
+			      tbody { display: table-row-group !important; }
+			      tr { break-inside: avoid !important; page-break-inside: avoid !important; }
+			      td { border-bottom: 1px solid #cbd5e1 !important; color: #000000 !important; }
+			      .box-chk { border-color: #000000 !important; }
+			      .footer-light { border-top: 1px solid #000000 !important; }
+			    }
+			  </style>
+			</head>
+			<body>
+			  <div class=""print-container"">
+			
+			    <!-- Cabecalho Light -->
+			    <div class=""print-header"">
+			      <div class=""title-box"">
+			        <div class=""company-title"">🚚 ROTA DO DIA • <span style=""color:#d97706;"">VISITAS & AÇÃO</span></div>
+			        <div class=""company-sub"">" & SubtitleModo & "</div>
+			      </div>
+			      <div class=""meta-box"">
+			        <div>📅 Rota: <strong>" & DiaDisplay & "</strong> | Modalidade: <span class=""badge-mode"">" & ModalidadeNome & "</span></div>
+			        <div>👤 Vendedor: <strong>" & VendedorNome & "</strong>" & IF(LEN(SupervisorNome) > 0, " (Sup: " & SupervisorNome & ")", "") & "</div>
+			      </div>
+			    </div>
+			
+			    <!-- Faixa de Resumo KPI -->
+			    <div class=""summary-grid"">
+			      <div class=""summary-card"">
+			        <span class=""card-label"">Clientes na Rota</span>
+			        <span class=""card-val"">" & FORMAT(TotalClientes, "#,##0") & "</span>
+			        <span class=""card-sub"">Dia: " & DiaDisplay & "</span>
+			      </div>
+			      <div class=""summary-card"" style=""border-color:#10b981; background:#ecfdf5;"">
+			        <span class=""card-label"" style=""color:#065f46;"">Já Positivados</span>
+			        <span class=""card-val"" style=""color:#059669;"">" & FORMAT(TotalPositivados, "#,##0") & " (" & FORMAT(PctPositivacao, "0.0") & "%)</span>
+			        <span class=""card-sub"" style=""color:#047857;"">" & FORMAT(TotalCombo, "#,##0") & " combo | " & FORMAT(TotalSoPetra, "#,##0") & " Petra | " & FORMAT(TotalSoIce, "#,##0") & " Ice</span>
+			      </div>
+			      <div class=""summary-card"" style=""border-color:#ef4444; background:#fef2f2;"">
+			        <span class=""card-label"" style=""color:#991b1b;"">Pendentes</span>
+			        <span class=""card-val"" style=""color:#dc2626;"">" & FORMAT(TotalPendentes, "#,##0") & "</span>
+			        <span class=""card-sub"" style=""color:#b91c1c;"">Meta de positivação na visita</span>
+			      </div>
+			      <div class=""summary-card"" style=""border-color:#f59e0b; background:#fffbeb;"">
+			        <span class=""card-label"" style=""color:#92400e;"">Volume Faturado</span>
+			        <span class=""card-val"" style=""color:#d97706;"">" & FORMAT(TotalVolAcao, "#,##0") & " cx</span>
+			        <span class=""card-sub"" style=""color:#b45309;"">" & FORMAT(TotalVolPetra, "#,##0") & " cx Petra • " & FORMAT(TotalVolIce, "#,##0") & " cx Ice</span>
+			      </div>
+			    </div>
+			
+			    <!-- Barra Interativa (Oculta na impressao) -->
+			    <div class=""interactive-bar no-print"">
+			      <div class=""filter-chips"">
+			        <button class=""btn-light-chip active"" id=""btnPrintFilterAll"" onclick=""resetPrintStatusFilter()"">Todos (" & FORMAT(TotalClientes, "#,##0") & ")</button>
+			        <button class=""btn-light-chip btn-toggle b-red"" data-status=""tag-pendente"" onclick=""togglePrintStatusFilter('tag-pendente', this)"">🎯 PENDENTE (" & FORMAT(TotalPendentes, "#,##0") & ")</button>
+			        <button class=""btn-light-chip btn-toggle b-blue"" data-status=""tag-ice"" onclick=""togglePrintStatusFilter('tag-ice', this)"">🔵 SÓ CRYSTAL (" & FORMAT(TotalSoIce, "#,##0") & ")</button>
+			        <button class=""btn-light-chip btn-toggle b-gold"" data-status=""tag-petra"" onclick=""togglePrintStatusFilter('tag-petra', this)"">🟡 SÓ PETRA (" & FORMAT(TotalSoPetra, "#,##0") & ")</button>
+			        <button class=""btn-light-chip btn-toggle b-green"" data-status=""tag-combo"" onclick=""togglePrintStatusFilter('tag-combo', this)"">🌟 COMBO AMBOS (" & FORMAT(TotalCombo, "#,##0") & ")</button>
+			      </div>
+			      <div style=""display:flex; gap:8px; align-items:center;"">
+			        <input type=""text"" id=""searchPrintCli"" class=""search-light"" placeholder=""🔍 Filtrar cliente, código, bairro..."" oninput=""filterPrintBySearch()"" />
+			        <button class=""btn-print"" onclick=""window.print()"">🖨️ IMPRIMIR / PDF</button>
+			      </div>
+			    </div>
+			
+			    <!-- Tabela Light para Impressao -->
+			    <div class=""table-light-wrap"">
+			      <table>
+			        <thead>
+			          <tr>
+			            <th class=""col-chk"">VISIT.</th>
+			            <th class=""col-id"">CÓD.</th>
+			            <th class=""col-cli"">CLIENTE (FANTASIA / RAZÃO)</th>
+			            <th class=""col-loc"">BAIRRO / CIDADE</th>
+			            <th class=""col-petra"">PETRA ULTRA</th>
+			            <th class=""col-ice"">CRYSTAL ICE</th>
+			            <th class=""col-status"">STATUS AÇÃO</th>
+			            <th class=""col-obs"">OBSERVAÇÕES</th>
+			          </tr>
+			        </thead>
+			        <tbody>"
+			
+			VAR HTML_Rows =
+			    IF(
+			        TotalClientes = 0,
+			        "<tr><td colspan=""8"" style=""text-align:center; padding: 40px 20px; font-size: 1rem; color: #64748b;"">
+			          <div style=""font-size: 1.8rem; margin-bottom: 6px;"">🚚</div>
+			          <div style=""font-weight: 700; color: #0f172a;"">Nenhum cliente agendado para esta rota ou filtros selecionados.</div>
+			        </td></tr>",
+			        CONCATENATEX(
+			            ClientesExibicao,
+			            VAR cid = [@Id]
+			            VAR nome = [@Nome]
+			            VAR fant = [@Fantasia]
+			            VAR bairro = [@Bairro]
+			            VAR cidade = [@Cidade]
+			            VAR vend = [@Vendedor]
+			            VAR volPetra = [@VolPetra]
+			            VAR volIce = [@VolIce]
+			
+			            VAR tagClass =
+			                SWITCH(
+			                    TRUE(),
+			                    volPetra > 0 && volIce > 0, "tag-combo",
+			                    volPetra > 0, "tag-petra",
+			                    volIce > 0, "tag-ice",
+			                    "tag-pendente"
+			                )
+			            VAR tagTexto =
+			                SWITCH(
+			                    TRUE(),
+			                    volPetra > 0 && volIce > 0, "<span class=""tag-st tag-st-combo"">🌟 COMBO</span>",
+			                    volPetra > 0, "<span class=""tag-st tag-st-petra"">🟡 SÓ PETRA</span>",
+			                    volIce > 0, "<span class=""tag-st tag-st-ice"">🔵 SÓ CRYSTAL</span>",
+			                    "<span class=""tag-st tag-st-pendente"">🎯 PENDENTE</span>"
+			                )
+			
+			            VAR NomePrincipal = IF(ISBLANK(fant) || LEN(TRIM(fant)) = 0, nome, fant)
+			            VAR RazaoSocial = IF(NOT ISBLANK(fant) && fant <> nome && LEN(TRIM(nome)) > 0, nome, "")
+			            VAR LocalTexto = TRIM(bairro & IF(LEN(TRIM(bairro)) > 0 && LEN(TRIM(cidade)) > 0, " • ", "") & cidade)
+			
+			            VAR PetraCell =
+			                IF(
+			                    volPetra > 0,
+			                    "<span class=""badge-v-petra"">" & FORMAT(volPetra, "#,##0") & " cx</span>",
+			                    "<span class=""badge-v-zero"">-</span>"
+			                )
+			
+			            VAR IceCell =
+			                IF(
+			                    volIce > 0,
+			                    "<span class=""badge-v-ice"">" & FORMAT(volIce, "#,##0") & " cx</span>",
+			                    "<span class=""badge-v-zero"">-</span>"
+			                )
+			
+			            RETURN
+			                "<tr class=""client-row-print"" data-status=""" & tagClass & """ data-name=""" & LOWER(NomePrincipal & " " & RazaoSocial & " " & cid & " " & LocalTexto & " " & vend) & """>" &
+			                  "<td class=""col-chk""><div class=""box-chk""></div></td>" &
+			                  "<td class=""col-id"">#" & cid & "</td>" &
+			                  "<td class=""col-cli"">" &
+			                    "<span class=""cli-nome-light"" title=""" & NomePrincipal & """>" & NomePrincipal & "</span>" &
+			                    IF(LEN(RazaoSocial) > 0, "<span class=""cli-razao-light"">" & RazaoSocial & "</span>", "") &
+			                  "</td>" &
+			                  "<td class=""col-loc"">" &
+			                    IF(LEN(LocalTexto) > 0, "<span>📍 " & LocalTexto & "</span>", "-") &
+			                    IF(NOT VendedorFiltrado && LEN(vend) > 0, "<div style=""color:#0284c7; font-size:0.72rem;"">👤 " & vend & "</div>", "") &
+			                  "</td>" &
+			                  "<td class=""col-petra"">" & PetraCell & "</td>" &
+			                  "<td class=""col-ice"">" & IceCell & "</td>" &
+			                  "<td class=""col-status"">" & tagTexto & "</td>" &
+			                  "<td class=""col-obs""><div class=""obs-line""></div></td>" &
+			                "</tr>",
+			            "",
+			            [@Nome],
+			            ASC
+			        )
+			    )
+			
+			VAR HTML_Footer = "
+			        </tbody>
+			      </table>
+			    </div>
+			
+			    <!-- Rodape Light -->
+			    <div class=""footer-light"">
+			      <div>Rota: <strong>" & DiaDisplay & "</strong> | Vendedor: <strong>" & VendedorNome & "</strong> | Exibindo: <strong id=""countPrintDisplay"">" & FORMAT(TotalClientes, "#,##0") & "</strong> clientes</div>
+			      <div>✦ Campanha Petra Ultra & Crystal Ice ✦</div>
+			    </div>
+			  </div>
+			  <script>
+			    function togglePrintStatusFilter(statusClass, btn) {
+			      var btnAll = document.getElementById('btnPrintFilterAll');
+			      btnAll.classList.remove('active');
+			      btn.classList.toggle('active');
+			      var activeToggles = document.querySelectorAll('.btn-light-chip.btn-toggle.active');
+			      if (activeToggles.length === 0) {
+			        btnAll.classList.add('active');
+			      }
+			      applyPrintFilters();
+			    }
+			    function resetPrintStatusFilter() {
+			      var toggles = document.querySelectorAll('.btn-light-chip.btn-toggle');
+			      toggles.forEach(function(b) { b.classList.remove('active'); });
+			      document.getElementById('btnPrintFilterAll').classList.add('active');
+			      applyPrintFilters();
+			    }
+			    function applyPrintFilters() {
+			      var isAll = document.getElementById('btnPrintFilterAll').classList.contains('active');
+			      var activeStatuses = [];
+			      if (!isAll) {
+			        var activeBtns = document.querySelectorAll('.btn-light-chip.btn-toggle.active');
+			        activeBtns.forEach(function(b) {
+			          activeStatuses.push(b.getAttribute('data-status'));
+			        });
+			      }
+			      var searchVal = document.getElementById('searchPrintCli').value.toLowerCase().trim();
+			      var rows = document.querySelectorAll('.client-row-print');
+			      var countVisible = 0;
+			      rows.forEach(function(r) {
+			        var rStatus = r.getAttribute('data-status');
+			        var matchStatus = isAll || (activeStatuses.indexOf(rStatus) !== -1);
+			        var matchSearch = (searchVal === '') || (r.getAttribute('data-name').indexOf(searchVal) !== -1);
+			        if (matchStatus && matchSearch) {
+			          r.style.display = '';
+			          countVisible++;
+			        } else {
+			          r.style.display = 'none';
+			        }
+			      });
+			      var counter = document.getElementById('countPrintDisplay');
+			      if (counter) counter.innerText = countVisible;
+			    }
+			    function filterPrintBySearch() {
+			      applyPrintFilters();
+			    }
+			  </script>
+			</body>
+			</html>"
+			RETURN
+			    HTML_Header & HTML_Rows & HTML_Footer
+		lineageTag: c314b901-44e2-4912-8823-9912048abcd1
 
 	partition Medidas_Ranking = entity
 		mode: directQuery

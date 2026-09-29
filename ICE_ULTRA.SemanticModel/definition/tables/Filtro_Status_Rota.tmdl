@@ -1,0 +1,42 @@
+table Filtro_Status_Rota
+	lineageTag: e83b1940-77a1-4d12-9c3f-847291a0c8b4
+
+	column Status
+		dataType: string
+		lineageTag: c92f1051-88b2-4e23-9d4a-958302b1d9c5
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Status]
+		sortByColumn: Ordem
+
+	column Codigo
+		dataType: int64
+		formatString: 0
+		lineageTag: da3a2162-99c3-4f34-8e5b-a69413c2e0d6
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Codigo]
+
+	column Ordem
+		dataType: int64
+		formatString: 0
+		lineageTag: b71d4295-88e4-4c21-9988-154984ac9188
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Ordem]
+
+	partition Filtro_Status_Rota = calculated
+		mode: import
+		source =
+				DATATABLE(
+					"Status", STRING,
+					"Codigo", INTEGER,
+					"Ordem", INTEGER,
+					{
+						{"PENDENTE", 1, 1},
+						{"SÓ CRYSTAL", 2, 2},
+						{"SÓ PETRA", 3, 3},
+						{"COMBO AMBOS", 4, 4}
+					}
+				)
+
